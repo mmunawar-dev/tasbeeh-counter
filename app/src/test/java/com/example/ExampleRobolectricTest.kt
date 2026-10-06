@@ -63,4 +63,14 @@ class ExampleRobolectricTest {
     assertTrue(hijri.monthIndex in 1..12)
     assertTrue(hijri.day in 1..30)
   }
+
+  @Test
+  fun `notification modes cycle correctly and support all alert types`() {
+    val modes = com.example.model.PrayerNotificationMode.entries
+    assertEquals(4, modes.size)
+    assertTrue(modes.contains(com.example.model.PrayerNotificationMode.SOUND))
+    assertTrue(modes.contains(com.example.model.PrayerNotificationMode.VIBRATE))
+    assertTrue(modes.contains(com.example.model.PrayerNotificationMode.SILENT))
+    assertTrue(modes.contains(com.example.model.PrayerNotificationMode.OFF))
+  }
 }

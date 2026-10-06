@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="emerald_primary">#133E31</color>
+    <color name="emerald_primary_dark">#52A88D</color>
+    <color name="emerald_light_container">#E2ECE7</color>
+    <color name="emerald_dark_container">#1B3B30</color>
+    <color name="ochre_secondary">#8A6B38</color>
+    <color name="ochre_secondary_dark">#D6B377</color>
+    <color name="background_light">#F9F9F6</color>
+    <color name="background_dark">#111714</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_dark">#17201C</color>
+    <color name="surface_variant_light">#EDF0EA</color>
+    <color name="surface_variant_dark">#1E2B25</color>
+    <color name="text_primary">#18211D</color>
+    <color name="text_secondary">#4E5D55</color>
+    <color name="text_tertiary">#7B8B82</color>
+    <color name="active_prayer_bg">#EDF5F1</color>
+    <color name="active_prayer_border">#246B54</color>
+    <color name="outline_border">#D3DCD4</color>
+    <color name="gold_accent">#C49A45</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
 </resources>

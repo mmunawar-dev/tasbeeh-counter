@@ -28,6 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activities.PremiumActivity"
+            android:exported="false"
+            android:label="Sakinah Plus"
+            android:theme="@style/Theme.MyApplication" />
     </application>
 
 </manifest>

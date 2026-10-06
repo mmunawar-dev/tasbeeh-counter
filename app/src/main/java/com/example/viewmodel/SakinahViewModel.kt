@@ -7,10 +7,16 @@ import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.calculation.PrayerCalculator
+import com.example.calculation.QiblaCalculator
 import com.example.model.*
+import com.example.repository.AladhanPrayerRepository
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -22,54 +28,81 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.Calendar
+import kotlin.math.abs
 
 class SakinahViewModel : ViewModel() {
+
+  private val aladhanRepository = AladhanPrayerRepository()
 
   private val _uiState = MutableStateFlow(SakinahUiState())
   val uiState: StateFlow<SakinahUiState> = _uiState.asStateFlow()
 
-  // Track minute of day to refresh prayer calculations in real-time
+  val uiStateLiveData: LiveData<SakinahUiState> = _uiState.asLiveData(viewModelScope.coroutineContext)
+
   private val _currentMinuteTick = MutableStateFlow(PrayerCalculator.getCurrentMinuteOfDay())
 
-  // Navigation backstack
+  private val _aladhanStatus = MutableLiveData("Aladhan API: Synchronizing...")
+  val aladhanStatusLiveData: LiveData<String> = _aladhanStatus
+
+  private val _isApiLoading = MutableLiveData(false)
+  val isApiLoadingLiveData: LiveData<Boolean> = _isApiLoading
+
+  private val _selectedPlan = MutableLiveData(PremiumPlan.YEARLY)
+  val selectedPlanLiveData: LiveData<PremiumPlan> = _selectedPlan
+
+  private val _apiSchedule = MutableStateFlow<PrayerCalculator.DailyPrayerSchedule?>(null)
+
   private val backStack = mutableListOf(Screen.SPLASH)
+  private var audioJob: Job? = null
 
   init {
-    // Initialize date from system calendar
     val cal = Calendar.getInstance()
+    val initialBearing = QiblaCalculator.calculateQiblaBearing(
+      CityLocation.DEFAULT_CITY.latitude,
+      CityLocation.DEFAULT_CITY.longitude
+    )
+
     _uiState.update {
       it.copy(
         selectedCalendarDateYear = cal.get(Calendar.YEAR),
         selectedCalendarDateMonth = cal.get(Calendar.MONTH) + 1,
-        selectedCalendarDateDay = cal.get(Calendar.DAY_OF_MONTH)
+        selectedCalendarDateDay = cal.get(Calendar.DAY_OF_MONTH),
+        qiblaBearingDegrees = initialBearing
       )
     }
 
-    // Auto tick every 15 seconds to keep countdown and prayer status accurate
     viewModelScope.launch {
       while (isActive) {
         delay(15_000)
         _currentMinuteTick.value = PrayerCalculator.getCurrentMinuteOfDay()
       }
     }
+
+    fetchAladhanPrayerTimes()
   }
 
-  // Combined daily schedule for the currently selected city and date
   val currentSchedule: StateFlow<PrayerCalculator.DailyPrayerSchedule> = combine(
     _uiState,
-    _currentMinuteTick
-  ) { state, minuteOfDay ->
-    PrayerCalculator.calculate(
-      year = state.selectedCalendarDateYear,
-      month = state.selectedCalendarDateMonth,
-      day = state.selectedCalendarDateDay,
-      city = state.selectedCity,
-      madhab = state.selectedMadhab,
-      method = state.calculationMethod,
-      manualAdjustmentsMinutes = state.manualAdjustments,
-      notificationModes = state.notificationModes,
-      nowMinuteOfDay = minuteOfDay
-    )
+    _currentMinuteTick,
+    _apiSchedule
+  ) { state, minuteOfDay, apiData ->
+    if (apiData != null &&
+      state.selectedCalendarDateDay == Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+    ) {
+      apiData
+    } else {
+      PrayerCalculator.calculate(
+        year = state.selectedCalendarDateYear,
+        month = state.selectedCalendarDateMonth,
+        day = state.selectedCalendarDateDay,
+        city = state.selectedCity,
+        madhab = state.selectedMadhab,
+        method = state.calculationMethod,
+        manualAdjustmentsMinutes = state.manualAdjustments,
+        notificationModes = state.notificationModes,
+        nowMinuteOfDay = minuteOfDay
+      )
+    }
   }.stateIn(
     scope = viewModelScope,
     started = SharingStarted.WhileSubscribed(5000),
@@ -82,6 +115,37 @@ class SakinahViewModel : ViewModel() {
       method = CalculationMethod.KARACHI
     )
   )
+
+  val scheduleLiveData: LiveData<PrayerCalculator.DailyPrayerSchedule> =
+    currentSchedule.asLiveData(viewModelScope.coroutineContext)
+
+  fun fetchAladhanPrayerTimes() {
+    viewModelScope.launch {
+      _isApiLoading.value = true
+      _aladhanStatus.value = "Aladhan API: Fetching real-time timings..."
+      val state = _uiState.value
+      val result = aladhanRepository.fetchRealtimePrayerTimings(
+        city = state.selectedCity,
+        madhab = state.selectedMadhab,
+        method = state.calculationMethod,
+        manualAdjustments = state.manualAdjustments,
+        notificationModes = state.notificationModes
+      )
+
+      result.onSuccess { schedule ->
+        _apiSchedule.value = schedule
+        _isApiLoading.value = false
+        _aladhanStatus.value = "Aladhan API: Real-time timings live"
+      }.onFailure {
+        _isApiLoading.value = false
+        _aladhanStatus.value = "Aladhan API: Offline (using solar calculator)"
+      }
+    }
+  }
+
+  fun selectPremiumPlan(plan: PremiumPlan) {
+    _selectedPlan.value = plan
+  }
 
   fun navigateTo(screen: Screen) {
     backStack.add(screen)
@@ -104,20 +168,25 @@ class SakinahViewModel : ViewModel() {
 
   fun selectMadhab(madhab: Madhab) {
     _uiState.update { it.copy(selectedMadhab = madhab) }
+    fetchAladhanPrayerTimes()
   }
 
   fun selectCalculationMethod(method: CalculationMethod) {
     _uiState.update { it.copy(calculationMethod = method) }
+    fetchAladhanPrayerTimes()
   }
 
   fun selectCity(city: CityLocation) {
+    val newBearing = QiblaCalculator.calculateQiblaBearing(city.latitude, city.longitude)
     _uiState.update {
       it.copy(
         selectedCity = city,
         calculationMethod = city.recommendedMethod,
-        selectedMadhab = city.recommendedMadhab
+        selectedMadhab = city.recommendedMadhab,
+        qiblaBearingDegrees = newBearing
       )
     }
+    fetchAladhanPrayerTimes()
   }
 
   fun cyclePrayerNotification(prayerType: PrayerType) {
@@ -150,6 +219,7 @@ class SakinahViewModel : ViewModel() {
       updated[prayerType] = (current + delta).coerceIn(-60, 60)
       state.copy(manualAdjustments = updated)
     }
+    fetchAladhanPrayerTimes()
   }
 
   fun setThemeMode(mode: ThemeMode) {
@@ -173,6 +243,7 @@ class SakinahViewModel : ViewModel() {
       month = cal.get(Calendar.MONTH) + 1,
       day = cal.get(Calendar.DAY_OF_MONTH)
     )
+    fetchAladhanPrayerTimes()
   }
 
   fun openPrayerDetail(prayerItem: PrayerTimeItem) {
@@ -188,7 +259,6 @@ class SakinahViewModel : ViewModel() {
     _uiState.update { state ->
       val newCount = state.tasbeehCount + 1
       if (newCount >= state.tasbeehTotalTarget) {
-        // Trigger completion vibration
         triggerHaptic(context, isTargetReached = true)
         state.copy(
           tasbeehCount = 0,
@@ -219,6 +289,10 @@ class SakinahViewModel : ViewModel() {
     _uiState.update { it.copy(tasbeehTotalTarget = target, tasbeehCount = 0) }
   }
 
+  fun setTasbeehStyle(style: TasbeehStyle) {
+    _uiState.update { it.copy(selectedTasbeehStyle = style) }
+  }
+
   fun toggleHaptic() {
     _uiState.update { it.copy(isHapticEnabled = !it.isHapticEnabled) }
   }
@@ -229,6 +303,111 @@ class SakinahViewModel : ViewModel() {
 
   fun unlockPremium() {
     _uiState.update { it.copy(isPremiumUnlocked = true) }
+  }
+
+  // Allah's Names functions
+  fun selectAllahName(name: AllahName) {
+    _uiState.update { it.copy(selectedAllahName = name) }
+  }
+
+  fun clearSelectedAllahName() {
+    _uiState.update { it.copy(selectedAllahName = null) }
+  }
+
+  fun playAllahNameAudio(name: AllahName) {
+    val track = AudioTrack(
+      id = "allah_name_${name.number}",
+      title = "${name.number}. ${name.transliteration}",
+      arabicTitle = name.arabic,
+      subtitle = name.englishMeaning,
+      audioSource = "asma_ul_husna",
+      isPlaying = true,
+      durationSeconds = 12
+    )
+    startAudioTrack(track)
+  }
+
+  // Duas functions
+  fun selectDuaCategory(category: DuaCategory) {
+    _uiState.update { it.copy(selectedDuaCategory = category) }
+  }
+
+  fun selectDuaItem(item: DuaItem) {
+    _uiState.update { it.copy(selectedDuaItem = item) }
+  }
+
+  fun clearSelectedDua() {
+    _uiState.update { it.copy(selectedDuaItem = null) }
+  }
+
+  fun playDuaAudio(dua: DuaItem) {
+    val track = AudioTrack(
+      id = "dua_${dua.id}",
+      title = dua.title,
+      arabicTitle = dua.arabic.take(28) + "...",
+      subtitle = dua.reference,
+      audioSource = "dua_audio",
+      isPlaying = true,
+      durationSeconds = 25
+    )
+    startAudioTrack(track)
+  }
+
+  // Audio system controller
+  private fun startAudioTrack(track: AudioTrack) {
+    audioJob?.cancel()
+    _uiState.update { it.copy(activeAudioTrack = track) }
+
+    audioJob = viewModelScope.launch {
+      var currentSec = 0
+      while (isActive && currentSec < track.durationSeconds) {
+        delay(1000)
+        currentSec++
+        val fraction = currentSec.toFloat() / track.durationSeconds.toFloat()
+        _uiState.update { state ->
+          state.activeAudioTrack?.let {
+            state.copy(
+              activeAudioTrack = it.copy(
+                currentPositionSeconds = currentSec,
+                progressFraction = fraction
+              )
+            )
+          } ?: state
+        }
+      }
+      // Completed playback
+      _uiState.update { state ->
+        state.activeAudioTrack?.let {
+          state.copy(activeAudioTrack = it.copy(isPlaying = false, progressFraction = 1f))
+        } ?: state
+      }
+    }
+  }
+
+  fun toggleAudioPlayPause() {
+    _uiState.update { state ->
+      val current = state.activeAudioTrack ?: return@update state
+      val nextPlaying = !current.isPlaying
+      state.copy(activeAudioTrack = current.copy(isPlaying = nextPlaying))
+    }
+  }
+
+  fun stopAudio() {
+    audioJob?.cancel()
+    _uiState.update { it.copy(activeAudioTrack = null) }
+  }
+
+  // Qibla heading update
+  fun updateQiblaHeading(azimuthDegrees: Float) {
+    _uiState.update { state ->
+      val bearing = state.qiblaBearingDegrees
+      val diff = abs(azimuthDegrees - bearing)
+      val isAligned = diff <= 4f || diff >= 356f
+      state.copy(
+        qiblaHeadingDegrees = azimuthDegrees,
+        isQiblaAligned = isAligned
+      )
+    }
   }
 
   fun detectLocation(context: Context) {
@@ -247,12 +426,10 @@ class SakinahViewModel : ViewModel() {
               }
             }
           } catch (_: SecurityException) {
-            // Permission might not be granted
           }
         }
 
         if (bestLocation != null) {
-          // Identify nearest city or create custom location
           val lat = bestLocation.latitude
           val lng = bestLocation.longitude
           val nearest = CityLocation.PRESET_CITIES.minByOrNull { city ->
@@ -271,14 +448,10 @@ class SakinahViewModel : ViewModel() {
             )
           }
         } else {
-          // Fallback simulation to Rawalpindi GPS detected
           delay(800)
-          selectCity(
-            CityLocation.DEFAULT_CITY.copy(isGpsDetected = true)
-          )
+          selectCity(CityLocation.DEFAULT_CITY.copy(isGpsDetected = true))
         }
       } catch (_: Exception) {
-        // Fallback gracefully
         selectCity(CityLocation.DEFAULT_CITY)
       } finally {
         _uiState.update { it.copy(isGpsSearching = false) }
@@ -307,7 +480,6 @@ class SakinahViewModel : ViewModel() {
         }
       }
     } catch (_: Exception) {
-      // Haptics optional
     }
   }
 }

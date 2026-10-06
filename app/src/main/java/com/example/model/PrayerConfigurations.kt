@@ -12,18 +12,21 @@ enum class PrayerNotificationMode(
 enum class Madhab(
   val displayName: String,
   val asrShadowFactor: Double,
+  val aladhanSchoolId: Int,
   val subtitle: String,
   val description: String
 ) {
   HANAFI(
     displayName = "Hanafi",
     asrShadowFactor = 2.0,
+    aladhanSchoolId = 1,
     subtitle = "Shadow reaches twice object length",
     description = "Asr time begins later when the shadow of an object becomes twice its length plus noon shadow."
   ),
   SHAFI_MALIKI_HANBALI(
     displayName = "Shafi'i, Maliki, Hanbali",
     asrShadowFactor = 1.0,
+    aladhanSchoolId = 0,
     subtitle = "Standard shadow reaches object length",
     description = "Asr time begins earlier when the shadow of an object equals its length plus noon shadow."
   )
@@ -32,6 +35,7 @@ enum class Madhab(
 enum class CalculationMethod(
   val displayName: String,
   val shortName: String,
+  val aladhanMethodId: Int,
   val fajrAngle: Double,
   val ishaAngle: Double,
   val isIshaFixedMinutes: Boolean = false,
@@ -41,6 +45,7 @@ enum class CalculationMethod(
   KARACHI(
     displayName = "University of Islamic Sciences, Karachi",
     shortName = "Karachi",
+    aladhanMethodId = 1,
     fajrAngle = 18.0,
     ishaAngle = 18.0,
     recommendedRegion = "Pakistan, India, Bangladesh, Afghanistan"
@@ -48,6 +53,7 @@ enum class CalculationMethod(
   UMM_AL_QURA(
     displayName = "Umm al-Qura University, Makkah",
     shortName = "Umm al-Qura",
+    aladhanMethodId = 4,
     fajrAngle = 18.5,
     ishaAngle = 0.0,
     isIshaFixedMinutes = true,
@@ -57,6 +63,7 @@ enum class CalculationMethod(
   MWL(
     displayName = "Muslim World League",
     shortName = "MWL",
+    aladhanMethodId = 3,
     fajrAngle = 18.0,
     ishaAngle = 17.0,
     recommendedRegion = "Europe, Far East, parts of USA"
@@ -64,6 +71,7 @@ enum class CalculationMethod(
   EGYPT(
     displayName = "Egyptian General Authority of Survey",
     shortName = "Egyptian Survey",
+    aladhanMethodId = 5,
     fajrAngle = 19.5,
     ishaAngle = 17.5,
     recommendedRegion = "Egypt, Africa, Syria, Lebanon"
@@ -71,6 +79,7 @@ enum class CalculationMethod(
   ISNA(
     displayName = "Islamic Society of North America",
     shortName = "ISNA",
+    aladhanMethodId = 2,
     fajrAngle = 15.0,
     ishaAngle = 15.0,
     recommendedRegion = "North America (USA & Canada)"
@@ -78,6 +87,7 @@ enum class CalculationMethod(
   DUBAI(
     displayName = "Gulf / Dubai Awqaf",
     shortName = "Dubai Awqaf",
+    aladhanMethodId = 16,
     fajrAngle = 18.2,
     ishaAngle = 18.2,
     recommendedRegion = "UAE, Gulf Countries"

@@ -149,6 +149,7 @@ fun PrayerSettingsScreen(
 
       val prayerItems = listOf(
         schedule.fajr,
+        schedule.sunrise,
         schedule.dhuhr,
         schedule.asr,
         schedule.maghrib,

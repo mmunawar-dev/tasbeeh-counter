@@ -43,6 +43,9 @@ googleid = "1.1.1"
 
 
 [libraries]
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "1.7.0" }
+com-google-android-material = { group = "com.google.android.material", name = "material", version = "1.12.0" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

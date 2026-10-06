@@ -53,6 +53,7 @@ android {
   }
   buildFeatures {
     compose = true
+    viewBinding = true
     buildConfig = true
   }
   testOptions { unitTests { isIncludeAndroidResources = true } }
@@ -79,6 +80,9 @@ dependencies {
   implementation(platform(libs.firebase.bom))
   // implementation(libs.accompanist.permissions)
   implementation(libs.androidx.activity.compose)
+  implementation(libs.androidx.appcompat)
+  implementation(libs.com.google.android.material)
+  implementation(libs.androidx.lifecycle.livedata.ktx)
   // implementation(libs.androidx.camera.camera2)
   // implementation(libs.androidx.camera.core)
   // implementation(libs.androidx.camera.lifecycle)
