@@ -1,0 +1,6 @@
+{
+  "name": "Sakinah",
+  "description": "A calm, modern Muslim prayer time and daily worship companion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
