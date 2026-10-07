@@ -6,9 +6,22 @@ enum class AppLanguage(
   val displayName: String,
   val nativeName: String,
   val code: String,
-  val layoutDirection: LayoutDirection
+  val layoutDirection: LayoutDirection = LayoutDirection.Ltr
 ) {
   ENGLISH("English", "English", "en", LayoutDirection.Ltr),
-  URDU("Urdu", "اردو", "ur", LayoutDirection.Rtl),
-  ARABIC("Arabic", "العربية", "ar", LayoutDirection.Rtl)
+  ARABIC("Arabic", "العربية", "ar", LayoutDirection.Ltr),
+  URDU("Urdu", "اردو", "ur", LayoutDirection.Ltr),
+  INDONESIAN("Indonesian", "Bahasa Indonesia", "id", LayoutDirection.Ltr),
+  TURKISH("Turkish", "Türkçe", "tr", LayoutDirection.Ltr),
+  FRENCH("French", "Français", "fr", LayoutDirection.Ltr),
+  SPANISH("Spanish", "Español", "es", LayoutDirection.Ltr),
+  MALAY("Malay", "Bahasa Melayu", "ms", LayoutDirection.Ltr),
+  BENGALI("Bengali", "বাংলা", "bn", LayoutDirection.Ltr),
+  RUSSIAN("Russian", "Русский", "ru", LayoutDirection.Ltr),
+  PERSIAN("Persian", "فارسی", "fa", LayoutDirection.Ltr),
+  HINDI("Hindi", "हिन्दी", "hi", LayoutDirection.Ltr),
+  GERMAN("German", "Deutsch", "de", LayoutDirection.Ltr),
+  UZBEK("Uzbek", "Oʻzbekcha", "uz", LayoutDirection.Ltr),
+  HAUSA("Hausa", "Hausa", "ha", LayoutDirection.Ltr),
+  SOMALI("Somali", "Soomaali", "so", LayoutDirection.Ltr);
 }

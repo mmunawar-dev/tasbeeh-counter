@@ -73,4 +73,23 @@ class ExampleRobolectricTest {
     assertTrue(modes.contains(com.example.model.PrayerNotificationMode.SILENT))
     assertTrue(modes.contains(com.example.model.PrayerNotificationMode.OFF))
   }
+
+  @Test
+  fun `at least 15 languages are defined and all enforce LTR layout direction`() {
+    val languages = com.example.model.AppLanguage.entries
+    assertTrue("Must have at least 15 languages", languages.size >= 15)
+    for (lang in languages) {
+      assertEquals("Every language must enforce LTR to prevent messy reversed UI", androidx.compose.ui.unit.LayoutDirection.Ltr, lang.layoutDirection)
+    }
+  }
+
+  @Test
+  fun `allah names mp3 raw resource exists and is accessible`() {
+    val context = ApplicationProvider.getApplicationContext<Context>()
+    val inputStream = context.resources.openRawResource(R.raw.allah_names)
+    assertNotNull("MP3 audio resource should exist in res raw", inputStream)
+    val availableBytes = inputStream.available()
+    assertTrue("MP3 file must have content", availableBytes > 0)
+    inputStream.close()
+  }
 }

@@ -19,10 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.model.Screen
 import com.example.model.ThemeMode
+import com.example.service.AudioPlayerService
 import com.example.ui.components.AllahNameDetailBottomSheet
 import com.example.ui.components.AudioMiniPlayer
 import com.example.ui.components.PrayerDetailBottomSheet
@@ -38,6 +40,7 @@ class MainActivity : ComponentActivity() {
       val viewModel: SakinahViewModel = viewModel()
       val uiState by viewModel.uiState.collectAsStateWithLifecycle()
       val schedule by viewModel.currentSchedule.collectAsStateWithLifecycle()
+      val audioPlaybackState by AudioPlayerService.playbackState.collectAsStateWithLifecycle()
       val context = LocalContext.current
 
       val isDark = when (uiState.themeMode) {
@@ -47,7 +50,7 @@ class MainActivity : ComponentActivity() {
       }
 
       SakinahTheme(darkTheme = isDark) {
-        CompositionLocalProvider(LocalLayoutDirection provides uiState.selectedLanguage.layoutDirection) {
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
           Surface(modifier = Modifier.fillMaxSize()) {
             Box(modifier = Modifier.fillMaxSize()) {
               when (uiState.currentScreen) {
@@ -153,8 +156,12 @@ class MainActivity : ComponentActivity() {
                 Screen.ALLAH_NAMES -> {
                   BackHandler { viewModel.navigateBack() }
                   AllahNamesScreen(
+                    playbackState = audioPlaybackState,
+                    onStartFullRecitation = { viewModel.playAllahNamesFullRecitation(context) },
+                    onToggleFullRecitation = { viewModel.toggleAudioPlayback(context) },
+                    onStopFullRecitation = { viewModel.stopAudioPlayback(context) },
                     onSelectName = { viewModel.selectAllahName(it) },
-                    onPlayName = { viewModel.playAllahNameAudio(it) },
+                    onPlayName = { viewModel.playAllahNameAudio(context, it) },
                     onBack = { viewModel.navigateBack() }
                   )
                 }
@@ -308,8 +315,8 @@ class MainActivity : ComponentActivity() {
               // Persistent Audio Mini-Player floating over content
               AudioMiniPlayer(
                 activeTrack = uiState.activeAudioTrack,
-                onTogglePlayPause = { viewModel.toggleAudioPlayPause() },
-                onClose = { viewModel.stopAudio() },
+                onTogglePlayPause = { viewModel.toggleAudioPlayback(context) },
+                onClose = { viewModel.stopAudioPlayback(context) },
                 modifier = Modifier
                   .align(Alignment.BottomCenter)
                   .navigationBarsPadding()
@@ -335,8 +342,8 @@ class MainActivity : ComponentActivity() {
               uiState.selectedAllahName?.let { name ->
                 AllahNameDetailBottomSheet(
                   name = name,
-                  isPlaying = uiState.activeAudioTrack?.id == "allah_name_${name.number}" && uiState.activeAudioTrack?.isPlaying == true,
-                  onPlayAudio = { viewModel.playAllahNameAudio(name) },
+                  isPlaying = uiState.activeAudioTrack?.isPlaying == true,
+                  onPlayAudio = { viewModel.playAllahNameAudio(context, name) },
                   onDismiss = { viewModel.clearSelectedAllahName() }
                 )
               }

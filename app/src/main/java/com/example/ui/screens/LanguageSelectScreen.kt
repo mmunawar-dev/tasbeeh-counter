@@ -4,6 +4,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -60,47 +62,53 @@ fun LanguageSelectScreen(
       }
     }
   ) { padding ->
-    Column(
+    LazyColumn(
       modifier = Modifier
         .fillMaxSize()
         .padding(padding)
         .statusBarsPadding()
-        .padding(horizontal = 24.dp, vertical = 16.dp)
+        .padding(horizontal = 24.dp),
+      contentPadding = PaddingValues(top = 16.dp, bottom = 24.dp),
+      verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
       if (isSettingsMode && onBack != null) {
-        IconButton(
-          onClick = onBack,
-          modifier = Modifier
-            .testTag("back_button")
-            .padding(bottom = 12.dp)
-        ) {
-          Text(
-            text = "←",
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.onBackground
-          )
+        item {
+          IconButton(
+            onClick = onBack,
+            modifier = Modifier
+              .testTag("back_button")
+              .padding(bottom = 8.dp)
+          ) {
+            Text(
+              text = "←",
+              style = MaterialTheme.typography.headlineMedium,
+              color = MaterialTheme.colorScheme.onBackground
+            )
+          }
         }
       }
 
-      Spacer(modifier = Modifier.height(16.dp))
+      item {
+        Column {
+          Text(
+            text = "Choose your language",
+            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
+            color = MaterialTheme.colorScheme.onBackground
+          )
 
-      Text(
-        text = "Choose your language",
-        style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
-        color = MaterialTheme.colorScheme.onBackground
-      )
+          Spacer(modifier = Modifier.height(6.dp))
 
-      Spacer(modifier = Modifier.height(8.dp))
+          Text(
+            text = "Select from ${AppLanguage.entries.size} available languages. App orientation remains stable.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+          )
 
-      Text(
-        text = "Select the language you'd like to use throughout the app.",
-        style = MaterialTheme.typography.bodyMedium,
-        color = MaterialTheme.colorScheme.onSurfaceVariant
-      )
+          Spacer(modifier = Modifier.height(16.dp))
+        }
+      }
 
-      Spacer(modifier = Modifier.height(32.dp))
-
-      AppLanguage.values().forEach { language ->
+      items(AppLanguage.entries) { language ->
         val isSelected = language == selectedLanguage
         Surface(
           shape = RoundedCornerShape(16.dp),
@@ -111,7 +119,6 @@ fun LanguageSelectScreen(
           ),
           modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 6.dp)
             .clip(RoundedCornerShape(16.dp))
             .clickable { onLanguageSelected(language) }
             .testTag("language_option_${language.code}")
@@ -119,7 +126,7 @@ fun LanguageSelectScreen(
           Row(
             modifier = Modifier
               .fillMaxWidth()
-              .padding(horizontal = 20.dp, vertical = 18.dp),
+              .padding(horizontal = 20.dp, vertical = 14.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
           ) {

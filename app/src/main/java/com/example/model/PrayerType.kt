@@ -17,7 +17,8 @@ enum class PrayerType(
     return when (language) {
       AppLanguage.ENGLISH -> englishName
       AppLanguage.URDU -> urduName
-      AppLanguage.ARABIC -> arabicName
+      AppLanguage.ARABIC, AppLanguage.PERSIAN -> arabicName
+      else -> englishName
     }
   }
 }

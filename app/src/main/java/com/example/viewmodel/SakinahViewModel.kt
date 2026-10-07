@@ -16,6 +16,7 @@ import com.example.calculation.PrayerCalculator
 import com.example.calculation.QiblaCalculator
 import com.example.model.*
 import com.example.repository.AladhanPrayerRepository
+import com.example.service.AudioPlayerService
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -75,6 +76,33 @@ class SakinahViewModel : ViewModel() {
       while (isActive) {
         delay(15_000)
         _currentMinuteTick.value = PrayerCalculator.getCurrentMinuteOfDay()
+      }
+    }
+
+    viewModelScope.launch {
+      AudioPlayerService.playbackState.collect { playback ->
+        if (playback.isServiceRunning) {
+          val durationSec = if (playback.durationMs > 0) playback.durationMs / 1000 else 225
+          val currentSec = playback.currentPositionMs / 1000
+          val fraction = if (playback.durationMs > 0) {
+            playback.currentPositionMs.toFloat() / playback.durationMs.toFloat()
+          } else 0f
+
+          val track = AudioTrack(
+            id = "asma_ul_husna_full",
+            title = playback.trackTitle,
+            arabicTitle = "أسماء الله الحسنى",
+            subtitle = playback.trackSubtitle,
+            audioSource = "allah_names.mp3",
+            isPlaying = playback.isPlaying,
+            currentPositionSeconds = currentSec,
+            durationSeconds = durationSec,
+            progressFraction = fraction
+          )
+          _uiState.update { it.copy(activeAudioTrack = track) }
+        } else if (_uiState.value.activeAudioTrack?.id == "asma_ul_husna_full") {
+          _uiState.update { it.copy(activeAudioTrack = null) }
+        }
       }
     }
 
@@ -314,17 +342,46 @@ class SakinahViewModel : ViewModel() {
     _uiState.update { it.copy(selectedAllahName = null) }
   }
 
+  fun playAllahNamesFullRecitation(context: Context) {
+    AudioPlayerService.startPlaying(
+      context = context,
+      title = "Asma-ul-Husna (99 Names of Allah)",
+      subtitle = "Complete Melodious Recitation"
+    )
+  }
+
+  fun playAllahNameAudio(context: Context, name: AllahName) {
+    AudioPlayerService.startPlaying(
+      context = context,
+      title = "${name.number}. ${name.transliteration} (${name.arabic})",
+      subtitle = name.englishMeaning
+    )
+  }
+
   fun playAllahNameAudio(name: AllahName) {
     val track = AudioTrack(
       id = "allah_name_${name.number}",
       title = "${name.number}. ${name.transliteration}",
       arabicTitle = name.arabic,
       subtitle = name.englishMeaning,
-      audioSource = "asma_ul_husna",
+      audioSource = "allah_names.mp3",
       isPlaying = true,
       durationSeconds = 12
     )
     startAudioTrack(track)
+  }
+
+  fun toggleAudioPlayback(context: Context) {
+    if (AudioPlayerService.playbackState.value.isServiceRunning) {
+      AudioPlayerService.togglePlayback(context)
+    } else {
+      AudioPlayerService.startPlaying(context)
+    }
+  }
+
+  fun stopAudioPlayback(context: Context) {
+    AudioPlayerService.stopPlayback(context)
+    _uiState.update { it.copy(activeAudioTrack = null) }
   }
 
   // Duas functions

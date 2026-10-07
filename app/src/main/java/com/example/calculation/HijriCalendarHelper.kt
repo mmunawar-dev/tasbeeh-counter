@@ -16,14 +16,14 @@ object HijriCalendarHelper {
   ) {
     fun formatted(language: AppLanguage): String {
       val monthName = when (language) {
-        AppLanguage.ENGLISH -> HIJRI_MONTHS_EN[monthIndex - 1]
+        AppLanguage.ARABIC, AppLanguage.PERSIAN -> HIJRI_MONTHS_AR[monthIndex - 1]
         AppLanguage.URDU -> HIJRI_MONTHS_UR[monthIndex - 1]
-        AppLanguage.ARABIC -> HIJRI_MONTHS_AR[monthIndex - 1]
+        else -> HIJRI_MONTHS_EN[monthIndex - 1]
       }
       return when (language) {
-        AppLanguage.ENGLISH -> "$day $monthName $year AH"
-        AppLanguage.URDU -> "$day $monthName $year ھ"
         AppLanguage.ARABIC -> "$day $monthName $year هـ"
+        AppLanguage.URDU, AppLanguage.PERSIAN -> "$day $monthName $year ھ"
+        else -> "$day $monthName $year AH"
       }
     }
   }
@@ -88,10 +88,10 @@ object HijriCalendarHelper {
   }
 
   fun formatGregorianDate(calendar: Calendar, language: AppLanguage): String {
-    val locale = when (language) {
-      AppLanguage.ENGLISH -> Locale.ENGLISH
-      AppLanguage.URDU -> Locale("ur")
-      AppLanguage.ARABIC -> Locale("ar")
+    val locale = try {
+      Locale.forLanguageTag(language.code)
+    } catch (_: Exception) {
+      Locale.ENGLISH
     }
     val formatter = SimpleDateFormat("EEEE, d MMMM yyyy", locale)
     return formatter.format(calendar.time)

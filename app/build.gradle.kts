@@ -20,6 +20,10 @@ android {
     versionName = "1.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    resourceConfigurations += listOf(
+      "en", "ar", "ur", "id", "tr", "fr", "es", "ms",
+      "bn", "ru", "fa", "hi", "de", "uz", "ha", "so"
+    )
   }
 
   signingConfigs {
@@ -60,6 +64,11 @@ android {
   dependenciesInfo {
     includeInApk = false
     includeInBundle = true
+  }
+  bundle {
+    language {
+      enableSplit = false
+    }
   }
 }
 

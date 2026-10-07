@@ -3,7 +3,7 @@ package com.example.model
 data class AudioTrack(
   val id: String,
   val title: String,
-  val arabicTitle: String,
+  val arabicTitle: String = "",
   val subtitle: String,
   val audioSource: String,
   val isPlaying: Boolean = false,
