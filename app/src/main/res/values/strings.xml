@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sakinah</string>
+    <string name="google_app_id" translatable="false">1:123456789012:android:abcdef0123456789</string>
+    <string name="project_id" translatable="false">sakinah-prtimes</string>
 </resources>

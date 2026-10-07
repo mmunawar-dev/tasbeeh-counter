@@ -298,6 +298,26 @@ fun HomeScreen(
         }
       }
 
+      // 6. AdMob Banner Ad (Free Tier - Native Kotlin AdView via Compose)
+      if (!state.isPremiumUnlocked) {
+        item {
+          Surface(
+            shape = RoundedCornerShape(12.dp),
+            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f),
+            modifier = Modifier
+              .fillMaxWidth()
+              .padding(vertical = 4.dp)
+          ) {
+            Column(
+              horizontalAlignment = Alignment.CenterHorizontally,
+              modifier = Modifier.padding(vertical = 4.dp)
+            ) {
+              com.example.ads.AdBannerView()
+            }
+          }
+        }
+      }
+
       // Bottom padding for audio mini-player
       item {
         Spacer(modifier = Modifier.height(84.dp))

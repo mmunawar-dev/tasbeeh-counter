@@ -22,6 +22,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.ads.AdMobManager
 import com.example.model.Screen
 import com.example.model.ThemeMode
 import com.example.service.AudioPlayerService
@@ -36,6 +37,7 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
+    AdMobManager.initialize(this)
     setContent {
       val viewModel: SakinahViewModel = viewModel()
       val uiState by viewModel.uiState.collectAsStateWithLifecycle()
