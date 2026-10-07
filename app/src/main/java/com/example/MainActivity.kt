@@ -12,8 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -28,6 +27,7 @@ import com.example.model.ThemeMode
 import com.example.service.AudioPlayerService
 import com.example.ui.components.AllahNameDetailBottomSheet
 import com.example.ui.components.AudioMiniPlayer
+import com.example.ui.components.ExitBottomSheet
 import com.example.ui.components.PrayerDetailBottomSheet
 import com.example.ui.screens.*
 import com.example.ui.theme.SakinahTheme
@@ -44,6 +44,18 @@ class MainActivity : ComponentActivity() {
       val schedule by viewModel.currentSchedule.collectAsStateWithLifecycle()
       val audioPlaybackState by AudioPlayerService.playbackState.collectAsStateWithLifecycle()
       val context = LocalContext.current
+      var showExitBottomSheet by remember { mutableStateOf(false) }
+
+      // Automatic location detection on first setup / Home launch if permission is granted
+      val locationPermissionLauncher = androidx.activity.compose.rememberLauncherForActivityResult(
+        contract = androidx.activity.result.contract.ActivityResultContracts.RequestMultiplePermissions()
+      ) { permissions ->
+        val coarseGranted = permissions[android.Manifest.permission.ACCESS_COARSE_LOCATION] == true
+        val fineGranted = permissions[android.Manifest.permission.ACCESS_FINE_LOCATION] == true
+        if (coarseGranted || fineGranted) {
+          viewModel.detectLocation(context)
+        }
+      }
 
       val isDark = when (uiState.themeMode) {
         ThemeMode.SYSTEM -> isSystemInDarkTheme()
@@ -84,22 +96,41 @@ class MainActivity : ComponentActivity() {
                     selectedMethod = uiState.calculationMethod,
                     onMadhabSelected = { viewModel.selectMadhab(it) },
                     onMethodSelected = { viewModel.selectCalculationMethod(it) },
-                    onContinue = { viewModel.navigateTo(Screen.LOCATION_SETUP) }
+                    onContinue = {
+                      // Automatically detect location when continuing to Home
+                      val hasCoarse = androidx.core.content.ContextCompat.checkSelfPermission(
+                        context, android.Manifest.permission.ACCESS_COARSE_LOCATION
+                      ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+                      val hasFine = androidx.core.content.ContextCompat.checkSelfPermission(
+                        context, android.Manifest.permission.ACCESS_FINE_LOCATION
+                      ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+
+                      if (hasCoarse || hasFine) {
+                        viewModel.detectLocation(context)
+                      } else {
+                        locationPermissionLauncher.launch(
+                          arrayOf(
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                            android.Manifest.permission.ACCESS_FINE_LOCATION
+                          )
+                        )
+                      }
+                      viewModel.navigateTo(Screen.HOME)
+                    }
                   )
                 }
 
                 Screen.LOCATION_SETUP -> {
+                  // Direct bypass if ever invoked
                   BackHandler { viewModel.navigateBack() }
-                  LocationSetupScreen(
-                    currentCity = uiState.selectedCity,
-                    isSearching = uiState.isGpsSearching,
-                    onRequestGps = { viewModel.detectLocation(context) },
-                    onManualCity = { viewModel.navigateTo(Screen.CITY_SELECT) },
-                    onProceedHome = { viewModel.navigateTo(Screen.HOME) }
-                  )
+                  viewModel.navigateTo(Screen.HOME)
                 }
 
                 Screen.HOME -> {
+                  // Root destination back handler shows Exit Confirmation Bottom Sheet
+                  BackHandler {
+                    showExitBottomSheet = true
+                  }
                   HomeScreen(
                     schedule = schedule,
                     state = uiState,
@@ -176,13 +207,20 @@ class MainActivity : ComponentActivity() {
                 Screen.TASBEEH -> {
                   BackHandler { viewModel.navigateBack() }
                   TasbeehScreen(
-                    state = uiState,
+                    currentDhikr = uiState.currentDhikr,
+                    count = uiState.tasbeehCount,
+                    totalTarget = uiState.tasbeehTotalTarget,
+                    laps = uiState.tasbeehLaps,
+                    selectedStyle = uiState.selectedTasbeehStyle,
+                    isHapticEnabled = uiState.isHapticEnabled,
+                    isClickSoundEnabled = uiState.isClickSoundEnabled,
                     onIncrement = { ctx -> viewModel.incrementTasbeeh(ctx) },
                     onReset = { viewModel.resetTasbeeh() },
                     onSelectDhikr = { viewModel.selectDhikr(it) },
-                    onSetTarget = { viewModel.setTasbeehTarget(it) },
                     onSelectStyle = { viewModel.setTasbeehStyle(it) },
+                    onSetTarget = { viewModel.setTasbeehTarget(it) },
                     onToggleHaptic = { viewModel.toggleHaptic() },
+                    onToggleClickSound = { viewModel.toggleClickSound() },
                     onBack = { viewModel.navigateBack() }
                   )
                 }
@@ -192,6 +230,8 @@ class MainActivity : ComponentActivity() {
                   QiblaScreen(
                     city = uiState.selectedCity,
                     qiblaBearingDegrees = uiState.qiblaBearingDegrees,
+                    selectedStyle = uiState.selectedCompassStyle,
+                    onSelectStyle = { viewModel.setCompassStyle(it) },
                     onBack = { viewModel.navigateBack() }
                   )
                 }
@@ -347,6 +387,17 @@ class MainActivity : ComponentActivity() {
                   isPlaying = uiState.activeAudioTrack?.isPlaying == true,
                   onPlayAudio = { viewModel.playAllahNameAudio(context, name) },
                   onDismiss = { viewModel.clearSelectedAllahName() }
+                )
+              }
+
+              // Exit Confirmation Bottom Sheet on Root Home Back Press
+              if (showExitBottomSheet) {
+                ExitBottomSheet(
+                  onDismiss = { showExitBottomSheet = false },
+                  onConfirmExit = {
+                    showExitBottomSheet = false
+                    finish()
+                  }
                 )
               }
             }

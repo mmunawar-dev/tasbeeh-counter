@@ -188,8 +188,7 @@ fun HomeScreen(
           sunriseItem = schedule.sunrise,
           currentNotificationMode = currentNotificationMode,
           onNotificationModeChange = onNotificationModeChange,
-          onOpenPrayerTimes = onPrayerSettingsClick,
-          onPrayerClick = onPrayerClick
+          onOpenPrayerTimes = onPrayerSettingsClick
         )
       }
 
@@ -217,6 +216,8 @@ fun HomeScreen(
             subtitle = "99 Names • Asma ul-Husna",
             arabicTag = "أسماء الله",
             icon = Icons.Outlined.AutoStories,
+            accentColors = listOf(androidx.compose.ui.graphics.Color(0xFF1B3B2B), androidx.compose.ui.graphics.Color(0xFF2E6347)),
+            iconTint = androidx.compose.ui.graphics.Color(0xFF6EE7B7),
             onClick = onNavigateToAllahNames,
             modifier = Modifier.weight(1f)
           )
@@ -226,6 +227,8 @@ fun HomeScreen(
             subtitle = "Dhikr & Counter (${state.tasbeehCount}/${state.tasbeehTotalTarget})",
             arabicTag = "المسبحة",
             icon = Icons.Outlined.Fingerprint,
+            accentColors = listOf(androidx.compose.ui.graphics.Color(0xFF1F3847), androidx.compose.ui.graphics.Color(0xFF2C556D)),
+            iconTint = androidx.compose.ui.graphics.Color(0xFF7DD3FC),
             onClick = onNavigateToTasbeeh,
             modifier = Modifier.weight(1f)
           )
@@ -243,6 +246,8 @@ fun HomeScreen(
             subtitle = "Compass to Kaaba (${state.qiblaBearingDegrees.toInt()}°)",
             arabicTag = "اتجاه القبلة",
             icon = Icons.Outlined.Explore,
+            accentColors = listOf(androidx.compose.ui.graphics.Color(0xFF382F1E), androidx.compose.ui.graphics.Color(0xFF614E29)),
+            iconTint = androidx.compose.ui.graphics.Color(0xFFFDE047),
             onClick = onNavigateToQibla,
             modifier = Modifier.weight(1f)
           )
@@ -252,6 +257,8 @@ fun HomeScreen(
             subtitle = "Daily Supplications",
             arabicTag = "الأدعية",
             icon = Icons.Outlined.VolunteerActivism,
+            accentColors = listOf(androidx.compose.ui.graphics.Color(0xFF32233D), androidx.compose.ui.graphics.Color(0xFF533866)),
+            iconTint = androidx.compose.ui.graphics.Color(0xFFD8B4FE),
             onClick = onNavigateToDuas,
             modifier = Modifier.weight(1f)
           )
@@ -282,6 +289,8 @@ fun HomeScreen(
             arabicTag = "بث مباشر مكة",
             icon = Icons.Outlined.LiveTv,
             badge = "LIVE",
+            accentColors = listOf(androidx.compose.ui.graphics.Color(0xFF2D1E1E), androidx.compose.ui.graphics.Color(0xFF563333)),
+            iconTint = androidx.compose.ui.graphics.Color(0xFFFCA5A5),
             onClick = onNavigateToLiveMakkah,
             modifier = Modifier.weight(1f)
           )
@@ -292,6 +301,8 @@ fun HomeScreen(
             arabicTag = "بث مباشر المدينة",
             icon = Icons.Outlined.LiveTv,
             badge = "LIVE",
+            accentColors = listOf(androidx.compose.ui.graphics.Color(0xFF1E332E), androidx.compose.ui.graphics.Color(0xFF315C50)),
+            iconTint = androidx.compose.ui.graphics.Color(0xFF5EEAD4),
             onClick = onNavigateToLiveMadinah,
             modifier = Modifier.weight(1f)
           )
@@ -332,84 +343,105 @@ private fun FeatureDashboardCard(
   subtitle: String,
   arabicTag: String,
   icon: ImageVector,
+  accentColors: List<androidx.compose.ui.graphics.Color>,
+  iconTint: androidx.compose.ui.graphics.Color,
   onClick: () -> Unit,
   modifier: Modifier = Modifier,
   badge: String? = null
 ) {
+  val isDark = androidx.compose.foundation.isSystemInDarkTheme()
+  val gradient = androidx.compose.ui.graphics.Brush.linearGradient(
+    colors = if (isDark) accentColors else listOf(
+      MaterialTheme.colorScheme.surface,
+      accentColors.first().copy(alpha = 0.12f)
+    )
+  )
+
   Surface(
-    shape = RoundedCornerShape(16.dp),
-    color = MaterialTheme.colorScheme.surface,
-    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f)),
+    shape = RoundedCornerShape(18.dp),
+    color = androidx.compose.ui.graphics.Color.Transparent,
+    border = androidx.compose.foundation.BorderStroke(
+      1.dp,
+      if (isDark) accentColors.last().copy(alpha = 0.6f) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f)
+    ),
+    shadowElevation = 2.dp,
     modifier = modifier
-      .clip(RoundedCornerShape(16.dp))
+      .clip(RoundedCornerShape(18.dp))
       .clickable(onClick = onClick)
   ) {
-    Column(
-      modifier = Modifier.padding(14.dp)
+    Box(
+      modifier = Modifier
+        .background(gradient)
+        .padding(14.dp)
     ) {
-      Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-      ) {
-        Box(
-          modifier = Modifier
-            .size(36.dp)
-            .clip(RoundedCornerShape(10.dp))
-            .background(MaterialTheme.colorScheme.primaryContainer),
-          contentAlignment = Alignment.Center
+      Column {
+        Row(
+          modifier = Modifier.fillMaxWidth(),
+          horizontalArrangement = Arrangement.SpaceBetween,
+          verticalAlignment = Alignment.CenterVertically
         ) {
-          Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.size(20.dp)
-          )
-        }
-
-        if (badge != null) {
-          Surface(
-            shape = RoundedCornerShape(4.dp),
-            color = MaterialTheme.colorScheme.error
+          Box(
+            modifier = Modifier
+              .size(38.dp)
+              .clip(RoundedCornerShape(12.dp))
+              .background(if (isDark) androidx.compose.ui.graphics.Color(0x33000000) else accentColors.first().copy(alpha = 0.15f)),
+            contentAlignment = Alignment.Center
           ) {
-            Text(
-              text = badge,
-              style = MaterialTheme.typography.labelSmall.copy(
-                fontWeight = FontWeight.Bold,
-                fontSize = 9.sp
-              ),
-              color = MaterialTheme.colorScheme.onError,
-              modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+            Icon(
+              imageVector = icon,
+              contentDescription = null,
+              tint = if (isDark) iconTint else MaterialTheme.colorScheme.primary,
+              modifier = Modifier.size(20.dp)
             )
           }
-        } else {
-          Text(
-            text = arabicTag,
-            style = MaterialTheme.typography.labelSmall.copy(fontSize = 11.sp),
-            color = MaterialTheme.colorScheme.primary
-          )
+
+          if (badge != null) {
+            Surface(
+              shape = RoundedCornerShape(4.dp),
+              color = MaterialTheme.colorScheme.error
+            ) {
+              Text(
+                text = badge,
+                style = MaterialTheme.typography.labelSmall.copy(
+                  fontWeight = FontWeight.Bold,
+                  fontSize = 9.sp
+                ),
+                color = MaterialTheme.colorScheme.onError,
+                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+              )
+            }
+          } else {
+            Text(
+              text = arabicTag,
+              style = MaterialTheme.typography.labelSmall.copy(
+                fontSize = 11.sp,
+                fontWeight = FontWeight.Medium
+              ),
+              color = if (isDark) iconTint.copy(alpha = 0.85f) else MaterialTheme.colorScheme.primary
+            )
+          }
         }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Text(
+          text = title,
+          style = MaterialTheme.typography.titleSmall.copy(
+            fontWeight = FontWeight.Bold,
+            fontSize = 15.sp
+          ),
+          color = if (isDark) androidx.compose.ui.graphics.Color.White else MaterialTheme.colorScheme.onSurface
+        )
+
+        Spacer(modifier = Modifier.height(2.dp))
+
+        Text(
+          text = subtitle,
+          style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.5.sp),
+          color = if (isDark) androidx.compose.ui.graphics.Color(0xCCFFFFFF) else MaterialTheme.colorScheme.onSurfaceVariant,
+          maxLines = 1
+        )
       }
-
-      Spacer(modifier = Modifier.height(10.dp))
-
-      Text(
-        text = title,
-        style = MaterialTheme.typography.titleSmall.copy(
-          fontWeight = FontWeight.Bold,
-          fontSize = 15.sp
-        ),
-        color = MaterialTheme.colorScheme.onSurface
-      )
-
-      Spacer(modifier = Modifier.height(2.dp))
-
-      Text(
-        text = subtitle,
-        style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        maxLines = 1
-      )
     }
   }
 }

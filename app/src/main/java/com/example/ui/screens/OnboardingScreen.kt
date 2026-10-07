@@ -4,30 +4,29 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccessTime
-import androidx.compose.material.icons.outlined.CheckCircleOutline
-import androidx.compose.material.icons.outlined.NotificationsActive
-import androidx.compose.material.icons.outlined.Tune
+import androidx.compose.material.icons.automirrored.outlined.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.R
 
 data class OnboardingPageData(
-  val icon: ImageVector,
+  val imageRes: Int,
   val title: String,
   val description: String,
   val subtitlePill: String
@@ -41,62 +40,40 @@ fun OnboardingScreen(
 
   val pages = listOf(
     OnboardingPageData(
-      icon = Icons.Outlined.AccessTime,
-      title = "Know your prayer times",
-      description = "Accurate daily prayer schedule calculated precisely for your location, sun position, and fiqh preferences.",
+      imageRes = R.drawable.onboarding_prayer_3d_1791398392108,
+      title = "Know Prayer Times",
+      description = "Accurate daily prayer timetable calculated precisely for your location, sun position, and fiqh preferences.",
       subtitlePill = "ACCURATE & LOCALIZED"
     ),
     OnboardingPageData(
-      icon = Icons.Outlined.NotificationsActive,
-      title = "Stay connected throughout the day",
-      description = "Get gentle, dependable reminders for each prayer with customizable adhan, subtle vibration, or quiet alerts.",
-      subtitlePill = "PEACEFUL NOTIFICATIONS"
+      imageRes = R.drawable.onboarding_tasbeeh_3d_1791398405219,
+      title = "Remember Allah / Tasbeeh",
+      description = "Perform your daily dhikr with a digital Tasbeeh counter featuring authentic presets, bead tactile modes, and goal tracking.",
+      subtitlePill = "DIGITAL TASBEEH & DHIKR"
     ),
     OnboardingPageData(
-      icon = Icons.Outlined.Tune,
-      title = "Your worship, your settings",
-      description = "Easily select your preferred school of thought (Hanafi, Shafi'i, Maliki, Hanbali), calculation authority, and tasbeeh counter.",
-      subtitlePill = "TAILORED TO YOUR PRACTICE"
+      imageRes = R.drawable.onboarding_qibla_3d_1791398419868,
+      title = "Qibla & Guidance",
+      description = "Find the exact direction of the Holy Kaaba with a precise compass, plus authentic daily Duas and Islamic calendar.",
+      subtitlePill = "QIBLA COMPASS & DUAS"
     )
   )
 
   Scaffold(
     containerColor = MaterialTheme.colorScheme.background,
-    topBar = {
+    bottomBar = {
+      // Single horizontal row: Left: dot/page indicators | Right: compact Continue button ("Next" or "Get Started")
       Row(
         modifier = Modifier
           .fillMaxWidth()
-          .statusBarsPadding()
-          .padding(horizontal = 20.dp, vertical = 12.dp),
-        horizontalArrangement = Arrangement.End
-      ) {
-        if (currentPage < pages.lastIndex) {
-          TextButton(
-            onClick = onComplete,
-            modifier = Modifier.testTag("onboarding_skip_button")
-          ) {
-            Text(
-              text = "Skip",
-              style = MaterialTheme.typography.labelLarge,
-              color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-          }
-        } else {
-          Spacer(modifier = Modifier.height(36.dp))
-        }
-      }
-    },
-    bottomBar = {
-      Column(
-        modifier = Modifier
-          .fillMaxWidth()
           .navigationBarsPadding()
-          .padding(horizontal = 24.dp, vertical = 16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+          .padding(horizontal = 24.dp, vertical = 20.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
       ) {
-        // Dot Indicators
+        // Page Dots on the LEFT
         Row(
-          horizontalArrangement = Arrangement.spacedBy(8.dp),
+          horizontalArrangement = Arrangement.spacedBy(6.dp),
           verticalAlignment = Alignment.CenterVertically
         ) {
           pages.indices.forEach { index ->
@@ -104,18 +81,17 @@ fun OnboardingScreen(
             Box(
               modifier = Modifier
                 .height(6.dp)
-                .width(if (isCurrent) 24.dp else 6.dp)
+                .width(if (isCurrent) 22.dp else 6.dp)
                 .clip(CircleShape)
                 .background(
                   if (isCurrent) MaterialTheme.colorScheme.primary
-                  else MaterialTheme.colorScheme.outlineVariant
+                  else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f)
                 )
             )
           }
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
-
+        // Compact Action Button on the RIGHT
         Button(
           onClick = {
             if (currentPage < pages.lastIndex) {
@@ -124,20 +100,33 @@ fun OnboardingScreen(
               onComplete()
             }
           },
-          shape = RoundedCornerShape(14.dp),
+          shape = RoundedCornerShape(12.dp),
           colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary
           ),
+          contentPadding = PaddingValues(horizontal = 20.dp, vertical = 10.dp),
           modifier = Modifier
-            .fillMaxWidth()
-            .height(52.dp)
+            .height(44.dp)
             .testTag("onboarding_next_button")
         ) {
-          Text(
-            text = if (currentPage == pages.lastIndex) "Get Started" else "Continue",
-            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
-          )
+          Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
+          ) {
+            Text(
+              text = if (currentPage == pages.lastIndex) "Get Started" else "Next",
+              style = MaterialTheme.typography.titleMedium.copy(
+                fontWeight = FontWeight.Bold,
+                fontSize = 15.sp
+              )
+            )
+            Icon(
+              imageVector = Icons.AutoMirrored.Outlined.ArrowForward,
+              contentDescription = null,
+              modifier = Modifier.size(16.dp)
+            )
+          }
         }
       }
     }
@@ -146,6 +135,7 @@ fun OnboardingScreen(
       modifier = Modifier
         .fillMaxSize()
         .padding(padding)
+        .statusBarsPadding()
         .padding(horizontal = 24.dp),
       contentAlignment = Alignment.Center
     ) {
@@ -160,33 +150,26 @@ fun OnboardingScreen(
           verticalArrangement = Arrangement.Center,
           modifier = Modifier.fillMaxWidth()
         ) {
-          // Editorial Geometric Graphic
-          Box(
+          // Solid 3D Illustration
+          Surface(
+            shape = RoundedCornerShape(24.dp),
+            shadowElevation = 6.dp,
+            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
             modifier = Modifier
-              .size(130.dp)
-              .clip(CircleShape)
-              .background(MaterialTheme.colorScheme.primaryContainer),
-            contentAlignment = Alignment.Center
+              .size(230.dp)
+              .clip(RoundedCornerShape(24.dp))
           ) {
-            Box(
-              modifier = Modifier
-                .size(100.dp)
-                .clip(CircleShape)
-                .border(1.5.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.3f), CircleShape),
-              contentAlignment = Alignment.Center
-            ) {
-              Icon(
-                imageVector = page.icon,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(46.dp)
-              )
-            }
+            Image(
+              painter = painterResource(id = page.imageRes),
+              contentDescription = page.title,
+              contentScale = ContentScale.Crop,
+              modifier = Modifier.fillMaxSize()
+            )
           }
 
-          Spacer(modifier = Modifier.height(28.dp))
+          Spacer(modifier = Modifier.height(24.dp))
 
-          // Subtitle Tag
+          // Subtitle Tag Pill
           Surface(
             shape = RoundedCornerShape(6.dp),
             color = MaterialTheme.colorScheme.secondaryContainer
@@ -203,7 +186,7 @@ fun OnboardingScreen(
             )
           }
 
-          Spacer(modifier = Modifier.height(16.dp))
+          Spacer(modifier = Modifier.height(14.dp))
 
           Text(
             text = page.title,
@@ -215,7 +198,7 @@ fun OnboardingScreen(
             textAlign = TextAlign.Center
           )
 
-          Spacer(modifier = Modifier.height(12.dp))
+          Spacer(modifier = Modifier.height(10.dp))
 
           Text(
             text = page.description,
@@ -225,7 +208,7 @@ fun OnboardingScreen(
             ),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 12.dp)
+            modifier = Modifier.padding(horizontal = 10.dp)
           )
         }
       }

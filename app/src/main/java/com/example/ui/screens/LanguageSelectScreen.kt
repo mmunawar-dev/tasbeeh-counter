@@ -4,17 +4,20 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -34,88 +37,95 @@ fun LanguageSelectScreen(
 
   Scaffold(
     containerColor = MaterialTheme.colorScheme.background,
-    bottomBar = {
-      Surface(
-        color = MaterialTheme.colorScheme.background,
+    topBar = {
+      // Top Header: "Languages" with ~10dp top margin, and clickable "✓ Apply" text action
+      Row(
         modifier = Modifier
           .fillMaxWidth()
-          .navigationBarsPadding()
-          .padding(horizontal = 24.dp, vertical = 16.dp)
+          .statusBarsPadding()
+          .padding(top = 10.dp, start = 20.dp, end = 20.dp, bottom = 12.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
       ) {
-        Button(
-          onClick = onContinue,
-          shape = RoundedCornerShape(14.dp),
-          colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = MaterialTheme.colorScheme.onPrimary
-          ),
-          modifier = Modifier
-            .fillMaxWidth()
-            .height(52.dp)
-            .testTag("language_continue_button")
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+          if (isSettingsMode && onBack != null) {
+            IconButton(
+              onClick = onBack,
+              modifier = Modifier
+                .testTag("back_button")
+                .size(36.dp)
+            ) {
+              Text(
+                text = "←",
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.onBackground
+              )
+            }
+            Spacer(modifier = Modifier.width(6.dp))
+          }
           Text(
-            text = if (isSettingsMode) "Save Changes" else "Continue",
-            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
+            text = "Languages",
+            style = MaterialTheme.typography.headlineMedium.copy(
+              fontWeight = FontWeight.Bold,
+              fontSize = 24.sp
+            ),
+            color = MaterialTheme.colorScheme.onBackground
           )
         }
-      }
-    }
-  ) { padding ->
-    LazyColumn(
-      modifier = Modifier
-        .fillMaxSize()
-        .padding(padding)
-        .statusBarsPadding()
-        .padding(horizontal = 24.dp),
-      contentPadding = PaddingValues(top = 16.dp, bottom = 24.dp),
-      verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-      if (isSettingsMode && onBack != null) {
-        item {
-          IconButton(
-            onClick = onBack,
-            modifier = Modifier
-              .testTag("back_button")
-              .padding(bottom = 8.dp)
+
+        // Apply action with tick icon
+        Surface(
+          shape = RoundedCornerShape(12.dp),
+          color = MaterialTheme.colorScheme.primary,
+          modifier = Modifier
+            .clip(RoundedCornerShape(12.dp))
+            .clickable(onClick = onContinue)
+            .testTag("language_apply_button")
+        ) {
+          Row(
+            modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
           ) {
+            Icon(
+              imageVector = Icons.Outlined.Check,
+              contentDescription = "Apply",
+              tint = MaterialTheme.colorScheme.onPrimary,
+              modifier = Modifier.size(16.dp)
+            )
             Text(
-              text = "←",
-              style = MaterialTheme.typography.headlineMedium,
-              color = MaterialTheme.colorScheme.onBackground
+              text = "Apply",
+              style = MaterialTheme.typography.labelLarge.copy(
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp
+              ),
+              color = MaterialTheme.colorScheme.onPrimary
             )
           }
         }
       }
-
-      item {
-        Column {
-          Text(
-            text = "Choose your language",
-            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
-            color = MaterialTheme.colorScheme.onBackground
-          )
-
-          Spacer(modifier = Modifier.height(6.dp))
-
-          Text(
-            text = "Select from ${AppLanguage.entries.size} available languages. App orientation remains stable.",
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-          )
-
-          Spacer(modifier = Modifier.height(16.dp))
-        }
-      }
-
+    }
+  ) { padding ->
+    // 2-Column Grid of Language Cards (respecting RTL per language where appropriate)
+    LazyVerticalGrid(
+      columns = GridCells.Fixed(2),
+      modifier = Modifier
+        .fillMaxSize()
+        .padding(padding)
+        .padding(horizontal = 16.dp),
+      contentPadding = PaddingValues(top = 4.dp, bottom = 24.dp),
+      verticalArrangement = Arrangement.spacedBy(10.dp),
+      horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
       items(AppLanguage.entries) { language ->
         val isSelected = language == selectedLanguage
+
         Surface(
           shape = RoundedCornerShape(16.dp),
           color = if (isSelected) sakinahColors.activePrayerBackground else MaterialTheme.colorScheme.surface,
           border = BorderStroke(
             width = if (isSelected) 1.5.dp else 1.dp,
-            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant
+            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f)
           ),
           modifier = Modifier
             .fillMaxWidth()
@@ -123,45 +133,64 @@ fun LanguageSelectScreen(
             .clickable { onLanguageSelected(language) }
             .testTag("language_option_${language.code}")
         ) {
-          Row(
-            modifier = Modifier
-              .fillMaxWidth()
-              .padding(horizontal = 20.dp, vertical = 14.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-          ) {
-            Column {
-              Text(
-                text = language.displayName,
-                style = MaterialTheme.typography.titleMedium.copy(
-                  fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium
-                ),
-                color = MaterialTheme.colorScheme.onSurface
-              )
-              Text(
-                text = language.nativeName,
-                style = MaterialTheme.typography.bodySmall.copy(fontSize = 13.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-              )
-            }
-
-            // Radio / Check Indicator
-            Box(
+          CompositionLocalProvider(LocalLayoutDirection provides language.layoutDirection) {
+            Row(
               modifier = Modifier
-                .size(24.dp)
-                .background(
-                  if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant,
-                  CircleShape
-                ),
-              contentAlignment = Alignment.Center
+                .fillMaxWidth()
+                .padding(horizontal = 12.dp, vertical = 14.dp),
+              verticalAlignment = Alignment.CenterVertically,
+              horizontalArrangement = Arrangement.SpaceBetween
             ) {
-              if (isSelected) {
-                Icon(
-                  imageVector = Icons.Outlined.Check,
-                  contentDescription = "Selected",
-                  tint = MaterialTheme.colorScheme.onPrimary,
-                  modifier = Modifier.size(14.dp)
+              Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.Center
+              ) {
+                Text(
+                  text = language.displayName,
+                  style = MaterialTheme.typography.titleSmall.copy(
+                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.SemiBold,
+                    fontSize = 15.sp
+                  ),
+                  color = MaterialTheme.colorScheme.onSurface,
+                  maxLines = 1
                 )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                  text = language.nativeName,
+                  style = MaterialTheme.typography.bodySmall.copy(
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Normal
+                  ),
+                  color = MaterialTheme.colorScheme.onSurfaceVariant,
+                  maxLines = 1
+                )
+              }
+
+              // Trailing side: Country flag + selection indicator
+              Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+              ) {
+                Text(
+                  text = language.flagEmoji,
+                  fontSize = 20.sp
+                )
+
+                if (isSelected) {
+                  Box(
+                    modifier = Modifier
+                      .size(20.dp)
+                      .background(MaterialTheme.colorScheme.primary, CircleShape),
+                    contentAlignment = Alignment.Center
+                  ) {
+                    Icon(
+                      imageVector = Icons.Outlined.Check,
+                      contentDescription = "Selected",
+                      tint = MaterialTheme.colorScheme.onPrimary,
+                      modifier = Modifier.size(12.dp)
+                    )
+                  }
+                }
               }
             }
           }

@@ -53,13 +53,14 @@ data class SakinahUiState(
   val selectedCalendarDateDay: Int = 6,
   val activeDetailPrayer: PrayerTimeItem? = null,
 
-  // Tasbeeh state & 5 distinct styles
+  // Tasbeeh state & styles
   val currentDhikr: DhikrPreset = DhikrPreset.PRESETS.first(),
   val tasbeehCount: Int = 0,
   val tasbeehTotalTarget: Int = 33,
   val tasbeehLaps: Int = 0,
-  val selectedTasbeehStyle: TasbeehStyle = TasbeehStyle.CIRCULAR,
+  val selectedTasbeehStyle: TasbeehStyle = TasbeehStyle.SEEDS,
   val isHapticEnabled: Boolean = true,
+  val isClickSoundEnabled: Boolean = true,
 
   // Allah's Names state
   val selectedAllahName: AllahName? = null,
@@ -75,6 +76,7 @@ data class SakinahUiState(
   val qiblaHeadingDegrees: Float = 0f,
   val qiblaBearingDegrees: Float = 262f, // Default for Rawalpindi is ~262° WSW
   val isQiblaAligned: Boolean = false,
+  val selectedCompassStyle: CompassStyle = CompassStyle.CLASSIC_GOLD,
 
   // Subscription & settings
   val isPremiumUnlocked: Boolean = false,

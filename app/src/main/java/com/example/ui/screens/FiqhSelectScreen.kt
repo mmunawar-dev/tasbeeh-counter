@@ -37,39 +37,69 @@ fun FiqhSelectScreen(
 
   Scaffold(
     containerColor = MaterialTheme.colorScheme.background,
-    bottomBar = {
-      Surface(
-        color = MaterialTheme.colorScheme.background,
+    topBar = {
+      // Header: Title "Fiqh" with clickable "✓ Apply" text action, no bottom Continue button
+      Row(
         modifier = Modifier
           .fillMaxWidth()
-          .navigationBarsPadding()
-          .padding(horizontal = 24.dp, vertical = 14.dp)
+          .statusBarsPadding()
+          .padding(top = 10.dp, start = 20.dp, end = 20.dp, bottom = 12.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
       ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-          if (!isSettingsMode) {
-            Text(
-              text = "You can easily change this anytime in Settings.",
-              style = MaterialTheme.typography.bodySmall,
-              color = MaterialTheme.colorScheme.onSurfaceVariant,
-              modifier = Modifier.padding(bottom = 10.dp)
-            )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+          if (isSettingsMode && onBack != null) {
+            IconButton(
+              onClick = onBack,
+              modifier = Modifier
+                .testTag("back_button")
+                .size(36.dp)
+            ) {
+              Text(
+                text = "←",
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.onBackground
+              )
+            }
+            Spacer(modifier = Modifier.width(6.dp))
           }
-
-          Button(
-            onClick = onContinue,
-            shape = RoundedCornerShape(14.dp),
-            colors = ButtonDefaults.buttonColors(
-              containerColor = MaterialTheme.colorScheme.primary,
-              contentColor = MaterialTheme.colorScheme.onPrimary
+          Text(
+            text = "Fiqh",
+            style = MaterialTheme.typography.headlineMedium.copy(
+              fontWeight = FontWeight.Bold,
+              fontSize = 24.sp
             ),
-            modifier = Modifier
-              .fillMaxWidth()
-              .height(52.dp)
-              .testTag("fiqh_continue_button")
+            color = MaterialTheme.colorScheme.onBackground
+          )
+        }
+
+        // Apply action with tick icon
+        Surface(
+          shape = RoundedCornerShape(12.dp),
+          color = MaterialTheme.colorScheme.primary,
+          modifier = Modifier
+            .clip(RoundedCornerShape(12.dp))
+            .clickable(onClick = onContinue)
+            .testTag("fiqh_apply_button")
+        ) {
+          Row(
+            modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
           ) {
+            Icon(
+              imageVector = Icons.Outlined.Check,
+              contentDescription = "Apply",
+              tint = MaterialTheme.colorScheme.onPrimary,
+              modifier = Modifier.size(16.dp)
+            )
             Text(
-              text = if (isSettingsMode) "Save Changes" else "Continue",
-              style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
+              text = "Apply",
+              style = MaterialTheme.typography.labelLarge.copy(
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp
+              ),
+              color = MaterialTheme.colorScheme.onPrimary
             )
           }
         }
@@ -80,32 +110,16 @@ fun FiqhSelectScreen(
       modifier = Modifier
         .fillMaxSize()
         .padding(padding)
-        .statusBarsPadding()
         .verticalScroll(scrollState)
-        .padding(horizontal = 24.dp, vertical = 16.dp)
+        .padding(horizontal = 20.dp, vertical = 8.dp)
     ) {
-      if (isSettingsMode && onBack != null) {
-        IconButton(
-          onClick = onBack,
-          modifier = Modifier
-            .testTag("back_button")
-            .padding(bottom = 8.dp)
-        ) {
-          Text(
-            text = "←",
-            style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.onBackground
-          )
-        }
-      }
-
       Text(
         text = "Choose your prayer method",
-        style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
+        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
         color = MaterialTheme.colorScheme.onBackground
       )
 
-      Spacer(modifier = Modifier.height(6.dp))
+      Spacer(modifier = Modifier.height(4.dp))
 
       Text(
         text = "Different schools of jurisprudence observe slightly different start times for Asr prayer. Select your preference below.",
@@ -113,7 +127,7 @@ fun FiqhSelectScreen(
         color = MaterialTheme.colorScheme.onSurfaceVariant
       )
 
-      Spacer(modifier = Modifier.height(24.dp))
+      Spacer(modifier = Modifier.height(20.dp))
 
       Text(
         text = "ASR TIME CALCULATION",
@@ -126,18 +140,18 @@ fun FiqhSelectScreen(
 
       Spacer(modifier = Modifier.height(10.dp))
 
-      Madhab.values().forEach { madhab ->
+      Madhab.entries.forEach { madhab ->
         val isSelected = madhab == selectedMadhab
         Surface(
           shape = RoundedCornerShape(16.dp),
           color = if (isSelected) sakinahColors.activePrayerBackground else MaterialTheme.colorScheme.surface,
           border = BorderStroke(
             width = if (isSelected) 1.5.dp else 1.dp,
-            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant
+            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f)
           ),
           modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 6.dp)
+            .padding(vertical = 5.dp)
             .clip(RoundedCornerShape(16.dp))
             .clickable { onMadhabSelected(madhab) }
             .testTag("madhab_${madhab.name.lowercase()}")
@@ -145,7 +159,7 @@ fun FiqhSelectScreen(
           Row(
             modifier = Modifier
               .fillMaxWidth()
-              .padding(18.dp),
+              .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
           ) {
@@ -207,7 +221,7 @@ fun FiqhSelectScreen(
         }
       }
 
-      Spacer(modifier = Modifier.height(28.dp))
+      Spacer(modifier = Modifier.height(24.dp))
 
       Text(
         text = "CALCULATION AUTHORITY",
@@ -220,14 +234,14 @@ fun FiqhSelectScreen(
 
       Spacer(modifier = Modifier.height(10.dp))
 
-      CalculationMethod.values().forEach { method ->
+      CalculationMethod.entries.forEach { method ->
         val isSelected = method == selectedMethod
         Surface(
           shape = RoundedCornerShape(12.dp),
           color = if (isSelected) sakinahColors.activePrayerBackground else MaterialTheme.colorScheme.surface,
           border = BorderStroke(
             width = if (isSelected) 1.5.dp else 1.dp,
-            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant
+            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f)
           ),
           modifier = Modifier
             .fillMaxWidth()
@@ -270,7 +284,7 @@ fun FiqhSelectScreen(
         }
       }
 
-      Spacer(modifier = Modifier.height(30.dp))
+      Spacer(modifier = Modifier.height(24.dp))
     }
   }
 }

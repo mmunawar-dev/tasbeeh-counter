@@ -288,12 +288,14 @@ class SakinahViewModel : ViewModel() {
       val newCount = state.tasbeehCount + 1
       if (newCount >= state.tasbeehTotalTarget) {
         triggerHaptic(context, isTargetReached = true)
+        triggerClickSound(context)
         state.copy(
           tasbeehCount = 0,
           tasbeehLaps = state.tasbeehLaps + 1
         )
       } else {
         triggerHaptic(context, isTargetReached = false)
+        triggerClickSound(context)
         state.copy(tasbeehCount = newCount)
       }
     }
@@ -321,8 +323,16 @@ class SakinahViewModel : ViewModel() {
     _uiState.update { it.copy(selectedTasbeehStyle = style) }
   }
 
+  fun setCompassStyle(style: CompassStyle) {
+    _uiState.update { it.copy(selectedCompassStyle = style) }
+  }
+
   fun toggleHaptic() {
     _uiState.update { it.copy(isHapticEnabled = !it.isHapticEnabled) }
+  }
+
+  fun toggleClickSound() {
+    _uiState.update { it.copy(isClickSoundEnabled = !it.isClickSoundEnabled) }
   }
 
   fun togglePrePrayerReminder() {
@@ -489,27 +499,61 @@ class SakinahViewModel : ViewModel() {
         if (bestLocation != null) {
           val lat = bestLocation.latitude
           val lng = bestLocation.longitude
+
+          // Attempt Geocoder to resolve actual City and Country name
+          var resolvedCityName: String? = null
+          var resolvedCountryName: String? = null
+          try {
+            val geocoder = android.location.Geocoder(context, java.util.Locale.getDefault())
+            val addresses = geocoder.getFromLocation(lat, lng, 1)
+            if (!addresses.isNullOrEmpty()) {
+              val addr = addresses[0]
+              resolvedCityName = addr.locality ?: addr.subAdminArea ?: addr.adminArea
+              resolvedCountryName = addr.countryName
+            }
+          } catch (_: Exception) {
+          }
+
           val nearest = CityLocation.PRESET_CITIES.minByOrNull { city ->
             val dLat = city.latitude - lat
             val dLng = city.longitude - lng
             dLat * dLat + dLng * dLng
           }
 
-          if (nearest != null) {
-            selectCity(
-              nearest.copy(
-                isGpsDetected = true,
-                latitude = lat,
-                longitude = lng
-              )
+          val resolvedCity = if (resolvedCityName != null && resolvedCountryName != null) {
+            val tzOffset = java.util.TimeZone.getDefault().rawOffset / (1000.0 * 60 * 60)
+            CityLocation(
+              id = "gps_${lat.toInt()}_${lng.toInt()}",
+              name = resolvedCityName,
+              country = resolvedCountryName,
+              latitude = lat,
+              longitude = lng,
+              timeZoneOffsetHours = tzOffset,
+              isGpsDetected = true,
+              recommendedMethod = nearest?.recommendedMethod ?: CalculationMethod.MWL,
+              recommendedMadhab = nearest?.recommendedMadhab ?: Madhab.HANAFI
             )
+          } else if (nearest != null) {
+            nearest.copy(
+              isGpsDetected = true,
+              latitude = lat,
+              longitude = lng
+            )
+          } else {
+            CityLocation.DEFAULT_CITY.copy(isGpsDetected = true, latitude = lat, longitude = lng)
           }
+
+          selectCity(resolvedCity)
         } else {
-          delay(800)
-          selectCity(CityLocation.DEFAULT_CITY.copy(isGpsDetected = true))
+          // If GPS is unavailable, keep existing selected city or default gracefully
+          if (_uiState.value.selectedCity.id.isEmpty()) {
+            selectCity(CityLocation.DEFAULT_CITY)
+          }
         }
       } catch (_: Exception) {
-        selectCity(CityLocation.DEFAULT_CITY)
+        if (_uiState.value.selectedCity.id.isEmpty()) {
+          selectCity(CityLocation.DEFAULT_CITY)
+        }
       } finally {
         _uiState.update { it.copy(isGpsSearching = false) }
       }
@@ -536,6 +580,15 @@ class SakinahViewModel : ViewModel() {
           vibrator?.vibrate(20)
         }
       }
+    } catch (_: Exception) {
+    }
+  }
+
+  private fun triggerClickSound(context: Context) {
+    if (!_uiState.value.isClickSoundEnabled) return
+    try {
+      val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as? android.media.AudioManager
+      audioManager?.playSoundEffect(android.media.AudioManager.FX_KEY_CLICK, 0.8f)
     } catch (_: Exception) {
     }
   }

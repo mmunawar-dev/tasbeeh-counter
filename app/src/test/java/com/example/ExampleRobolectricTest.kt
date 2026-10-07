@@ -92,4 +92,19 @@ class ExampleRobolectricTest {
     assertTrue("MP3 file must have content", availableBytes > 0)
     inputStream.close()
   }
+
+  @Test
+  fun `compass and tasbeeh styles contain all requested modes`() {
+    val compassStyles = com.example.model.CompassStyle.entries
+    assertTrue(compassStyles.contains(com.example.model.CompassStyle.CLASSIC_GOLD))
+    assertTrue(compassStyles.contains(com.example.model.CompassStyle.EMERALD_MINIMAL))
+    assertTrue(compassStyles.contains(com.example.model.CompassStyle.ASTROLABE))
+    assertTrue(compassStyles.contains(com.example.model.CompassStyle.KAABA_ARROW))
+    assertTrue(compassStyles.contains(com.example.model.CompassStyle.NIGHT_CELESTIAL))
+
+    val tasbeehStyles = com.example.model.TasbeehStyle.entries
+    assertTrue(tasbeehStyles.contains(com.example.model.TasbeehStyle.SEEDS))
+    assertTrue(tasbeehStyles.contains(com.example.model.TasbeehStyle.HAND_TASBEEH))
+    assertTrue(tasbeehStyles.contains(com.example.model.TasbeehStyle.BALLOONS_LINE))
+  }
 }
