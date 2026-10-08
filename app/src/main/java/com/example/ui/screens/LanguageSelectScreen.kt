@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
@@ -20,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.model.AppLanguage
@@ -43,7 +43,7 @@ fun LanguageSelectScreen(
         modifier = Modifier
           .fillMaxWidth()
           .statusBarsPadding()
-          .padding(top = 10.dp, start = 20.dp, end = 20.dp, bottom = 12.dp),
+          .padding(top = 10.dp, start = 20.dp, end = 20.dp, bottom = 10.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
       ) {
@@ -73,7 +73,7 @@ fun LanguageSelectScreen(
           )
         }
 
-        // Apply action with tick icon
+        // Apply action with tick icon on opposite side
         Surface(
           shape = RoundedCornerShape(12.dp),
           color = MaterialTheme.colorScheme.primary,
@@ -106,7 +106,8 @@ fun LanguageSelectScreen(
       }
     }
   ) { padding ->
-    // 2-Column Grid of Language Cards (respecting RTL per language where appropriate)
+    // 2-Column Grid of Language Cards with FIXED STRUCTURE:
+    // [ Flag ] — 10dp spacing — [ Language name + native language below ] — [ Radio button ]
     LazyVerticalGrid(
       columns = GridCells.Fixed(2),
       modifier = Modifier
@@ -121,26 +122,37 @@ fun LanguageSelectScreen(
         val isSelected = language == selectedLanguage
 
         Surface(
-          shape = RoundedCornerShape(16.dp),
+          shape = RoundedCornerShape(14.dp),
           color = if (isSelected) sakinahColors.activePrayerBackground else MaterialTheme.colorScheme.surface,
           border = BorderStroke(
             width = if (isSelected) 1.5.dp else 1.dp,
-            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f)
+            color = if (isSelected) sakinahColors.activePrayerBorder else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f)
           ),
           modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(14.dp))
             .clickable { onLanguageSelected(language) }
             .testTag("language_option_${language.code}")
         ) {
-          CompositionLocalProvider(LocalLayoutDirection provides language.layoutDirection) {
+          // Strictly force LTR inside the card so alignment is 100% identical and predictable across all cards:
+          // [ Flag ] (far left) — 10dp spacing — [ Name + Native ] (center) — [ Radio ] (far right)
+          CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
             Row(
               modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 12.dp, vertical = 14.dp),
-              verticalAlignment = Alignment.CenterVertically,
-              horizontalArrangement = Arrangement.SpaceBetween
+              verticalAlignment = Alignment.CenterVertically
             ) {
+              // 1. Flag: ALWAYS at the far left
+              Text(
+                text = language.flagEmoji,
+                fontSize = 22.sp
+              )
+
+              // Exact 10dp horizontal spacing after flag
+              Spacer(modifier = Modifier.width(10.dp))
+
+              // 2. Language name (first line) + native language underneath (second line)
               Column(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.Center
@@ -149,7 +161,7 @@ fun LanguageSelectScreen(
                   text = language.displayName,
                   style = MaterialTheme.typography.titleSmall.copy(
                     fontWeight = if (isSelected) FontWeight.Bold else FontWeight.SemiBold,
-                    fontSize = 15.sp
+                    fontSize = 14.sp
                   ),
                   color = MaterialTheme.colorScheme.onSurface,
                   maxLines = 1
@@ -158,7 +170,7 @@ fun LanguageSelectScreen(
                 Text(
                   text = language.nativeName,
                   style = MaterialTheme.typography.bodySmall.copy(
-                    fontSize = 13.sp,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.Normal
                   ),
                   color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -166,32 +178,20 @@ fun LanguageSelectScreen(
                 )
               }
 
-              // Trailing side: Country flag + selection indicator
-              Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(6.dp)
-              ) {
-                Text(
-                  text = language.flagEmoji,
-                  fontSize = 20.sp
-                )
+              Spacer(modifier = Modifier.width(6.dp))
 
-                if (isSelected) {
-                  Box(
-                    modifier = Modifier
-                      .size(20.dp)
-                      .background(MaterialTheme.colorScheme.primary, CircleShape),
-                    contentAlignment = Alignment.Center
-                  ) {
-                    Icon(
-                      imageVector = Icons.Outlined.Check,
-                      contentDescription = "Selected",
-                      tint = MaterialTheme.colorScheme.onPrimary,
-                      modifier = Modifier.size(12.dp)
-                    )
-                  }
-                }
-              }
+              // 3. Radio selection button: ALWAYS at the far right
+              RadioButton(
+                selected = isSelected,
+                onClick = { onLanguageSelected(language) },
+                colors = RadioButtonDefaults.colors(
+                  selectedColor = MaterialTheme.colorScheme.primary,
+                  unselectedColor = MaterialTheme.colorScheme.outline
+                ),
+                modifier = Modifier
+                  .size(24.dp)
+                  .testTag("language_radio_${language.code}")
+              )
             }
           }
         }

@@ -45,66 +45,72 @@ fun CurrentPrayerCard(
   val isCurrentActive = activePrayer != null && activePrayer.type != PrayerType.SUNRISE
   val primaryDisplay = if (isCurrentActive) activePrayer!! else nextPrayer
 
-  // Premium jewel two-color gradient with strong text contrast
-  val gradientColors = if (isDark) {
-    if (isCurrentActive) {
-      listOf(Color(0xFF0F382A), Color(0xFF1E5240))
-    } else {
-      listOf(Color(0xFF142922), Color(0xFF1E3D34))
-    }
-  } else {
-    if (isCurrentActive) {
-      listOf(Color(0xFF0B4634), Color(0xFF186850))
-    } else {
-      listOf(Color(0xFF1A4537), Color(0xFF285E4D))
-    }
-  }
+  // Light theme matching reference UI:
+  // Warm creamy parchment/sand background gradient with subtle warm tone
+  val lightBgGradient = listOf(Color(0xFFF9F5EC), Color(0xFFF4EFE2))
+  val lightBorder = Color(0xFFE8DECB)
 
-  val gradientBrush = Brush.linearGradient(colors = gradientColors)
-  val borderColor = if (isCurrentActive) Color(0xFF38B289) else Color(0xFF568070)
+  // Dark theme: deep emerald jewel gradient
+  val darkBgGradient = if (isCurrentActive) {
+    listOf(Color(0xFF0F382A), Color(0xFF1E5240))
+  } else {
+    listOf(Color(0xFF142922), Color(0xFF1E3D34))
+  }
+  val darkBorder = if (isCurrentActive) Color(0xFF38B289) else Color(0xFF568070)
+
+  val gradientColors = if (isDark) darkBgGradient else lightBgGradient
+  val borderColor = if (isDark) darkBorder else lightBorder
 
   Card(
-    shape = RoundedCornerShape(22.dp),
+    shape = RoundedCornerShape(26.dp),
     colors = CardDefaults.cardColors(containerColor = Color.Transparent),
     border = BorderStroke(1.2.dp, borderColor),
-    elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+    elevation = CardDefaults.cardElevation(defaultElevation = if (isDark) 4.dp else 2.dp),
     modifier = modifier
       .fillMaxWidth()
       .testTag("current_prayer_card")
-      .clip(RoundedCornerShape(22.dp))
+      .clip(RoundedCornerShape(26.dp))
   ) {
     Box(
       modifier = Modifier
         .fillMaxWidth()
-        .background(gradientBrush)
-        .padding(horizontal = 20.dp, vertical = 18.dp)
+        .background(Brush.verticalGradient(colors = gradientColors))
+        .padding(horizontal = 20.dp, vertical = 20.dp)
     ) {
       Column(modifier = Modifier.fillMaxWidth()) {
-        // TOP ROW: Status badge & Compact "Prayer Times →" Button
+        // TOP ROW: Status badge (e.g. UPCOMING PRAYER) & "Prayer Times →" Button
         Row(
           modifier = Modifier.fillMaxWidth(),
           horizontalArrangement = Arrangement.SpaceBetween,
           verticalAlignment = Alignment.CenterVertically
         ) {
-          // Status Pill (Single language, clean badge)
+          // Status Pill: Ochre/Olive outlined chip as in reference UI
           Surface(
-            shape = RoundedCornerShape(12.dp),
-            color = Color(0x33000000),
+            shape = RoundedCornerShape(20.dp),
+            color = if (isDark) Color(0x33000000) else Color(0x1F8A6B38),
             border = BorderStroke(
               1.dp,
-              if (isCurrentActive) Color(0x8055E6B7) else Color(0x80ECC25D)
+              if (isDark) {
+                if (isCurrentActive) Color(0x8055E6B7) else Color(0x80ECC25D)
+              } else {
+                Color(0xFFC7B18E)
+              }
             )
           ) {
             Row(
               verticalAlignment = Alignment.CenterVertically,
               horizontalArrangement = Arrangement.spacedBy(6.dp),
-              modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+              modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp)
             ) {
               Box(
                 modifier = Modifier
-                  .size(7.dp)
+                  .size(6.dp)
                   .background(
-                    if (isCurrentActive) Color(0xFF55E6B7) else Color(0xFFECC25D),
+                    if (isDark) {
+                      if (isCurrentActive) Color(0xFF55E6B7) else Color(0xFFECC25D)
+                    } else {
+                      Color(0xFF8A6B38)
+                    },
                     CircleShape
                   )
               )
@@ -115,16 +121,20 @@ fun CurrentPrayerCard(
                   letterSpacing = 1.sp,
                   fontSize = 10.sp
                 ),
-                color = if (isCurrentActive) Color(0xFF55E6B7) else Color(0xFFECC25D)
+                color = if (isDark) {
+                  if (isCurrentActive) Color(0xFF55E6B7) else Color(0xFFECC25D)
+                } else {
+                  Color(0xFF7A5C2B)
+                }
               )
             }
           }
 
-          // Compact Button: Opens dedicated Prayer Times screen
+          // "Prayer Times →" Button (outlined pill with arrow)
           Surface(
             shape = RoundedCornerShape(20.dp),
-            color = Color(0x33FFFFFF),
-            border = BorderStroke(1.dp, Color(0x66FFFFFF)),
+            color = if (isDark) Color(0x33FFFFFF) else Color(0x1F8A6B38),
+            border = BorderStroke(1.dp, if (isDark) Color(0x66FFFFFF) else Color(0xFFC7B18E)),
             modifier = Modifier
               .clip(RoundedCornerShape(20.dp))
               .clickable(onClick = onOpenPrayerTimes)
@@ -132,81 +142,100 @@ fun CurrentPrayerCard(
           ) {
             Row(
               verticalAlignment = Alignment.CenterVertically,
-              horizontalArrangement = Arrangement.spacedBy(5.dp),
+              horizontalArrangement = Arrangement.spacedBy(6.dp),
               modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
             ) {
               Text(
                 text = "Prayer Times",
                 style = MaterialTheme.typography.labelMedium.copy(
                   fontWeight = FontWeight.Bold,
-                  fontSize = 11.5.sp
+                  fontSize = 12.sp
                 ),
-                color = Color.White
+                color = if (isDark) Color.White else Color(0xFF5A4420)
               )
               Icon(
                 imageVector = Icons.AutoMirrored.Outlined.ArrowForward,
                 contentDescription = "Prayer Times",
-                tint = Color.White,
+                tint = if (isDark) Color.White else Color(0xFF5A4420),
                 modifier = Modifier.size(13.dp)
               )
             }
           }
         }
 
-        Spacer(modifier = Modifier.height(14.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-        // PRAYER NAME & REMAINING TIME ROW (No repeated Urdu, no labels, no click to bottom sheet)
+        // PRAYER NAME & REMAINING TIME ROW
         Row(
           modifier = Modifier.fillMaxWidth(),
           horizontalArrangement = Arrangement.SpaceBetween,
           verticalAlignment = Alignment.CenterVertically
         ) {
-          // Prayer Name (Clean, single language name)
+          // Prayer Name: Deep forest green in light mode (e.g. Dhuhr), Crisp white in dark mode
           Text(
             text = primaryDisplay.type.localizedName(language),
             style = MaterialTheme.typography.headlineMedium.copy(
-              fontWeight = FontWeight.ExtraBold,
+              fontWeight = FontWeight.Bold,
               fontSize = 32.sp,
               letterSpacing = (-0.5).sp
             ),
-            color = Color.White
+            color = if (isDark) Color.White else Color(0xFF133E31)
           )
 
-          // Remaining Time Pill (High contrast badge)
+          // Remaining Time Pill (Ochre outlined badge with clock icon)
           Surface(
-            shape = RoundedCornerShape(12.dp),
-            color = if (isCurrentActive) Color(0xFFECC25D) else Color(0x33000000),
-            border = if (isCurrentActive) null else BorderStroke(1.dp, Color(0x6655E6B7))
+            shape = RoundedCornerShape(14.dp),
+            color = if (isDark) {
+              if (isCurrentActive) Color(0xFFECC25D) else Color(0x33000000)
+            } else {
+              Color(0x1F8A6B38)
+            },
+            border = BorderStroke(
+              1.dp,
+              if (isDark) {
+                if (isCurrentActive) Color(0xFFECC25D) else Color(0x6655E6B7)
+              } else {
+                Color(0xFFC7B18E)
+              }
+            )
           ) {
             Row(
               modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
               verticalAlignment = Alignment.CenterVertically,
-              horizontalArrangement = Arrangement.spacedBy(5.dp)
+              horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
               Icon(
                 imageVector = Icons.Outlined.AccessTime,
                 contentDescription = null,
-                tint = if (isCurrentActive) Color(0xFF18281C) else Color(0xFF55E6B7),
+                tint = if (isDark) {
+                  if (isCurrentActive) Color(0xFF18281C) else Color(0xFF55E6B7)
+                } else {
+                  Color(0xFF7A5C2B)
+                },
                 modifier = Modifier.size(14.dp)
               )
               Text(
-                text = "${primaryDisplay.remainingTimeFormatted} remaining",
+                text = "In ${primaryDisplay.remainingTimeFormatted} remaining",
                 style = MaterialTheme.typography.labelMedium.copy(
-                  fontWeight = FontWeight.Bold,
-                  fontSize = 12.sp
+                  fontWeight = FontWeight.SemiBold,
+                  fontSize = 11.5.sp
                 ),
-                color = if (isCurrentActive) Color(0xFF18281C) else Color(0xFF55E6B7)
+                color = if (isDark) {
+                  if (isCurrentActive) Color(0xFF18281C) else Color(0xFF55E6B7)
+                } else {
+                  Color(0xFF6E5122)
+                }
               )
             }
           }
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
-        // START & END TIMES ROW
+        // START & END TIMES ROW: "Started 01:00 PM - Ends 05:01 PM"
         Row(
           modifier = Modifier.fillMaxWidth(),
-          horizontalArrangement = Arrangement.spacedBy(16.dp),
+          horizontalArrangement = Arrangement.spacedBy(12.dp),
           verticalAlignment = Alignment.CenterVertically
         ) {
           Text(
@@ -215,12 +244,13 @@ fun CurrentPrayerCard(
               fontWeight = FontWeight.Medium,
               fontSize = 13.5.sp
             ),
-            color = Color(0xFFE0F2EB)
+            color = if (isDark) Color(0xFFE0F2EB) else Color(0xFF42524A)
           )
 
           Text(
-            text = "•",
-            color = Color(0x80FFFFFF)
+            text = "-",
+            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
+            color = if (isDark) Color(0x80FFFFFF) else Color(0xFF8A9A92)
           )
 
           Text(
@@ -229,22 +259,22 @@ fun CurrentPrayerCard(
               fontWeight = FontWeight.Medium,
               fontSize = 13.5.sp
             ),
-            color = Color(0xFFE0F2EB)
+            color = if (isDark) Color(0xFFE0F2EB) else Color(0xFF42524A)
           )
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(18.dp))
 
         // SUBTLE DIVIDER
         HorizontalDivider(
           modifier = Modifier.fillMaxWidth(),
-          color = Color(0x33FFFFFF),
-          thickness = 0.8.dp
+          color = if (isDark) Color(0x33FFFFFF) else Color(0xFFE2D6C2),
+          thickness = 0.9.dp
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(14.dp))
 
-        // QUICK NOTIFICATION CONTROLS: Sound, Vibrate, Silent, Off
+        // QUICK NOTIFICATION CONTROLS: "Alert:" & [ ☼ | ◷ | Silent | ⍈ ]
         Row(
           modifier = Modifier.fillMaxWidth(),
           horizontalArrangement = Arrangement.SpaceBetween,
@@ -262,25 +292,28 @@ fun CurrentPrayerCard(
                 PrayerNotificationMode.OFF -> Icons.Outlined.NotificationsOff
               },
               contentDescription = null,
-              tint = Color(0xFFD0EDE2),
+              tint = if (isDark) Color(0xFFD0EDE2) else Color(0xFF5A4420),
               modifier = Modifier.size(16.dp)
             )
             Text(
-              text = "Alert:",
+              text = "Alert",
               style = MaterialTheme.typography.labelSmall.copy(
-                fontWeight = FontWeight.Medium,
+                fontWeight = FontWeight.SemiBold,
                 fontSize = 12.sp
               ),
-              color = Color(0xFFD0EDE2)
+              color = if (isDark) Color(0xFFD0EDE2) else Color(0xFF333333)
             )
           }
 
-          // Segmented Toggle Pills
+          // Segmented Toggle Pills: White active pill with green highlight in light mode
           Row(
             modifier = Modifier
-              .background(Color(0x26000000), RoundedCornerShape(10.dp))
-              .padding(2.dp),
-            horizontalArrangement = Arrangement.spacedBy(2.dp),
+              .background(
+                if (isDark) Color(0x26000000) else Color(0xFFE6DEC9),
+                RoundedCornerShape(12.dp)
+              )
+              .padding(3.dp),
+            horizontalArrangement = Arrangement.spacedBy(3.dp),
             verticalAlignment = Alignment.CenterVertically
           ) {
             val modes = listOf(
@@ -293,25 +326,33 @@ fun CurrentPrayerCard(
             modes.forEach { (mode, icon, label) ->
               val isSelected = currentNotificationMode == mode
               Surface(
-                shape = RoundedCornerShape(8.dp),
-                color = if (isSelected) Color.White else Color.Transparent,
-                shadowElevation = if (isSelected) 2.dp else 0.dp,
+                shape = RoundedCornerShape(10.dp),
+                color = if (isSelected) {
+                  if (isDark) Color.White else Color(0xFF7FA894)
+                } else {
+                  Color.Transparent
+                },
+                shadowElevation = if (isSelected) 1.dp else 0.dp,
                 modifier = Modifier
-                  .clip(RoundedCornerShape(8.dp))
+                  .clip(RoundedCornerShape(10.dp))
                   .clickable {
                     onNotificationModeChange(primaryDisplay.type, mode)
                   }
                   .testTag("quick_mode_${primaryDisplay.type.name.lowercase()}_${mode.name.lowercase()}")
               ) {
                 Row(
-                  modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp),
+                  modifier = Modifier.padding(horizontal = 9.dp, vertical = 6.dp),
                   verticalAlignment = Alignment.CenterVertically,
                   horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                   Icon(
                     imageVector = icon,
                     contentDescription = label,
-                    tint = if (isSelected) Color(0xFF0F382A) else Color(0xCCFFFFFF),
+                    tint = if (isSelected) {
+                      if (isDark) Color(0xFF0F382A) else Color.White
+                    } else {
+                      if (isDark) Color(0xCCFFFFFF) else Color(0xFF635640)
+                    },
                     modifier = Modifier.size(13.dp)
                   )
                   if (isSelected) {
@@ -319,9 +360,9 @@ fun CurrentPrayerCard(
                       text = label,
                       style = MaterialTheme.typography.labelSmall.copy(
                         fontWeight = FontWeight.Bold,
-                        fontSize = 10.5.sp
+                        fontSize = 11.sp
                       ),
-                      color = Color(0xFF0F382A)
+                      color = if (isDark) Color(0xFF0F382A) else Color.White
                     )
                   }
                 }

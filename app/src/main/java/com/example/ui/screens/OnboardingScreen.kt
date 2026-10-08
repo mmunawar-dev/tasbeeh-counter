@@ -40,19 +40,19 @@ fun OnboardingScreen(
 
   val pages = listOf(
     OnboardingPageData(
-      imageRes = R.drawable.onboarding_prayer_3d_1791398392108,
+      imageRes = R.drawable.img_prayer_real_1791484687970,
       title = "Know Prayer Times",
       description = "Accurate daily prayer timetable calculated precisely for your location, sun position, and fiqh preferences.",
       subtitlePill = "ACCURATE & LOCALIZED"
     ),
     OnboardingPageData(
-      imageRes = R.drawable.onboarding_tasbeeh_3d_1791398405219,
+      imageRes = R.drawable.img_tasbeeh_real_1791484707858,
       title = "Remember Allah / Tasbeeh",
       description = "Perform your daily dhikr with a digital Tasbeeh counter featuring authentic presets, bead tactile modes, and goal tracking.",
       subtitlePill = "DIGITAL TASBEEH & DHIKR"
     ),
     OnboardingPageData(
-      imageRes = R.drawable.onboarding_qibla_3d_1791398419868,
+      imageRes = R.drawable.img_qibla_real_1791484726025,
       title = "Qibla & Guidance",
       description = "Find the exact direction of the Holy Kaaba with a precise compass, plus authentic daily Duas and Islamic calendar.",
       subtitlePill = "QIBLA COMPASS & DUAS"
@@ -61,13 +61,14 @@ fun OnboardingScreen(
 
   Scaffold(
     containerColor = MaterialTheme.colorScheme.background,
+    contentWindowInsets = WindowInsets(0.dp), // 0dp system top padding: image starts directly from top
     bottomBar = {
       // Single horizontal row: Left: dot/page indicators | Right: compact Continue button ("Next" or "Get Started")
       Row(
         modifier = Modifier
           .fillMaxWidth()
           .navigationBarsPadding()
-          .padding(horizontal = 24.dp, vertical = 20.dp),
+          .padding(horizontal = 24.dp, vertical = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
       ) {
@@ -131,13 +132,11 @@ fun OnboardingScreen(
       }
     }
   ) { padding ->
+    // Onboarding top/system padding is 0dp. Image starts directly from parent top.
     Box(
       modifier = Modifier
         .fillMaxSize()
-        .padding(padding)
-        .statusBarsPadding()
-        .padding(horizontal = 24.dp),
-      contentAlignment = Alignment.Center
+        .padding(bottom = padding.calculateBottomPadding())
     ) {
       AnimatedContent(
         targetState = currentPage,
@@ -145,71 +144,79 @@ fun OnboardingScreen(
         label = "onboarding_content"
       ) { targetPage ->
         val page = pages[targetPage]
+
         Column(
-          horizontalAlignment = Alignment.CenterHorizontally,
-          verticalArrangement = Arrangement.Center,
-          modifier = Modifier.fillMaxWidth()
+          modifier = Modifier.fillMaxSize(),
+          horizontalAlignment = Alignment.CenterHorizontally
         ) {
-          // Solid 3D Illustration
-          Surface(
-            shape = RoundedCornerShape(24.dp),
-            shadowElevation = 6.dp,
-            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+          // Large Hero Image:
+          // Full width (match_parent), height dynamically filling the top area up to the heading/text section (weight(1f) = height 0dp constrained from parent top to top of heading section)
+          Box(
             modifier = Modifier
-              .size(230.dp)
-              .clip(RoundedCornerShape(24.dp))
+              .fillMaxWidth()
+              .weight(1f)
+              .clip(RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp))
           ) {
             Image(
               painter = painterResource(id = page.imageRes),
               contentDescription = page.title,
-              contentScale = ContentScale.Crop,
+              contentScale = ContentScale.Crop, // CenterCrop without distortion
               modifier = Modifier.fillMaxSize()
             )
           }
 
-          Spacer(modifier = Modifier.height(24.dp))
-
-          // Subtitle Tag Pill
-          Surface(
-            shape = RoundedCornerShape(6.dp),
-            color = MaterialTheme.colorScheme.secondaryContainer
+          // Heading & Text Section: neatly arranged below the image
+          Column(
+            modifier = Modifier
+              .fillMaxWidth()
+              .padding(horizontal = 24.dp)
+              .padding(top = 20.dp, bottom = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
           ) {
+            // Subtitle Tag Pill
+            Surface(
+              shape = RoundedCornerShape(6.dp),
+              color = MaterialTheme.colorScheme.secondaryContainer
+            ) {
+              Text(
+                text = page.subtitlePill,
+                style = MaterialTheme.typography.labelSmall.copy(
+                  fontWeight = FontWeight.Bold,
+                  fontSize = 11.sp,
+                  letterSpacing = 0.8.sp
+                ),
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp)
+              )
+            }
+
+            Spacer(modifier = Modifier.height(14.dp))
+
+            // Title
             Text(
-              text = page.subtitlePill,
-              style = MaterialTheme.typography.labelSmall.copy(
+              text = page.title,
+              style = MaterialTheme.typography.headlineMedium.copy(
                 fontWeight = FontWeight.Bold,
-                fontSize = 11.sp,
-                letterSpacing = 0.8.sp
+                fontSize = 24.sp
               ),
-              color = MaterialTheme.colorScheme.onSecondaryContainer,
-              modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+              color = MaterialTheme.colorScheme.onBackground,
+              textAlign = TextAlign.Center
+            )
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Description
+            Text(
+              text = page.description,
+              style = MaterialTheme.typography.bodyLarge.copy(
+                lineHeight = 22.sp,
+                fontSize = 15.sp
+              ),
+              color = MaterialTheme.colorScheme.onSurfaceVariant,
+              textAlign = TextAlign.Center,
+              modifier = Modifier.padding(horizontal = 6.dp)
             )
           }
-
-          Spacer(modifier = Modifier.height(14.dp))
-
-          Text(
-            text = page.title,
-            style = MaterialTheme.typography.headlineMedium.copy(
-              fontWeight = FontWeight.Bold,
-              fontSize = 24.sp
-            ),
-            color = MaterialTheme.colorScheme.onBackground,
-            textAlign = TextAlign.Center
-          )
-
-          Spacer(modifier = Modifier.height(10.dp))
-
-          Text(
-            text = page.description,
-            style = MaterialTheme.typography.bodyLarge.copy(
-              lineHeight = 22.sp,
-              fontSize = 15.sp
-            ),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 10.dp)
-          )
         }
       }
     }
