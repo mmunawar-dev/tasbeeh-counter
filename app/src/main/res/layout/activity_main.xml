@@ -488,15 +488,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ADMOB BANNER AD (Traditional XML / Native View) -->
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/ad_view_main"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:adSize="BANNER"
-                app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

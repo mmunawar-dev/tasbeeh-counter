@@ -356,26 +356,6 @@ fun HomeScreen(
           }
         }
 
-        // 4. AdMob Banner Ad (Free Tier)
-        if (!state.isPremiumUnlocked) {
-          item {
-            Surface(
-              shape = RoundedCornerShape(12.dp),
-              color = if (isDark) MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f) else Color(0xFFF2F4F2),
-              modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 4.dp)
-            ) {
-              Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(vertical = 4.dp)
-              ) {
-                com.example.ads.AdBannerView()
-              }
-            }
-          }
-        }
-
         // Bottom padding for audio mini-player
         item {
           Spacer(modifier = Modifier.height(84.dp))

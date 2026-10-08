@@ -91,7 +91,7 @@ dependencies {
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.appcompat)
   implementation(libs.com.google.android.material)
-  implementation(libs.play.services.ads)
+  // implementation(libs.play.services.ads)
   implementation(libs.androidx.lifecycle.livedata.ktx)
   // implementation(libs.androidx.camera.camera2)
   // implementation(libs.androidx.camera.core)
