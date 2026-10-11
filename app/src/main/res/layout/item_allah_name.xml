@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_allah_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/surface_light"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/outline_border"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- COLLAPSED HEADER ROW -->
+        <LinearLayout
+            android:id="@+id/layout_collapsed_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="14dp">
+
+            <!-- Number Circle Badge -->
+            <FrameLayout
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@drawable/bg_circle_emerald_container">
+
+                <TextView
+                    android:id="@+id/tv_name_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_family"
+                    android:text="1"
+                    android:textColor="@color/emerald_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <!-- Transliteration (Meaning removed from collapsed item) -->
+            <TextView
+                android:id="@+id/tv_name_transliteration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_family"
+                android:text="Ar-Rahman"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- Arabic Script -->
+            <TextView
+                android:id="@+id/tv_name_arabic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/montserrat_family"
+                android:text="الرَّحْمَنُ"
+                android:textColor="@color/emerald_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Downward Arrow (replaces Play/Pause button) -->
+            <ImageView
+                android:id="@+id/iv_expand_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Expand"
+                android:src="@drawable/icon_arrow_down"
+                />
+        </LinearLayout>
+
+        <!-- EXPANDED INLINE CONTENT (Reusing bottom-sheet UI and content) -->
+        <LinearLayout
+            android:id="@+id/layout_expanded_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="18dp"
+            android:visibility="gone">
+
+            <!-- Subtle Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/outline_border" />
+
+            <!-- Centered Details: Number Pill, Arabic, Transliteration, Meaning -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_expanded_number_pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_subtle"
+                    android:fontFamily="@font/montserrat_family"
+                    android:letterSpacing="0.08"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:text="NAME #1"
+                    android:textColor="@color/emerald_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Large Arabic Typography -->
+                <TextView
+                    android:id="@+id/tv_expanded_arabic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/montserrat_family"
+                    android:gravity="center"
+                    android:text="الرَّحْمَنُ"
+                    android:textColor="@color/emerald_primary"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <!-- Transliteration -->
+                <TextView
+                    android:id="@+id/tv_expanded_transliteration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/montserrat_family"
+                    android:gravity="center"
+                    android:text="Ar-Rahman"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <!-- English Meaning -->
+                <TextView
+                    android:id="@+id/tv_expanded_meaning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/montserrat_family"
+                    android:gravity="center"
+                    android:text="“The Entirely Merciful”"
+                    android:textColor="@color/ochre_secondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Spiritual Significance Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="@color/surface_variant_light"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_family"
+                        android:letterSpacing="0.08"
+                        android:text="SPIRITUAL SIGNIFICANCE"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_expanded_explanation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:lineSpacingMultiplier="1.25"
+                        android:text="The One who has plenty of mercy for all creation in this world."
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

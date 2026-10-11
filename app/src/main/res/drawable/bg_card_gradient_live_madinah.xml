@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:startColor="@color/card_madinah_start"
+        android:endColor="@color/card_madinah_end"
+        android:type="linear" />
+    <corners android:radius="22dp" />
+    <stroke
+        android:width="0.5dp"
+        android:color="@color/active_prayer_border" />
+</shape>

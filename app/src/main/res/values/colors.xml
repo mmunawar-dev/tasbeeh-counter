@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="emerald_primary">#133E31</color>
+    <color name="emerald_primary_dark">#52A88D</color>
+    <color name="emerald_light_container">#E2ECE7</color>
+    <color name="emerald_dark_container">#1B3B30</color>
+    <color name="ochre_secondary">#8A6B38</color>
+    <color name="ochre_secondary_dark">#D6B377</color>
+    <color name="background_light">#F9F9F6</color>
+    <color name="background_dark">#111714</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_dark">#17201C</color>
+    <color name="surface_variant_light">#EDF0EA</color>
+    <color name="surface_variant_dark">#1E2B25</color>
+    <color name="text_primary">#18211D</color>
+    <color name="text_secondary">#4E5D55</color>
+    <color name="text_tertiary">#7B8B82</color>
+    <color name="active_prayer_bg">#EDF5F1</color>
+    <color name="active_prayer_border">#EDF5F1</color>
+    <color name="outline_border">#D3DCD4</color>
+    <color name="gold_accent">#C49A45</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="card_green_light">#E4F6ED</color>
+    <color name="card_blue_light">#E1F1FB</color>
+    <color name="card_gold_light">#FAF2DC</color>
+    <color name="card_purple_light">#F3E8FA</color>
+    <color name="card_red_light">#FCE9E5</color>
+    <color name="card_mint_light">#E2F3E7</color>
+
+    <!-- Feature card gradients & styling (Light Theme) -->
+    <color name="card_allah_names_start">#E6F7EF</color>
+    <color name="card_allah_names_end">#CBEEDD</color>
+    <color name="card_allah_names_icon_bg">#B9E5CE</color>
+    <color name="card_allah_names_icon_tint">#0F5E3D</color>
+    <color name="card_allah_names_tag">#236145</color>
+    <color name="card_allah_names_title">#0B462D</color>
+    <color name="card_allah_names_subtitle">#236145</color>
+
+    <color name="card_tasbeeh_start">#E1F1FB</color>
+    <color name="card_tasbeeh_end">#C4E2F6</color>
+    <color name="card_tasbeeh_icon_bg">#B7D8F1</color>
+    <color name="card_tasbeeh_icon_tint">#145E8D</color>
+    <color name="card_tasbeeh_tag">#215E86</color>
+    <color name="card_tasbeeh_title">#0F476C</color>
+    <color name="card_tasbeeh_subtitle">#215E86</color>
+
+    <color name="card_qibla_start">#FAF2DC</color>
+    <color name="card_qibla_end">#F3E1B4</color>
+    <color name="card_qibla_icon_bg">#EBD6A5</color>
+    <color name="card_qibla_icon_tint">#886315</color>
+    <color name="card_qibla_tag">#84631D</color>
+    <color name="card_qibla_title">#694C0D</color>
+    <color name="card_qibla_subtitle">#84631D</color>
+
+    <color name="card_duas_start">#F3E8FA</color>
+    <color name="card_duas_end">#E5CEF3</color>
+    <color name="card_duas_icon_bg">#DBBEF1</color>
+    <color name="card_duas_icon_tint">#68348C</color>
+    <color name="card_duas_tag">#6C3A8D</color>
+    <color name="card_duas_title">#522372</color>
+    <color name="card_duas_subtitle">#6C3A8D</color>
+
+    <color name="card_makkah_start">#FCE9E5</color>
+    <color name="card_makkah_end">#F7D0C8</color>
+    <color name="card_makkah_icon_bg">#F1C5BC</color>
+    <color name="card_makkah_icon_tint">#993325</color>
+    <color name="card_makkah_title">#7C2316</color>
+    <color name="card_makkah_subtitle">#943C30</color>
+
+    <color name="card_madinah_start">#E6F7EF</color>
+    <color name="card_madinah_end">#CBEEDD</color>
+    <color name="card_madinah_icon_bg">#B9E5CE</color>
+    <color name="card_madinah_icon_tint">#0F5E3D</color>
+    <color name="card_madinah_title">#0B462D</color>
+    <color name="card_madinah_subtitle">#236145</color>
+
+    <!-- Hero Current Prayer Card tokens (Light Theme) -->
+    <color name="hero_card_bg_start">#E8F6EE</color>
+    <color name="hero_card_bg_end">#D4EFE1</color>
+    <color name="hero_pill_bg">#1A133E31</color>
+    <color name="hero_pill_border">#33133E31</color>
+    <color name="hero_pill_text">#133E31</color>
+    <color name="hero_alert_segment_bg">#D3E5DC</color>
+    <color name="hero_divider">#CBE1D6</color>
+
+    <!-- Compose theme tokens mirrored for Qibla / Tasbeeh XML screens -->
+    <color name="sk_primary">#0F5A3E</color>
+    <color name="sk_primary_container">#C7EBD9</color>
+    <color name="sk_on_primary_container">#002114</color>
+    <color name="sk_background">#F7FBF7</color>
+    <color name="sk_surface">#FFFFFF</color>
+    <color name="sk_surface_variant">#DDE5DF</color>
+    <color name="sk_surface_variant_50">#80DDE5DF</color>
+    <color name="sk_surface_variant_60">#99DDE5DF</color>
+    <color name="sk_on_surface">#181D1A</color>
+    <color name="sk_on_surface_variant">#4A554E</color>
+    <color name="sk_on_surface_variant_80">#CC4A554E</color>
+    <color name="sk_on_surface_variant_70">#B34A554E</color>
+    <color name="sk_outline_variant">#C1C9C3</color>
+    <color name="sk_outline_variant_40">#66C1C9C3</color>
+    <color name="sk_secondary_container">#FFEFA8</color>
+    <color name="sk_on_secondary_container">#281E00</color>
+    <color name="sk_dhikr_card">#F1F5F9</color>
+    <color name="sk_dhikr_arabic">#0F172A</color>
+    <color name="sk_progress_track">#E2E8F0</color>
+    <color name="sk_sheet_bg">#F7F2FA</color>
+    <color name="pro_badge_gold">#FFB703</color>
+    <color name="pro_badge_orange">#FB8500</color>
+</resources>
