@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Fajr: Pre-dawn horizon / first light -->
+    <!-- Horizon baseline -->
+    <path
+        android:pathData="M2,18 L22,18"
+        android:strokeWidth="1.8"
+        android:strokeColor="#0284C7"
+        android:strokeLineCap="round" />
+    <!-- Pre-dawn glow arc peeking at horizon -->
+    <path
+        android:pathData="M8.5,18 A3.5,3.5 0 0,1 15.5,18 Z"
+        android:fillColor="#38BDF8" />
+    <!-- First light rays breaking upward through the dawn sky -->
+    <path
+        android:pathData="M12,14.5 L12,9"
+        android:strokeWidth="1.8"
+        android:strokeColor="#FBBF24"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M8.2,15.5 L4.8,12.5"
+        android:strokeWidth="1.6"
+        android:strokeColor="#38BDF8"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M15.8,15.5 L19.2,12.5"
+        android:strokeWidth="1.6"
+        android:strokeColor="#38BDF8"
+        android:strokeLineCap="round" />
+    <!-- Morning Star / Dawn Venus in pre-dawn sky -->
+    <path
+        android:pathData="M12,4.5 L12.7,6.3 L14.5,7 L12.7,7.7 L12,9.5 L11.3,7.7 L9.5,7 L11.3,6.3 Z"
+        android:fillColor="#FDE047" />
+    <!-- Subtle secondary morning star -->
+    <path
+        android:pathData="M18.5,4.5 L18.9,5.5 L19.9,5.9 L18.9,6.3 L18.5,7.3 L18.1,6.3 L17.1,5.9 L18.1,5.5 Z"
+        android:fillColor="#BAE6FD" />
+</vector>

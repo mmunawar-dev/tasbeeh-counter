@@ -91,28 +91,30 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:orientation="horizontal">
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_open_premium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="4dp"
-
-                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:layout_gravity="center"
                         android:textStyle="bold"
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:background="@drawable/pro_gradient"
                         android:contentDescription="Sakinah Plus"
-                        android:drawableLeft="@drawable/ic_sk_gift"
-                        app:tint="@color/white" />
+                        app:tint="@color/white"
+                        android:src="@drawable/premium"
+                        />
                     <!-- Location Selector -->
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/btn_open_app_settings"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_marginStart="4dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="@dimen/_5sdp"
+                        android:backgroundTint="@color/card_blue_light"
+                        android:background="@drawable/pro_gradient"
                         android:contentDescription="Settings"
                         android:src="@drawable/ic_sk_settings"
                         app:tint="@color/text_secondary" />

@@ -559,7 +559,7 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
     }
   }
 
-  fun detectLocation(context: Context) {
+  fun detectLocation(context: Context, onComplete: ((CityLocation) -> Unit)? = null) {
     viewModelScope.launch {
       _uiState.update { it.copy(isGpsSearching = true) }
       try {
@@ -572,6 +572,31 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
               val l = lm.getLastKnownLocation(provider) ?: continue
               if (bestLocation == null || l.accuracy < bestLocation.accuracy) {
                 bestLocation = l
+              }
+            }
+
+            if (bestLocation == null && providers.isNotEmpty()) {
+              bestLocation = kotlinx.coroutines.withTimeoutOrNull(3500L) {
+                kotlinx.coroutines.suspendCancellableCoroutine<Location?> { cont ->
+                  val listener = object : android.location.LocationListener {
+                    override fun onLocationChanged(loc: Location) {
+                      try { lm.removeUpdates(this) } catch (_: Exception) {}
+                      if (cont.isActive) cont.resume(loc) {}
+                    }
+                    @Deprecated("Deprecated in Java")
+                    override fun onStatusChanged(provider: String?, status: Int, extras: android.os.Bundle?) {}
+                    override fun onProviderEnabled(provider: String) {}
+                    override fun onProviderDisabled(provider: String) {}
+                  }
+                  for (p in providers) {
+                    try {
+                      lm.requestLocationUpdates(p, 0L, 0f, listener, android.os.Looper.getMainLooper())
+                    } catch (_: SecurityException) {}
+                  }
+                  cont.invokeOnCancellation {
+                    try { lm.removeUpdates(listener) } catch (_: Exception) {}
+                  }
+                }
               }
             }
           } catch (_: SecurityException) {
@@ -596,7 +621,8 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
           } catch (_: Exception) {
           }
 
-          val nearest = CityLocation.PRESET_CITIES.minByOrNull { city ->
+          val allCities = CityLocation.getAllCities(context)
+          val nearest = allCities.minByOrNull { city ->
             val dLat = city.latitude - lat
             val dLng = city.longitude - lng
             dLat * dLat + dLng * dLng
@@ -626,16 +652,25 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
           }
 
           selectCity(resolvedCity)
+          onComplete?.invoke(resolvedCity)
         } else {
           // If GPS is unavailable, keep existing selected city or default gracefully
+          val current = _uiState.value.selectedCity.let {
+            if (it.id.isEmpty()) CityLocation.DEFAULT_CITY else it
+          }
           if (_uiState.value.selectedCity.id.isEmpty()) {
             selectCity(CityLocation.DEFAULT_CITY)
           }
+          onComplete?.invoke(current)
         }
       } catch (_: Exception) {
+        val current = _uiState.value.selectedCity.let {
+          if (it.id.isEmpty()) CityLocation.DEFAULT_CITY else it
+        }
         if (_uiState.value.selectedCity.id.isEmpty()) {
           selectCity(CityLocation.DEFAULT_CITY)
         }
+        onComplete?.invoke(current)
       } finally {
         _uiState.update { it.copy(isGpsSearching = false) }
       }

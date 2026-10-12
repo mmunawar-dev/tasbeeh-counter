@@ -44,76 +44,98 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="16dp"
             android:paddingBottom="40dp">
 
-            <!-- 1. SAKINAH PLUS PROMO CARD -->
+            <!-- 1. REDESIGNED SAKINAH PLUS PREMIUM CARD -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_settings_premium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="@color/emerald_light_container"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="0dp">
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="0dp">
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="18dp">
+                    android:background="@drawable/bg_premium_card_gradient"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="16dp">
 
+                    <!-- (premium image icon) top/bottom/start constraint to parent -->
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_premium_badge"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:contentDescription="Premium VIP Crown"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/pro"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded12"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- [premium title, title description] vertical linear layout -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:id="@+id/ll_premium_text"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_toStartOf="@id/iv_premium_chevron"
-                        android:orientation="vertical">
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/iv_premium_badge"
+                        app:layout_constraintEnd_toStartOf="@id/btn_go_premium">
 
                         <TextView
+                            android:id="@+id/tv_premium_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bg_badge_popular"
                             android:fontFamily="@font/montserrat_family"
-                            android:paddingHorizontal="8dp"
-                            android:paddingVertical="2dp"
-                            android:text="SAKINAH PLUS"
+                            android:text="Sakinah Plus VIP"
                             android:textColor="@color/white"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Make your prayer experience serene"
-                            android:textColor="@color/emerald_primary"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tv_premium_subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="100% ad-free, home screen widgets &amp; custom athans"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
+                            android:text="Ad-free, Azan audio &amp; widgets"
+                            android:textColor="#FFF7ED"
+                            android:textSize="11.5sp" />
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_premium_chevron"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:contentDescription="Open Premium"
-                        android:rotation="180"
-                        android:src="@drawable/ic_arrow_back_24"
-                        app:tint="@color/emerald_primary" />
-                </RelativeLayout>
+                    <!-- (Go Premium ->) button text end to parent -->
+                    <TextView
+                        android:id="@+id/btn_go_premium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_go_premium"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/montserrat_family"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="7dp"
+                        android:text="Go Premium →"
+                        android:textColor="#C2410C"
+                        android:textSize="11.5sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 2. PERSONALIZATION -->
+            <!-- 2. PERSONALIZATION & PREFERENCES -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,7 +143,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="PERSONALIZATION"
+                android:text="PERSONALIZATION &amp; DISPLAY"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -133,37 +155,39 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/outline_border"
-                app:strokeWidth="1dp">
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Language Row -->
+                    <!-- Language Row with 3D realistic icon -->
                     <RelativeLayout
                         android:id="@+id/row_settings_language"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:focusable="true"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="14dp">
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/iv_chevron_lang"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:contentDescription="Language"
-                                android:src="@android:drawable/ic_menu_sort_by_size"
-                                app:tint="@color/emerald_primary" />
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="Language Icon"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/translate"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -184,6 +208,7 @@
                                     android:id="@+id/tv_settings_language_val"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
                                     android:text="English"
                                     android:textColor="@color/text_secondary"
@@ -192,8 +217,9 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:id="@+id/iv_chevron_lang"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:contentDescription="Go"
@@ -205,90 +231,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:layout_marginStart="66dp"
                         android:background="@color/outline_border" />
 
-                    <!-- Fiqh Row -->
-                    <RelativeLayout
-                        android:id="@+id/row_settings_fiqh"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="14dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:contentDescription="Fiqh"
-                                android:src="@android:drawable/ic_menu_agenda"
-                                app:tint="@color/emerald_primary" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="14dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_family"
-                                    android:text="Fiqh / Prayer Method"
-                                    android:textColor="@color/text_primary"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/tv_settings_fiqh_val"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_family"
-                                    android:text="Hanafi • Karachi"
-                                    android:textColor="@color/text_secondary"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:contentDescription="Go"
-                            android:rotation="180"
-                            android:src="@drawable/ic_arrow_back_24"
-                            app:tint="@color/text_secondary" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/outline_border" />
-
-                    <!-- Appearance Row -->
+                    <!-- Theme Row with 3D realistic icon -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="14dp">
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
 
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:contentDescription="Theme"
-                            android:src="@android:drawable/ic_menu_day"
-                            app:tint="@color/emerald_primary" />
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:contentDescription="Theme Icon"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_theme"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -301,7 +262,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_family"
-                                android:text="Dark Theme"
+                                android:text="Theme Mode"
                                 android:textColor="@color/text_primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -310,21 +271,100 @@
                                 android:id="@+id/tv_settings_theme_val"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
                                 android:fontFamily="@font/montserrat_family"
                                 android:text="System Default"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
                         </LinearLayout>
-                        <!-- Theme Radio / Chip Group -->
+
                         <com.google.android.material.materialswitch.MaterialSwitch
-                           android:id="@+id/switchTheme"
+                            android:id="@+id/switchTheme"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="66dp"
+                        android:background="@color/outline_border" />
+
+                    <!-- Fiqh Row -->
+                    <RelativeLayout
+                        android:id="@+id/row_settings_fiqh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/iv_chevron_fiqh"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_card_icon_container"
+                                android:backgroundTint="@color/emerald_light_container">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Fiqh"
+                                    android:src="@drawable/icon_compass" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="Fiqh / Calculation Method"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tv_settings_fiqh_val"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="Hanafi • Karachi"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
                         </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_chevron_fiqh"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="Go"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow_back_24"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 3. APP PREFERENCES -->
+            <!-- 3. PRAYER & LOCATION SETTINGS -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -332,7 +372,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="APP PREFERENCES"
+                android:text="PRAYER &amp; LOCATION"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -344,7 +384,7 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/outline_border"
-                app:strokeWidth="1dp">
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -358,23 +398,32 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:focusable="true"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="14dp">
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/iv_chevron_loc"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:contentDescription="Location"
-                                android:src="@drawable/ic_location_pin_16"
-                                app:tint="@color/emerald_primary" />
+                            <FrameLayout
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_card_icon_container"
+                                android:backgroundTint="@color/card_blue_light">
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Location"
+                                    android:src="@drawable/ic_location_pin_16"
+                                    app:tint="@color/card_tasbeeh_icon_tint" />
+                            </FrameLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -395,6 +444,7 @@
                                     android:id="@+id/tv_settings_location_val"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
                                     android:text="Rawalpindi"
                                     android:textColor="@color/text_secondary"
@@ -403,8 +453,9 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:id="@+id/iv_chevron_loc"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:contentDescription="Go"
@@ -416,6 +467,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:layout_marginStart="66dp"
                         android:background="@color/outline_border" />
 
                     <!-- Prayer Notifications Row -->
@@ -425,23 +477,32 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:focusable="true"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="14dp">
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/iv_chevron_notif"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:contentDescription="Notifications"
-                                android:src="@android:drawable/ic_lock_idle_alarm"
-                                app:tint="@color/emerald_primary" />
+                            <FrameLayout
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_card_icon_container"
+                                android:backgroundTint="@color/card_gold_light">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Notifications"
+                                    android:src="@android:drawable/ic_lock_idle_alarm"
+                                    app:tint="@color/card_qibla_icon_tint" />
+                            </FrameLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -461,16 +522,18 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Sound, vibration &amp; reminder preferences"
+                                    android:text="Athan audio, vibrations &amp; timing offsets"
                                     android:textColor="@color/text_secondary"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:id="@+id/iv_chevron_notif"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:contentDescription="Go"
@@ -478,11 +541,10 @@
                             android:src="@drawable/ic_arrow_back_24"
                             app:tint="@color/text_secondary" />
                     </RelativeLayout>
-
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 4. ABOUT & PRIVACY -->
+            <!-- 4. COMMUNITY, PRIVACY & ABOUT -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -490,7 +552,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="ABOUT &amp; PRIVACY"
+                android:text="SUPPORT &amp; ABOUT"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -502,74 +564,250 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/outline_border"
-                app:strokeWidth="1dp">
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Privacy Policy Row -->
-                    <LinearLayout
+                    <!-- Share App Row with 3D realistic icon -->
+                    <RelativeLayout
+                        android:id="@+id/row_settings_share"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="14dp">
-
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:contentDescription="Privacy"
-                            android:src="@android:drawable/ic_dialog_alert"
-                            app:tint="@color/emerald_primary" />
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:orientation="vertical">
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/iv_chevron_share"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                            <TextView
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="Share Icon"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_share"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_family"
-                                android:text="Privacy Policy"
-                                android:textColor="@color/text_primary"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_family"
-                                android:text="All calculations run 100% on device"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="12sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="Share with Friends"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="Spread peace &amp; serenity with family &amp; friends"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_chevron_share"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="Go"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow_back_24"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:layout_marginStart="66dp"
+                        android:background="@color/outline_border" />
+
+                    <!-- Rate App Row with 3D realistic icon -->
+                    <RelativeLayout
+                        android:id="@+id/row_settings_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/iv_chevron_rate"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="Rate Icon"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_3d_rate"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="Rate Sakinah"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="Support our journey with a 5-star review"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_chevron_rate"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="Go"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow_back_24"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="66dp"
+                        android:background="@color/outline_border" />
+
+                    <!-- Privacy Policy Row with 3D realistic icon -->
+                    <RelativeLayout
+                        android:id="@+id/row_settings_privacy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/iv_chevron_priv"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:contentDescription="Privacy Policy Icon"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_3d_privacy"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="Privacy Policy"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:fontFamily="@font/montserrat_family"
+                                    android:text="All calculations run 100% on device"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_chevron_priv"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="Go"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow_back_24"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="66dp"
                         android:background="@color/outline_border" />
 
                     <!-- About Sakinah Row -->
                     <LinearLayout
+                        android:id="@+id/row_settings_about"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="14dp">
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
 
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:contentDescription="About"
-                            android:src="@android:drawable/ic_dialog_info"
-                            app:tint="@color/emerald_primary" />
+                        <FrameLayout
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_card_icon_container"
+                            android:backgroundTint="@color/surface_variant_light">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="About"
+                                android:src="@android:drawable/ic_dialog_info"
+                                app:tint="@color/emerald_primary" />
+                        </FrameLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -589,6 +827,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
                                 android:fontFamily="@font/montserrat_family"
                                 android:text="Version 1.0 • Modern Calm Islamic Companion"
                                 android:textColor="@color/text_secondary"

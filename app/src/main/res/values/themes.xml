@@ -19,4 +19,16 @@
         <item name="cornerSizeBottomLeft">28dp</item>
         <item name="cornerSizeBottomRight">28dp</item>
     </style>
+
+    <style name="ShapeAppearance.Rounded10" parent="">
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded12" parent="">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Rounded16" parent="">
+        <item name="cornerSize">16dp</item>
+    </style>
 </resources>

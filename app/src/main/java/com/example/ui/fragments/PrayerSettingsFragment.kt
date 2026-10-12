@@ -91,15 +91,8 @@ class PrayerSettingsFragment : BaseFragment<FragmentPrayerSettingsBinding>(Fragm
       itemBinding.tvPrayerSettingArabic.text = prayer.type.arabicName
       itemBinding.tvPrayerSettingTime.text = prayer.timeFormatted
 
-      val iconRes = when (prayer.type) {
-        PrayerType.FAJR -> R.drawable.ic_sk_clock
-        PrayerType.SUNRISE -> R.drawable.ic_sk_clock
-        PrayerType.DHUHR -> R.drawable.ic_sk_mosque
-        PrayerType.ASR -> R.drawable.ic_sk_clock
-        PrayerType.MAGHRIB -> R.drawable.ic_sk_clock
-        PrayerType.ISHA -> R.drawable.ic_sk_mosque
-      }
-      itemBinding.ivPrayerSettingIcon.setImageResource(iconRes)
+      itemBinding.ivPrayerSettingIcon.setImageResource(prayer.type.iconRes)
+      itemBinding.ivPrayerSettingIcon.imageTintList = null
 
       updateNotificationModeIcon(itemBinding.btnModeSilent, currentMode)
 

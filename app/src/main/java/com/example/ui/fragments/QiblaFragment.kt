@@ -19,6 +19,7 @@ import com.example.databinding.FragmentQiblaBinding
 import com.example.databinding.ItemCompassStyleBinding
 import com.example.model.CompassStyle
 import com.example.model.ThemeMode
+import com.example.ui.navigation.navigateWithSlide
 import com.example.ui.screens.QiblaDial
 import com.example.ui.theme.SakinahTheme
 import com.example.viewmodel.SakinahViewModel
@@ -46,6 +47,19 @@ class QiblaFragment : BaseFragment<FragmentQiblaBinding>(FragmentQiblaBinding::i
     ViewCompat.requestApplyInsets(binding.qiblaRoot)
 
     binding.btnQiblaBack.setOnClickListener { findNavController().navigateUp() }
+
+    val openCitySelect = View.OnClickListener {
+      findNavController().navigateWithSlide(R.id.citySelectFragment)
+    }
+    binding.layoutLocation.setOnClickListener(openCitySelect)
+    binding.btnQiblaChangeLocation.setOnClickListener(openCitySelect)
+
+    parentFragmentManager.setFragmentResultListener(
+      CitySelectFragment.REQUEST_KEY_CITY_SELECTION,
+      viewLifecycleOwner
+    ) { _, _ ->
+      // Location update is already published to viewModel.uiState
+    }
 
     buildStyleChips()
     setupDial()

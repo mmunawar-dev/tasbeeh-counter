@@ -59,6 +59,7 @@
 
         <!-- 1. City & distance pill -->
         <LinearLayout
+            android:id="@+id/layoutLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -97,16 +98,45 @@
                     android:textSize="11sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_qibla_distance"
-                style="@style/Sk.Text.LabelSmall"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_sk_badge_secondary"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                android:textColor="@color/sk_on_secondary_container"
-                android:textStyle="bold" />
+                android:gravity="end|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_qibla_distance"
+                    style="@style/Sk.Text.LabelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_sk_badge_secondary"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"
+                    android:textColor="@color/sk_on_secondary_container"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/btn_qibla_change_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_qibla_change_location"
+                        style="@style/Sk.Text.LabelSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change Location ›"
+                        android:textColor="@color/sk_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- 2. Compass style selector -->
@@ -130,6 +160,7 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -140,16 +171,13 @@
             </HorizontalScrollView>
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
         <!-- 3. Compass dial (Compose canvas hosted inside the XML screen) -->
         <androidx.compose.ui.platform.ComposeView
             android:id="@+id/compose_qibla_dial"
-            android:layout_width="290dp"
-            android:layout_height="290dp"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:contentDescription="qibla_compass_dial" />
 
         <Space

@@ -1,0 +1,57 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Asr: Softer afternoon sun descending at angle -->
+    <!-- Horizon / Ground baseline -->
+    <path
+        android:pathData="M2,20 L22,20"
+        android:strokeWidth="1.6"
+        android:strokeColor="#EA580C"
+        android:strokeLineCap="round" />
+    <!-- Afternoon Sun Disc descending at angle -->
+    <path
+        android:pathData="M11,10m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0"
+        android:fillColor="#F97316" />
+    <path
+        android:pathData="M11,10m-2.5,0a2.5,2.5 0,1 1,5 0a2.5,2.5 0,1 1,-5 0"
+        android:fillColor="#FDBA74" />
+    <!-- Slanted afternoon rays pointing downwards & outwards -->
+    <path
+        android:pathData="M11,3.5 L11,5"
+        android:strokeWidth="1.6"
+        android:strokeColor="#FB923C"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M4.5,10 L6,10"
+        android:strokeWidth="1.6"
+        android:strokeColor="#FB923C"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M16,10 L17.5,10"
+        android:strokeWidth="1.6"
+        android:strokeColor="#FB923C"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M6.4,5.4 L7.5,6.5"
+        android:strokeWidth="1.6"
+        android:strokeColor="#FB923C"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M15.6,5.4 L14.5,6.5"
+        android:strokeWidth="1.6"
+        android:strokeColor="#FB923C"
+        android:strokeLineCap="round" />
+    <!-- Afternoon shadow beam on the ground (indicating Asr shadow progression) -->
+    <path
+        android:pathData="M14.5,14 L19,18.5"
+        android:strokeWidth="2"
+        android:strokeColor="#EA580C"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M7.5,14 L3,18.5"
+        android:strokeWidth="1.5"
+        android:strokeColor="#FDBA74"
+        android:strokeLineCap="round" />
+</vector>

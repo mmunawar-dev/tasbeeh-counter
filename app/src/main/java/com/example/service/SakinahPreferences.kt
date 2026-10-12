@@ -169,13 +169,13 @@ object SakinahPreferences {
   // --- De-duplication ---
   fun isNotificationDeliveredRecently(context: Context, key: String): Boolean {
     val lastTime = getPrefs(context).getLong(KEY_DEDUP_PREFIX + key, 0L)
-    // 25 minutes window prevents any duplicate notifications for the same prayer
-    return (System.currentTimeMillis() - lastTime) < 25 * 60 * 1000L
+    // 2 hours window prevents any duplicate notifications for the same prayer occurrence
+    return (System.currentTimeMillis() - lastTime) < 2 * 60 * 60 * 1000L
   }
 
   fun recordNotificationDelivered(context: Context, key: String) {
     getPrefs(context).edit()
       .putLong(KEY_DEDUP_PREFIX + key, System.currentTimeMillis())
-      .apply()
+      .commit()
   }
 }

@@ -21,11 +21,29 @@
         android:paddingEnd="16dp"
         android:paddingBottom="12dp">
 
+        <FrameLayout
+            android:id="@+id/fl_prayer_row_icon_bg"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_circle_emerald_container">
+
+            <ImageView
+                android:id="@+id/iv_prayer_row_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:contentDescription="Prayer Icon"
+                android:src="@drawable/ic_prayer_fajr" />
+        </FrameLayout>
+
         <LinearLayout
             android:id="@+id/layout_prayer_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
+            android:layout_toEndOf="@id/fl_prayer_row_icon_bg"
+            android:layout_marginStart="12dp"
             android:layout_centerVertical="true"
             android:orientation="vertical">
 

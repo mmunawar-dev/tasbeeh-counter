@@ -17,6 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.model.*
@@ -69,10 +71,10 @@ fun PrayerDetailBottomSheet(
             contentAlignment = Alignment.Center
           ) {
             Icon(
-              imageVector = getPrayerIcon(prayerItem.type),
+              painter = painterResource(id = prayerItem.type.iconRes),
               contentDescription = null,
-              tint = MaterialTheme.colorScheme.onPrimaryContainer,
-              modifier = Modifier.size(24.dp)
+              tint = Color.Unspecified,
+              modifier = Modifier.size(26.dp)
             )
           }
 

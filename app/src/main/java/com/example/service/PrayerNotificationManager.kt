@@ -9,7 +9,6 @@ import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import com.example.MainActivity
 import com.example.R
 import com.example.model.PrayerNotificationMode
 import com.example.model.PrayerType
@@ -18,12 +17,17 @@ import java.util.Calendar
 object PrayerNotificationManager {
 
   private const val TAG = "PrayerNotifMgr"
-  const val CHANNEL_ID = "sakinah_prayer_azan_channel"
-  const val CHANNEL_NAME = "Prayer Times & Azan"
+  const val CHANNEL_ID = "sakinah_prayer_notifications_v2"
+  const val CHANNEL_NAME = "Prayer Times"
 
   const val ACTION_PRAYER_ALARM = "com.example.action.PRAYER_ALARM"
   const val ACTION_STOP_AZAN = "com.example.action.STOP_AZAN"
+  const val ACTION_NOTIFICATION_TAP = "com.example.action.NOTIFICATION_TAP"
+  const val ACTION_NOTIFICATION_DISMISSED = "com.example.action.NOTIFICATION_DISMISSED"
+
   const val EXTRA_PRAYER_TYPE = "extra_prayer_type"
+  const val EXTRA_OCCURRENCE_ID = "extra_occurrence_id"
+  const val EXTRA_NOTIFICATION_ID = "extra_notification_id"
 
   private const val NOTIFICATION_ID_BASE = 5000
 
@@ -32,15 +36,22 @@ object PrayerNotificationManager {
       val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
         ?: return
 
+      // Clean up legacy high-importance channel if present
+      try {
+        notificationManager.deleteNotificationChannel("sakinah_prayer_azan_channel")
+      } catch (_: Exception) {}
+
       val channel = NotificationChannel(
         CHANNEL_ID,
         CHANNEL_NAME,
-        NotificationManager.IMPORTANCE_HIGH
+        NotificationManager.IMPORTANCE_DEFAULT
       ).apply {
-        description = "Prayer times alerts and Azan audio notifications"
+        description = "Daily prayer times and Azan notifications"
         enableVibration(true)
+        setShowBadge(true)
         lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-        // Sound is played directly via AzanAudioPlayer on USAGE_ALARM stream
+        // Sound is null on the channel so system does not play overlapping sounds
+        // when AzanAudioPlayer plays azan.mp3.
         setSound(null, null)
       }
       notificationManager.createNotificationChannel(channel)
@@ -50,6 +61,7 @@ object PrayerNotificationManager {
   fun showPrayerNotification(
     context: Context,
     prayerTypeName: String,
+    occurrenceId: String? = null,
     isTriggerFromWorker: Boolean = false
   ) {
     val prayerType = try {
@@ -61,12 +73,19 @@ object PrayerNotificationManager {
 
     createNotificationChannel(context)
 
-    // De-duplication check: ensure no duplicate notifications within 25 minutes
-    val cal = Calendar.getInstance()
-    val dedupKey = "${cal.get(Calendar.YEAR)}_${cal.get(Calendar.MONTH) + 1}_${cal.get(Calendar.DAY_OF_MONTH)}_${prayerType.name}"
-    if (SakinahPreferences.isNotificationDeliveredRecently(context, dedupKey)) {
-      Log.d(TAG, "Skipping duplicate notification for $dedupKey (already delivered)")
-      return
+    // Stable occurrence key: YYYY_MM_DD_PRAYERNAME
+    val dedupKey = occurrenceId ?: run {
+      val cal = Calendar.getInstance()
+      "${cal.get(Calendar.YEAR)}_${cal.get(Calendar.MONTH) + 1}_${cal.get(Calendar.DAY_OF_MONTH)}_${prayerType.name}"
+    }
+
+    // Thread-safe and persistent deduplication safeguard
+    synchronized(this) {
+      if (SakinahPreferences.isNotificationDeliveredRecently(context, dedupKey)) {
+        Log.d(TAG, "Skipping duplicate notification for $dedupKey (already delivered)")
+        return
+      }
+      SakinahPreferences.recordNotificationDelivered(context, dedupKey)
     }
 
     val modes = SakinahPreferences.getSavedNotificationModes(context)
@@ -77,9 +96,6 @@ object PrayerNotificationManager {
       return
     }
 
-    // Mark as delivered to prevent race condition between AlarmManager and WorkManager
-    SakinahPreferences.recordNotificationDelivered(context, dedupKey)
-
     val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
       ?: return
     val notifId = NOTIFICATION_ID_BASE + prayerType.ordinal
@@ -88,45 +104,48 @@ object PrayerNotificationManager {
     val title = "${prayerType.englishName} Prayer Time (${prayerType.arabicName})"
     val message = "It is now time for ${prayerType.englishName} prayer in ${city.name}."
 
-    val contentIntent = Intent(context, MainActivity::class.java).apply {
-      flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+    // 1. Content Intent: Tapping notification stops Azan and opens MainActivity
+    val tapIntent = Intent(context, PrayerNotificationReceiver::class.java).apply {
+      action = ACTION_NOTIFICATION_TAP
+      putExtra(EXTRA_PRAYER_TYPE, prayerType.name)
+      putExtra(EXTRA_NOTIFICATION_ID, notifId)
     }
-    val contentPendingIntent = PendingIntent.getActivity(
+    val contentPendingIntent = PendingIntent.getBroadcast(
       context,
       notifId,
-      contentIntent,
+      tapIntent,
       PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
     )
 
-    val stopAzanIntent = Intent(context, PrayerNotificationReceiver::class.java).apply {
-      action = ACTION_STOP_AZAN
+    // 2. Delete Intent: Swiping away / dismissing notification stops Azan
+    val dismissIntent = Intent(context, PrayerNotificationReceiver::class.java).apply {
+      action = ACTION_NOTIFICATION_DISMISSED
       putExtra(EXTRA_PRAYER_TYPE, prayerType.name)
+      putExtra(EXTRA_NOTIFICATION_ID, notifId)
     }
-    val stopAzanPendingIntent = PendingIntent.getBroadcast(
+    val deletePendingIntent = PendingIntent.getBroadcast(
       context,
-      notifId + 500,
-      stopAzanIntent,
+      notifId + 1000,
+      dismissIntent,
       PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
     )
 
+    // 3. Build notification with normal (IMPORTANCE_DEFAULT) configuration
+    // and NO "Stop Azan" action button
     val builder = NotificationCompat.Builder(context, CHANNEL_ID)
       .setSmallIcon(R.drawable.ic_notification_audio)
       .setContentTitle(title)
       .setContentText(message)
-      .setPriority(NotificationCompat.PRIORITY_MAX)
-      .setCategory(NotificationCompat.CATEGORY_ALARM)
+      .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+      .setCategory(NotificationCompat.CATEGORY_REMINDER)
       .setAutoCancel(true)
+      .setSound(null) // Prevent simultaneous duplicate notification sound
       .setContentIntent(contentPendingIntent)
-      .setDeleteIntent(stopAzanPendingIntent)
+      .setDeleteIntent(deletePendingIntent)
 
     when (mode) {
       PrayerNotificationMode.SOUND -> {
-        builder.addAction(
-          android.R.drawable.ic_media_pause,
-          "Stop Azan",
-          stopAzanPendingIntent
-        )
-        // Play Azan audio via dedicated alarm stream player
+        // Play azan.mp3 via dedicated audio focus player at current system volume
         AzanAudioPlayer.playAzan(context)
       }
       PrayerNotificationMode.VIBRATE -> {
@@ -142,7 +161,7 @@ object PrayerNotificationManager {
 
     try {
       notificationManager.notify(notifId, builder.build())
-      Log.d(TAG, "Posted prayer notification for ${prayerType.name} with mode $mode")
+      Log.d(TAG, "Posted prayer notification for ${prayerType.name} with mode $mode (dedupKey=$dedupKey)")
     } catch (e: Exception) {
       Log.e(TAG, "Failed to post notification", e)
     }

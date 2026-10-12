@@ -21,4 +21,14 @@ enum class PrayerType(
       else -> englishName
     }
   }
+
+  val iconRes: Int
+    get() = when (this) {
+      FAJR -> com.example.R.drawable.ic_prayer_fajr
+      SUNRISE -> com.example.R.drawable.ic_prayer_sunrise
+      DHUHR -> com.example.R.drawable.ic_prayer_dhuhr
+      ASR -> com.example.R.drawable.ic_prayer_asr
+      MAGHRIB -> com.example.R.drawable.ic_prayer_maghrib
+      ISHA -> com.example.R.drawable.ic_prayer_isha
+    }
 }

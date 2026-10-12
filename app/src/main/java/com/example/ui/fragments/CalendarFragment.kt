@@ -248,6 +248,14 @@ class CalendarFragment : BaseFragment<FragmentCalendarBinding>(FragmentCalendarB
         setTextColor(ContextCompat.getColor(requireContext(), R.color.emerald_primary))
       }
 
+      val ivIcon = android.widget.ImageView(requireContext()).apply {
+        layoutParams = LinearLayout.LayoutParams((24 * density).toInt(), (24 * density).toInt()).apply {
+          marginEnd = (12 * density).toInt()
+        }
+        setImageResource(item.type.iconRes)
+      }
+
+      row.addView(ivIcon)
       row.addView(nameLayout)
       row.addView(tvTime)
 

@@ -98,6 +98,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
       findNavController().navigateWithSlide(R.id.citySelectFragment)
     }
 
+    parentFragmentManager.setFragmentResultListener(
+      CitySelectFragment.REQUEST_KEY_CITY_SELECTION,
+      viewLifecycleOwner
+    ) { _, _ ->
+      // Location update is already published to viewModel.uiState
+    }
+
 
 
 
@@ -381,6 +388,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     rowBinding.tvPrayerName.text = item.type.name.lowercase().replaceFirstChar { it.uppercase() }
     rowBinding.tvPrayerArabic.text = item.type.arabicName
     rowBinding.tvPrayerTime.text = item.timeFormatted
+    rowBinding.ivPrayerRowIcon.setImageResource(item.type.iconRes)
+    rowBinding.ivPrayerRowIcon.imageTintList = null
 
     if (isNow) {
       rowBinding.tvPrayerActiveBadge.visibility = View.VISIBLE

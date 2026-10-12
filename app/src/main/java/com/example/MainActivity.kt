@@ -207,4 +207,18 @@ class MainActivity : AppCompatActivity() {
       prayerDetailDialog = null
     }
   }
+
+  override fun onKeyDown(keyCode: Int, event: android.view.KeyEvent?): Boolean {
+    if (com.example.service.AzanAudioPlayer.isPlaying()) {
+      when (keyCode) {
+        android.view.KeyEvent.KEYCODE_VOLUME_DOWN,
+        android.view.KeyEvent.KEYCODE_VOLUME_UP,
+        android.view.KeyEvent.KEYCODE_VOLUME_MUTE -> {
+          com.example.service.AzanAudioPlayer.stopAzan()
+          return true
+        }
+      }
+    }
+    return super.onKeyDown(keyCode, event)
+  }
 }

@@ -41,12 +41,11 @@
 
                 <ImageView
                     android:id="@+id/iv_prayer_setting_icon"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_gravity="center"
                     android:contentDescription="Prayer Icon"
-                    android:src="@drawable/ic_location_pin_16"
-                    app:tint="@color/emerald_primary" />
+                    android:src="@drawable/ic_prayer_fajr" />
             </FrameLayout>
 
             <LinearLayout
