@@ -62,7 +62,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/montserrat_family"
                     android:maxLines="1"
-                    android:text="Asma-ul-Husna"
+                    android:text="@string/asma_ul_husna"
                     android:textColor="@color/text_primary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -74,7 +74,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/montserrat_family"
                     android:maxLines="1"
-                    android:text="أسماء الله الحسنى"
+                    android:text="@string/asma_ul_husna_ar"
                     android:textColor="@color/text_secondary"
                     android:textSize="11sp" />
             </LinearLayout>

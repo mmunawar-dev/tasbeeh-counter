@@ -1,20 +1,12 @@
 package com.example.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.R
 import com.example.databinding.FragmentDuaDetailBinding
-import com.example.databinding.FragmentDuaDetailBinding.inflate
 import com.example.viewmodel.SakinahViewModel
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
-import kotlin.getValue
 
 class DuaDetailFragment : BaseFragment<FragmentDuaDetailBinding>(FragmentDuaDetailBinding::inflate) {
 
@@ -36,16 +28,30 @@ class DuaDetailFragment : BaseFragment<FragmentDuaDetailBinding>(FragmentDuaDeta
             binding.tvDetailDuaTranslation.text = "“${currentDua.translation}”"
             binding.tvDetailDuaBenefit.text = currentDua.benefit
 
-//            binding.btnDetailPlayAudio.setOnClickListener {
-//                viewModel.playDuaAudio(currentDua)
-//            }
-
-//            viewLifecycleOwner.lifecycleScope.launch {
-//                viewModel.uiState.collectLatest { state ->
-//                    val isPlaying = state.activeAudioTrack?.id == "dua_${currentDua.id}" && state.activeAudioTrack?.isPlaying == true
-//                    binding.btnDetailPlayAudio.text = if (isPlaying) "Playing Recitation..." else "Listen to Dua Recitation"
-//                }
-//            }
+            binding.btnDuaDetailShare.setOnClickListener {
+                val shareBody = buildString {
+                    append(currentDua.title)
+                    append("\n\n")
+                    append(currentDua.arabic)
+                    append("\n\n")
+                    append(currentDua.transliteration)
+                    append("\n\n\"")
+                    append(currentDua.translation)
+                    append("\"\n\n")
+                    append("Reference: ")
+                    append(currentDua.reference)
+                    if (currentDua.benefit.isNotBlank()) {
+                        append("\nBenefit: ")
+                        append(currentDua.benefit)
+                    }
+                }
+                val intent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_SUBJECT, currentDua.title)
+                    putExtra(Intent.EXTRA_TEXT, shareBody)
+                }
+                startActivity(Intent.createChooser(intent, "Share Supplication"))
+            }
         } else {
             findNavController().navigateUp()
         }

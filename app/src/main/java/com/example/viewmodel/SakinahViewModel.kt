@@ -18,7 +18,6 @@ import com.example.calculation.QiblaCalculator
 import com.example.model.*
 import com.example.repository.AladhanPrayerRepository
 import com.example.service.AudioPlayerService
-import com.example.service.AzanAudioPlayer
 import com.example.service.PrayerNotificationScheduler
 import com.example.service.SakinahPreferences
 import com.example.service.TasbeehSoundPlayer
@@ -78,6 +77,9 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
       savedCity.longitude
     )
 
+    val isDark = SakinahPreferences.isDarkTheme(appContext)
+    val savedTheme = if (isDark) ThemeMode.DARK else ThemeMode.LIGHT
+
     _uiState.update {
       it.copy(
         selectedCalendarDateYear = cal.get(Calendar.YEAR),
@@ -91,7 +93,8 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
         tasbeehClickMode = savedTasbeehMode,
         isClickSoundEnabled = (savedTasbeehMode == TasbeehClickMode.RING),
         isHapticEnabled = (savedTasbeehMode == TasbeehClickMode.VIBRATE),
-        qiblaBearingDegrees = initialBearing
+        qiblaBearingDegrees = initialBearing,
+        themeMode = savedTheme
       )
     }
 
@@ -291,6 +294,8 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
   }
 
   fun setThemeMode(mode: ThemeMode) {
+    val isDark = mode == ThemeMode.DARK
+    SakinahPreferences.saveDarkTheme(getApplication(), isDark)
     _uiState.update { it.copy(themeMode = mode) }
   }
 

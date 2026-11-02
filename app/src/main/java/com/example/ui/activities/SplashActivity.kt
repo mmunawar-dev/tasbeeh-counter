@@ -10,11 +10,18 @@ import com.example.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+import androidx.appcompat.app.AppCompatDelegate
+import com.example.service.SakinahPreferences
+
+import androidx.core.os.LocaleListCompat
+
 class SplashActivity : AppCompatActivity() {
 
   private lateinit var binding: FragmentSplashBinding
 
   override fun onCreate(savedInstanceState: Bundle?) {
+    applyTheme()
+    applySavedLanguage()
     super.onCreate(savedInstanceState)
     binding = FragmentSplashBinding.inflate(layoutInflater)
     setContentView(binding.root)
@@ -43,5 +50,19 @@ class SplashActivity : AppCompatActivity() {
         }
       }
       .start()
+  }
+
+  private fun applyTheme() {
+    val isDark = SakinahPreferences.isDarkTheme(this)
+    val mode = if (isDark) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+    AppCompatDelegate.setDefaultNightMode(mode)
+  }
+
+  private fun applySavedLanguage() {
+    val savedLang = SakinahPreferences.getSavedLanguage(this)
+    val currentLocales = AppCompatDelegate.getApplicationLocales()
+    if (currentLocales.isEmpty || currentLocales.toLanguageTags() != savedLang.code) {
+      AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(savedLang.code))
+    }
   }
 }

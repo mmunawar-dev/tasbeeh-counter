@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Fiqh"
+                android:text="@string/fiqh_title"
                 android:textColor="@color/text_primary"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -78,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_family"
-                    android:text="Apply"
+                    android:text="@string/apply"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -104,7 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Choose your prayer method"
+                android:text="@string/choose_prayer_method"
                 android:textColor="@color/text_primary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Different schools of jurisprudence observe slightly different start times for Asr prayer. Select your preference below."
+                android:text="@string/fiqh_description"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp" />
 
@@ -126,7 +126,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="ASR TIME CALCULATION"
+                android:text="@string/asr_calculation_header"
                 android:textColor="@color/emerald_primary"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -145,7 +145,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="CALCULATION AUTHORITY"
+                android:text="@string/calculation_authority_header"
                 android:textColor="@color/emerald_primary"
                 android:textSize="12sp"
                 android:textStyle="bold" />

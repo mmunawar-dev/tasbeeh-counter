@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Prayer Times"
+                android:text="@string/prayer_times"
                 android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -43,14 +43,15 @@
 
         <ImageView
             android:id="@+id/btn_open_calendar"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Select Date"
+            app:tint="@color/card_allah_names_icon_tint"
             android:src="@drawable/ic_sk_calendar"
-            app:tint="@color/emerald_primary" />
+            />
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -96,7 +97,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_family"
                             android:letterSpacing="0.04"
-                            android:text="SELECTED DATE"
+                            android:text="@string/selected_date"
                             android:textColor="@color/emerald_primary"
                             android:textSize="11sp"
                             android:textStyle="bold" />
@@ -119,7 +120,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/montserrat_family"
-                        android:text="Change"
+                        android:text="@string/change"
                         android:textColor="@color/emerald_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -134,7 +135,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="NOTIFICATIONS PER PRAYER"
+                android:text="@string/notifications_per_prayer"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -199,7 +200,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/montserrat_family"
-                        android:text="Edit →"
+                        android:text="@string/edit_arrow"
                         android:textColor="@color/emerald_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />

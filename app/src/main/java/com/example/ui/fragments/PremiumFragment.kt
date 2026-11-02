@@ -1,12 +1,12 @@
 package com.example.ui.fragments
 
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.R
 import com.example.databinding.FragmentPremiumBinding
 import com.example.model.PremiumPlan
 import com.example.viewmodel.SakinahViewModel
@@ -14,7 +14,7 @@ import com.example.viewmodel.SakinahViewModel
 class PremiumFragment : BaseFragment<FragmentPremiumBinding>(FragmentPremiumBinding::inflate) {
 
   private val viewModel: SakinahViewModel by activityViewModels()
-  private var selectedPlan = PremiumPlan.YEARLY
+  private var selectedPlan = PremiumPlan.LIFETIME
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
@@ -23,11 +23,20 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>(FragmentPremiumBind
       findNavController().navigateUp()
     }
 
-    updatePlanSelection(PremiumPlan.YEARLY)
+    // Underline footer links
+    binding.tvPrivacyPolicy.paintFlags = binding.tvPrivacyPolicy.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+    binding.tvTermsConditions.paintFlags = binding.tvTermsConditions.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
-    binding.cardPlanMonthly.setOnClickListener {
-      updatePlanSelection(PremiumPlan.MONTHLY)
+    binding.btnPrivacyPolicy.setOnClickListener {
+      Toast.makeText(requireContext(), "Privacy Policy: All calculations run 100% on device.", Toast.LENGTH_SHORT).show()
     }
+
+    binding.btnTermsConditions.setOnClickListener {
+      Toast.makeText(requireContext(), "Terms & Conditions: Pure Islamic companion, no data shared.", Toast.LENGTH_SHORT).show()
+    }
+
+    // Default selection is Lifetime Plan as highlighted in screenshot
+    updatePlanSelection(PremiumPlan.LIFETIME)
 
     binding.cardPlanYearly.setOnClickListener {
       updatePlanSelection(PremiumPlan.YEARLY)
@@ -37,52 +46,42 @@ class PremiumFragment : BaseFragment<FragmentPremiumBinding>(FragmentPremiumBind
       updatePlanSelection(PremiumPlan.LIFETIME)
     }
 
-    binding.btnUnlockPremium.setOnClickListener {
-      viewModel.unlockPremium()
-      Toast.makeText(requireContext(), "Alhamdulillah! Sakinah Plus activated.", Toast.LENGTH_SHORT).show()
-      findNavController().navigateUp()
+    binding.btnSelectYearly.setOnClickListener {
+      selectedPlan = PremiumPlan.YEARLY
+      unlockPlan(PremiumPlan.YEARLY)
     }
+
+    binding.btnGoLifetime.setOnClickListener {
+      selectedPlan = PremiumPlan.LIFETIME
+      unlockPlan(PremiumPlan.LIFETIME)
+    }
+  }
+
+  private fun unlockPlan(plan: PremiumPlan) {
+    viewModel.unlockPremium()
+    val planName = if (plan == PremiumPlan.LIFETIME) "Lifetime Access" else "Yearly Plan"
+    Toast.makeText(requireContext(), "Alhamdulillah! Sakinah Plus ($planName) unlocked.", Toast.LENGTH_SHORT).show()
+    findNavController().navigateUp()
   }
 
   private fun updatePlanSelection(plan: PremiumPlan) {
     selectedPlan = plan
-    val context = requireContext()
+    val density = resources.displayMetrics.density
+    val goldColor = Color.parseColor("#E5A93C")
+    val defaultBorderColor = Color.parseColor("#386A50")
 
-    binding.rbPlanMonthly.isChecked = plan == PremiumPlan.MONTHLY
-    binding.rbPlanYearly.isChecked = plan == PremiumPlan.YEARLY
-    binding.rbPlanLifetime.isChecked = plan == PremiumPlan.LIFETIME
-
-    // Monthly
-    if (plan == PremiumPlan.MONTHLY) {
-      binding.cardPlanMonthly.setCardBackgroundColor(ContextCompat.getColor(context, R.color.active_prayer_bg))
-      binding.cardPlanMonthly.strokeColor = ContextCompat.getColor(context, R.color.active_prayer_border)
-      binding.cardPlanMonthly.strokeWidth = (1.5f * resources.displayMetrics.density).toInt()
-    } else {
-      binding.cardPlanMonthly.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_light))
-      binding.cardPlanMonthly.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
-      binding.cardPlanMonthly.strokeWidth = (1f * resources.displayMetrics.density).toInt()
-    }
-
-    // Yearly
     if (plan == PremiumPlan.YEARLY) {
-      binding.cardPlanYearly.setCardBackgroundColor(ContextCompat.getColor(context, R.color.active_prayer_bg))
-      binding.cardPlanYearly.strokeColor = ContextCompat.getColor(context, R.color.active_prayer_border)
-      binding.cardPlanYearly.strokeWidth = (1.5f * resources.displayMetrics.density).toInt()
-    } else {
-      binding.cardPlanYearly.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_light))
-      binding.cardPlanYearly.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
-      binding.cardPlanYearly.strokeWidth = (1f * resources.displayMetrics.density).toInt()
-    }
+      binding.cardPlanYearly.strokeColor = goldColor
+      binding.cardPlanYearly.strokeWidth = (2f * density).toInt()
 
-    // Lifetime
-    if (plan == PremiumPlan.LIFETIME) {
-      binding.cardPlanLifetime.setCardBackgroundColor(ContextCompat.getColor(context, R.color.active_prayer_bg))
-      binding.cardPlanLifetime.strokeColor = ContextCompat.getColor(context, R.color.active_prayer_border)
-      binding.cardPlanLifetime.strokeWidth = (1.5f * resources.displayMetrics.density).toInt()
+      binding.cardPlanLifetime.strokeColor = defaultBorderColor
+      binding.cardPlanLifetime.strokeWidth = (1.2f * density).toInt()
     } else {
-      binding.cardPlanLifetime.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_light))
-      binding.cardPlanLifetime.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
-      binding.cardPlanLifetime.strokeWidth = (1f * resources.displayMetrics.density).toInt()
+      binding.cardPlanLifetime.strokeColor = goldColor
+      binding.cardPlanLifetime.strokeWidth = (2f * density).toInt()
+
+      binding.cardPlanYearly.strokeColor = defaultBorderColor
+      binding.cardPlanYearly.strokeWidth = (1.2f * density).toInt()
     }
   }
 }

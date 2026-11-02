@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Dejinta</string>
+    <string name="languages">Luqadaha</string>
+    <string name="language">Luqadda</string>
+    <string name="apply">Codso</string>
+    <string name="cancel">Ka noqo</string>
+    <string name="next">Ku xiga</string>
+    <string name="get_started">Bilow</string>
+    <string name="change">Beddel</string>
+    <string name="today">Maanta</string>
+    <string name="back">Dib</string>
+    <string name="close">Xir</string>
+    <string name="see_schedule">Eeg Jadwalka</string>
+    <string name="remaining">Harsan</string>
+    <string name="started">Bilaabmay</string>
+    <string name="ends">Dhamaanaya</string>
+    <string name="starts">Bilaabmaya</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">SALAADDA HADDA</string>
+    <string name="upcoming_prayer">SALAADDA XIGTA</string>
+    <string name="prayer_fajr">Subax</string>
+    <string name="prayer_sunrise">Qorrax soo bax</string>
+    <string name="prayer_dhuhr">Duhur</string>
+    <string name="prayer_asr">Casar</string>
+    <string name="prayer_maghrib">Qorrax dhac</string>
+    <string name="prayer_isha">Cishe</string>
+    <string name="daily_prayer_schedule">Jadwalka Salaadda Maalinlaha ah</string>
+    <string name="prayer_times">Waqtiyada Salaadda</string>
+    <string name="prayer_notifications">Ogeysiisyada Salaadda</string>
+    <string name="prayer_calendar">Haltiriska Salaadda</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">AGABKA CIBOODADA EE MAALINLAHA AH</string>
+    <string name="allahs_names">99-ka Magac ee Alle</string>
+    <string name="asma_ul_husna">Asma\'ul Xusna</string>
+    <string name="tasbeeh">Tasbiix Elektaroonik ah</string>
+    <string name="tasbeeh_subtitle">Dikriga &amp; Tirinta</string>
+    <string name="qibla_direction">Jihada Qiblada</string>
+    <string name="qibla_subtitle">Koombaaska Kacbada</string>
+    <string name="daily_duas">Ducooyinka Maalinlaha ah</string>
+    <string name="daily_duas_subtitle">Ducooyin Saxiix ah</string>
+    <string name="live_makkah">Toos Makka</string>
+    <string name="live_madinah">Toos Madiina</string>
+    <string name="live_makkah_subtitle">Masaajidka Xaramka 24/7</string>
+    <string name="live_madinah_subtitle">Masaajidka Nabiga</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Muuqaalka</string>
+    <string name="system_default">Habka Qalabka</string>
+    <string name="light_mode">Iftiin</string>
+    <string name="dark_mode">Madow</string>
+    <string name="fiqh_calc_method">Mad-habka iyo Habka Xisaabinta</string>
+    <string name="location">Goobta</string>
+    <string name="share_with_friends">La wadaag Asxaabta</string>
+    <string name="rate_sakinah">Qiimee Sakinah</string>
+    <string name="privacy_policy">Xeerka Arrimaha Gaarka ah</string>
+    <string name="terms_and_conditions">Shuruudaha &amp; Xeerarka</string>
+    <string name="support_and_about">CAAWIMAAD &amp; XOG</string>
+    <string name="personalization_display">HABAYNTA &amp; SHAASHADDA</string>
+    <string name="prayer_and_location">SALAADDA &amp; GOOBTA</string>
+    <string name="exit_app_title">Ka bax Barnaamijka?</string>
+    <string name="exit_app_message">Ma hubtaa inaad rabto inaad xirto Sakinah? Xusuusiyaha salaaddu wuxuu sii socon doonaa asalka.</string>
+    <string name="exit_now">Ka bax Hadda</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">DOORO QORSHIHIINNA VIP-KA</string>
+    <string name="premium_subtitle">Kordhi khibraddaada cibaado adigoo furaya dhammaan sifooyinka gaarka ah iyadoon xayeysiis lahayn.</string>
+    <string name="btn_continue">Sii wad</string>
+    <string name="badge_best_choice">DOORASHADA UGU FIICAN</string>
+    <string name="plan_yearly">QORSHAHA SANADKA</string>
+    <string name="plan_lifetime">QORSHAHA NOLOSHA</string>
+    <string name="plan_yearly_price">$9.99 / sanad</string>
+    <string name="plan_lifetime_price">$24.99 hal mar</string>
+    <string name="plan_yearly_desc">Si toos ah ayuu u cusboonaadaa haddii aan la baabi\'in 24 saac ka hor.</string>
+    <string name="plan_lifetime_desc">Keliya hal mar bixi, waligaana isticmaal.</string>
+    <string name="feature_no_ads">Xayeysiis la\'aan abid</string>
+    <string name="feature_lifetime_support">Caawinaad joogto ah</string>
+    <string name="feature_all_azans">Dhammaan codadka aadaanka ee qaariga ah</string>
+    <string name="feature_offline_qibla">Qibla iyo waqtiyo internet la\'aan ah</string>
+    <string name="feature_unlimited_dhikr">Tasbiix tirsi aan xad lahayn iyo taariikh</string>
+    <string name="feature_live_streams">Muuqaallo toos ah oo HD ah oo Makka iyo Madiina ah</string>
+    <string name="feature_support_dev">Taageer Horumarinta Islaamka</string>
+    <string name="go_premium">Ku biir Premium</string>
+    <string name="unlock_premium">Fur Sakinah Plus</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Toosinta: U wareeji taleefanka qaabka lambarka 8 meel ka fog birlabta</string>
+    <string name="qibla_aligned">WUXUU KU TOOSAN YAHAY KACBADA SHARIIFTA LEH</string>
+    <string name="tasbeeh_mode">HABKA TASBIIXDA</string>
+    <string name="tap_to_increment">Taabo si aad u kordhiso tirada dikriga</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Bilaash xayeysiis, aadaanka &amp; widgets</string>
+    <string name="go_premium_arrow">Ku biir Premium →</string>
+    <string name="fiqh_val_default">Xanafi • Karachi</string>
+    <string name="prayer_notif_subtitle">Codadka aadaanka, gariirka &amp; hagaajinta waqtiga</string>
+    <string name="share_subtitle">La wadaag asxaabta iyo qoyska xasilloonida</string>
+    <string name="rate_subtitle">Nagu taageer dib u eegis 5 xiddigood ah</string>
+    <string name="privacy_subtitle">Dhammaan xisaabintu waxay 100% ka socotaa taleefankaaga</string>
+    <string name="about_sakinah">Ku saabsan Sakinah</string>
+    <string name="about_sakinah_subtitle">Nooca 1.0 • Wehelkaaga Islaamiga ah ee Casriga &amp; Xasilloon</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">AGABKA CIBOODADA EE MAALINLAHA AH</string>
+    <string name="holy_sites_live">BAAHIN TOOS AH OO MEELAHA BARAKAYSAN AH</string>
+    <string name="live_badge">TOOS</string>
+    <string name="makkah_24_7">24/7 Xaramka</string>
+    <string name="allahs_names_short">Magacyada Alle</string>
+    <string name="names_asma">99 Magac • Asma</string>
+    <string name="tasbeeh_label">Tasbiix</string>
+    <string name="duas_label">Ducooyin</string>
+    <string name="daily_supplications">Ducooyinka Maalinlaha ah</string>
+    <string name="makkah_label">Makka</string>
+    <string name="madinah_label">Madiina</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">MOODALLADA KOOMBAASKA &amp; FALLAARTA</string>
+    <string name="qibla_subtitle_full">🕌 Jihada Kacbada Shariifka ah</string>
+    <string name="change_location">Beddel Goobta &gt;</string>
+    <string name="qibla_aligned_full">WUXUU KU TOOSAN YAHAY KACBADA (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Tasbiix Elektaroonik ah</string>
+    <string name="tasbeeh_mode_caps">HABKA TASBIIXDA</string>
+    <string name="tap_to_increment_balloon">Taabo si aad u kordhiso tirada</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Tiriyaha Tasbiixda ee Casriga ah</string>
+    <string name="splash_subtitle">🕌 • Wehelka Salaadda iyo Cibaadada</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">TAARIIXDA LA DOORTAY</string>
+    <string name="notifications_per_prayer">OGEYSIISYADA SALAAD KASTA</string>
+    <string name="edit_arrow">Wax ka beddel →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Fiqhi</string>
+    <string name="choose_prayer_method">Dooro habka xisaabinta salaadda</string>
+    <string name="fiqh_description">Mad-habaha fiqhiga waxay leeyihiin xoogaa kala duwanaansho ah waqtiga bilowga salaadda Casar. Dooro dookhaaga hoos.</string>
+    <string name="asr_calculation_header">XISAABINTA WAQTIGA CASARKA</string>
+    <string name="calculation_authority_header">HAY\'ADDA XISAABINTA</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Dooro goobta</string>
+    <string name="search_city_hint">Raadi magaalo ama waddan...</string>
+    <string name="use_current_location">Isticmaal Goobtaada Hadda</string>
+    <string name="auto_detect_location">Si toos ah ugu ogow aaladda qalabka</string>
+    <string name="popular_cities">MAGAALOOYINKA CAANKA AH</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">Dikriga &amp; Ducada • Ducooyin Saxiix ah</string>
+    <string name="supplication">Duco</string>
+    <string name="transliteration">DHUWAASHO</string>
+    <string name="translation">MICNAHA</string>
+    <string name="benefit_and_merit">Fadliga &amp; Ajarada</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">Asma\'ul Xusna • 99-ka Magac ee Alle</string>
+    <string name="play_names_recitation">Dhageyso Akhriska 99-ka Magac</string>
+    <string name="play_names_desc">Dhageyso codka Asma\'ul Xusna (.mp3) asalka</string>
+    <string name="pause">Hakad</string>
+    <string name="stop">Jooji</string>
+    <string name="play_audio_btn">Dhageyso 99-ka Magac (Cod MP3)</string>
+    <string name="search_names_hint">Raadi magac ama micne...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">WAQTIYADA SALAADDA EE MAALINTA LA DOORTAY</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">Toos uga soo baahinta Masaajidka Xaramka</string>
+    <string name="official_broadcast">Baahin Rasmi ah 24/7 HD</string>
+    <string name="live_badge_24_7">TOOS 24/7</string>
+    <string name="watching_count">48.2K qof ayaa daawanaya</string>
+    <string name="masjid_al_haram">Masaajidka Xaramka, Makka</string>
+    <string name="saudi_quran_tv">Telefishanka Quraanka ee Sacuudiga (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Baahin toos ah oo 24 saac ah oo salaadaha, dawaafka iyo akhriska Quraanka ah ee Kacbada.</string>
+    <string name="watch_stream_youtube">Ka daawo YouTube-ka tayo buuxda (HD) ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">Ka dhig cibaadadaada mid xasilloon</string>
+    <string name="support_pure_islamic_software">Taageer barnaamij Islaami ah oo aan xayeysiis lahayn.</string>
+    <string name="monthly_plan">Qorshaha Bisha</string>
+    <string name="flexible">Dabacsan</string>
+    <string name="per_month">/ bishii</string>
+    <string name="billed_monthly_desc">Biilka bishii. Jooji wakhti kasta.</string>
+    <string name="annual_plan">Qorshaha Sanadka</string>
+    <string name="most_popular_save">Ugu Caansan • Badbaadi 58%</string>
+    <string name="per_year_desc">/ sanadkii ($0.83/bishii)</string>
+    <string name="annual_trial_desc">Waxaa ku jira 7 maalmood oo tijaabo bilaash ah.</string>
+    <string name="lifetime_access">Helitaanka Nolosha</string>
+    <string name="best_value_pay_once">Qiimaha Ugu Fiican • Hal Mar Bixi</string>
+    <string name="one_time_payment">lacag bixin hal mar ah</string>
+    <string name="lifetime_desc">Hal mar bixi, waligaana yeelo. Dhammaan cusboonaysiinta mustaqbalka waxay ku jiraan.</string>
+    <string name="whats_included_sakinah_plus">WAXA KU JIRA SAKINAH PLUS</string>
+    <string name="feat_ad_free">100% Xayeysiis la\'aan, jawi cibaado oo nabad ah</string>
+    <string name="feat_api">Isku xirka tooska ah ee madasha Aladhan waqtiga dhabta ah</string>
+    <string name="feat_widgets">Widget-yada salaadda ee shaashadda hore iyo qufulka</string>
+    <string name="feat_adhan">Codadka aadaanka ee rasmiga ah (Makka, Madiina, Al-Aqsa)</string>
+    <string name="feat_tasbeeh">Tirada tasbiixda aan xadidnayn iyo taariikhda maalinlaha ah</string>
+    <string name="subscribe_annual_btn">Iska diiwaangeli Qorshaha Sanadka • $9.99/sanad</string>
+    <string name="restore_privacy_terms">Soo celi Iibsashada • Xeerka • Shuruudaha</string>
+    <string name="monthly">Bille</string>
+    <string name="flexible_month_access">Helitaan bille ah oo fudud</string>
+    <string name="best_value_save_45">QIIMAHA UGU FIICAN • BADBAADI 45%</string>
+    <string name="yearly_access">Helitaanka Sanadlaha</string>
+    <string name="yearly_billed_desc">$1.66 / bishii sanadkii la xisaabiyo</string>
+    <string name="lifetime_sadaqah">Sadaqad Jariyo ah oo Nolosha ah</string>
+    <string name="lifetime_perpetual_desc">Xubinnimo joogto ah oo hal mar la bixiyo</string>
+
+</resources>

@@ -27,7 +27,8 @@ class DuaCategoriesAdapter(
   inner class CategoryViewHolder(private val binding: ItemDuaCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(category: DuaCategory) {
       binding.tvDuaCatTitle.text = category.title
-      binding.tvDuaCatCount.text = "${category.count} Duas"
+      val count = category.count
+      binding.tvDuaCatCount.text = if (count == 1) "1 Dua" else "$count Duas"
       binding.tvDuaCatArabic.text = category.arabicTitle
       binding.tvDuaCatDesc.text = category.description
 

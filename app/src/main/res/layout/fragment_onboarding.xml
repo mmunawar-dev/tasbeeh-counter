@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_family"
-                    android:text="Next"
+                    android:text="@string/next"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />

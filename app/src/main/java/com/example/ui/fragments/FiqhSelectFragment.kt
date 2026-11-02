@@ -53,11 +53,11 @@ class FiqhSelectFragment : BaseFragment<FragmentFiqhSelectBinding>(FragmentFiqhS
       itemBinding.tvMadhabName.text = madhab.displayName
       itemBinding.tvMadhabSubtitle.text = madhab.subtitle
 
-      if (madhab == Madhab.HANAFI) {
-        itemBinding.tvMadhabRecommendedBadge.visibility = View.VISIBLE
-      } else {
-        itemBinding.tvMadhabRecommendedBadge.visibility = View.GONE
-      }
+//      if (madhab == Madhab.HANAFI) {
+//        itemBinding.tvMadhabRecommendedBadge.visibility = View.VISIBLE
+//      } else {
+//        itemBinding.tvMadhabRecommendedBadge.visibility = View.GONE
+//      }
 
       val context = requireContext()
       if (isSelected) {

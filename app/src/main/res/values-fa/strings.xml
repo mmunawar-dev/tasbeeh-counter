@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">تنظیمات</string>
+    <string name="languages">زبان‌ها</string>
+    <string name="language">زبان</string>
+    <string name="apply">اعمال</string>
+    <string name="cancel">انصراف</string>
+    <string name="next">بعدی</string>
+    <string name="get_started">شروع کنید</string>
+    <string name="change">تغییر</string>
+    <string name="today">امروز</string>
+    <string name="back">بازگشت</string>
+    <string name="close">بستن</string>
+    <string name="see_schedule">مشاهده برنامه</string>
+    <string name="remaining">باقی‌مانده</string>
+    <string name="started">شروع شده</string>
+    <string name="ends">پایان</string>
+    <string name="starts">شروع</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">نماز فعلی</string>
+    <string name="upcoming_prayer">نماز بعدی</string>
+    <string name="prayer_fajr">صبح</string>
+    <string name="prayer_sunrise">طلوع آفتاب</string>
+    <string name="prayer_dhuhr">ظهر</string>
+    <string name="prayer_asr">عصر</string>
+    <string name="prayer_maghrib">مغرب</string>
+    <string name="prayer_isha">عشاء</string>
+    <string name="daily_prayer_schedule">جدول اوقات شرعی روزانه</string>
+    <string name="prayer_times">اوقات شرعی</string>
+    <string name="prayer_notifications">اعلان‌های اذان</string>
+    <string name="prayer_calendar">تقویم اوقات شرعی</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">ابزارهای عبادی روزانه</string>
+    <string name="allahs_names">۹۹ نام نیکوی خداوند</string>
+    <string name="asma_ul_husna">اسماء الحسنی</string>
+    <string name="tasbeeh">تسبیح دیجیتال</string>
+    <string name="tasbeeh_subtitle">ذکر و صلوات‌شمار</string>
+    <string name="qibla_direction">جهت قبله</string>
+    <string name="qibla_subtitle">قطب‌نما به سوی کعبه</string>
+    <string name="daily_duas">دعاهای روزانه</string>
+    <string name="daily_duas_subtitle">ادعیه و اذکار مأثوره</string>
+    <string name="live_makkah">پخش زنده مکه</string>
+    <string name="live_madinah">پخش زنده مدینه</string>
+    <string name="live_makkah_subtitle">مسجد الحرام ۲۴/۷</string>
+    <string name="live_madinah_subtitle">مسجد النبی</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">حالت پوسته</string>
+    <string name="system_default">پیش‌فرض سیستم</string>
+    <string name="light_mode">روشن</string>
+    <string name="dark_mode">تاریک</string>
+    <string name="fiqh_calc_method">روش محاسبه و فقه</string>
+    <string name="location">موقعیت مکانی</string>
+    <string name="share_with_friends">اشتراک با دوستان</string>
+    <string name="rate_sakinah">امتیاز به سکینه</string>
+    <string name="privacy_policy">سیاست حریم خصوصی</string>
+    <string name="terms_and_conditions">قوانین و شرایط</string>
+    <string name="support_and_about">پشتیبانی و درباره ما</string>
+    <string name="personalization_display">شخصی‌سازی و نمایش</string>
+    <string name="prayer_and_location">نماز و موقعیت مکانی</string>
+    <string name="exit_app_title">خروج از برنامه؟</string>
+    <string name="exit_app_message">آیا از خروج از برنامه سکینه اطمینان دارید؟ یادآورهای اذان در پس‌زمینه فعال خواهند ماند.</string>
+    <string name="exit_now">خروج</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">طرح ویژه خود را انتخاب کنید</string>
+    <string name="premium_subtitle">با فعال‌سازی اشتراک ویژه، از توسعه نرم‌افزار اسلامی بدون تبلیغات حمایت کنید.</string>
+    <string name="btn_continue">ادامه</string>
+    <string name="badge_best_choice">بهترین انتخاب</string>
+    <string name="plan_yearly">طرح سالانه</string>
+    <string name="plan_lifetime">طرح مادام‌العمر</string>
+    <string name="plan_yearly_price">$9.99</string>
+    <string name="plan_lifetime_price">$24.99</string>
+    <string name="plan_yearly_desc">تمدید خودکار مگر اینکه ۲۴ ساعت قبل لغو شود.</string>
+    <string name="plan_lifetime_desc">یک بار پرداخت، دسترسی همیشگی به همراه تمام به‌روزرسانی‌ها.</string>
+    <string name="feature_no_ads">بدون هیچ‌گونه تبلیغات برای همیشه</string>
+    <string name="feature_lifetime_support">پشتیبانی دائمی</string>
+    <string name="feature_all_azans">تمام صداهای دلنشین اذان قاریان</string>
+    <string name="feature_offline_qibla">قبله‌نما و اوقات شرعی آفلاین</string>
+    <string name="feature_unlimited_dhikr">تسبیح نامحدود و تاریخچه روزانه</string>
+    <string name="feature_live_streams">پخش زنده با کیفیت HD از مکه و مدینه</string>
+    <string name="feature_support_dev">حمایت از نرم‌افزار اسلامی</string>
+    <string name="go_premium">خرید نسخه ویژه</string>
+    <string name="unlock_premium">فعال‌سازی سکینه پلاس</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">کالیبراسیون: گوشی را به شکل عدد ۸ انگلیسی در هوا حرکت دهید</string>
+    <string name="qibla_aligned">هم‌جهت با کعبه معظمه</string>
+    <string name="tasbeeh_mode">حالت تسبیح</string>
+    <string name="tap_to_increment">برای افزایش ذکر، دانه تسبیح یا صفحه را لمس کنید</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">سکینه پلاس ویژه</string>
+    <string name="sakinah_plus_vip_subtitle">بدون تبلیغات، صوت اذان و ویجت‌ها</string>
+    <string name="go_premium_arrow">ارتقا به ویژه ←</string>
+    <string name="fiqh_val_default">حنفی • کراچی</string>
+    <string name="prayer_notif_subtitle">صدای اذان، لرزش و تنظیم دستی دقایق</string>
+    <string name="share_subtitle">آرامش و معنویت را با عزیزان خود به اشتراک بگذارید</string>
+    <string name="rate_subtitle">با امتیاز ۵ ستاره ما را حمایت کنید</string>
+    <string name="privacy_subtitle">تمام محاسبات کاملاً آفلاین روی دستگاه شما انجام می‌شود</string>
+    <string name="about_sakinah">درباره سکینه</string>
+    <string name="about_sakinah_subtitle">نسخه ۱.۰ • همراه معنوی، آرام و مدرن شما</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">ابزارهای عبادی روزانه</string>
+    <string name="holy_sites_live">پخش زنده حرمین شریفین</string>
+    <string name="live_badge">زنده</string>
+    <string name="makkah_24_7">۲۴/۷ حرم مکه</string>
+    <string name="allahs_names_short">نام‌های خدا</string>
+    <string name="names_asma">۹۹ نام نیکو • اسماء الحسنی</string>
+    <string name="tasbeeh_label">تسبیح</string>
+    <string name="duas_label">دعاها</string>
+    <string name="daily_supplications">ادعیه روزانه</string>
+    <string name="makkah_label">مکه</string>
+    <string name="madinah_label">مدینه</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">پوسته‌های قطب‌نما و نشانگر</string>
+    <string name="qibla_subtitle_full">🕌 جهت به سوی کعبه مشرفه</string>
+    <string name="change_location">تغییر شهر &gt;</string>
+    <string name="qibla_aligned_full">هم‌جهت با کعبه معظمه (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">تسبیح دیجیتال</string>
+    <string name="tasbeeh_mode_caps">حالت تسبیح</string>
+    <string name="tap_to_increment_balloon">برای شمارش صفحه را لمس کنید</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">صلوات‌شمار و تسبیح دیجیتال</string>
+    <string name="splash_subtitle">🕌 • همراه عبادت و اوقات شرعی شما</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">تاریخ انتخاب‌شده</string>
+    <string name="notifications_per_prayer">اعلان برای هر وعده نماز</string>
+    <string name="edit_arrow">ویرایش ←</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">فقه</string>
+    <string name="choose_prayer_method">روش محاسبه اوقات شرعی را انتخاب کنید</string>
+    <string name="fiqh_description">مذاهب فقهی در زمان شروع نماز عصر تفاوت اندکی دارند. لطفاً روش مورد نظر خود را انتخاب کنید.</string>
+    <string name="asr_calculation_header">روش محاسبه نماز عصر</string>
+    <string name="calculation_authority_header">مرجع محاسباتی</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">انتخاب موقعیت مکانی</string>
+    <string name="search_city_hint">جستجوی شهر یا کشور...</string>
+    <string name="use_current_location">استفاده از مکان فعلی (GPS)</string>
+    <string name="auto_detect_location">تشخیص خودکار از طریق موقعیت‌یاب دستگاه</string>
+    <string name="popular_cities">شهرهای پرطرفدار</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">ادعیه و اذکار • دعاهای مأثوره</string>
+    <string name="supplication">دعا</string>
+    <string name="transliteration">آوانویسی</string>
+    <string name="translation">ترجمه</string>
+    <string name="benefit_and_merit">فضیلت و ثواب</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">اسماء الحسنی • ۹۹ نام مبارک خداوند</string>
+    <string name="play_names_recitation">پخش صوتی اسماء الحسنی</string>
+    <string name="play_names_desc">پخش صوت زیبا و معنوی اسماء الحسنی (.mp3) در پس‌زمینه</string>
+    <string name="pause">توقف موقت</string>
+    <string name="stop">پایان</string>
+    <string name="play_audio_btn">شنیدن اسماء الحسنی (صوتی MP3)</string>
+    <string name="search_names_hint">جستجو با نام یا معنی...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">اوقات شرعی برای تاریخ انتخاب‌شده</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">پخش زنده و مستقیم از مسجد الحرام</string>
+    <string name="official_broadcast">پخش رسمی با کیفیت HD شبانه‌روزی</string>
+    <string name="live_badge_24_7">زنده ۲۴/۷</string>
+    <string name="watching_count">۴۸.۲ هزار بیننده</string>
+    <string name="masjid_al_haram">مسجد الحرام، مکه مکرمه</string>
+    <string name="saudi_quran_tv">تلویزیون قرآن عربستان (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">پخش مستقیم و شبانه‌روزی نمازها، طواف و تلاوت قرآن از کنار خانه خدا.</string>
+    <string name="watch_stream_youtube">تماشا در یوتیوب با کیفیت کامل ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">عبادت‌های خود را سرشار از آرامش و معنویت کنید</string>
+    <string name="support_pure_islamic_software">از برنامه اسلامی مستقل، بدون تبلیغات و بدون ردیابی حمایت کنید.</string>
+    <string name="monthly_plan">طرح ماهانه</string>
+    <string name="flexible">منعطف</string>
+    <string name="per_month">/ در ماه</string>
+    <string name="billed_monthly_desc">پرداخت ماهانه. لغو در هر زمان بدون تعهد.</string>
+    <string name="annual_plan">طرح سالانه</string>
+    <string name="most_popular_save">محبوب‌ترین • ۵۸٪ صرفه‌جویی</string>
+    <string name="per_year_desc">/ در سال ($0.83/ماه)</string>
+    <string name="annual_trial_desc">شامل ۷ روز دوره آزمایشی رایگان. پرداخت سالانه یک بار.</string>
+    <string name="lifetime_access">دسترسی مادام‌العمر</string>
+    <string name="best_value_pay_once">بیشترین ارزش • یک بار پرداخت</string>
+    <string name="one_time_payment">یک بار پرداخت</string>
+    <string name="lifetime_desc">یک بار پرداخت کنید و برای همیشه استفاده نمایید.</string>
+    <string name="whats_included_sakinah_plus">امکانات سکینه پلاس</string>
+    <string name="feat_ad_free">۱۰۰٪ بدون تبلیغات، محیطی آرام برای راز و نیاز</string>
+    <string name="feat_api">اتصال مستقیم به دقیق‌ترین پلتفرم اوقات شرعی اذان</string>
+    <string name="feat_widgets">ویجت‌های اوقات شرعی برای صفحه قفل و خانه</string>
+    <string name="feat_adhan">اذان با نوای دلنشین مؤذنان حرمین شریفین</string>
+    <string name="feat_tasbeeh">شمارنده تسبیح نامحدود همراه با گزارش روزانه</string>
+    <string name="subscribe_annual_btn">خرید اشتراک سالانه • $9.99/سال</string>
+    <string name="restore_privacy_terms">بازیابی خرید • حریم خصوصی • قوانین</string>
+    <string name="monthly">ماهانه</string>
+    <string name="flexible_month_access">دسترسی ماهانه منعطف</string>
+    <string name="best_value_save_45">بهترین ارزش • ۴۵٪ تخفیف</string>
+    <string name="yearly_access">دسترسی سالانه</string>
+    <string name="yearly_billed_desc">$1.66 / ماه در صورت پرداخت سالانه</string>
+    <string name="lifetime_sadaqah">صدقه جاریه دائمی</string>
+    <string name="lifetime_perpetual_desc">عضویت همیشگی با یک بار پرداخت</string>
+
+</resources>

@@ -31,11 +31,12 @@
 
         <TextView
             android:id="@+id/tv_dua_entry_arabic"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:ellipsize="end"
             android:fontFamily="@font/montserrat_family"
+            android:gravity="end"
             android:maxLines="2"
             android:text="أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ"
             android:textColor="@color/emerald_primary"

@@ -8,6 +8,6 @@
         android:type="linear" />
     <corners android:radius="22dp" />
     <stroke
-        android:width="0.5dp"
-        android:color="@color/active_prayer_border" />
+        android:width="0.7dp"
+        android:color="@color/hero_card_bg_end" />
 </shape>

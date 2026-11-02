@@ -12,6 +12,8 @@ import com.example.databinding.FragmentAppSettingsBinding
 import com.example.model.ThemeMode
 import com.example.ui.activities.PremiumActivity
 import com.example.ui.navigation.navigateWithSlide
+import androidx.appcompat.app.AppCompatDelegate
+import com.example.service.SakinahPreferences
 import com.example.viewmodel.SakinahViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.flow.collectLatest
@@ -52,10 +54,13 @@ class AppSettingsFragment :
         }
 
         binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
+            SakinahPreferences.saveDarkTheme(requireContext(), isChecked)
             val targetMode = if (isChecked) ThemeMode.DARK else ThemeMode.LIGHT
             if (viewModel.uiState.value.themeMode != targetMode) {
                 viewModel.setThemeMode(targetMode)
             }
+            val nightMode = if (isChecked) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+            AppCompatDelegate.setDefaultNightMode(nightMode)
         }
 
         // Share App

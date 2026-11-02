@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Ajustes</string>
+    <string name="languages">Idiomas</string>
+    <string name="language">Idioma</string>
+    <string name="apply">Aplicar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="next">Siguiente</string>
+    <string name="get_started">Comenzar</string>
+    <string name="change">Cambiar</string>
+    <string name="today">Hoy</string>
+    <string name="back">Atrás</string>
+    <string name="close">Cerrar</string>
+    <string name="see_schedule">Ver Horarios</string>
+    <string name="remaining">Restante</string>
+    <string name="started">Iniciado</string>
+    <string name="ends">Termina</string>
+    <string name="starts">Comienza</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">ORACIÓN ACTUAL</string>
+    <string name="upcoming_prayer">PRÓXIMA ORACIÓN</string>
+    <string name="prayer_fajr">Fajr</string>
+    <string name="prayer_sunrise">Amanecer</string>
+    <string name="prayer_dhuhr">Dhuhr</string>
+    <string name="prayer_asr">Asr</string>
+    <string name="prayer_maghrib">Magrib</string>
+    <string name="prayer_isha">Isha</string>
+    <string name="daily_prayer_schedule">Horario Diario de Oraciones</string>
+    <string name="prayer_times">Horarios de Oración</string>
+    <string name="prayer_notifications">Notificaciones de Oración</string>
+    <string name="prayer_calendar">Calendario de Oraciones</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">UTILIDADES DIARIAS DE ADORACIÓN</string>
+    <string name="allahs_names">99 Nombres de Alá</string>
+    <string name="asma_ul_husna">Asma-ul-Husna</string>
+    <string name="tasbeeh">Tasbih Digital</string>
+    <string name="tasbeeh_subtitle">Dhikr y Contador</string>
+    <string name="qibla_direction">Dirección de la Qibla</string>
+    <string name="qibla_subtitle">Brújula hacia la Kaaba</string>
+    <string name="daily_duas">Duas Diarias</string>
+    <string name="daily_duas_subtitle">Súplicas Auténticas</string>
+    <string name="live_makkah">La Meca en Vivo</string>
+    <string name="live_madinah">Medina en Vivo</string>
+    <string name="live_makkah_subtitle">Masjid al-Haram 24/7</string>
+    <string name="live_madinah_subtitle">Al-Masjid an-Nabawi</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Modo de Tema</string>
+    <string name="system_default">Predeterminado del Sistema</string>
+    <string name="light_mode">Claro</string>
+    <string name="dark_mode">Oscuro</string>
+    <string name="fiqh_calc_method">Método de Fiqh / Cálculo</string>
+    <string name="location">Ubicación</string>
+    <string name="share_with_friends">Compartir con Amigos</string>
+    <string name="rate_sakinah">Calificar Sakinah</string>
+    <string name="privacy_policy">Política de Privacidad</string>
+    <string name="terms_and_conditions">Términos y Condiciones</string>
+    <string name="support_and_about">SOPORTE Y ACERCA DE</string>
+    <string name="personalization_display">PERSONALIZACIÓN Y PANTALLA</string>
+    <string name="prayer_and_location">ORACIÓN Y UBICACIÓN</string>
+    <string name="exit_app_title">¿Salir de la Aplicación?</string>
+    <string name="exit_app_message">¿Está seguro de que desea cerrar Sakinah? Sus recordatorios de oración continuarán en segundo plano.</string>
+    <string name="exit_now">Salir Ahora</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">SELECCIONE SU PLAN PREMIUM</string>
+    <string name="premium_subtitle">Mejore su experiencia y apoye la aplicación desbloqueando todas las funciones premium.</string>
+    <string name="btn_continue">Continuar</string>
+    <string name="badge_best_choice">MEJOR ELECCIÓN</string>
+    <string name="plan_yearly">PLAN ANUAL</string>
+    <string name="plan_lifetime">PLAN DE POR VIDA</string>
+    <string name="plan_yearly_price">19,99 €</string>
+    <string name="plan_lifetime_price">49,99 €</string>
+    <string name="plan_yearly_desc">Se renueva a menos que se cancele 24 horas antes del final del período.</string>
+    <string name="plan_lifetime_desc">Pague una vez, disfrute para siempre. Todas las actualizaciones futuras incluidas.</string>
+    <string name="feature_no_ads">Sin anuncios para siempre</string>
+    <string name="feature_lifetime_support">Soporte de por vida</string>
+    <string name="feature_all_azans">Todas las Recitaciones del Adhan</string>
+    <string name="feature_offline_qibla">Qibla y Horarios sin Conexión</string>
+    <string name="feature_unlimited_dhikr">Contadores de Tasbih Ilimitados</string>
+    <string name="feature_live_streams">Transmisiones en Vivo de La Meca y Medina HD</string>
+    <string name="feature_support_dev">Apoye el Desarrollo Islámico</string>
+    <string name="go_premium">Hacerse Premium</string>
+    <string name="unlock_premium">Desbloquear Sakinah Plus</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Calibrar: Mueva el teléfono en forma de 8 lejos de imanes</string>
+    <string name="qibla_aligned">ALINEADO CON LA SAGRADA KAABA</string>
+    <string name="tasbeeh_mode">MODO TASBIH</string>
+    <string name="tap_to_increment">Toque la cuenta, el botón o la pantalla para incrementar el Dhikr</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Sin anuncios, audio de Adhan y widgets</string>
+    <string name="go_premium_arrow">Hacerse Premium →</string>
+    <string name="fiqh_val_default">Hanafi • Karachi</string>
+    <string name="prayer_notif_subtitle">Audios de Adhan, vibraciones y ajustes</string>
+    <string name="share_subtitle">Comparta paz y serenidad con familiares y amigos</string>
+    <string name="rate_subtitle">Apoye nuestro camino con una reseña de 5 estrellas</string>
+    <string name="privacy_subtitle">Todos los cálculos se ejecutan 100% en el dispositivo</string>
+    <string name="about_sakinah">Acerca de Sakinah</string>
+    <string name="about_sakinah_subtitle">Versión 1.0 • Compañero Islámico Moderno y Sereno</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">UTILIDADES DIARIAS DE ADORACIÓN</string>
+    <string name="holy_sites_live">TRANSMISIÓN EN VIVO DE SITIOS SAGRADOS</string>
+    <string name="live_badge">EN VIVO</string>
+    <string name="makkah_24_7">24/7 Haram</string>
+    <string name="allahs_names_short">Nombres de Alá</string>
+    <string name="names_asma">99 Nombres • Asma</string>
+    <string name="tasbeeh_label">Tasbih</string>
+    <string name="duas_label">Duas</string>
+    <string name="daily_supplications">Súplicas Diarias</string>
+    <string name="makkah_label">La Meca</string>
+    <string name="madinah_label">Medina</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">TEMAS DE BRÚJULA Y FLECHA</string>
+    <string name="qibla_subtitle_full">🕌 Dirección hacia la Sagrada Kaaba</string>
+    <string name="change_location">Cambiar Ubicación &gt;</string>
+    <string name="qibla_aligned_full">ALINEADO CON LA SAGRADA KAABA (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Tasbih Digital</string>
+    <string name="tasbeeh_mode_caps">MODO TASBIH</string>
+    <string name="tap_to_increment_balloon">Toque la cuenta o la pantalla para contar</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Contador de Tasbih Digital</string>
+    <string name="splash_subtitle">🕌 • Compañero de Oración y Adoración</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">FECHA SELECCIONADA</string>
+    <string name="notifications_per_prayer">NOTIFICACIONES POR ORACIÓN</string>
+    <string name="edit_arrow">Editar →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Fiqh</string>
+    <string name="choose_prayer_method">Elija su método de cálculo de oración</string>
+    <string name="fiqh_description">Las diferentes escuelas de jurisprudencia observan horarios ligeramente diferentes para la oración de Asr. Seleccione su preferencia a continuación.</string>
+    <string name="asr_calculation_header">CÁLCULO DEL HORARIO DE ASR</string>
+    <string name="calculation_authority_header">AUTORIDAD DE CÁLCULO</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Elegir ubicación</string>
+    <string name="search_city_hint">Buscar ciudad o país...</string>
+    <string name="use_current_location">Usar Ubicación Actual</string>
+    <string name="auto_detect_location">Detección automática por sensores del dispositivo</string>
+    <string name="popular_cities">CIUDADES POPULARES</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">Súplicas y Recitaciones • Duas Auténticas</string>
+    <string name="supplication">Súplica</string>
+    <string name="transliteration">TRANSLITERACIÓN</string>
+    <string name="translation">TRADUCCIÓN</string>
+    <string name="benefit_and_merit">Beneficio y Mérito</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">Asma ul-Husna • 99 Nombres de Alá</string>
+    <string name="play_names_recitation">Escuchar la Recitación de los 99 Nombres</string>
+    <string name="play_names_desc">Reproducir audio auténtico de Asma-ul-Husna (.mp3) en segundo plano</string>
+    <string name="pause">Pausa</string>
+    <string name="stop">Detener</string>
+    <string name="play_audio_btn">Reproducir los 99 Nombres de Alá (MP3)</string>
+    <string name="search_names_hint">Buscar por nombre o significado...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">HORARIOS DE ORACIÓN PARA LA FECHA SELECCIONADA</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">En Vivo desde Masjid al-Haram</string>
+    <string name="official_broadcast">Transmisión Oficial HD 24/7</string>
+    <string name="live_badge_24_7">EN VIVO 24/7</string>
+    <string name="watching_count">48.2K viendo</string>
+    <string name="masjid_al_haram">Masjid al-Haram, La Meca</string>
+    <string name="saudi_quran_tv">Saudi Quran TV (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Transmisión continua 24/7 de oraciones, Tawaf y recitaciones de la Sagrada Kaaba.</string>
+    <string name="watch_stream_youtube">Ver en Vivo en Full HD en YouTube ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">Haga su experiencia de oración serena</string>
+    <string name="support_pure_islamic_software">Apoye software islámico creado sin anuncios, sin seguimiento ni distracciones.</string>
+    <string name="monthly_plan">Plan Mensual</string>
+    <string name="flexible">Flexible</string>
+    <string name="per_month">/ mes</string>
+    <string name="billed_monthly_desc">Facturación mensual. Cancele en cualquier momento sin compromiso.</string>
+    <string name="annual_plan">Plan Anual</string>
+    <string name="most_popular_save">Más Popular • Ahorre 58%</string>
+    <string name="per_year_desc">/ año ($0.83/mes)</string>
+    <string name="annual_trial_desc">Incluye prueba gratuita de 7 días. Facturado una vez al año.</string>
+    <string name="lifetime_access">Acceso de por Vida</string>
+    <string name="best_value_pay_once">Mejor Valor • Pago Único</string>
+    <string name="one_time_payment">pago único</string>
+    <string name="lifetime_desc">Pague una vez, disfrute para siempre. Todas las actualizaciones futuras incluidas.</string>
+    <string name="whats_included_sakinah_plus">QUÉ INCLUYE SAKINAH PLUS</string>
+    <string name="feat_ad_free">100% Sin Publicidad, Ambiente de Adoración Tranquilo</string>
+    <string name="feat_api">Integración con API de Plataforma Aladhan en Tiempo Real</string>
+    <string name="feat_widgets">Widgets de Oración para Pantalla de Inicio y Bloqueo</string>
+    <string name="feat_adhan">Recitadores Auténticos de Adhan (La Meca, Medina, Al-Aqsa)</string>
+    <string name="feat_tasbeeh">Contadores de Tasbih Ilimitados con Historial Diario</string>
+    <string name="subscribe_annual_btn">Suscribirse al Plan Anual • $9.99/año</string>
+    <string name="restore_privacy_terms">Restaurar Compras • Privacidad • Términos</string>
+    <string name="monthly">Mensual</string>
+    <string name="flexible_month_access">Acceso mensual flexible</string>
+    <string name="best_value_save_45">MEJOR VALOR • AHORRE 45%</string>
+    <string name="yearly_access">Acceso Anual</string>
+    <string name="yearly_billed_desc">$1.66 / mes facturado anualmente</string>
+    <string name="lifetime_sadaqah">Sadaqah Jariyah de por Vida</string>
+    <string name="lifetime_perpetual_desc">Membresía perpetua de pago único</string>
+
+</resources>

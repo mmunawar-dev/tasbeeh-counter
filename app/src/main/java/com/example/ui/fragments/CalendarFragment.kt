@@ -232,14 +232,14 @@ class CalendarFragment : BaseFragment<FragmentCalendarBinding>(FragmentCalendarB
         setTextColor(ContextCompat.getColor(requireContext(), R.color.text_primary))
       }
 
-      val tvArabic = TextView(requireContext()).apply {
-        text = item.type.arabicName
-        textSize = 11f
-        setTextColor(ContextCompat.getColor(requireContext(), R.color.text_secondary))
-      }
+//      val tvArabic = TextView(requireContext()).apply {
+//        text = item.type.arabicName
+//        textSize = 11f
+//        setTextColor(ContextCompat.getColor(requireContext(), R.color.text_secondary))
+//      }
 
       nameLayout.addView(tvName)
-      nameLayout.addView(tvArabic)
+//      nameLayout.addView(tvArabic)
 
       val tvTime = TextView(requireContext()).apply {
         text = item.timeFormatted

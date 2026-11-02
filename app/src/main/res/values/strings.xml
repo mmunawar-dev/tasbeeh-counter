@@ -1,5 +1,227 @@
 <resources>
-    <string name="app_name">Tasbeeh Counter</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Ruhani: Prayer Times &amp; Tasbeeh</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Settings</string>
+    <string name="languages">Languages</string>
+    <string name="language">Language</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="change">Change</string>
+    <string name="today">Today</string>
+    <string name="back">Back</string>
+    <string name="close">Close</string>
+    <string name="see_schedule">See Schedule</string>
+    <string name="remaining">Remaining</string>
+    <string name="started">Started</string>
+    <string name="ends">Ends</string>
+    <string name="starts">Starts</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">CURRENT PRAYER</string>
+    <string name="upcoming_prayer">UPCOMING PRAYER</string>
+    <string name="prayer_fajr">Fajr</string>
+    <string name="prayer_sunrise">Sunrise</string>
+    <string name="prayer_dhuhr">Dhuhr</string>
+    <string name="prayer_asr">Asr</string>
+    <string name="prayer_maghrib">Maghrib</string>
+    <string name="prayer_isha">Isha</string>
+    <string name="daily_prayer_schedule">Daily Prayer Schedule</string>
+    <string name="prayer_times">Prayer Times</string>
+    <string name="prayer_notifications">Prayer Notifications</string>
+    <string name="prayer_calendar">Prayer Calendar</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">DAILY WORSHIP UTILITIES</string>
+    <string name="allahs_names">Allah\'s 99 Names</string>
+    <string name="asma_ul_husna">Asma-ul-Husna</string>
+    <string name="tasbeeh">Digital Tasbeeh</string>
+    <string name="tasbeeh_subtitle">Dhikr &amp; Counter</string>
+    <string name="qibla_direction">Qibla Direction</string>
+    <string name="qibla_subtitle">Compass to Kaaba</string>
+    <string name="daily_duas">Daily Duas</string>
+    <string name="daily_duas_subtitle">Authentic Supplications</string>
+    <string name="live_makkah">Live Makkah</string>
+    <string name="live_madinah">Live Madinah</string>
+    <string name="live_makkah_subtitle">Masjid al-Haram 24/7</string>
+    <string name="live_madinah_subtitle">Al-Masjid an-Nabawi</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Theme Mode</string>
+    <string name="system_default">System Default</string>
+    <string name="light_mode">Light</string>
+    <string name="dark_mode">Dark</string>
+    <string name="fiqh_calc_method">Fiqh / Calculation Method</string>
+    <string name="location">Location</string>
+    <string name="share_with_friends">Share with Friends</string>
+    <string name="rate_sakinah">Rate Sakinah</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_and_conditions">Terms &amp; Conditions</string>
+    <string name="support_and_about">SUPPORT &amp; ABOUT</string>
+    <string name="personalization_display">PERSONALIZATION &amp; DISPLAY</string>
+    <string name="prayer_and_location">PRAYER &amp; LOCATION</string>
+    <string name="exit_app_title">Exit Application?</string>
+    <string name="exit_app_message">Are you sure you want to close Sakinah? Your prayer reminders will continue in the background.</string>
+    <string name="exit_now">Exit Now</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">SELECT YOUR PREMIUM PLAN</string>
+    <string name="premium_subtitle">Enhance your experience and support the app by unlocking all premium features.</string>
+    <string name="btn_continue">Continue</string>
+    <string name="badge_best_choice">BEST CHOICE</string>
+    <string name="plan_yearly">YEARLY PLAN</string>
+    <string name="plan_lifetime">LIFETIME PLAN</string>
+    <string name="plan_yearly_price">Rs 1,200.00</string>
+    <string name="plan_lifetime_price">Rs 2,800.00</string>
+    <string name="plan_yearly_desc">Renews unless cancelled 24 hours before the end of the period.</string>
+    <string name="plan_lifetime_desc">Renews unless cancelled 24 hours before the end of the period. Yearly plan price subject to change.</string>
+    <string name="feature_no_ads">No ads forever</string>
+    <string name="feature_lifetime_support">Lifetime support</string>
+    <string name="feature_no_ads_forever">No ads forever 💎</string>
+    <string name="feature_instant_load_times">Instant load times\n(always)</string>
+    <string name="feature_faster_load_times">Faster load times</string>
+    <string name="feature_early_access">Early access\nfeatures</string>
+    <string name="feature_multi_device_sync">Multi-device sync</string>
+    <string name="btn_select_yearly">SELECT YEARLY</string>
+    <string name="btn_go_lifetime">GO LIFETIME</string>
+    <string name="feature_all_azans">All Qari Azan Recitations</string>
+    <string name="feature_offline_qibla">Offline Qibla &amp; Times</string>
+    <string name="feature_unlimited_dhikr">Unlimited Dhikr &amp; Counter</string>
+    <string name="feature_live_streams">Live Makkah &amp; Madinah HD</string>
+    <string name="feature_support_dev">Support Islamic Development</string>
+    <string name="go_premium">Go Premium</string>
+    <string name="unlock_premium">Unlock Sakinah Plus</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Calibrate: Wave phone in a figure-8 motion away from magnets</string>
+    <string name="qibla_aligned">ALIGNED WITH HOLY KAABA</string>
+    <string name="tasbeeh_mode">TASBEEH MODE</string>
+    <string name="tap_to_increment">Tap bead, button, or screen to increment Dhikr</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Ad-free, Azan audio &amp; widgets</string>
+    <string name="go_premium_arrow">Go Premium →</string>
+    <string name="fiqh_val_default">Hanafi • Karachi</string>
+    <string name="prayer_notif_subtitle">Athan audio, vibrations &amp; timing offsets</string>
+    <string name="share_subtitle">Spread peace &amp; serenity with family &amp; friends</string>
+    <string name="rate_subtitle">Support our journey with a 5-star review</string>
+    <string name="privacy_subtitle">All calculations run 100% on device</string>
+    <string name="about_sakinah">About Sakinah</string>
+    <string name="about_sakinah_subtitle">Version 1.0 • Modern Calm Islamic Companion</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">DAILY WORSHIP UTILITIES</string>
+    <string name="holy_sites_live">HOLY SITES LIVE BROADCAST</string>
+    <string name="live_badge">LIVE</string>
+    <string name="makkah_24_7">24/7 Haram</string>
+    <string name="allahs_names_short">Allah\'s Names</string>
+    <string name="names_asma">99 Names • Asma</string>
+    <string name="tasbeeh_label">Tasbeeh</string>
+    <string name="duas_label">Duas</string>
+    <string name="daily_supplications">Daily Supplications</string>
+    <string name="makkah_label">Makkah</string>
+    <string name="madinah_label">Madinah</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">COMPASS &amp; ARROW THEMES</string>
+    <string name="qibla_subtitle_full">🕌 Direction to Holy Kaaba</string>
+    <string name="change_location">Change Location &gt;</string>
+    <string name="qibla_aligned_full">ALIGNED WITH HOLY KAABA (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Digital Tasbeeh</string>
+    <string name="tasbeeh_mode_caps">TASBEEH MODE</string>
+    <string name="tap_to_increment_balloon">Tap bead, button, or balloon to increment Dhikr</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Digital Tasbeeh Counter</string>
+    <string name="splash_subtitle">🕌 • Prayer &amp; Worship Companion</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">SELECTED DATE</string>
+    <string name="notifications_per_prayer">NOTIFICATIONS PER PRAYER</string>
+    <string name="edit_arrow">Edit →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Fiqh</string>
+    <string name="choose_prayer_method">Choose your prayer method</string>
+    <string name="fiqh_description">Different schools of jurisprudence observe slightly different start times for Asr prayer. Select your preference below.</string>
+    <string name="asr_calculation_header">ASR TIME CALCULATION</string>
+    <string name="calculation_authority_header">CALCULATION AUTHORITY</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Choose location</string>
+    <string name="search_city_hint">Search city or country...</string>
+    <string name="use_current_location">Use Current Location</string>
+    <string name="auto_detect_location">Auto-detect via device sensors</string>
+    <string name="popular_cities">POPULAR CITIES</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">الأدعية والأذكار • Authentic Supplications</string>
+    <string name="supplication">Supplication</string>
+    <string name="transliteration">TRANSLITERATION</string>
+    <string name="translation">TRANSLATION</string>
+    <string name="benefit_and_merit">Benefit &amp; Merit</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">أسماء الله الحسنى • Asma ul-Husna</string>
+    <string name="play_names_recitation">Play 99 Names of Allah Recitation</string>
+    <string name="play_names_desc">Play authentic Asma-ul-Husna audio (.mp3) with background foreground service</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+    <string name="play_audio_btn">Play 99 Names of Allah (Audio MP3)</string>
+    <string name="search_names_hint">Search by name or meaning...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">PRAYER TIMES FOR SELECTED DATE</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">Streaming Live from Masjid al-Haram</string>
+    <string name="official_broadcast">Official 24/7 HD Broadcast</string>
+    <string name="live_badge_24_7">LIVE 24/7</string>
+    <string name="watching_count">48.2K watching</string>
+    <string name="masjid_al_haram">Masjid al-Haram, Makkah</string>
+    <string name="saudi_quran_tv">Saudi Quran TV (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Continuous 24/7 live transmission of prayers, circumambulation (Tawaf), and recitations from the Holy Kaaba.</string>
+    <string name="watch_stream_youtube">Watch Full HD Stream on YouTube ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">Make your prayer experience serene</string>
+    <string name="support_pure_islamic_software">Support pure Islamic software crafted without advertisements, tracking, or distractions.</string>
+    <string name="monthly_plan">Monthly Plan</string>
+    <string name="flexible">Flexible</string>
+    <string name="per_month">/ month</string>
+    <string name="billed_monthly_desc">Billed monthly. Cancel anytime with zero commitment.</string>
+    <string name="annual_plan">Annual Plan</string>
+    <string name="most_popular_save">Most Popular • Save 58%</string>
+    <string name="per_year_desc">/ year ($0.83/mo)</string>
+    <string name="annual_trial_desc">Includes 7-day free trial. Billed once annually.</string>
+    <string name="lifetime_access">Lifetime Access</string>
+    <string name="best_value_pay_once">Best Value • Pay Once</string>
+    <string name="one_time_payment">one-time payment</string>
+    <string name="lifetime_desc">Pay once, own forever. All present and future updates included.</string>
+    <string name="whats_included_sakinah_plus">WHAT\'S INCLUDED IN SAKINAH PLUS</string>
+    <string name="feat_ad_free">100% Ad-Free, Peaceful Worship Environment</string>
+    <string name="feat_api">Real-time Aladhan Platform API Integration</string>
+    <string name="feat_widgets">Lock Screen and Home Screen Prayer Widgets</string>
+    <string name="feat_adhan">Authentic Adhan Reciters (Makkah, Madinah, Al-Aqsa)</string>
+    <string name="feat_tasbeeh">Unlimited Tasbeeh Counters with Daily History</string>
+    <string name="subscribe_annual_btn">Subscribe to Annual Plan • $9.99/yr</string>
+    <string name="restore_privacy_terms">Restore Purchases • Privacy Policy • Terms</string>
+    <string name="monthly">Monthly</string>
+    <string name="flexible_month_access">Flexible month-to-month access</string>
+    <string name="best_value_save_45">BEST VALUE • SAVE 45%</string>
+    <string name="yearly_access">Yearly Access</string>
+    <string name="yearly_billed_desc">$1.66 / mo billed annually</string>
+    <string name="lifetime_sadaqah">Lifetime Sadaqah</string>
+    <string name="lifetime_perpetual_desc">One-time perpetual membership</string>
+
 </resources>

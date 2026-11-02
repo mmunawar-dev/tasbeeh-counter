@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Daily Duas"
+                android:text="@string/daily_duas"
                 android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="الأدعية والأذكار • Authentic Supplications"
+                android:text="@string/authentic_supplications"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp" />
         </LinearLayout>

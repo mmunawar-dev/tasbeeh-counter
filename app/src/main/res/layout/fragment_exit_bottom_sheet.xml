@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_family"
-        android:text="Exit Application?"
+        android:text="@string/exit_app_title"
         android:textColor="@color/text_primary"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -49,7 +49,7 @@
         android:fontFamily="@font/montserrat_family"
         android:gravity="center"
         android:paddingHorizontal="16dp"
-        android:text="Are you sure you want to close Sakinah? Your prayer reminders will continue in the background."
+        android:text="@string/exit_app_message"
         android:textColor="@color/text_secondary"
         android:textSize="14sp" />
 
@@ -68,7 +68,7 @@
             android:layout_marginEnd="6dp"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat_family"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:textColor="@color/text_primary"
             android:textStyle="bold"
             app:cornerRadius="12dp"
@@ -82,7 +82,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/emerald_primary"
             android:fontFamily="@font/montserrat_family"
-            android:text="Exit Now"
+            android:text="@string/exit_now"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:cornerRadius="12dp" />

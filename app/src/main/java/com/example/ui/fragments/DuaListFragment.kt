@@ -29,9 +29,7 @@ class DuaListFragment : BaseFragment<FragmentDuaListBinding>(FragmentDuaListBind
       binding.tvDuaListCategoryTitle.text = category.title
       binding.tvDuaListCategoryArabic.text = category.arabicTitle
 
-      val items = DuaItem.DUA_ITEMS.filter {
-        it.categoryId == category.id || category.id == "morning_evening"
-      }
+      val items = DuaItem.DUA_ITEMS.filter { it.categoryId == category.id }
       val adapter = DuaListAdapter(items) { selectedDua ->
         viewModel.selectDuaItem(selectedDua)
         findNavController().navigateWithSlide(R.id.duaDetailFragment)

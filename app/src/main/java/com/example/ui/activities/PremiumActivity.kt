@@ -1,10 +1,17 @@
 package com.example.ui.activities
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import androidx.navigation.fragment.findNavController
 import com.example.R
 import com.example.databinding.ActivityPremiumBinding
 import com.example.model.PremiumPlan
@@ -17,97 +24,83 @@ class PremiumActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = ActivityPremiumBinding.inflate(layoutInflater)
+    enableEdgeToEdge()
     setContentView(binding.root)
+    ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
 
-    binding.toolbarPremium.setNavigationOnClickListener {
+      val systemBars = insets.getInsets(
+        WindowInsetsCompat.Type.systemBars()
+      )
+
+      view.updatePadding(
+        left = systemBars.left,
+        top = 0,
+        right = systemBars.right,
+        bottom = systemBars.bottom
+      )
+
+      insets
+    }
+
+    binding.btnPremiumBack.setOnClickListener {
       finish()
     }
 
-    setupPlanSelection()
-    updatePlanUI(PremiumPlan.YEARLY)
+    // Underline footer links
+    binding.tvPrivacyPolicy.paintFlags = binding.tvPrivacyPolicy.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+    binding.tvTermsConditions.paintFlags = binding.tvTermsConditions.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
-    binding.btnSubscribe.setOnClickListener {
-      Toast.makeText(
-        this,
-        "Subscribed to ${selectedPlan.title} (${selectedPlan.priceFormatted})! Thank you for supporting Sakinah.",
-        Toast.LENGTH_LONG
-      ).show()
-      // Save state
-      val prefs = getSharedPreferences("sakinah_prefs", Context.MODE_PRIVATE)
-      prefs.edit().putBoolean("is_premium", true).apply()
-      finish()
+    binding.btnPrivacyPolicy.setOnClickListener {
+      Toast.makeText(this, "Privacy Policy: All calculations run 100% on device.", Toast.LENGTH_SHORT).show()
     }
 
-    binding.tvRestorePurchases.setOnClickListener {
-      Toast.makeText(this, "Purchases restored successfully.", Toast.LENGTH_SHORT).show()
+    binding.btnTermsConditions.setOnClickListener {
+      Toast.makeText(this, "Terms & Conditions: Pure Islamic companion, no data shared.", Toast.LENGTH_SHORT).show()
     }
-  }
 
-  private fun setupPlanSelection() {
-    binding.cardPlanMonthly.setOnClickListener {
-      updatePlanUI(PremiumPlan.MONTHLY)
-    }
+    // Default selection is Lifetime Plan as highlighted in screenshot
+    updatePlanSelection(PremiumPlan.LIFETIME)
 
     binding.cardPlanYearly.setOnClickListener {
-      updatePlanUI(PremiumPlan.YEARLY)
+      updatePlanSelection(PremiumPlan.YEARLY)
     }
 
     binding.cardPlanLifetime.setOnClickListener {
-      updatePlanUI(PremiumPlan.LIFETIME)
+      updatePlanSelection(PremiumPlan.LIFETIME)
+    }
+
+    binding.btnSelectYearly.setOnClickListener {
+      selectedPlan = PremiumPlan.YEARLY
+//      unlockPlan(PremiumPlan.YEARLY)
+    }
+
+    binding.btnGoLifetime.setOnClickListener {
+      selectedPlan = PremiumPlan.LIFETIME
+//      unlockPlan(PremiumPlan.LIFETIME)
     }
   }
 
-  private fun updatePlanUI(plan: PremiumPlan) {
+
+
+  private fun updatePlanSelection(plan: PremiumPlan) {
     selectedPlan = plan
-
-    val activeBg = ContextCompat.getColor(this, R.color.active_prayer_bg)
-    val defaultBg = ContextCompat.getColor(this, R.color.surface_light)
-    val activeBorder = ContextCompat.getColor(this, R.color.active_prayer_border)
-    val defaultBorder = ContextCompat.getColor(this, R.color.outline_border)
-
-    // Reset Monthly
-    if (plan == PremiumPlan.MONTHLY) {
-      binding.cardPlanMonthly.setCardBackgroundColor(activeBg)
-      binding.cardPlanMonthly.strokeColor = activeBorder
-      binding.cardPlanMonthly.strokeWidth = dpToPx(2)
-    } else {
-      binding.cardPlanMonthly.setCardBackgroundColor(defaultBg)
-      binding.cardPlanMonthly.strokeColor = defaultBorder
-      binding.cardPlanMonthly.strokeWidth = dpToPx(1)
-    }
-
-    // Reset Yearly
-    if (plan == PremiumPlan.YEARLY) {
-      binding.cardPlanYearly.setCardBackgroundColor(activeBg)
-      binding.cardPlanYearly.strokeColor = activeBorder
-      binding.cardPlanYearly.strokeWidth = dpToPx(2)
-    } else {
-      binding.cardPlanYearly.setCardBackgroundColor(defaultBg)
-      binding.cardPlanYearly.strokeColor = defaultBorder
-      binding.cardPlanYearly.strokeWidth = dpToPx(1)
-    }
-
-    // Reset Lifetime
-    if (plan == PremiumPlan.LIFETIME) {
-      binding.cardPlanLifetime.setCardBackgroundColor(activeBg)
-      binding.cardPlanLifetime.strokeColor = activeBorder
-      binding.cardPlanLifetime.strokeWidth = dpToPx(2)
-    } else {
-      binding.cardPlanLifetime.setCardBackgroundColor(defaultBg)
-      binding.cardPlanLifetime.strokeColor = defaultBorder
-      binding.cardPlanLifetime.strokeWidth = dpToPx(1)
-    }
-
-    // Update CTA button text
-    binding.btnSubscribe.text = when (plan) {
-      PremiumPlan.MONTHLY -> "Subscribe Monthly • $1.99/mo"
-      PremiumPlan.YEARLY -> "Start Free Trial • Then $9.99/yr"
-      PremiumPlan.LIFETIME -> "Unlock Lifetime Access • $24.99"
-    }
-  }
-
-  private fun dpToPx(dp: Int): Int {
     val density = resources.displayMetrics.density
-    return (dp * density).toInt()
+    val goldColor = Color.parseColor("#E5A93C")
+    val defaultBorderColor = Color.parseColor("#386A50")
+
+    if (plan == PremiumPlan.YEARLY) {
+      binding.cardPlanYearly.strokeColor = goldColor
+      binding.cardPlanYearly.strokeWidth = (2f * density).toInt()
+
+      binding.cardPlanLifetime.strokeColor = defaultBorderColor
+      binding.cardPlanLifetime.strokeWidth = (1.2f * density).toInt()
+    } else {
+      binding.cardPlanLifetime.strokeColor = goldColor
+      binding.cardPlanLifetime.strokeWidth = (2f * density).toInt()
+
+      binding.cardPlanYearly.strokeColor = defaultBorderColor
+      binding.cardPlanYearly.strokeWidth = (1.2f * density).toInt()
+    }
   }
-}
+    }
+

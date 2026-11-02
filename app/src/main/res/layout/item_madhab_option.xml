@@ -41,20 +41,6 @@
                     android:textColor="@color/text_primary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_madhab_recommended_badge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/bg_badge_gold"
-                    android:fontFamily="@font/montserrat_family"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="2dp"
-                    android:text="Recommended for your location"
-                    android:textColor="@color/ochre_secondary"
-                    android:textSize="10sp"
-                    android:visibility="gone" />
             </LinearLayout>
 
             <TextView

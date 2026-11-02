@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.view.animation.LinearInterpolator
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.activityViewModels
@@ -233,11 +234,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 //    binding.tvHeroArabic.text = activePrayer.type.arabicName
     binding.tvHeroTime.text = activePrayer.type.name.lowercase().replaceFirstChar { it.uppercase() }
     binding.tvHeroInterval.text = if (isCurrent) {
-      "Started ${activePrayer.timeFormatted}  —  Ends ${activePrayer.endFormatted}"
+      "Started ${activePrayer.timeFormatted}"
     } else {
-      "Starts ${activePrayer.timeFormatted}  —  Ends ${activePrayer.endFormatted}"
+      "Starts ${activePrayer.timeFormatted}"
     }
-    binding.tvHeroCountdown.text = activePrayer.remainingTimeFormatted
+    binding.tvHeroIntervalEnd.text = "Ends ${activePrayer.endFormatted}"
+
+    val rawRemaining = activePrayer.remainingTimeFormatted
+    val cleanRemaining = rawRemaining
+      .replace("Ends in ", "")
+      .replace("In ", "")
+      .trim()
+    binding.tvHeroCountdown.text = if (cleanRemaining.isNotEmpty()) cleanRemaining else rawRemaining
+    binding.tvHeroCountdownLabel.text = "Remaining"
 
     val currentMode = viewModel.uiState.value.notificationModes[activePrayer.type] ?: PrayerNotificationMode.SOUND
     updateHeroAlertMode(currentMode)
@@ -260,35 +269,35 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     updatePrayerItem(
       binding.layoutPrayerFajr,
       binding.tvPrayerNameFajr,
-      binding.tvPrayerTimeFajr,
+      binding.tvPrayerTimeFajr,binding.img1,
       schedule.fajr,
       currentPrayerType == PrayerType.FAJR
     )
     updatePrayerItem(
       binding.layoutPrayerDhuhr,
       binding.tvPrayerNameDhuhr,
-      binding.tvPrayerTimeDhuhr,
+      binding.tvPrayerTimeDhuhr,binding.img2,
       schedule.dhuhr,
       currentPrayerType == PrayerType.DHUHR
     )
     updatePrayerItem(
       binding.layoutPrayerAsr,
       binding.tvPrayerNameAsr,
-      binding.tvPrayerTimeAsr,
+      binding.tvPrayerTimeAsr,binding.img3,
       schedule.asr,
       currentPrayerType == PrayerType.ASR
     )
     updatePrayerItem(
       binding.layoutPrayerMaghrib,
       binding.tvPrayerNameMaghrib,
-      binding.tvPrayerTimeMaghrib,
+      binding.tvPrayerTimeMaghrib,binding.img4,
       schedule.maghrib,
       currentPrayerType == PrayerType.MAGHRIB
     )
     updatePrayerItem(
       binding.layoutPrayerIsha,
       binding.tvPrayerNameIsha,
-      binding.tvPrayerTimeIsha,
+      binding.tvPrayerTimeIsha,binding.img5,
       schedule.isha,
       currentPrayerType == PrayerType.ISHA
     )
@@ -298,6 +307,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     container: View,
     tvName: TextView,
     tvTime: TextView,
+    dot: ImageView,
     item: PrayerTimeItem,
     isCurrent: Boolean
   ) {
@@ -307,10 +317,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
       container.setBackgroundResource(R.drawable.bg_hero_prayer_item_active)
       tvName.setTextColor(ContextCompat.getColor(context, R.color.hero_pill_text))
       tvTime.setTextColor(ContextCompat.getColor(context, R.color.text_primary))
+      dot.setImageResource(R.drawable.bg_prayer_line_active)
     } else {
       container.background = null
       tvName.setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
       tvTime.setTextColor(ContextCompat.getColor(context, R.color.text_secondary))
+      dot.setImageResource(R.drawable.bg_prayer_line_inactive)
     }
 
     container.setOnClickListener {

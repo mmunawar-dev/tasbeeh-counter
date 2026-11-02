@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Saituna</string>
+    <string name="languages">Harsuna</string>
+    <string name="language">Harshe</string>
+    <string name="apply">Aiwatar</string>
+    <string name="cancel">Soke</string>
+    <string name="next">Na gaba</string>
+    <string name="get_started">Fara Yanzu</string>
+    <string name="change">Sauya</string>
+    <string name="today">Yau</string>
+    <string name="back">Koma Baya</string>
+    <string name="close">Rufe</string>
+    <string name="see_schedule">Duba Jadawali</string>
+    <string name="remaining">Ya rage</string>
+    <string name="started">An fara</string>
+    <string name="ends">Karshe</string>
+    <string name="starts">Fara</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">LOKACIN SALLAH NA YANZU</string>
+    <string name="upcoming_prayer">SALLAH TA GABA</string>
+    <string name="prayer_fajr">Asubahi</string>
+    <string name="prayer_sunrise">Fitowar Rana</string>
+    <string name="prayer_dhuhr">Azahar</string>
+    <string name="prayer_asr">La\'asar</string>
+    <string name="prayer_maghrib">Magariba</string>
+    <string name="prayer_isha">Isha\'i</string>
+    <string name="daily_prayer_schedule">Jadawalin Lokutan Sallah na Kullum</string>
+    <string name="prayer_times">Lokutan Sallah</string>
+    <string name="prayer_notifications">Sanarwar Kiran Sallah</string>
+    <string name="prayer_calendar">Kalandar Sallah</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">KAYAN AIKIN IBADA NA KULLUM</string>
+    <string name="allahs_names">Sunayen Allah 99</string>
+    <string name="asma_ul_husna">Asma\'ul Husna</string>
+    <string name="tasbeeh">Carbi na Zamani</string>
+    <string name="tasbeeh_subtitle">Zikiri &amp; Kididdiga</string>
+    <string name="qibla_direction">Alƙibla</string>
+    <string name="qibla_subtitle">Kompaskaciyar Ka\'aba</string>
+    <string name="daily_duas">Addu\'o\'in Kullum</string>
+    <string name="daily_duas_subtitle">Ingantattun Addu\'o\'i</string>
+    <string name="live_makkah">Makkah Kai Tsaye</string>
+    <string name="live_madinah">Madinah Kai Tsaye</string>
+    <string name="live_makkah_subtitle">Masallacin Harami 24/7</string>
+    <string name="live_madinah_subtitle">Masallacin Annabi</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Yanayin Launi</string>
+    <string name="system_default">Na\'ura Ta Zaba</string>
+    <string name="light_mode">Fari</string>
+    <string name="dark_mode">Duhu</string>
+    <string name="fiqh_calc_method">Hanyar Fikihu da Lissafi</string>
+    <string name="location">Wuri</string>
+    <string name="share_with_friends">Raba tare da Abokai</string>
+    <string name="rate_sakinah">Yaba Sakinah</string>
+    <string name="privacy_policy">Kariyar Bayanai</string>
+    <string name="terms_and_conditions">Sharudda da Ka\'idoji</string>
+    <string name="support_and_about">TAIMAKO DA BAYANI</string>
+    <string name="personalization_display">SAITIN ALLON NUNAWA</string>
+    <string name="prayer_and_location">SALLAH DA WURI</string>
+    <string name="exit_app_title">Fita daga Manhajar?</string>
+    <string name="exit_app_message">Shin da gaske kana son rufe Sakinah? Tunatarwar sallah za ta ci gaba a bango.</string>
+    <string name="exit_now">Fita Yanzu</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">ZABI TSARIN VIP NAKA</string>
+    <string name="premium_subtitle">Inganta ibadarka tare da tallafawa manhaja ba tare da tallace-tallace ba.</string>
+    <string name="btn_continue">Ci gaba</string>
+    <string name="badge_best_choice">ZABI MAFI KYAU</string>
+    <string name="plan_yearly">TSARIN SHEKARA</string>
+    <string name="plan_lifetime">TSARIN HAR ABADA</string>
+    <string name="plan_yearly_price">$9.99 / shekara</string>
+    <string name="plan_lifetime_price">$24.99 sau daya</string>
+    <string name="plan_yearly_desc">Ana sabuntawa sai dai idan an soke sa\'o\'i 24 kafin karewa.</string>
+    <string name="plan_lifetime_desc">Biyan kudi sau daya, amfani har abada.</string>
+    <string name="feature_no_ads">Babu tallace-tallace har abada</string>
+    <string name="feature_lifetime_support">Taimako na dindindin</string>
+    <string name="feature_all_azans">Kiran sallah daga shahararrun ladanai</string>
+    <string name="feature_offline_qibla">Kibla da lokutan sallah ba tare da intanet ba</string>
+    <string name="feature_unlimited_dhikr">Carbi marar iyaka da tarihin zikiri</string>
+    <string name="feature_live_streams">Kallon Makkah da Madinah HD kai tsaye</string>
+    <string name="feature_support_dev">Tallafawa Manhajojin Musulunci</string>
+    <string name="go_premium">Shiga Premium</string>
+    <string name="unlock_premium">Bude Sakinah Plus</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Saitawa: Juya wayar a siffar lamba 8 nesa da maganadisu</string>
+    <string name="qibla_aligned">YA DAIDAI TU DA KA\'ABA MAI DARASHA</string>
+    <string name="tasbeeh_mode">YANAYIN CARBI</string>
+    <string name="tap_to_increment">Taba don kididdige zikiri</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Babu talla, sautin kiran sallah &amp; widget</string>
+    <string name="go_premium_arrow">Shiga Premium →</string>
+    <string name="fiqh_val_default">Hanafi • Karachi</string>
+    <string name="prayer_notif_subtitle">Sautin kiran sallah, jijjiga da daidaita lokaci</string>
+    <string name="share_subtitle">Raba zaman lafiya da natsuwa ga \'yan uwa da abokan arziki</string>
+    <string name="rate_subtitle">Tallafa mana da kyakkyawan sharhi mai tauraro 5</string>
+    <string name="privacy_subtitle">Dukkan lissafi yana gudana a kan wayarka dari bisa dari</string>
+    <string name="about_sakinah">Game da Sakinah</string>
+    <string name="about_sakinah_subtitle">Shafi na 1.0 • Manhajar Ibada ta Zamani mai Natsuwa</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">KAYAN AIKIN IBADA NA KULLUM</string>
+    <string name="holy_sites_live">WATSWA KAI TSAYE DAGA HARAMIN BIYU</string>
+    <string name="live_badge">KAI TSAYE</string>
+    <string name="makkah_24_7">24/7 Harami</string>
+    <string name="allahs_names_short">Sunayen Allah</string>
+    <string name="names_asma">Sunaye 99 • Asma</string>
+    <string name="tasbeeh_label">Carbi</string>
+    <string name="duas_label">Addu\'o\'i</string>
+    <string name="daily_supplications">Addu\'o\'in Kullum</string>
+    <string name="makkah_label">Makkah</string>
+    <string name="madinah_label">Madinah</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">TSARIN KOMFAS DA KIBIYA</string>
+    <string name="qibla_subtitle_full">🕌 Hanyar Zuwa Ka\'aba Mai Daraja</string>
+    <string name="change_location">Sauya Wuri &gt;</string>
+    <string name="qibla_aligned_full">YA DAIDAI TU DA KA\'ABA MAI DARAJA (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Carbi na Zamani</string>
+    <string name="tasbeeh_mode_caps">YANAYIN CARBI</string>
+    <string name="tap_to_increment_balloon">Taba don kara lissafi</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Mai Kididdigar Carbi</string>
+    <string name="splash_subtitle">🕌 • Abokin Sallah da Ibada</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">RANAR DA AKA ZABA</string>
+    <string name="notifications_per_prayer">SANARWA GA KOWACCE SALLAH</string>
+    <string name="edit_arrow">Gyara →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Fikihu</string>
+    <string name="choose_prayer_method">Zabi hanyar lissafin lokutan sallah</string>
+    <string name="fiqh_description">Mazhabobin fikihu suna da dan banbanci a lokacin shigar La\'asar. Zabi zabinka a kasa.</string>
+    <string name="asr_calculation_header">LISSAFIN LOKACIN LA\'ASAR</string>
+    <string name="calculation_authority_header">HUKUMAR LISSAFI</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Zabi wuri</string>
+    <string name="search_city_hint">Nemi birni ko kasa...</string>
+    <string name="use_current_location">Yi amfani da inda kake yanzu</string>
+    <string name="auto_detect_location">Gano wuri ta amfani da na\'urorin waya</string>
+    <string name="popular_cities">SHAHARARRUN BIRANE</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">Zikiri da Addu\'a • Ingantattun Addu\'o\'i</string>
+    <string name="supplication">Addu\'a</string>
+    <string name="transliteration">FURUCI</string>
+    <string name="translation">MA\'ANA</string>
+    <string name="benefit_and_merit">Falala da Lada</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">Asma\'ul Husna • Sunayen Allah 99</string>
+    <string name="play_names_recitation">Saurari Karatun Sunayen Allah 99</string>
+    <string name="play_names_desc">Saurari sautin Asma\'ul Husna (.mp3) cikin natsuwa</string>
+    <string name="pause">Dakata</string>
+    <string name="stop">Tsaya</string>
+    <string name="play_audio_btn">Saurari Sunaye 99 (Audio MP3)</string>
+    <string name="search_names_hint">Bincika da suna ko ma\'ana...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">LOKUTAN SALLAH NA RANAR DA AKA ZABA</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">Watsawa Kai Tsaye daga Masallacin Harami</string>
+    <string name="official_broadcast">Watsawa ta Musamman 24/7 HD</string>
+    <string name="live_badge_24_7">KAI TSAYE 24/7</string>
+    <string name="watching_count">Mutum dubu 48.2 na kallo</string>
+    <string name="masjid_al_haram">Masallacin Harami, Makkah</string>
+    <string name="saudi_quran_tv">Gidan Talabijin na Al-Qur\'ani (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Watsa sallah, dawafi da karatun Al-Qur\'ani a koda yaushe daga dakin Ka\'aba.</string>
+    <string name="watch_stream_youtube">Kalla a YouTube cikin Full HD ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">Sanya kwarewar sallarka ta zama cikin natsuwa</string>
+    <string name="support_pure_islamic_software">Tallafawa manhajar Musulunci da aka gina ba tare da tallace-tallace ba.</string>
+    <string name="monthly_plan">Tsarin Wata</string>
+    <string name="flexible">Mai Sauki</string>
+    <string name="per_month">/ a wata</string>
+    <string name="billed_monthly_desc">Biyan kudi a kowane wata. Za ka iya sokewa a kowane lokaci.</string>
+    <string name="annual_plan">Tsarin Shekara</string>
+    <string name="most_popular_save">Wanda Aka Fi So • Ragi 58%</string>
+    <string name="per_year_desc">/ a shekara ($0.83/wata)</string>
+    <string name="annual_trial_desc">Ya hada da gwajin kwanaki 7 kyauta.</string>
+    <string name="lifetime_access">Har Abada</string>
+    <string name="best_value_pay_once">Mafi Daraja • Biyan Sau Daya</string>
+    <string name="one_time_payment">biyan kudi sau daya</string>
+    <string name="lifetime_desc">Biya sau daya, mallaka har abada.</string>
+    <string name="whats_included_sakinah_plus">ABIN DA KE CIKIN SAKINAH PLUS</string>
+    <string name="feat_ad_free">100% Ba tare da talla ba, yanayin ibada mai natsuwa</string>
+    <string name="feat_api">Lissafin lokacin sallah kai tsaye daga Aladhan</string>
+    <string name="feat_widgets">Widget na lokutan sallah a allon waya</string>
+    <string name="feat_adhan">Kiran sallah daga shahararrun ladanai (Makkah, Madinah, Al-Aqsa)</string>
+    <string name="feat_tasbeeh">Carbi marar iyaka tare da tarihin kullum</string>
+    <string name="subscribe_annual_btn">Yi Rajistar Tsarin Shekara • $9.99/shekara</string>
+    <string name="restore_privacy_terms">Dawo da Sayayya • Sirri • Sharudda</string>
+    <string name="monthly">Na Wata</string>
+    <string name="flexible_month_access">Saukin biyan kowane wata</string>
+    <string name="best_value_save_45">ZABI MAFI KYAU • RAGI 45%</string>
+    <string name="yearly_access">Zaman Shekara</string>
+    <string name="yearly_billed_desc">Biyan shekara a kan $1.66 / a wata</string>
+    <string name="lifetime_sadaqah">Sadaka Jariya ta Dindindin</string>
+    <string name="lifetime_perpetual_desc">Zama mamba har abada da biyan kudi sau daya</string>
+
+</resources>

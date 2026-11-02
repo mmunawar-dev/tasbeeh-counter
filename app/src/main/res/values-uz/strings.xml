@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Sozlamalar</string>
+    <string name="languages">Tillar</string>
+    <string name="language">Til</string>
+    <string name="apply">Qo‘llash</string>
+    <string name="cancel">Bekor qilish</string>
+    <string name="next">Keyingi</string>
+    <string name="get_started">Boshlash</string>
+    <string name="change">O‘zgartirish</string>
+    <string name="today">Bugun</string>
+    <string name="back">Orqaga</string>
+    <string name="close">Yopish</string>
+    <string name="see_schedule">Jadvalni ko‘rish</string>
+    <string name="remaining">Qoldi</string>
+    <string name="started">Boshlandi</string>
+    <string name="ends">Tugaydi</string>
+    <string name="starts">Boshlanadi</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">HOZIRGI NAMOZ</string>
+    <string name="upcoming_prayer">KEYINGI NAMOZ</string>
+    <string name="prayer_fajr">Bomdod</string>
+    <string name="prayer_sunrise">Quyosh</string>
+    <string name="prayer_dhuhr">Peshin</string>
+    <string name="prayer_asr">Asr</string>
+    <string name="prayer_maghrib">Shom</string>
+    <string name="prayer_isha">Xufton</string>
+    <string name="daily_prayer_schedule">Kunlik namoz vaqtlari</string>
+    <string name="prayer_times">Namoz vaqtlari</string>
+    <string name="prayer_notifications">Azon bildirishnomalari</string>
+    <string name="prayer_calendar">Namoz taqvimi</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">KUNLIK IBODAT VOSITALARI</string>
+    <string name="allahs_names">Allohning 99 ismi</string>
+    <string name="asma_ul_husna">Asmoi Husno</string>
+    <string name="tasbeeh">Raqamli tasbeh</string>
+    <string name="tasbeeh_subtitle">Zikr va hisoblagich</string>
+    <string name="qibla_direction">Qibla yo‘nalishi</string>
+    <string name="qibla_subtitle">Ka\'baga yo‘nalish kompassi</string>
+    <string name="daily_duas">Kunlik duolar</string>
+    <string name="daily_duas_subtitle">Sahih duolar to‘plami</string>
+    <string name="live_makkah">Makka jonli efir</string>
+    <string name="live_madinah">Madina jonli efir</string>
+    <string name="live_makkah_subtitle">Masjidul Haram 24/7</string>
+    <string name="live_madinah_subtitle">Masjidun Nabaviy</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Mavzu rejimi</string>
+    <string name="system_default">Tizim bo‘yicha</string>
+    <string name="light_mode">Yorug‘</string>
+    <string name="dark_mode">Qorong‘i</string>
+    <string name="fiqh_calc_method">Fiqh va hisoblash usuli</string>
+    <string name="location">Joylashuv</string>
+    <string name="share_with_friends">Do‘stlarga ulashish</string>
+    <string name="rate_sakinah">Sakinahni baholash</string>
+    <string name="privacy_policy">Maxfiylik siyosati</string>
+    <string name="terms_and_conditions">Foydalanish shartlari</string>
+    <string name="support_and_about">QO‘LLAB-QUVVATLASH VA HAQIDA</string>
+    <string name="personalization_display">MOSLASHTIRISH VA KO‘RINISH</string>
+    <string name="prayer_and_location">NAMOZ VA JOYLASHUV</string>
+    <string name="exit_app_title">Ilovadan chiqasizmi?</string>
+    <string name="exit_app_message">Sakinah ilovasini yopishga ishonchingiz komilmi? Namoz eslatmalari fonda ishlashda davom etadi.</string>
+    <string name="exit_now">Hozir chiqish</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">PREMIUM TARIFNI TANLANG</string>
+    <string name="premium_subtitle">Ibodat tajribangizni xotirjam qiling va barcha imkoniyatlarni reklamasiz oching.</string>
+    <string name="btn_continue">Davom etish</string>
+    <string name="badge_best_choice">ENG YAXSHI TANLOV</string>
+    <string name="plan_yearly">YILLIK TARIF</string>
+    <string name="plan_lifetime">UMRBOD TARIF</string>
+    <string name="plan_yearly_price">$9.99 / yil</string>
+    <string name="plan_lifetime_price">$24.99 bir marta</string>
+    <string name="plan_yearly_desc">Muddat tugashidan 24 soat oldin bekor qilinmasa avtomatik yangilanadi.</string>
+    <string name="plan_lifetime_desc">Bir marta to‘lang va umrbod foydalaning.</string>
+    <string name="feature_no_ads">Umrbod reklamasiz</string>
+    <string name="feature_lifetime_support">Umrbod qo‘llab-quvvatlash</string>
+    <string name="feature_all_azans">Mashhur qorilarning azonlari</string>
+    <string name="feature_offline_qibla">Oflayn qibla va taqvim</string>
+    <string name="feature_unlimited_dhikr">Cheksiz tasbeh hisoblagichlari</string>
+    <string name="feature_live_streams">Makka va Madina HD jonli efirlari</string>
+    <string name="feature_support_dev">Islomiy ilovalar rivojini qo‘llash</string>
+    <string name="go_premium">Premiumga o‘tish</string>
+    <string name="unlock_premium">Sakinah Plusni faollashtirish</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Kalibrlash: Telefonni 8 shaklida harakatlantiring</string>
+    <string name="qibla_aligned">MUQADDAS KA\'BAGA TO‘G‘RILANDI</string>
+    <string name="tasbeeh_mode">TASBEH REJIMI</string>
+    <string name="tap_to_increment">Zikr sanash uchun ekranga teging</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Reklamasiz, azon audio va vidjetlar</string>
+    <string name="go_premium_arrow">Premiumga o‘tish →</string>
+    <string name="fiqh_val_default">Hanafiy • Karachi</string>
+    <string name="prayer_notif_subtitle">Azon tovushlari, tebranish va vaqtni sozlash</string>
+    <string name="share_subtitle">Tinchlik va xotirjamlikni yaqinlaringizga ulashing</string>
+    <string name="rate_subtitle">5 yulduzli baho bilan bizni qo‘llab-quvvatlang</string>
+    <string name="privacy_subtitle">Barcha hisob-kitoblar qurilmangizda amalga oshiriladi</string>
+    <string name="about_sakinah">Sakinah haqida</string>
+    <string name="about_sakinah_subtitle">1.0-versiya • Zamonaviy va osoyishta islomiy hamrohingiz</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">KUNLIK IBODAT VOSITALARI</string>
+    <string name="holy_sites_live">MUQADDAS QADAMLJOLAR JONLI EFIRDA</string>
+    <string name="live_badge">JONLI</string>
+    <string name="makkah_24_7">24/7 Haram</string>
+    <string name="allahs_names_short">Allohning ismlari</string>
+    <string name="names_asma">99 Ism • Asmo</string>
+    <string name="tasbeeh_label">Tasbeh</string>
+    <string name="duas_label">Duolar</string>
+    <string name="daily_supplications">Kundalik duolar</string>
+    <string name="makkah_label">Makka</string>
+    <string name="madinah_label">Madina</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">KOMPASS VA STRELKA MAVZULARI</string>
+    <string name="qibla_subtitle_full">🕌 Muqaddas Ka\'baga yo‘nalish</string>
+    <string name="change_location">Joylashuvni o‘zgartirish &gt;</string>
+    <string name="qibla_aligned_full">MUQADDAS KA\'BAGA TO‘G‘RILANDI (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Raqamli tasbeh</string>
+    <string name="tasbeeh_mode_caps">TASBEH REJIMI</string>
+    <string name="tap_to_increment_balloon">Sanash uchun tugmani bosing</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Raqamli tasbeh hisoblagich</string>
+    <string name="splash_subtitle">🕌 • Namoz va ibodat hamrohingiz</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">TANLANGAN SANA</string>
+    <string name="notifications_per_prayer">HAR BIR NAMOZ UCHUN BILDIRISHNOMA</string>
+    <string name="edit_arrow">Tahrirlash →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Fiqh</string>
+    <string name="choose_prayer_method">Namoz vaqtlarini hisoblash usulini tanlang</string>
+    <string name="fiqh_description">Fiqhiy mazhablarda Asr namozi vaqti biroz farq qiladi. Quyidan o‘z tanlovingizni belgilang.</string>
+    <string name="asr_calculation_header">ASR VAQTINI HISOBLASH</string>
+    <string name="calculation_authority_header">HISOBLASH USULI</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Joylashuvni tanlang</string>
+    <string name="search_city_hint">Shahar yoki davlatni qidiring...</string>
+    <string name="use_current_location">Joriy joylashuvdan foydalanish</string>
+    <string name="auto_detect_location">Qurilma sensorlari orqali avtomatik aniqlash</string>
+    <string name="popular_cities">MASHHUR SHAHARLAR</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">Zikr va duolar • Sahih duolar</string>
+    <string name="supplication">Duo</string>
+    <string name="transliteration">TRANSLITERATSIYA</string>
+    <string name="translation">TARJIMA</string>
+    <string name="benefit_and_merit">Fazilati va ahamiyati</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">Asmoi Husno • Allohning 99 ismi</string>
+    <string name="play_names_recitation">99 Ism qiroatini tinglash</string>
+    <string name="play_names_desc">Asmoi Husno audiosini (.mp3) fonda tinglang</string>
+    <string name="pause">Pauza</string>
+    <string name="stop">To‘xtatish</string>
+    <string name="play_audio_btn">99 Ismni tinglash (Audio MP3)</string>
+    <string name="search_names_hint">Ism yoki ma\'no bo‘yicha qidiruv...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">TANLANGAN KUN UCHUN NAMOZ VAQTLARI</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">Masjidul Haramdan jonli efir</string>
+    <string name="official_broadcast">Rasmiy 24/7 HD ko‘rsatuv</string>
+    <string name="live_badge_24_7">JONLI 24/7</string>
+    <string name="watching_count">48.2 ming tomoshabin</string>
+    <string name="masjid_al_haram">Masjidul Haram, Makka</string>
+    <string name="saudi_quran_tv">Saudiya Qur\'on TV (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Ka\'badan 24 soat uzluksiz namozlar, tavof va Qur\'on tilovati.</string>
+    <string name="watch_stream_youtube">YouTube\'da Full HD sifatda ko‘rish ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">Ibodatlaringizga xotirjamlik baxsh eting</string>
+    <string name="support_pure_islamic_software">Reklama va chalg‘ituvchi omillarsiz yaratilgan islomiy ilovani qo‘llab-quvvatlang.</string>
+    <string name="monthly_plan">Oylik tarif</string>
+    <string name="flexible">Qulay</string>
+    <string name="per_month">/ oyiga</string>
+    <string name="billed_monthly_desc">Oylik to‘lov. Istalgan vaqtda bekor qilish mumkin.</string>
+    <string name="annual_plan">Yillik tarif</string>
+    <string name="most_popular_save">Eng mashhur • 58% tejang</string>
+    <string name="per_year_desc">/ yiliga ($0.83/oy)</string>
+    <string name="annual_trial_desc">7 kunlik bepul sinov muddati mavjud.</string>
+    <string name="lifetime_access">Umrbod kirish</string>
+    <string name="best_value_pay_once">Eng yaxshi qiymat • Bir marta to‘lov</string>
+    <string name="one_time_payment">bir martalik to‘lov</string>
+    <string name="lifetime_desc">Bir marta sotib oling va doimiy foydalaning.</string>
+    <string name="whats_included_sakinah_plus">SAKINAH PLUSGA NIMALAR KIRADI</string>
+    <string name="feat_ad_free">100% Reklamasiz, sokin ibodat muhiti</string>
+    <string name="feat_api">Aladhan platformasi bilan real vaqt rejimidagi aniqlik</string>
+    <string name="feat_widgets">Bloklangan va asosiy ekran uchun namoz vidjetlari</string>
+    <string name="feat_adhan">Mashhur qorilarning ovozidagi azonlar</string>
+    <string name="feat_tasbeeh">Kunlik tarixga ega cheksiz tasbehlar</string>
+    <string name="subscribe_annual_btn">Yillik tarifga obuna bo‘lish • $9.99/yil</string>
+    <string name="restore_privacy_terms">Xaridlarni tiklash • Maxfiylik • Shartlar</string>
+    <string name="monthly">Oylik</string>
+    <string name="flexible_month_access">Moslashuvchan oylik tarif</string>
+    <string name="best_value_save_45">ENG YAXSHI TANLOV • 45% TEJASH</string>
+    <string name="yearly_access">Yillik kirish</string>
+    <string name="yearly_billed_desc">Yiliga to‘langanda $1.66 / oy</string>
+    <string name="lifetime_sadaqah">Umrbod sadaqai joriya</string>
+    <string name="lifetime_perpetual_desc">Bir martalik to‘lov bilan doimiy a\'zolik</string>
+
+</resources>

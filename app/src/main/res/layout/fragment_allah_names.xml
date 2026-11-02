@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Allah's 99 Names"
+                android:text="@string/allahs_names"
                 android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="أسماء الله الحسنى • Asma ul-Husna"
+                android:text="@string/allah_names_subtitle"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -72,40 +72,12 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge_subtle"
-                        android:fontFamily="@font/montserrat_family"
-                        android:letterSpacing="0.04"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp"
-                        android:text="FOREGROUND AUDIO"
-                        android:textColor="@color/emerald_primary"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:fontFamily="@font/montserrat_family"
-                        android:text="أسماء الله الحسنى"
-                        android:textColor="@color/emerald_primary"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/montserrat_family"
-                    android:text="Play 99 Names of Allah Recitation"
+                    android:text="@string/play_names_recitation"
                     android:textColor="@color/text_primary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -115,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/montserrat_family"
-                    android:text="Play authentic Asma-ul-Husna audio (.mp3) with background foreground service"
+                    android:text="@string/play_names_desc"
                     android:textColor="@color/text_secondary"
                     android:textSize="12sp" />
 
@@ -174,7 +146,7 @@
                             android:layout_weight="1"
                             android:backgroundTint="@color/emerald_primary"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Pause"
+                            android:text="@string/pause"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             app:cornerRadius="12dp" />
@@ -186,7 +158,7 @@
                             android:layout_height="46dp"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Stop"
+                            android:text="@string/stop"
                             android:textColor="@color/text_primary"
                             android:textStyle="bold"
                             app:cornerRadius="12dp" />
@@ -201,7 +173,7 @@
                     android:layout_marginTop="12dp"
                     android:backgroundTint="@color/emerald_primary"
                     android:fontFamily="@font/montserrat_family"
-                    android:text="Play 99 Names of Allah (Audio MP3)"
+                    android:text="@string/play_audio_btn"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:cornerRadius="12dp" />
@@ -215,7 +187,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:hint="Search by name or meaning..."
+            android:hint="@string/search_names_hint"
             app:boxBackgroundColor="@color/surface_light"
             app:boxCornerRadiusBottomEnd="14dp"
             app:boxCornerRadiusBottomStart="14dp"

@@ -52,7 +52,7 @@ data class SakinahUiState(
     PrayerType.ISHA to PrayerNotificationMode.SOUND
   ),
   val manualAdjustments: Map<PrayerType, Int> = emptyMap(),
-  val themeMode: ThemeMode = ThemeMode.SYSTEM,
+  val themeMode: ThemeMode = ThemeMode.LIGHT,
   val isGpsSearching: Boolean = false,
   val selectedCalendarDateYear: Int = 2026,
   val selectedCalendarDateMonth: Int = 10,

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/montserrat_family"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textColor="@color/text_primary"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -97,7 +97,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Sakinah Plus VIP"
+                            android:text="@string/sakinah_plus_vip"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -108,7 +108,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Ad-free, Azan audio &amp; widgets"
+                            android:text="@string/sakinah_plus_vip_subtitle"
                             android:textColor="#FFF7ED"
                             android:textSize="11.5sp" />
                     </LinearLayout>
@@ -124,7 +124,7 @@
                         android:fontFamily="@font/montserrat_family"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="7dp"
-                        android:text="Go Premium →"
+                        android:text="@string/go_premium_arrow"
                         android:textColor="#C2410C"
                         android:textSize="11.5sp"
                         android:textStyle="bold"
@@ -143,7 +143,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="PERSONALIZATION &amp; DISPLAY"
+                android:text="@string/personalization_display"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -180,15 +180,20 @@
                             android:layout_toStartOf="@id/iv_chevron_lang"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
-
-                            <com.google.android.material.imageview.ShapeableImageView
+                            <FrameLayout
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
+                                android:background="@drawable/bg_card_icon_container"
+                                android:backgroundTint="@color/card_blue_light">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
                                 android:contentDescription="Language Icon"
                                 android:scaleType="centerCrop"
+                                android:layout_gravity="center"
                                 android:src="@drawable/translate"
                                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
-
+                            </FrameLayout>
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -199,7 +204,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Language"
+                                    android:text="@string/language"
                                     android:textColor="@color/text_primary"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
@@ -243,14 +248,20 @@
                         android:paddingHorizontal="14dp"
                         android:paddingVertical="12dp">
 
-                        <com.google.android.material.imageview.ShapeableImageView
+                        <FrameLayout
                             android:layout_width="38dp"
                             android:layout_height="38dp"
+                            android:background="@drawable/bg_card_icon_container"
+                            android:backgroundTint="@color/card_blue_light">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
                             android:contentDescription="Theme Icon"
                             android:scaleType="centerCrop"
                             android:src="@drawable/ic_theme"
                             app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
-
+                        </FrameLayout>
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -262,7 +273,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_family"
-                                android:text="Theme Mode"
+                                android:text="@string/theme_mode"
                                 android:textColor="@color/text_primary"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -273,7 +284,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:fontFamily="@font/montserrat_family"
-                                android:text="System Default"
+                                android:text="@string/system_default"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -316,8 +327,8 @@
                                 android:backgroundTint="@color/emerald_light_container">
 
                                 <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
                                     android:layout_gravity="center"
                                     android:contentDescription="Fiqh"
                                     android:src="@drawable/icon_compass" />
@@ -333,7 +344,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Fiqh / Calculation Method"
+                                    android:text="@string/fiqh_calc_method"
                                     android:textColor="@color/text_primary"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
@@ -344,7 +355,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Hanafi • Karachi"
+                                    android:text="@string/fiqh_val_default"
                                     android:textColor="@color/text_secondary"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -372,7 +383,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="PRAYER &amp; LOCATION"
+                android:text="@string/prayer_and_location"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -417,8 +428,8 @@
                                 android:backgroundTint="@color/card_blue_light">
 
                                 <ImageView
-                                    android:layout_width="18dp"
-                                    android:layout_height="18dp"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
                                     android:layout_gravity="center"
                                     android:contentDescription="Location"
                                     android:src="@drawable/ic_location_pin_16"
@@ -435,7 +446,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Location"
+                                    android:text="@string/location"
                                     android:textColor="@color/text_primary"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
@@ -496,8 +507,8 @@
                                 android:backgroundTint="@color/card_gold_light">
 
                                 <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
                                     android:layout_gravity="center"
                                     android:contentDescription="Notifications"
                                     android:src="@android:drawable/ic_lock_idle_alarm"
@@ -514,7 +525,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Prayer Notifications"
+                                    android:text="@string/prayer_notifications"
                                     android:textColor="@color/text_primary"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
@@ -524,7 +535,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Athan audio, vibrations &amp; timing offsets"
+                                    android:text="@string/prayer_notif_subtitle"
                                     android:textColor="@color/text_secondary"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -552,7 +563,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="SUPPORT &amp; ABOUT"
+                android:text="@string/support_and_about"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -589,15 +600,21 @@
                             android:layout_toStartOf="@id/iv_chevron_share"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
-
-                            <com.google.android.material.imageview.ShapeableImageView
+                            <FrameLayout
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
+                                android:background="@drawable/bg_card_icon_container"
+                                android:backgroundTint="@color/card_gold_light">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
                                 android:contentDescription="Share Icon"
                                 android:scaleType="centerCrop"
+                                android:layout_gravity="center"
                                 android:src="@drawable/ic_share"
                                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
-
+                            </FrameLayout>
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -608,7 +625,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Share with Friends"
+                                    android:text="@string/share_with_friends"
                                     android:textColor="@color/text_primary"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
@@ -618,7 +635,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Spread peace &amp; serenity with family &amp; friends"
+                                    android:text="@string/share_subtitle"
                                     android:textColor="@color/text_secondary"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -660,15 +677,21 @@
                             android:layout_toStartOf="@id/iv_chevron_rate"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
-
-                            <com.google.android.material.imageview.ShapeableImageView
+                            <FrameLayout
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
+                                android:background="@drawable/bg_card_icon_container"
+                                android:backgroundTint="@color/card_blue_light">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
                                 android:contentDescription="Rate Icon"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/ic_3d_rate"
+                                android:src="@drawable/rate"
+                                android:layout_gravity="center"
                                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
-
+                            </FrameLayout>
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -679,7 +702,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Rate Sakinah"
+                                    android:text="@string/rate_sakinah"
                                     android:textColor="@color/text_primary"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
@@ -689,7 +712,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Support our journey with a 5-star review"
+                                    android:text="@string/rate_subtitle"
                                     android:textColor="@color/text_secondary"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -732,14 +755,21 @@
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <com.google.android.material.imageview.ShapeableImageView
+                            <FrameLayout
                                 android:layout_width="38dp"
                                 android:layout_height="38dp"
+                                android:background="@drawable/bg_card_icon_container"
+                                android:backgroundTint="@color/card_blue_light">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
                                 android:contentDescription="Privacy Policy Icon"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/ic_3d_privacy"
+                                android:src="@drawable/policy"
+                                android:layout_gravity="center"
                                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
-
+                            </FrameLayout>
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -750,7 +780,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="Privacy Policy"
+                                    android:text="@string/privacy_policy"
                                     android:textColor="@color/text_primary"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
@@ -760,7 +790,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:fontFamily="@font/montserrat_family"
-                                    android:text="All calculations run 100% on device"
+                                    android:text="@string/privacy_subtitle"
                                     android:textColor="@color/text_secondary"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -784,56 +814,6 @@
                         android:layout_marginStart="66dp"
                         android:background="@color/outline_border" />
 
-                    <!-- About Sakinah Row -->
-                    <LinearLayout
-                        android:id="@+id/row_settings_about"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="12dp">
-
-                        <FrameLayout
-                            android:layout_width="38dp"
-                            android:layout_height="38dp"
-                            android:background="@drawable/bg_card_icon_container"
-                            android:backgroundTint="@color/surface_variant_light">
-
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_gravity="center"
-                                android:contentDescription="About"
-                                android:src="@android:drawable/ic_dialog_info"
-                                app:tint="@color/emerald_primary" />
-                        </FrameLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_family"
-                                android:text="About Sakinah"
-                                android:textColor="@color/text_primary"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="@font/montserrat_family"
-                                android:text="Version 1.0 • Modern Calm Islamic Companion"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

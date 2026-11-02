@@ -1,453 +1,571 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/premium_coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background_light"
-        app:elevation="0dp">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar_premium"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@android:drawable/ic_menu_revert"
-            app:title="Sakinah Plus"
-            app:titleCentered="true"
-            app:titleTextAppearance="@style/TextAppearance.Material3.TitleMedium" />
-    </com.google.android.material.appbar.AppBarLayout>
+    tools:context=".ui.activities.PremiumActivity"
+    android:background="@drawable/bg_premium_screen">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="32dp">
+            android:paddingBottom="24dp">
 
-            <!-- Emblem Badge -->
-            <FrameLayout
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_circle_gold">
+            <!-- Hero Art Image -->
+            <ImageView
+                android:id="@+id/iv_premium_hero"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:src="@android:drawable/btn_star_big_on"
-                    app:tint="@color/gold_accent"
-                    android:contentDescription="Premium Emblem" />
-            </FrameLayout>
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_premium_art" />
 
+            <!-- Title -->
             <TextView
                 android:id="@+id/tv_premium_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/montserrat_family"
-                android:gravity="center"
-                android:text="Make your prayer experience serene"
-                android:textColor="@color/text_primary"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_premium_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:fontFamily="@font/montserrat_family"
                 android:gravity="center"
-                android:text="Support pure Islamic software crafted without advertisements, tracking, or distractions."
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp" />
+                android:letterSpacing="0.03"
+                android:text="@string/premium_title"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="16dp"
-                android:background="@color/outline_border" />
-
-            <!-- PLAN 1: MONTHLY PURCHASE PLAN -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_plan_monthly"
+            <!-- Subtitle -->
+            <TextView
+                android:id="@+id/tv_premium_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/surface_light"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/outline_border"
-                app:strokeWidth="1dp">
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/montserrat_family"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/premium_subtitle"
+                android:textColor="#A2C3B1"
+                android:textSize="12.5sp" />
 
+            <!-- Features Grid Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_premium_feature_card"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="12dp">
+
+                <!-- Left Column Features -->
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/tv_monthly_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Monthly Plan"
-                            android:textColor="@color/text_primary"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_monthly_badge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:background="@drawable/bg_badge_subtle"
-                            android:fontFamily="@font/montserrat_family"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
-                            android:text="Flexible"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-
+                    <!-- Feature 1: No ads forever -->
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:gravity="bottom"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tv_monthly_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="$1.99"
-                            android:textColor="@color/emerald_primary"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_check_circle_gold" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="/ month"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="13sp" />
+                            android:text="@string/feature_no_ads_forever"
+                            android:textColor="#E1EDE6"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Feature 2: Instant load times (always) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/montserrat_family"
-                        android:text="Billed monthly. Cancel anytime with zero commitment."
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-            <!-- PLAN 2: YEARLY PURCHASE PLAN (MOST POPULAR) -->
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_check_circle_gold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="@string/feature_instant_load_times"
+                            android:textColor="#E1EDE6"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Feature 3: Faster load times -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_check_circle_gold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="@string/feature_faster_load_times"
+                            android:textColor="#E1EDE6"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Right Column Features -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- Feature 4: Lifetime support -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_check_circle_gold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="@string/feature_lifetime_support"
+                            android:textColor="#E1EDE6"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Feature 5: Early access features -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_check_circle_gold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="@string/feature_early_access"
+                            android:textColor="#E1EDE6"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Feature 6: Multi-device sync -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_check_circle_gold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="@string/feature_multi_device_sync"
+                            android:textColor="#E1EDE6"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- YEARLY PLAN CARD -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_plan_yearly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="14dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="@color/active_prayer_bg"
+                app:cardBackgroundColor="#800E2F20"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/active_prayer_border"
-                app:strokeWidth="2dp">
+                app:strokeColor="#386A50"
+                app:strokeWidth="1.2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="14dp">
 
-                    <RelativeLayout
+                    <!-- Top Row: Icon + Title on left, Price on right -->
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_sk_calendar_clock" />
 
                         <TextView
-                            android:id="@+id/tv_yearly_title"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Annual Plan"
-                            android:textColor="@color/emerald_primary"
+                            android:text="@string/plan_yearly"
+                            android:textColor="#FFFFFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_yearly_badge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:background="@drawable/bg_badge_popular"
-                            android:fontFamily="@font/montserrat_family"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
-                            android:text="Most Popular • Save 58%"
-                            android:textColor="@color/white"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:gravity="bottom"
-                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tv_yearly_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="$9.99"
-                            android:textColor="@color/emerald_primary"
-                            android:textSize="24sp"
+                            android:text="@string/plan_yearly_price"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="/ year ($0.83/mo)"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="13sp" />
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Bottom Row: Desc on left, Select Button on right -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/montserrat_family"
-                        android:text="Includes 7-day free trial. Billed once annually."
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_family"
+                            android:lineSpacingExtra="1dp"
+                            android:text="@string/plan_yearly_desc"
+                            android:textColor="#8CAE9C"
+                            android:textSize="11sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_select_yearly"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_btn_gold_pill"
+                            android:fontFamily="@font/montserrat_family"
+                            android:minHeight="0dp"
+                            android:paddingHorizontal="16dp"
+                            android:text="@string/btn_select_yearly"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- PLAN 3: LIFETIME PURCHASE PLAN -->
+            <!-- LIFETIME PLAN CARD (BEST CHOICE) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_plan_lifetime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="14dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="@color/surface_light"
+                app:cardBackgroundColor="#800E2F20"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/outline_border"
-                app:strokeWidth="1dp">
+                app:strokeColor="#E5A93C"
+                app:strokeWidth="1.5dp">
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_height="wrap_content">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/tv_lifetime_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Lifetime Access"
-                            android:textColor="@color/text_primary"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_lifetime_badge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:background="@drawable/bg_badge_gold"
-                            android:fontFamily="@font/montserrat_family"
-                            android:paddingStart="8dp"
-                            android:paddingTop="3dp"
-                            android:paddingEnd="8dp"
-                            android:paddingBottom="3dp"
-                            android:text="Best Value • Pay Once"
-                            android:textColor="@color/ochre_secondary"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-
+                    <!-- Best Choice Ribbon Badge (top-left) -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:gravity="bottom"
-                        android:orientation="horizontal">
+                        android:layout_gravity="start|top"
+                        android:background="@drawable/bg_badge_best_choice"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="4dp">
 
-                        <TextView
-                            android:id="@+id/tv_lifetime_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="$24.99"
-                            android:textColor="@color/emerald_primary"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_sk_award"
+                            app:tint="#382000" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="one-time payment"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="13sp" />
+                            android:text="@string/badge_best_choice"
+                            android:textColor="#382000"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/montserrat_family"
-                        android:text="Pay once, own forever. All present and future updates included."
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                        android:orientation="vertical"
+                        android:paddingHorizontal="14dp"
+                        android:paddingTop="32dp"
+                        android:paddingBottom="14dp">
+
+                        <!-- Top Row: Diamonds + Lifetime Title on left, Price on right -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_sk_diamond"
+                                app:tint="#E5A93C" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/plan_lifetime"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginStart="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_sk_diamond"
+                                app:tint="#E5A93C" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tv_lifetime_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/plan_lifetime_price"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Bottom Row: Desc on left, Select Button on right -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_family"
+                                android:lineSpacingExtra="1dp"
+                                android:text="@string/plan_lifetime_desc"
+                                android:textColor="#8CAE9C"
+                                android:textSize="10.5sp" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btn_go_lifetime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_btn_gold_pill"
+                                android:fontFamily="@font/montserrat_family"
+                                android:minHeight="0dp"
+                                android:paddingHorizontal="16dp"
+                                android:text="@string/btn_go_lifetime"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- FEATURES LIST -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:fontFamily="@font/montserrat_family"
-                android:text="WHAT'S INCLUDED IN SAKINAH PLUS"
-                android:textColor="@color/emerald_primary"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
+            <!-- Footer: Privacy Policy • Terms & Conditions -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/btn_privacy_policy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_sk_lock" />
+
+                    <TextView
+                        android:id="@+id/tv_privacy_policy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:text="@string/privacy_policy"
+                        android:textColor="#DEC177"
+                        android:textSize="12sp" />
+                </LinearLayout>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:drawableStart="@android:drawable/checkbox_on_background"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="100% Ad-Free, Peaceful Worship Environment"
-                    android:textColor="@color/text_primary"
-                    android:textSize="13sp" />
+                    android:layout_marginHorizontal="8dp"
+                    android:text="•"
+                    android:textColor="#4B705D"
+                    android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:id="@+id/btn_terms_conditions"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:drawableStart="@android:drawable/checkbox_on_background"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="Real-time Aladhan Platform API Integration"
-                    android:textColor="@color/text_primary"
-                    android:textSize="13sp" />
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:drawableStart="@android:drawable/checkbox_on_background"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="Lock Screen and Home Screen Prayer Widgets"
-                    android:textColor="@color/text_primary"
-                    android:textSize="13sp" />
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_sk_document" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:drawableStart="@android:drawable/checkbox_on_background"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="Authentic Adhan Reciters (Makkah, Madinah, Al-Aqsa)"
-                    android:textColor="@color/text_primary"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:drawableStart="@android:drawable/checkbox_on_background"
-                    android:drawablePadding="10dp"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="Unlimited Tasbeeh Counters with Daily History"
-                    android:textColor="@color/text_primary"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/tv_terms_conditions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:text="@string/terms_and_conditions"
+                        android:textColor="#DEC177"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_subscribe"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="@color/emerald_primary"
-                android:fontFamily="@font/montserrat_family"
-                android:text="Subscribe to Annual Plan • $9.99/yr"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:cornerRadius="14dp" />
-
-            <TextView
-                android:id="@+id/tv_restore_purchases"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="@font/montserrat_family"
-                android:gravity="center"
-                android:text="Restore Purchases • Privacy Policy • Terms"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- Circular Close Button in Top-Right Corner -->
+    <ImageButton
+        android:id="@+id/btn_premium_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_premium_close_btn"
+        android:contentDescription="Close"
+        android:padding="7dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_sk_close_24"
+        app:tint="#80C4A4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

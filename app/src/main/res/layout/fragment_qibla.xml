@@ -37,14 +37,14 @@
                 style="@style/Sk.Text.TitleLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Qibla Direction"
+                android:text="@string/qibla_direction"
                 android:textStyle="bold" />
 
             <TextView
                 style="@style/Sk.Text.BodySmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="القبلة • Direction to Holy Kaaba"
+                android:text="@string/qibla_subtitle_full"
                 android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
@@ -131,7 +131,7 @@
                         style="@style/Sk.Text.LabelSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Change Location ›"
+                        android:text="@string/change_location"
                         android:textColor="@color/sk_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:letterSpacing="0.076"
-                android:text="COMPASS &amp; ARROW THEMES"
+                android:text="@string/qibla_compass_themes"
                 android:textColor="@color/sk_primary"
                 android:textSize="10.5sp"
                 android:textStyle="bold" />
@@ -217,7 +217,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:letterSpacing="0.04"
-                    android:text="ALIGNED WITH HOLY KAABA (مكة المكرمة)"
+                    android:text="@string/qibla_aligned_full"
                     android:textColor="#167B51"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -256,7 +256,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Calibrate: Wave phone in a figure-8 motion away from magnets"
+                android:text="@string/qibla_calibrating"
                 android:textColor="@color/sk_on_surface_variant_70"
                 android:textSize="11sp" />
         </LinearLayout>

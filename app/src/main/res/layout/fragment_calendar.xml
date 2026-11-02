@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Prayer Calendar"
+                android:text="@string/prayer_calendar"
                 android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:fontFamily="@font/montserrat_family"
-            android:text="Today"
+            android:text="@string/today"
             android:textColor="@color/emerald_primary"
             android:textSize="13sp"
             android:textStyle="bold" />
@@ -223,7 +223,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:text="PRAYER TIMES FOR SELECTED DATE"
+                android:text="@string/prayer_times_for_selected_date"
                 android:textColor="@color/emerald_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />

@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Pengaturan</string>
+    <string name="languages">Bahasa</string>
+    <string name="language">Bahasa</string>
+    <string name="apply">Terapkan</string>
+    <string name="cancel">Batal</string>
+    <string name="next">Lanjut</string>
+    <string name="get_started">Mulai</string>
+    <string name="change">Ubah</string>
+    <string name="today">Hari Ini</string>
+    <string name="back">Kembali</string>
+    <string name="close">Tutup</string>
+    <string name="see_schedule">Lihat Jadwal</string>
+    <string name="remaining">Tersisa</string>
+    <string name="started">Dimulai</string>
+    <string name="ends">Berakhir</string>
+    <string name="starts">Mulai</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">SHALAT SAAT INI</string>
+    <string name="upcoming_prayer">SHALAT BERIKUTNYA</string>
+    <string name="prayer_fajr">Subuh</string>
+    <string name="prayer_sunrise">Terbit</string>
+    <string name="prayer_dhuhr">Dzuhur</string>
+    <string name="prayer_asr">Ashar</string>
+    <string name="prayer_maghrib">Maghrib</string>
+    <string name="prayer_isha">Isya</string>
+    <string name="daily_prayer_schedule">Jadwal Shalat Harian</string>
+    <string name="prayer_times">Waktu Shalat</string>
+    <string name="prayer_notifications">Notifikasi Shalat</string>
+    <string name="prayer_calendar">Kalender Shalat</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">UTILITAS IBADAH HARIAN</string>
+    <string name="allahs_names">99 Asmaul Husna</string>
+    <string name="asma_ul_husna">Asmaul Husna</string>
+    <string name="tasbeeh">Tasbih Digital</string>
+    <string name="tasbeeh_subtitle">Dzikir &amp; Penghitung</string>
+    <string name="qibla_direction">Arah Kiblat</string>
+    <string name="qibla_subtitle">Kompas ke Ka\'bah</string>
+    <string name="daily_duas">Doa Harian</string>
+    <string name="daily_duas_subtitle">Kumpulan Doa Shahih</string>
+    <string name="live_makkah">Makkah Langsung</string>
+    <string name="live_madinah">Madinah Langsung</string>
+    <string name="live_makkah_subtitle">Masjidil Haram 24/7</string>
+    <string name="live_madinah_subtitle">Masjid Nabawi</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Mode Tema</string>
+    <string name="system_default">Default Sistem</string>
+    <string name="light_mode">Terang</string>
+    <string name="dark_mode">Gelap</string>
+    <string name="fiqh_calc_method">Metode Fikih &amp; Perhitungan</string>
+    <string name="location">Lokasi</string>
+    <string name="share_with_friends">Bagikan dengan Teman</string>
+    <string name="rate_sakinah">Beri Nilai Sakinah</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="terms_and_conditions">Syarat &amp; Ketentuan</string>
+    <string name="support_and_about">DUKUNGAN &amp; TENTANG</string>
+    <string name="personalization_display">PERSONALISASI &amp; TAMPILAN</string>
+    <string name="prayer_and_location">SHALAT &amp; LOKASI</string>
+    <string name="exit_app_title">Keluar dari Aplikasi?</string>
+    <string name="exit_app_message">Apakah Anda yakin ingin menutup Sakinah? Pengingat shalat akan tetap berjalan di latar belakang.</string>
+    <string name="exit_now">Keluar Sekarang</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">PILIH PAKET PREMIUM ANDA</string>
+    <string name="premium_subtitle">Tingkatkan pengalaman ibadah Anda dan dukung aplikasi dengan membuka semua fitur premium.</string>
+    <string name="btn_continue">Lanjutkan</string>
+    <string name="badge_best_choice">PILIHAN TERBAIK</string>
+    <string name="plan_yearly">PAKET TAHUNAN</string>
+    <string name="plan_lifetime">PAKET SEUMUR HIDUP</string>
+    <string name="plan_yearly_price">Rp 199.000</string>
+    <string name="plan_lifetime_price">Rp 499.000</string>
+    <string name="plan_yearly_desc">Diperpanjang otomatis kecuali dibatalkan 24 jam sebelum periode berakhir.</string>
+    <string name="plan_lifetime_desc">Bayar sekali, nikmati selamanya. Termasuk semua pembaruan mendatang.</string>
+    <string name="feature_no_ads">Bebas iklan selamanya</string>
+    <string name="feature_lifetime_support">Dukungan seumur hidup</string>
+    <string name="feature_all_azans">Semua Rekaman Adzan Qari</string>
+    <string name="feature_offline_qibla">Kiblat &amp; Waktu Shalat Offline</string>
+    <string name="feature_unlimited_dhikr">Dzikir &amp; Tasbih Tanpa Batas</string>
+    <string name="feature_live_streams">Siaran Langsung Makkah &amp; Madinah HD</string>
+    <string name="feature_support_dev">Dukung Pengembangan Aplikasi Islami</string>
+    <string name="go_premium">Beralih ke Premium</string>
+    <string name="unlock_premium">Buka Sakinah Plus</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Kalibrasi: Gerakkan ponsel membentuk angka 8 jauh dari magnet</string>
+    <string name="qibla_aligned">SEJAJAR DENGAN KA\'BAH SUCI</string>
+    <string name="tasbeeh_mode">MODE TASBIH</string>
+    <string name="tap_to_increment">Ketuk butiran, tombol, atau layar untuk menambah dzikir</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Tanpa iklan, audio adzan &amp; widget</string>
+    <string name="go_premium_arrow">Beralih ke Premium →</string>
+    <string name="fiqh_val_default">Hanafi • Karachi</string>
+    <string name="prayer_notif_subtitle">Audio adzan, getaran &amp; penyesuaian waktu</string>
+    <string name="share_subtitle">Sebarkan ketenangan kepada keluarga &amp; sahabat</string>
+    <string name="rate_subtitle">Dukung perjalanan kami dengan ulasan bintang 5</string>
+    <string name="privacy_subtitle">Semua perhitungan berjalan 100% di perangkat</string>
+    <string name="about_sakinah">Tentang Sakinah</string>
+    <string name="about_sakinah_subtitle">Versi 1.0 • Pendamping Ibadah Islami Tenang &amp; Modern</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">UTILITAS IBADAH HARIAN</string>
+    <string name="holy_sites_live">SIARAN LANGSUNG TEMPAT SUCI</string>
+    <string name="live_badge">LIVE</string>
+    <string name="makkah_24_7">Masjidil Haram 24/7</string>
+    <string name="allahs_names_short">Nama-Nama Allah</string>
+    <string name="names_asma">99 Nama • Asmaul Husna</string>
+    <string name="tasbeeh_label">Tasbih</string>
+    <string name="duas_label">Doa</string>
+    <string name="daily_supplications">Kumpulan Doa Harian</string>
+    <string name="makkah_label">Makkah</string>
+    <string name="madinah_label">Madinah</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">TEMA KOMPAS &amp; PANAH</string>
+    <string name="qibla_subtitle_full">🕌 Arah ke Ka\'bah Suci</string>
+    <string name="change_location">Ubah Lokasi &gt;</string>
+    <string name="qibla_aligned_full">SEJAJAR DENGAN KA\'BAH (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Tasbih Digital</string>
+    <string name="tasbeeh_mode_caps">MODE TASBIH</string>
+    <string name="tap_to_increment_balloon">Ketuk butir, tombol, atau balon untuk menambah dzikir</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Penghitung Tasbih Digital</string>
+    <string name="splash_subtitle">🕌 • Pendamping Shalat &amp; Ibadah</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">TANGGAL TERPILIH</string>
+    <string name="notifications_per_prayer">NOTIFIKASI SETIAP WAKTU SHALAT</string>
+    <string name="edit_arrow">Ubah →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Fikih</string>
+    <string name="choose_prayer_method">Pilih metode perhitungan shalat</string>
+    <string name="fiqh_description">Madzhab fikih yang berbeda memiliki sedikit perbedaan waktu untuk shalat Ashar. Tentukan pilihan Anda di bawah ini.</string>
+    <string name="asr_calculation_header">PERHITUNGAN WAKTU ASHAR</string>
+    <string name="calculation_authority_header">OTORITAS PERHITUNGAN</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Pilih lokasi</string>
+    <string name="search_city_hint">Cari kota atau negara...</string>
+    <string name="use_current_location">Gunakan Lokasi Saat Ini</string>
+    <string name="auto_detect_location">Deteksi otomatis melalui sensor perangkat</string>
+    <string name="popular_cities">KOTA POPULER</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">Doa &amp; Dzikir • Kumpulan Doa Shahih</string>
+    <string name="supplication">Doa</string>
+    <string name="transliteration">TRANSLITERASI</string>
+    <string name="translation">TERJEMAHAN</string>
+    <string name="benefit_and_merit">Keutamaan &amp; Manfaat</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">Asmaul Husna • 99 Nama Allah</string>
+    <string name="play_names_recitation">Putar Lantunan 99 Asmaul Husna</string>
+    <string name="play_names_desc">Putar audio Asmaul Husna (.mp3) di latar belakang</string>
+    <string name="pause">Jeda</string>
+    <string name="stop">Berhenti</string>
+    <string name="play_audio_btn">Putar 99 Nama Allah (Audio MP3)</string>
+    <string name="search_names_hint">Cari berdasarkan nama atau arti...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">WAKTU SHALAT UNTUK TANGGAL TERPILIH</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">Siaran Langsung dari Masjidil Haram</string>
+    <string name="official_broadcast">Siaran Resmi HD 24/7</string>
+    <string name="live_badge_24_7">LIVE 24/7</string>
+    <string name="watching_count">48,2 rb menonton</string>
+    <string name="masjid_al_haram">Masjidil Haram, Makkah</string>
+    <string name="saudi_quran_tv">Saudi Quran TV (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Siaran langsung 24/7 shalat, thawaf, dan tilawah Al-Qur\'an dari Ka\'bah suci.</string>
+    <string name="watch_stream_youtube">Tonton Siaran Full HD di YouTube ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">Jadikan pengalaman ibadah Anda lebih tenang</string>
+    <string name="support_pure_islamic_software">Dukung perangkat lunak Islami murni tanpa iklan, pelacakan, atau gangguan.</string>
+    <string name="monthly_plan">Paket Bulanan</string>
+    <string name="flexible">Fleksibel</string>
+    <string name="per_month">/ bulan</string>
+    <string name="billed_monthly_desc">Ditagih bulanan. Batalkan kapan saja tanpa komitmen.</string>
+    <string name="annual_plan">Paket Tahunan</string>
+    <string name="most_popular_save">Paling Populer • Hemat 58%</string>
+    <string name="per_year_desc">/ tahun ($0.83/bln)</string>
+    <string name="annual_trial_desc">Termasuk uji coba gratis 7 hari. Ditagih sekali per tahun.</string>
+    <string name="lifetime_access">Akses Seumur Hidup</string>
+    <string name="best_value_pay_once">Nilai Terbaik • Bayar Sekali</string>
+    <string name="one_time_payment">pembayaran sekali saja</string>
+    <string name="lifetime_desc">Bayar sekali, miliki selamanya. Termasuk semua pembaruan mendatang.</string>
+    <string name="whats_included_sakinah_plus">YANG TERMASUK DALAM SAKINAH PLUS</string>
+    <string name="feat_ad_free">100% Bebas Iklan, Lingkungan Ibadah Tenang</string>
+    <string name="feat_api">Integrasi API Platform Aladhan Real-Time</string>
+    <string name="feat_widgets">Widget Shalat untuk Layar Kunci &amp; Layar Utama</string>
+    <string name="feat_adhan">Suara Muadzin Asli (Makkah, Madinah, Al-Aqsa)</string>
+    <string name="feat_tasbeeh">Penghitung Tasbih Tanpa Batas dengan Riwayat Harian</string>
+    <string name="subscribe_annual_btn">Berlangganan Paket Tahunan • $9.99/thn</string>
+    <string name="restore_privacy_terms">Pulihkan Pembelian • Kebijakan Privasi • Ketentuan</string>
+    <string name="monthly">Bulanan</string>
+    <string name="flexible_month_access">Akses bulanan fleksibel</string>
+    <string name="best_value_save_45">PILIHAN TERBAIK • HEMAT 45%</string>
+    <string name="yearly_access">Akses Tahunan</string>
+    <string name="yearly_billed_desc">$1.66 / bln ditagih tahunan</string>
+    <string name="lifetime_sadaqah">Sedekah Jariyah Seumur Hidup</string>
+    <string name="lifetime_perpetual_desc">Keanggotaan permanen sekali bayar</string>
+
+</resources>

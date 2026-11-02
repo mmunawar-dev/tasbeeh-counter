@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light">
+    android:background="@color/background_light"
+    tools:context=".ui.fragments.HomeFragment">
 
 
     <!-- TOP TOOLBAR -->
@@ -14,10 +14,10 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView"
         android:background="@color/background_light"
-        app:elevation="0dp">
+        app:elevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,9 +53,9 @@
                     <ImageView
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
+                        android:contentDescription="Location Icon"
                         android:src="@drawable/ic_location_pin_16"
-                        app:tint="@color/text_secondary"
-                        android:contentDescription="Location Icon" />
+                        app:tint="@color/text_secondary" />
 
                     <TextView
                         android:id="@+id/tv_location_city"
@@ -72,8 +72,8 @@
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:layout_marginStart="2dp"
-                        android:src="@drawable/icon_arrow_down"
-                        android:contentDescription="Select City" />
+                        android:contentDescription="Select City"
+                        android:src="@drawable/icon_arrow_down" />
 
                     <TextView
                         android:id="@+id/tv_location_country"
@@ -86,25 +86,25 @@
                     android:id="@+id/llOptions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/layout_location_selector"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:orientation="horizontal">
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <ImageView
                         android:id="@+id/btn_open_premium"
                         android:layout_width="@dimen/_28sdp"
                         android:layout_height="@dimen/_28sdp"
-                        android:padding="@dimen/_6sdp"
                         android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:textColor="@color/white"
                         android:background="@drawable/pro_gradient"
                         android:contentDescription="Sakinah Plus"
-                        app:tint="@color/white"
+                        android:gravity="center"
+                        android:padding="@dimen/_6sdp"
                         android:src="@drawable/premium"
-                        />
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:tint="@color/white" />
                     <!-- Location Selector -->
 
                     <ImageView
@@ -112,10 +112,10 @@
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:layout_marginStart="4dp"
-                        android:padding="@dimen/_5sdp"
-                        android:backgroundTint="@color/card_blue_light"
                         android:background="@drawable/pro_gradient"
+                        android:backgroundTint="@color/card_blue_light"
                         android:contentDescription="Settings"
+                        android:padding="@dimen/_5sdp"
                         android:src="@drawable/ic_sk_settings"
                         app:tint="@color/text_secondary" />
                 </LinearLayout>
@@ -165,9 +165,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_constraintTop_toBottomOf="@id/topBar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -180,6 +180,7 @@
             <!-- CURRENT / NEXT PRAYER HERO CARD -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/currentPrayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_8sdp"
@@ -188,15 +189,28 @@
 
                 >
 
+                <!-- Mosque Background Image (Soft Transparent Realistic Mosque) -->
+                <ImageView
+                    android:id="@+id/iv_hero_mosque_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:alpha="0.28"
+                    android:contentDescription="Mosque Background"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_hero_mosque"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPrayers"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/l1" />
+
                 <!-- Top Row: Status Pill & Prayer Times Pill Button -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/l1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_hero_time"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -231,7 +245,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="7dp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="CURRENT PRAYER"
+                            android:text="@string/current_prayer"
                             android:textColor="@color/hero_pill_text"
                             android:textSize="10.5sp"
                             android:textStyle="bold" />
@@ -261,7 +275,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="See Shadule"
+                            android:text="@string/see_schedule"
                             android:textColor="@color/text_primary"
                             android:textSize="11.5sp"
                             android:textStyle="bold" />
@@ -276,107 +290,182 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- Middle Row: Prayer Name & Remaining Countdown Pill -->
+                <!-- Middle Section: Prayer Name and Interval on Left, Countdown Card on Right -->
 
+                <!-- Prayer Name -->
                 <TextView
                     android:id="@+id/tv_hero_time"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:fontFamily="@font/montserrat_family"
-                    android:text="Isha"
+                    android:text="Dhuhr"
                     android:textColor="@color/text_primary"
-                    android:textSize="@dimen/_25sdp"
+                    android:textSize="@dimen/_24sdp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_hero_interval"
+                    app:layout_constraintEnd_toStartOf="@id/pill_hero_countdown"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/l1" />
 
+                <!-- Vertical Interval (Start and End Times) -->
+                <LinearLayout
+                    android:id="@+id/layout_hero_interval"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@id/layoutPrayers"
+                    app:layout_constraintEnd_toStartOf="@id/pill_hero_countdown"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_hero_time">
 
+                    <!-- Start Time Row -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_hero_interval_start"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_sk_clock"
+                            app:tint="@color/hero_interval_icon" />
+
+                        <TextView
+                            android:id="@+id/tv_hero_interval"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="7dp"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="Started 11:52 AM"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- End Time Row -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_hero_interval_end"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_sk_check_circle"
+                            app:tint="@color/hero_interval_icon" />
+
+                        <TextView
+                            android:id="@+id/tv_hero_interval_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="7dp"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="Ends 03:41 PM"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Remaining Countdown Card on Right -->
                 <LinearLayout
                     android:id="@+id/pill_hero_countdown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/_66sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
                     android:background="@drawable/bg_hero_countdown_pill"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="10dp"
-                    android:paddingTop="6dp"
-                    android:paddingEnd="12dp"
-                    android:paddingBottom="6dp"
-                    app:layout_constraintBottom_toTopOf="@id/layoutPrayers"
-                    app:layout_constraintStart_toStartOf="@id/tv_hero_time"
-                    app:layout_constraintTop_toBottomOf="@id/tv_hero_interval">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_4sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_hero_interval"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_hero_time">
 
                     <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:src="@drawable/ic_sk_clock"
-                        app:tint="#78350F" />
+                        app:tint="@color/hero_countdown_icon" />
 
                     <TextView
                         android:id="@+id/tv_hero_countdown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="2dp"
                         android:fontFamily="@font/montserrat_family"
-                        android:text="Ends in 07h 43m remaining"
-                        android:textColor="#78350F"
-                        android:textSize="11sp"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="48m"
+                        android:textColor="@color/hero_countdown_time"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_hero_countdown_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/remaining"
+                        android:textColor="@color/hero_countdown_label"
+                        android:textSize="9.5sp"
                         android:textStyle="bold" />
                 </LinearLayout>
-
-                <!-- Interval Subtitle -->
-                <TextView
-                    android:id="@+id/tv_hero_interval"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_12sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="Started 07:05 PM  —  Ends 04:45 AM"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_hero_time"
-                    app:layout_constraintBottom_toTopOf="@id/pill_hero_countdown"
-                    app:layout_constraintStart_toStartOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layoutPrayers"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_12sdp"
-                    android:layout_marginVertical="@dimen/_10sdp"
-                    android:minHeight="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:layout_marginVertical="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/pill_hero_countdown">
+                    app:layout_constraintTop_toBottomOf="@id/layout_hero_interval">
 
                     <!-- Fajr -->
                     <LinearLayout
                         android:id="@+id/layout_prayer_fajr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_hero_prayer_item_active"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_7sdp"
+                        android:paddingVertical="@dimen/_5sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/layout_prayer_dhuhr"
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="@dimen/_6sdp"
+                            android:layout_height="@dimen/_6sdp"
+                            android:contentDescription="Fajr Active Indicator"
+                            android:src="@drawable/bg_prayer_line_inactive" />
+
                         <TextView
                             android:id="@+id/tv_prayer_name_fajr"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/montserrat_family"
                             android:maxLines="1"
                             android:text="Fajr"
@@ -395,27 +484,38 @@
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_8sdp"
                             android:textStyle="bold" />
+
+
                     </LinearLayout>
 
                     <!-- Dhuhr -->
                     <LinearLayout
                         android:id="@+id/layout_prayer_dhuhr"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_7sdp"
+                        android:paddingVertical="@dimen/_5sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/layout_prayer_asr"
                         app:layout_constraintStart_toEndOf="@+id/layout_prayer_fajr"
                         app:layout_constraintTop_toTopOf="parent">
 
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="@dimen/_6sdp"
+                            android:layout_height="@dimen/_6sdp"
+                            android:contentDescription="Dhuhr Active Indicator"
+                            android:src="@drawable/bg_prayer_line_inactive" />
+
                         <TextView
                             android:id="@+id/tv_prayer_name_dhuhr"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/montserrat_family"
                             android:maxLines="1"
                             android:text="Dhuhr"
@@ -434,27 +534,37 @@
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_8sdp"
                             android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <!-- Asr -->
                     <LinearLayout
                         android:id="@+id/layout_prayer_asr"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                       android:padding="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_7sdp"
+                        android:paddingVertical="@dimen/_5sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/layout_prayer_maghrib"
                         app:layout_constraintStart_toEndOf="@+id/layout_prayer_dhuhr"
                         app:layout_constraintTop_toTopOf="parent">
 
+                        <ImageView
+                            android:id="@+id/img3"
+                            android:layout_width="@dimen/_6sdp"
+                            android:layout_height="@dimen/_6sdp"
+                            android:contentDescription="Asr Active Indicator"
+                            android:src="@drawable/bg_prayer_line_inactive" />
+
                         <TextView
                             android:id="@+id/tv_prayer_name_asr"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/montserrat_family"
                             android:maxLines="1"
                             android:text="Asr"
@@ -473,27 +583,37 @@
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_8sdp"
                             android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <!-- Maghrib -->
                     <LinearLayout
                         android:id="@+id/layout_prayer_maghrib"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                       android:padding="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_7sdp"
+                        android:paddingVertical="@dimen/_5sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/layout_prayer_isha"
                         app:layout_constraintStart_toEndOf="@+id/layout_prayer_asr"
                         app:layout_constraintTop_toTopOf="parent">
 
+                        <ImageView
+                            android:id="@+id/img4"
+                            android:layout_width="@dimen/_6sdp"
+                            android:layout_height="@dimen/_6sdp"
+                            android:contentDescription="Maghrib Active Indicator"
+                            android:src="@drawable/bg_prayer_line_inactive" />
+
                         <TextView
                             android:id="@+id/tv_prayer_name_maghrib"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/montserrat_family"
                             android:maxLines="1"
                             android:text="Maghrib"
@@ -512,28 +632,39 @@
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_8sdp"
                             android:textStyle="bold" />
+
+
                     </LinearLayout>
 
                     <!-- Isha -->
                     <LinearLayout
                         android:id="@+id/layout_prayer_isha"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="@dimen/_10sdp"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
                         android:orientation="vertical"
-                       android:padding="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_7sdp"
+                        android:paddingVertical="@dimen/_5sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/layout_prayer_maghrib"
                         app:layout_constraintTop_toTopOf="parent">
 
+                        <ImageView
+                            android:id="@+id/img5"
+                            android:layout_width="@dimen/_6sdp"
+                            android:layout_height="@dimen/_6sdp"
+                            android:contentDescription="Isha Active Indicator"
+                            android:src="@drawable/bg_prayer_line_inactive" />
+
                         <TextView
                             android:id="@+id/tv_prayer_name_isha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/montserrat_family"
                             android:maxLines="1"
                             android:text="Isha"
@@ -552,6 +683,8 @@
                             android:textColor="@color/text_secondary"
                             android:textSize="@dimen/_8sdp"
                             android:textStyle="bold" />
+
+
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -564,12 +697,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="DAILY WORSHIP UTILITIES"
+                android:text="@string/daily_worship_utilities_caps"
                 android:textColor="@color/emerald_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -578,8 +711,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
                 android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal">
 
                 <!-- Allah's Names Card -->
@@ -601,58 +734,75 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_card_gradient_allah_names"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="@dimen/_7sdp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        <FrameLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/bg_card_icon_container"
+                            android:backgroundTint="@color/card_allah_names_icon_bg">
 
-                            <FrameLayout
-                                android:layout_width="@dimen/_42sdp"
-                                android:layout_height="@dimen/_42sdp"
-                                android:background="@drawable/bg_card_icon_container"
-                                android:backgroundTint="@color/card_allah_names_icon_bg">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="@dimen/_5sdp"
-                                    android:contentDescription="Allah's Names"
-                                    android:src="@drawable/icon_asmaulhusna"
-                                     />
-                            </FrameLayout>
-
-                            <TextView
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:text="أسماء الله"
-                                android:visibility="gone"
-                                android:textColor="@color/card_allah_names_tag"
-                                android:textSize="12.5sp"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:contentDescription="Allah's Names"
+                                android:padding="@dimen/_6sdp"
+                                android:src="@drawable/icon_asmaulhusna" />
+                        </FrameLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layoutCardTitle"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Allah's Names"
-                            android:textColor="@color/card_allah_names_title"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:layout_marginHorizontal="@dimen/_7sdp"
+                            android:layout_marginTop="@dimen/_5sdp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="99 Names • Asma"
-                            android:textColor="@color/card_allah_names_subtitle"
-                            android:textSize="11.5sp" />
+                            <TextView
+                                android:id="@+id/txtAllahsName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/allahs_names_short"
+                                android:textColor="@color/card_allah_names_title"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@+id/txtAllahNameSubTitle"
+                                app:layout_constraintEnd_toStartOf="@id/arro1"
+                                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/arro1"
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:padding="@dimen/_2sdp"
+                                android:src="@drawable/arrow_forward"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txtAllahsName"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/card_allah_names_icon_tint" />
+
+                            <TextView
+                                android:id="@+id/txtAllahNameSubTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/names_asma"
+                                android:textColor="@color/card_allah_names_subtitle"
+                                android:textSize="@dimen/_9sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/txtAllahsName" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -675,58 +825,73 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_card_gradient_tasbeeh"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="@dimen/_7sdp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        <FrameLayout
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:background="@drawable/bg_card_icon_container"
 
-                            <FrameLayout
-                                android:layout_width="@dimen/_42sdp"
-                                android:layout_height="@dimen/_42sdp"
-                                android:background="@drawable/bg_card_icon_container"
-                                android:backgroundTint="@color/card_tasbeeh_icon_bg">
+                            android:backgroundTint="@color/card_tasbeeh_icon_bg">
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="@dimen/_5sdp"
-                                    android:contentDescription="Tasbeeh"
-                                    android:src="@drawable/icon_tasbeeh" />
-                            </FrameLayout>
-
-                            <TextView
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:text="المسبحة"
-                                android:visibility="gone"
-                                android:textColor="@color/card_tasbeeh_tag"
-                                android:textSize="12.5sp"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:contentDescription="Tasbeeh"
+                                android:padding="@dimen/_6sdp"
+                                android:src="@drawable/icon_tasbeeh" />
+                        </FrameLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Tasbeeh"
-                            android:textColor="@color/card_tasbeeh_title"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/tv_card_tasbeeh_subtitle"
-                            android:layout_width="wrap_content"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layoutCardTitleTasbeeh"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Dhikr &amp; Counter (0/33)"
-                            android:textColor="@color/card_tasbeeh_subtitle"
-                            android:textSize="11.5sp" />
+                            android:layout_marginHorizontal="@dimen/_7sdp"
+                            android:layout_marginTop="@dimen/_5sdp">
+
+                            <TextView
+                                android:id="@+id/txtTasbeehTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/tasbeeh_label"
+                                android:textColor="@color/card_tasbeeh_title"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@+id/tv_card_tasbeeh_subtitle"
+                                app:layout_constraintEnd_toStartOf="@id/arrowTasbeeh"
+                                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/arrowTasbeeh"
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:padding="@dimen/_2sdp"
+                                android:src="@drawable/arrow_forward"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txtTasbeehTitle"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/card_tasbeeh_icon_tint" />
+
+                            <TextView
+                                android:id="@+id/tv_card_tasbeeh_subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="Dhikr &amp; Counter (0/33)"
+                                android:textColor="@color/card_tasbeeh_subtitle"
+                                android:textSize="@dimen/_9sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/txtTasbeehTitle" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -735,8 +900,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginBottom="16dp"
 
                 android:orientation="horizontal">
 
@@ -759,59 +924,73 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_card_gradient_qibla"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="@dimen/_7sdp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        <FrameLayout
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
 
-                            <FrameLayout
-                                android:layout_width="@dimen/_42sdp"
-                                android:layout_height="@dimen/_42sdp"
-                                android:background="@drawable/bg_card_icon_container"
-                                android:backgroundTint="@color/card_qibla_icon_bg">
+                            android:background="@drawable/bg_card_icon_container"
+                            android:backgroundTint="@color/card_qibla_icon_bg">
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="@dimen/_5sdp"
-                                    android:contentDescription="Qibla Direction"
-                                    android:src="@drawable/icon_compass"
-                                     />
-                            </FrameLayout>
-
-                            <TextView
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:text="اتجاه القبلة"
-                                android:visibility="gone"
-                                android:textColor="@color/card_qibla_tag"
-                                android:textSize="12.5sp"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:contentDescription="Qibla Direction"
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/icon_compass" />
+                        </FrameLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Qibla Direction"
-                            android:textColor="@color/card_qibla_title"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/tv_card_qibla_subtitle"
-                            android:layout_width="wrap_content"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layoutCardTitleQibla"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Compass to Kaaba"
-                            android:textColor="@color/card_qibla_subtitle"
-                            android:textSize="11.5sp" />
+                            android:layout_marginHorizontal="@dimen/_7sdp"
+                            android:layout_marginTop="@dimen/_5sdp">
+
+                            <TextView
+                                android:id="@+id/txtQiblaTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/qibla_direction"
+                                android:textColor="@color/card_qibla_title"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@+id/tv_card_qibla_subtitle"
+                                app:layout_constraintEnd_toStartOf="@id/arrowQibla"
+                                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/arrowQibla"
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:padding="@dimen/_2sdp"
+                                android:src="@drawable/arrow_forward"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txtQiblaTitle"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/card_qibla_icon_tint" />
+
+                            <TextView
+                                android:id="@+id/tv_card_qibla_subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/qibla_subtitle"
+                                android:textColor="@color/card_qibla_subtitle"
+                                android:textSize="@dimen/_9sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/txtQiblaTitle" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -834,58 +1013,82 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_card_gradient_duas"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="@dimen/_7sdp">
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        <FrameLayout
+                            android:layout_width="@dimen/_36sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:background="@drawable/bg_card_icon_container"
+                            android:backgroundTint="@color/card_duas_icon_bg">
 
-                            <FrameLayout
-                                android:layout_width="@dimen/_42sdp"
-                                android:layout_height="@dimen/_42sdp"
-                                android:background="@drawable/bg_card_icon_container"
-                                android:backgroundTint="@color/card_duas_icon_bg">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="@dimen/_5sdp"
-                                    android:contentDescription="Duas"
-                                    android:src="@drawable/icon_dua"
-                                     />
-                            </FrameLayout>
-
-                            <TextView
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:text="الأدعية"
-                                android:visibility="gone"
-                                android:textColor="@color/card_duas_tag"
-                                android:textSize="12.5sp"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
+                                android:layout_gravity="center"
+                                android:contentDescription="Duas"
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/icon_dua" />
+                        </FrameLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Duas"
-                            android:textColor="@color/card_duas_title"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="الأدعية"
+                            android:textColor="@color/card_duas_tag"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layoutCardTitleDuas"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="Daily Supplications"
-                            android:textColor="@color/card_duas_subtitle"
-                            android:textSize="11.5sp" />
+                            android:layout_marginHorizontal="@dimen/_7sdp"
+                            android:layout_marginTop="@dimen/_5sdp">
+
+                            <TextView
+                                android:id="@+id/txtDuasTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/duas_label"
+                                android:textColor="@color/card_duas_title"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@+id/txtDuasSubTitle"
+                                app:layout_constraintEnd_toStartOf="@id/arrowDuas"
+                                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/arrowDuas"
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:padding="@dimen/_2sdp"
+                                android:src="@drawable/arrow_forward"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txtDuasTitle"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/card_duas_icon_tint" />
+
+                            <TextView
+                                android:id="@+id/txtDuasSubTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/daily_supplications"
+                                android:textColor="@color/card_duas_subtitle"
+                                android:textSize="@dimen/_9sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/txtDuasTitle" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -894,12 +1097,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_family"
                 android:letterSpacing="0.04"
-                android:layout_marginHorizontal="@dimen/_8sdp"
 
-                android:text="HOLY SITES LIVE BROADCAST"
+                android:text="@string/holy_sites_live"
                 android:textColor="@color/emerald_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -907,8 +1110,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginBottom="16dp"
 
                 android:orientation="horizontal">
 
@@ -916,153 +1119,166 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_util_live_makkah"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_100sdp"
                     android:layout_marginEnd="6dp"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
                     app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="20dp"
+                    app:cardCornerRadius="@dimen/_16sdp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
 
-                    <LinearLayout
+                    <!-- Real Makkah photo as full card background -->
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_card_gradient_live_makkah"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:layout_height="match_parent"
+                        android:contentDescription="Makkah"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/makkah" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                    <!-- Dark scrim for legibility -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/transparent" />
 
-                            <FrameLayout
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
-                                android:background="@drawable/bg_card_icon_container"
-                                android:backgroundTint="@color/card_makkah_icon_bg">
+                    <!-- Content overlay -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_10sdp">
 
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_gravity="center"
-                                    android:contentDescription="Live Makkah"
-                                    android:src="@drawable/ic_sk_video"
-                                    app:tint="@color/card_makkah_icon_tint" />
-                            </FrameLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:background="@drawable/bg_hero_live_badge"
-                                android:fontFamily="@font/montserrat_family"
-                                android:paddingHorizontal="7dp"
-                                android:paddingVertical="3dp"
-                                android:text="LIVE"
-                                android:textColor="@color/white"
-                                android:textSize="9.5sp"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
-
+                        <!-- LIVE red badge top-start -->
                         <TextView
+                            android:id="@+id/txtMakkahLive"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:background="@drawable/bg_hero_live_badge"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Live Makkah"
-                            android:textColor="@color/card_makkah_title"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:paddingHorizontal="7dp"
+                            android:paddingVertical="3dp"
+                            android:text="@string/live_badge"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
+                        <!-- Title -->
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tvMakkahTitle"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginTop="@dimen/_4sdp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="24/7 Haram Broadcast"
-                            android:textColor="@color/card_makkah_subtitle"
-                            android:textSize="11.5sp" />
-                    </LinearLayout>
+                            android:text="@string/makkah_label"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@id/tvMakkahSubtitle"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <!-- Subtitle -->
+                        <TextView
+                            android:id="@+id/tvMakkahSubtitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="Masjid al-Haram • 24/7"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="@dimen/_8sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Live Madinah -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_util_live_madinah"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginStart="0dp"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
                     app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="20dp"
+                    app:cardCornerRadius="@dimen/_16sdp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
 
-                    <LinearLayout
+                    <!-- Real Madinah photo as full card background -->
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_card_gradient_live_madinah"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                        android:layout_height="match_parent"
+                        android:contentDescription="Madinah"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/madinah" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                    <!-- Dark scrim for legibility -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#99000000" />
 
-                            <FrameLayout
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
-                                android:background="@drawable/bg_card_icon_container"
-                                android:backgroundTint="@color/card_madinah_icon_bg">
+                    <!-- Content overlay -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_10sdp">
 
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_gravity="center"
-                                    android:contentDescription="Live Madinah"
-                                    android:src="@drawable/ic_sk_video"
-                                    app:tint="@color/card_madinah_icon_tint" />
-                            </FrameLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:background="@drawable/bg_hero_live_badge"
-                                android:fontFamily="@font/montserrat_family"
-                                android:paddingHorizontal="7dp"
-                                android:paddingVertical="3dp"
-                                android:text="LIVE"
-                                android:textColor="@color/white"
-                                android:textSize="9.5sp"
-                                android:textStyle="bold" />
-                        </RelativeLayout>
-
+                        <!-- LIVE red badge top-start -->
                         <TextView
+                            android:id="@+id/txtMadinahLive"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:background="@drawable/bg_hero_live_badge"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Live Madinah"
-                            android:textColor="@color/card_madinah_title"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:paddingHorizontal="7dp"
+                            android:paddingVertical="3dp"
+                            android:text="@string/live_badge"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
+                        <!-- Title -->
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tvMadinahTitle"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginTop="@dimen/_4sdp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="24/7 Nabawi Broadcast"
-                            android:textColor="@color/card_madinah_subtitle"
-                            android:textSize="11.5sp" />
-                    </LinearLayout>
+                            android:text="@string/madinah_label"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@id/tvMadinahSubtitle"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <!-- Subtitle -->
+                        <TextView
+                            android:id="@+id/tvMadinahSubtitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="Al-Masjid an-Nabawi • 24/7"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="@dimen/_8sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
 
             <!-- SUNRISE ROW -->
@@ -1087,7 +1303,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_family"
-                        android:text="Sunrise • الشروق"
+                        android:text="@string/prayer_sunrise"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
 
@@ -1108,8 +1324,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <!-- FAJR -->
                 <include
@@ -1140,14 +1356,15 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
     <ProgressBar
         android:id="@+id/pb_api_loading"
         android:layout_width="@dimen/_28sdp"
         android:layout_height="@dimen/_28sdp"
-        app:layout_constraintTop_toTopOf="parent"
         android:indeterminateTint="@color/card_tasbeeh_title"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="visible" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

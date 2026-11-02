@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Настройки</string>
+    <string name="languages">Языки</string>
+    <string name="language">Язык</string>
+    <string name="apply">Применить</string>
+    <string name="cancel">Отмена</string>
+    <string name="next">Далее</string>
+    <string name="get_started">Начать</string>
+    <string name="change">Изменить</string>
+    <string name="today">Сегодня</string>
+    <string name="back">Назад</string>
+    <string name="close">Закрыть</string>
+    <string name="see_schedule">Расписание</string>
+    <string name="remaining">Осталось</string>
+    <string name="started">Начался</string>
+    <string name="ends">Конец</string>
+    <string name="starts">Начало</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">ТЕКУЩИЙ НАМАЗ</string>
+    <string name="upcoming_prayer">СЛЕДУЮЩИЙ НАМАЗ</string>
+    <string name="prayer_fajr">Фаджр</string>
+    <string name="prayer_sunrise">Восход</string>
+    <string name="prayer_dhuhr">Зухр</string>
+    <string name="prayer_asr">Аср</string>
+    <string name="prayer_maghrib">Магриб</string>
+    <string name="prayer_isha">Иша</string>
+    <string name="daily_prayer_schedule">Расписание намазов на день</string>
+    <string name="prayer_times">Время намаза</string>
+    <string name="prayer_notifications">Оповещения азана</string>
+    <string name="prayer_calendar">Календарь намазов</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">ИНСТРУМЕНТЫ ПОКЛОНЕНИЯ</string>
+    <string name="allahs_names">99 Имён Аллаха</string>
+    <string name="asma_ul_husna">Асма уль-Хусна</string>
+    <string name="tasbeeh">Электронный тасбих</string>
+    <string name="tasbeeh_subtitle">Зикр и счётчик</string>
+    <string name="qibla_direction">Направление киблы</string>
+    <string name="qibla_subtitle">Компас к Каабе</string>
+    <string name="daily_duas">Ежедневные дуа</string>
+    <string name="daily_duas_subtitle">Достоверные мольбы</string>
+    <string name="live_makkah">Мекка онлайн</string>
+    <string name="live_madinah">Медина онлайн</string>
+    <string name="live_makkah_subtitle">Мечеть аль-Харам 24/7</string>
+    <string name="live_madinah_subtitle">Мечеть Пророка</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Тема оформления</string>
+    <string name="system_default">Как в системе</string>
+    <string name="light_mode">Светлая</string>
+    <string name="dark_mode">Тёмная</string>
+    <string name="fiqh_calc_method">Метод расчёта и фикх</string>
+    <string name="location">Местоположение</string>
+    <string name="share_with_friends">Поделиться с друзьями</string>
+    <string name="rate_sakinah">Оценить Sakinah</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="terms_and_conditions">Условия использования</string>
+    <string name="support_and_about">ПОДДЕРЖКА И О ПРИЛОЖЕНИИ</string>
+    <string name="personalization_display">ПЕРСОНАЛИЗАЦИЯ И ЭКРАН</string>
+    <string name="prayer_and_location">НАМАЗ И ГЕОЛОКАЦИЯ</string>
+    <string name="exit_app_title">Выйти из приложения?</string>
+    <string name="exit_app_message">Вы действительно хотите закрыть Sakinah? Напоминания о намазе продолжат работать в фоновом режиме.</string>
+    <string name="exit_now">Выйти сейчас</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">ВЫБЕРИТЕ ВАШ ПРЕМИУМ-ПЛАН</string>
+    <string name="premium_subtitle">Получите доступ ко всем возможностям и поддержите развитие приложения без рекламы.</string>
+    <string name="btn_continue">Продолжить</string>
+    <string name="badge_best_choice">ЛУЧШИЙ ВЫБОР</string>
+    <string name="plan_yearly">ГОДОВОЙ ПЛАН</string>
+    <string name="plan_lifetime">БЕССРОЧНЫЙ ДОСТУП</string>
+    <string name="plan_yearly_price">999 ₽</string>
+    <string name="plan_lifetime_price">2 490 ₽</string>
+    <string name="plan_yearly_desc">Продлевается автоматически, если не отменено за 24 часа до окончания срока.</string>
+    <string name="plan_lifetime_desc">Один платёж навсегда. Включает все будущие обновления.</string>
+    <string name="feature_no_ads">Без рекламы навсегда</string>
+    <string name="feature_lifetime_support">Пожизненная поддержка</string>
+    <string name="feature_all_azans">Все записи чтецов азана</string>
+    <string name="feature_offline_qibla">Офлайн-кибла и расписание</string>
+    <string name="feature_unlimited_dhikr">Неограниченный тасбих и история</string>
+    <string name="feature_live_streams">HD-трансляции из Мекки и Медины</string>
+    <string name="feature_support_dev">Поддержка исламской разработки</string>
+    <string name="go_premium">Перейти на Premium</string>
+    <string name="unlock_premium">Открыть Sakinah Plus</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Калибровка: Повращайте телефон «восьмёркой» вдали от магнитов</string>
+    <string name="qibla_aligned">НАПРАВЛЕНО НА СВЯЩЕННУЮ КААБУ</string>
+    <string name="tasbeeh_mode">РЕЖИМ ТАСБИХА</string>
+    <string name="tap_to_increment">Коснитесь бусины или экрана для счёта</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Без рекламы, аудио азана и виджеты</string>
+    <string name="go_premium_arrow">Перейти на Premium →</string>
+    <string name="fiqh_val_default">Ханафи • Карачи</string>
+    <string name="prayer_notif_subtitle">Звуки азана, вибрация и сдвиг времени</string>
+    <string name="share_subtitle">Поделитесь миром и умиротворением с близкими</string>
+    <string name="rate_subtitle">Поддержите нас оценкой 5 звёзд</string>
+    <string name="privacy_subtitle">Все расчёты выполняются на устройстве</string>
+    <string name="about_sakinah">О Sakinah</string>
+    <string name="about_sakinah_subtitle">Версия 1.0 • Спокойный спутник мусульманина</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">ИНСТРУМЕНТЫ ПОКЛОНЕНИЯ</string>
+    <string name="holy_sites_live">ПРЯМАЯ ТРАНСЛЯЦИЯ ИЗ СВЯТЫНЬ</string>
+    <string name="live_badge">LIVE</string>
+    <string name="makkah_24_7">24/7 Харам</string>
+    <string name="allahs_names_short">Имена Аллаха</string>
+    <string name="names_asma">99 Прекрасных Имён</string>
+    <string name="tasbeeh_label">Тасбих</string>
+    <string name="duas_label">Дуа</string>
+    <string name="daily_supplications">Ежедневные мольбы</string>
+    <string name="makkah_label">Мекка</string>
+    <string name="madinah_label">Медина</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">ТЕМЫ КОМПАСА И СТРЕЛКИ</string>
+    <string name="qibla_subtitle_full">🕌 Направление на Каабу</string>
+    <string name="change_location">Сменить город &gt;</string>
+    <string name="qibla_aligned_full">НАПРАВЛЕНО НА СВЯЩЕННУЮ КААБУ (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Электронный тасбих</string>
+    <string name="tasbeeh_mode_caps">РЕЖИМ ТАСБИХА</string>
+    <string name="tap_to_increment_balloon">Нажимайте для прибавления счёта</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Счётчик тасбиха</string>
+    <string name="splash_subtitle">🕌 • Спутник молитвы и поклонения</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">ВЫБРАННАЯ ДАТА</string>
+    <string name="notifications_per_prayer">УВЕДОМЛЕНИЯ О НАМАЗАХ</string>
+    <string name="edit_arrow">Изменить →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Фикх</string>
+    <string name="choose_prayer_method">Выберите методику расчёта</string>
+    <string name="fiqh_description">Мазхабы по-разному определяют наступление времени молитвы Аср. Укажите ваше предпочтение ниже.</string>
+    <string name="asr_calculation_header">РАСЧЁТ ВРЕМЕНИ АСР</string>
+    <string name="calculation_authority_header">ОРГАНИЗАЦИЯ РАСЧЁТА</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Выбор местоположения</string>
+    <string name="search_city_hint">Поиск города или страны...</string>
+    <string name="use_current_location">Текущее местоположение</string>
+    <string name="auto_detect_location">Автоматически по датчикам устройства</string>
+    <string name="popular_cities">ПОПУЛЯРНЫЕ ГОРОДА</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">Азкар и дуа • Достоверные мольбы</string>
+    <string name="supplication">Мольба</string>
+    <string name="transliteration">ТРАНСКРИПЦИЯ</string>
+    <string name="translation">ПЕРЕВОД</string>
+    <string name="benefit_and_merit">Достоинство и награда</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">Асма уль-Хусна • 99 Прекрасных Имён</string>
+    <string name="play_names_recitation">Слушать чтение 99 Имён Аллаха</string>
+    <string name="play_names_desc">Воспроизведение аудио Асма-уль-Хусна (.mp3) в фоне</string>
+    <string name="pause">Пауза</string>
+    <string name="stop">Стоп</string>
+    <string name="play_audio_btn">Слушать 99 Имён (Аудио MP3)</string>
+    <string name="search_names_hint">Поиск по имени или значению...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">ВРЕМЯ НАМАЗА НА ВЫБРАННУЮ ДАТУ</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">Прямой эфир из мечети аль-Харам</string>
+    <string name="official_broadcast">Официальное 24/7 HD вещание</string>
+    <string name="live_badge_24_7">ПРЯМОЙ ЭФИР</string>
+    <string name="watching_count">48.2 тыс. зрителей</string>
+    <string name="masjid_al_haram">Мечеть аль-Харам, Мекка</string>
+    <string name="saudi_quran_tv">Saudi Quran TV (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Круглосуточная трансляция намазов, тавафа и чтения Корана у Каабы.</string>
+    <string name="watch_stream_youtube">Смотреть в Full HD на YouTube ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">Обретите спокойствие в поклонении</string>
+    <string name="support_pure_islamic_software">Поддержите исламское приложение без рекламы, отслеживания и суеты.</string>
+    <string name="monthly_plan">Месячный план</string>
+    <string name="flexible">Удобно</string>
+    <string name="per_month">/ месяц</string>
+    <string name="billed_monthly_desc">Ежемесячная оплата. Отмена в любое время.</string>
+    <string name="annual_plan">Годовой план</string>
+    <string name="most_popular_save">Популярный • Экономия 58%</string>
+    <string name="per_year_desc">/ год ($0.83/мес)</string>
+    <string name="annual_trial_desc">Включает 7 дней бесплатного пробного периода.</string>
+    <string name="lifetime_access">Бессрочный доступ</string>
+    <string name="best_value_pay_once">Лучшая выгода • Разовый платёж</string>
+    <string name="one_time_payment">разовая оплата</string>
+    <string name="lifetime_desc">Купите один раз и пользуйтесь всегда. Все обновления включены.</string>
+    <string name="whats_included_sakinah_plus">ЧТО ВХОДИТ В SAKINAH PLUS</string>
+    <string name="feat_ad_free">100% Без рекламы, атмосфера умиротворения</string>
+    <string name="feat_api">Точная интеграция с платформой Aladhan в реальном времени</string>
+    <string name="feat_widgets">Виджеты расписания намазов для экрана блокировки</string>
+    <string name="feat_adhan">Голоса известных муэдзинов (Мекка, Медина, Аль-Акса)</string>
+    <string name="feat_tasbeeh">Неограниченные счётчики тасбиха с историей</string>
+    <string name="subscribe_annual_btn">Оформить годовой план • $9.99/год</string>
+    <string name="restore_privacy_terms">Восстановить покупки • Конфиденциальность • Условия</string>
+    <string name="monthly">Ежемесячно</string>
+    <string name="flexible_month_access">Гибкий помесячный доступ</string>
+    <string name="best_value_save_45">ВЫГОДНО • СКИДКА 45%</string>
+    <string name="yearly_access">Годовой доступ</string>
+    <string name="yearly_billed_desc">$1.66 / мес при оплате за год</string>
+    <string name="lifetime_sadaqah">Бессрочная садака-джария</string>
+    <string name="lifetime_perpetual_desc">Постоянный доступ по единой цене</string>
+
+</resources>

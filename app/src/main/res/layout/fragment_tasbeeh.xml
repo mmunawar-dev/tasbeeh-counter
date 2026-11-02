@@ -42,7 +42,7 @@
                     style="@style/Sk.Text.TitleLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Digital Tasbeeh"
+                    android:text="@string/digital_tasbeeh"
                     android:textStyle="bold" />
 
                 <TextView
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
                     android:letterSpacing="0.09"
-                    android:text="TASBEEH MODE"
+                    android:text="@string/tasbeeh_mode_caps"
                     android:textColor="@color/sk_primary"
                     android:textStyle="bold" />
 
@@ -171,6 +171,7 @@
                         android:id="@+id/btn_dhikr_change"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
+                        android:visibility="gone"
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
@@ -188,7 +189,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
-                            android:text="Change"
+                            android:text="@string/change"
                             android:textColor="@color/sk_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -298,7 +299,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"
-                android:text="Tap bead, button, or balloon to increment Dhikr"
+                android:text="@string/tap_to_increment_balloon"
                 android:textColor="@color/sk_on_surface_variant_80"
                 android:textSize="12sp" />
         </LinearLayout>

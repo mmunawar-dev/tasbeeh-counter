@@ -26,7 +26,7 @@
                 android:layout_gravity="center"
                 android:contentDescription="Sakinah Emblem"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_app_logo_1791310765262"
+                android:src="@mipmap/ic_launcher"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
         </FrameLayout>
 
@@ -36,8 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat_family"
-
-            android:text="Digital Tasbeeh Counter"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="Ruhani: Prayer Times &amp;\n Tasbeeh"
             android:textColor="@color/text_primary"
             android:textSize="23dp"
             android:textStyle="bold" />
@@ -49,7 +50,7 @@
             android:layout_marginTop="6dp"
             android:fontFamily="@font/montserrat_family"
             android:letterSpacing="0.02"
-            android:text="سكينة • Prayer &amp; Worship Companion"
+            android:text="@string/splash_subtitle"
             android:textColor="@color/text_secondary"
             android:textSize="14sp" />
     </LinearLayout>

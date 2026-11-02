@@ -16,6 +16,9 @@ object SakinahPreferences {
   // Tasbeeh
   private const val KEY_TASBEEH_CLICK_MODE = "tasbeeh_click_mode"
 
+  // Theme
+  private const val KEY_IS_DARK_THEME = "pref_is_dark_theme"
+
   // Location / City
   private const val KEY_CITY_ID = "pref_city_id"
   private const val KEY_CITY_NAME = "pref_city_name"
@@ -177,5 +180,27 @@ object SakinahPreferences {
     getPrefs(context).edit()
       .putLong(KEY_DEDUP_PREFIX + key, System.currentTimeMillis())
       .commit()
+  }
+
+  // --- Theme Mode ---
+  fun isDarkTheme(context: Context): Boolean {
+    return getPrefs(context).getBoolean(KEY_IS_DARK_THEME, false)
+  }
+
+  fun saveDarkTheme(context: Context, isDark: Boolean) {
+    getPrefs(context).edit().putBoolean(KEY_IS_DARK_THEME, isDark).apply()
+  }
+
+  // --- Language ---
+  private const val KEY_LANGUAGE_CODE = "pref_language_code"
+
+  fun getSavedLanguage(context: Context): com.example.model.AppLanguage {
+    val code = getPrefs(context).getString(KEY_LANGUAGE_CODE, com.example.model.AppLanguage.ENGLISH.code)
+      ?: com.example.model.AppLanguage.ENGLISH.code
+    return com.example.model.AppLanguage.entries.firstOrNull { it.code == code } ?: com.example.model.AppLanguage.ENGLISH
+  }
+
+  fun saveLanguage(context: Context, language: com.example.model.AppLanguage) {
+    getPrefs(context).edit().putString(KEY_LANGUAGE_CODE, language.code).apply()
   }
 }

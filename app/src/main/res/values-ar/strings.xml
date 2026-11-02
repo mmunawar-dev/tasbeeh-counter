@@ -1,0 +1,217 @@
+<resources>
+    <string name="app_name">سكينة</string>
+    <string name="sakinah_plus">سكينة بلس</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">الإعدادات</string>
+    <string name="languages">اللغات</string>
+    <string name="language">اللغة</string>
+    <string name="apply">تطبيق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="next">التالي</string>
+    <string name="get_started">ابدأ الآن</string>
+    <string name="change">تغيير</string>
+    <string name="today">اليوم</string>
+    <string name="back">رجوع</string>
+    <string name="close">إغلاق</string>
+    <string name="see_schedule">عرض الجدول</string>
+    <string name="remaining">المتبقي</string>
+    <string name="started">بدأ</string>
+    <string name="ends">ينتهي</string>
+    <string name="starts">يبدأ</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">الصلاة الحالية</string>
+    <string name="upcoming_prayer">الصلاة القادمة</string>
+    <string name="prayer_fajr">الفجر</string>
+    <string name="prayer_sunrise">الشروق</string>
+    <string name="prayer_dhuhr">الظهر</string>
+    <string name="prayer_asr">العصر</string>
+    <string name="prayer_maghrib">المغرب</string>
+    <string name="prayer_isha">العشاء</string>
+    <string name="daily_prayer_schedule">جدول الصلوات اليومية</string>
+    <string name="prayer_times">أوقات الصلاة</string>
+    <string name="prayer_notifications">تنبيهات الصلاة</string>
+    <string name="prayer_calendar">تقويم الصلاة</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">العبادات اليومية</string>
+    <string name="allahs_names">أسماء الله الحسنى</string>
+    <string name="asma_ul_husna">أسماء الله الحسنى</string>
+    <string name="tasbeeh">المسبحة الإلكترونية</string>
+    <string name="tasbeeh_subtitle">الذكر والعداد</string>
+    <string name="qibla_direction">اتجاه القبلة</string>
+    <string name="qibla_subtitle">بوصلة الكعبة المشرفة</string>
+    <string name="daily_duas">الأدعية اليومية</string>
+    <string name="daily_duas_subtitle">أدعية وأذكار مأثورة</string>
+    <string name="live_makkah">بث مكة المباشر</string>
+    <string name="live_madinah">بث المدينة المباشر</string>
+    <string name="live_makkah_subtitle">المسجد الحرام ٢٤/٧</string>
+    <string name="live_madinah_subtitle">المسجد النبوي الشريف</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">المظهر</string>
+    <string name="system_default">تلقائي للنظام</string>
+    <string name="light_mode">فاتح</string>
+    <string name="dark_mode">داكن</string>
+    <string name="fiqh_calc_method">الفقه وطريقة الحساب</string>
+    <string name="location">الموقع</string>
+    <string name="share_with_friends">مشاركة مع الأصدقاء</string>
+    <string name="rate_sakinah">تقييم تطبيق سكينة</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="terms_and_conditions">الشروط والأحكام</string>
+    <string name="support_and_about">الدعم وحول التطبيق</string>
+    <string name="personalization_display">التخصيص والعرض</string>
+    <string name="prayer_and_location">الصلاة والموقع</string>
+    <string name="exit_app_title">إغلاق التطبيق؟</string>
+    <string name="exit_app_message">هل أنت متأكد من رغبتك في إغلاق سكينة؟ ستستمر تنبيهات الصلاة في العمل في الخلفية.</string>
+    <string name="exit_now">إغلاق الآن</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">اختر باقتك المميزة</string>
+    <string name="premium_subtitle">عزز تجربتك وساند التطبيق من خلال فتح جميع الميزات المميزة.</string>
+    <string name="btn_continue">متابعة</string>
+    <string name="badge_best_choice">الخيار الأفضل</string>
+    <string name="plan_yearly">الاشتراك السنوي</string>
+    <string name="plan_lifetime">الاشتراك مدى الحياة</string>
+    <string name="plan_yearly_price">1,200 روبية</string>
+    <string name="plan_lifetime_price">2,800 روبية</string>
+    <string name="plan_yearly_desc">يتجدد تلقائياً ما لم يتم الإلغاء قبل 24 ساعة من انتهاء الفترة.</string>
+    <string name="plan_lifetime_desc">دفعة واحدة لمدى الحياة • تشمل جميع التحديثات المستقبلية.</string>
+    <string name="feature_no_ads">بدون إعلانات نهائياً</string>
+    <string name="feature_lifetime_support">دعم مستمر مدى الحياة</string>
+    <string name="feature_all_azans">جميع أصوات الأذان لكبار القراء</string>
+    <string name="feature_offline_qibla">قبلة وأوقات صلاة دون إنترنت</string>
+    <string name="feature_unlimited_dhikr">أذكار وسجل تسبيح غير محدود</string>
+    <string name="feature_live_streams">بث مباشر فائق الدقة لمكة والمدينة</string>
+    <string name="feature_support_dev">دعم تطوير التطبيقات الإسلامية</string>
+    <string name="go_premium">الترقية للمميز</string>
+    <string name="unlock_premium">فتح سكينة بلس</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">المعايرة: حرك الهاتف على شكل رقم 8 بعيداً عن المعادن</string>
+    <string name="qibla_aligned">في اتجاه الكعبة المشرفة</string>
+    <string name="tasbeeh_mode">نمط التسبيح</string>
+    <string name="tap_to_increment">المس الخرزة أو الشاشة لزيادة التسبيح</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">سكينة بلس VIP</string>
+    <string name="sakinah_plus_vip_subtitle">بدون إعلانات، صوت الأذان والأدوات</string>
+    <string name="go_premium_arrow">الترقية للمميز ←</string>
+    <string name="fiqh_val_default">حنفي • كراتشي</string>
+    <string name="prayer_notif_subtitle">صوت الأذان، الاهتزاز وتعديل الأوقات</string>
+    <string name="share_subtitle">انشر السكينة والراحة مع العائلة والأصدقاء</string>
+    <string name="rate_subtitle">ادعمنا بتقييم 5 نجوم</string>
+    <string name="privacy_subtitle">جميع الحسابات تجري 100% على الجهاز</string>
+    <string name="about_sakinah">عن سكينة</string>
+    <string name="about_sakinah_subtitle">الإصدار 1.0 • رفيق إسلامي هادئ</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">العبادات اليومية</string>
+    <string name="holy_sites_live">البث المباشر للأماكن المقدسة</string>
+    <string name="live_badge">مباشر</string>
+    <string name="makkah_24_7">المسجد الحرام ٢٤/٧</string>
+    <string name="allahs_names_short">أسماء الله</string>
+    <string name="names_asma">٩٩ اسماً • أسماء الحسنى</string>
+    <string name="tasbeeh_label">التسبيح</string>
+    <string name="duas_label">الأدعية</string>
+    <string name="daily_supplications">الأدعية المأثورة</string>
+    <string name="makkah_label">مكة المكرمة</string>
+    <string name="madinah_label">المدينة المنورة</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">البوصلة وأنماط السهم</string>
+    <string name="qibla_subtitle_full">🕌 اتجاه الكعبة المشرفة</string>
+    <string name="change_location">تغيير الموقع ‹</string>
+    <string name="qibla_aligned_full">في اتجاه الكعبة المشرفة (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">المسبحة الإلكترونية</string>
+    <string name="tasbeeh_mode_caps">نمط التسبيح</string>
+    <string name="tap_to_increment_balloon">المس الخرزة أو الشاشة لزيادة التسبيح</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">مسبحة رقمية</string>
+    <string name="splash_subtitle">🕌 • رفيق الصلاة والعبادة</string>
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">التاريخ المحدد</string>
+    <string name="notifications_per_prayer">إشعارات لكل صلاة</string>
+    <string name="edit_arrow">تعديل ←</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">الفقه</string>
+    <string name="choose_prayer_method">اختر طريقة حساب الصلاة</string>
+    <string name="fiqh_description">تختلف المذاهب الفقهية قليلاً في وقت بداية صلاة العصر. يرجى تحديد تفضيلك أدناه.</string>
+    <string name="asr_calculation_header">حساب وقت العصر</string>
+    <string name="calculation_authority_header">جهة الحساب المعتمدة</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">اختر الموقع</string>
+    <string name="search_city_hint">ابحث عن مدينة أو دولة...</string>
+    <string name="use_current_location">استخدام الموقع الحالي</string>
+    <string name="auto_detect_location">تحديد تلقائي عبر مستشعرات الجهاز</string>
+    <string name="popular_cities">المدن الشهيرة</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">الأدعية والأذكار • أدعية مأثورة</string>
+    <string name="supplication">الدعاء</string>
+    <string name="transliteration">اللفظ الصوتي</string>
+    <string name="translation">الترجمة</string>
+    <string name="benefit_and_merit">الفضل والثواب</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">أسماء الله الحسنى</string>
+    <string name="play_names_recitation">تشغيل تلاوة أسماء الله الحسنى</string>
+    <string name="play_names_desc">تشغيل صوت أسماء الله الحسنى (.mp3) في الخلفية</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="stop">إيقاف</string>
+    <string name="play_audio_btn">تشغيل أسماء الله الحسنى (صوت MP3)</string>
+    <string name="search_names_hint">ابحث بالاسم أو المعنى...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">أوقات الصلاة للتاريخ المحدد</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">بث حي ومباشر من المسجد الحرام</string>
+    <string name="official_broadcast">بث رسمي 24/7 بجودة عالية</string>
+    <string name="live_badge_24_7">مباشر 24/7</string>
+    <string name="watching_count">48.2 ألف يشاهدون</string>
+    <string name="masjid_al_haram">المسجد الحرام، مكة المكرمة</string>
+    <string name="saudi_quran_tv">قناة القرآن الكريم السعودية</string>
+    <string name="makkah_stream_desc">بث حي ومتواصل على مدار 24 ساعة للصلوات والطواف وتلاوات القرآن من الكعبة المشرفة.</string>
+    <string name="watch_stream_youtube">مشاهدة البث عالي الدقة على يوتيوب ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">اجعل تجربة صلاتك مفعمة بالسكينة</string>
+    <string name="support_pure_islamic_software">ادعم تطبيقاً إسلامياً خالصاً تم تصميمه بدون إعلانات أو تتبع أو مشتتات.</string>
+    <string name="monthly_plan">الخطة الشهرية</string>
+    <string name="flexible">مرن</string>
+    <string name="per_month">/ شهرياً</string>
+    <string name="billed_monthly_desc">فاتورة شهرية. إلغاء في أي وقت دون أي التزام.</string>
+    <string name="annual_plan">الخطة السنوية</string>
+    <string name="most_popular_save">الأكثر شعبية • وفر 58%</string>
+    <string name="per_year_desc">/ سنوياً ($0.83/شهرياً)</string>
+    <string name="annual_trial_desc">يتضمن تجربة مجانية لمدة 7 أيام. دفع سنوي مرة واحدة.</string>
+    <string name="lifetime_access">وصول مدى الحياة</string>
+    <string name="best_value_pay_once">أفضل قيمة • ادفع لمرة واحدة</string>
+    <string name="one_time_payment">دفع لمرة واحدة</string>
+    <string name="lifetime_desc">ادفع مرة واحدة وامتلكه للأبد. يشمل جميع التحديثات الحالية والمستقبلية.</string>
+    <string name="whats_included_sakinah_plus">ما تتضمنه باقة سكينة بلس</string>
+    <string name="feat_ad_free">100% خالي من الإعلانات، بيئة عبادة هادئة</string>
+    <string name="feat_api">تكامل مباشر ولحظي مع منصة الأذان</string>
+    <string name="feat_widgets">ودجات الصلاة لشاشة القفل والشاشة الرئيسية</string>
+    <string name="feat_adhan">أصوات مؤذنين أصيلة (مكة، المدينة، الأقصى)</string>
+    <string name="feat_tasbeeh">عداد تسبيح غير محدود مع سجل يومي</string>
+    <string name="subscribe_annual_btn">اشترك في الخطة السنوية • $9.99/سنة</string>
+    <string name="restore_privacy_terms">استعادة المشتريات • سياسة الخصوصية • الشروط</string>
+    <string name="monthly">شهري</string>
+    <string name="flexible_month_access">اشتراك شهري مرن</string>
+    <string name="best_value_save_45">أفضل قيمة • وفر 45%</string>
+    <string name="yearly_access">اشتراك سنوي</string>
+    <string name="yearly_billed_desc">$1.66 / شهرياً تدفع سنوياً</string>
+    <string name="lifetime_sadaqah">صدقة جارية مدى الحياة</string>
+    <string name="lifetime_perpetual_desc">عضوية دائمة لمرة واحدة</string>
+
+</resources>

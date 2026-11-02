@@ -35,6 +35,10 @@ class LanguageSelectFragment : BaseFragment<FragmentLanguageSelectBinding>(Fragm
     binding.rvLanguages.adapter = languageAdapter
 
     binding.btnLanguageApply.setOnClickListener {
+      val lang = viewModel.uiState.value.selectedLanguage
+      com.example.service.SakinahPreferences.saveLanguage(requireContext(), lang)
+      val appLocale = androidx.core.os.LocaleListCompat.forLanguageTags(lang.code)
+      androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(appLocale)
       findNavController().navigateUp()
     }
 

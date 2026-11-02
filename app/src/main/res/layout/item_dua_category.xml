@@ -27,15 +27,16 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_dua_cat_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:fontFamily="@font/montserrat_family"
                     android:text="Morning &amp; Evening"
                     android:textColor="@color/text_primary"
@@ -49,8 +50,8 @@
                     android:layout_marginStart="8dp"
                     android:background="@drawable/bg_badge_subtle"
                     android:fontFamily="@font/montserrat_family"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="2dp"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"
                     android:text="8 Duas"
                     android:textColor="@color/emerald_primary"
                     android:textSize="10sp"

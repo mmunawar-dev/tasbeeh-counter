@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Live Makkah"
+                android:text="@string/live_makkah"
                 android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="بث مباشر من المسجد الحرام"
+                android:text="@string/live_makkah_arabic"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -60,32 +60,92 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="16dp"
             android:paddingBottom="40dp">
 
-            <!-- Video Player Window -->
+            <!-- ═══════════════════════════════════════════
+                 HERO PLAYER CARD — real site photo bg
+                 ═══════════════════════════════════════════ -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
-                app:cardBackgroundColor="#0F1512"
+                android:layout_height="220dp"
+                app:cardBackgroundColor="@android:color/black"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="0dp">
+                app:cardElevation="6dp"
+                app:strokeWidth="0dp">
 
-                <RelativeLayout
+                <!-- Real site photo -->
+                <ImageView
+                    android:id="@+id/iv_live_site_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:contentDescription="Holy Site"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/makkah" />
 
-                    <!-- Center Holy Site Visual -->
+                <!-- Gradient scrim (bottom-heavy dark overlay) -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#99000000" />
+
+                <!-- LIVE badge — top-start -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="top"
+                        android:orientation="horizontal">
+
+                        <!-- Red LIVE pill -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_hero_live_badge"
+                            android:fontFamily="@font/montserrat_family"
+                            android:paddingHorizontal="9dp"
+                            android:paddingVertical="4dp"
+                            android:text="● LIVE"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <!-- 24/7 badge top-right -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_subtle"
+                            android:fontFamily="@font/montserrat_family"
+                            android:paddingHorizontal="9dp"
+                            android:paddingVertical="4dp"
+                            android:text="@string/live_badge_24_7"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Center: emoji + stream status -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <FrameLayout
-                            android:layout_width="54dp"
-                            android:layout_height="54dp"
+                            android:layout_width="58dp"
+                            android:layout_height="58dp"
                             android:background="@drawable/bg_circle_emerald_container">
 
                             <TextView
@@ -103,8 +163,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Streaming Live from Masjid al-Haram"
-                            android:textColor="#E5EDE8"
+                            android:text="@string/streaming_live_sub"
+                            android:textColor="#F0F0F0"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -113,95 +173,61 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/montserrat_family"
-                            android:text="Official 24/7 HD Broadcast"
-                            android:textColor="#9CAD9F"
+                            android:text="@string/official_broadcast"
+                            android:textColor="#AAFFFFFF"
                             android:textSize="11sp" />
                     </LinearLayout>
 
-                    <!-- Top Badges Overlay -->
-                    <RelativeLayout
+                    <!-- Bottom bar: play/pause + mute + open in YouTube -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="14dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:background="@drawable/bg_badge_popular"
-                            android:fontFamily="@font/montserrat_family"
-                            android:paddingHorizontal="8dp"
-                            android:paddingVertical="4dp"
-                            android:text="LIVE 24/7"
-                            android:textColor="@color/white"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:background="@drawable/bg_badge_subtle"
-                            android:fontFamily="@font/montserrat_family"
-                            android:paddingHorizontal="8dp"
-                            android:paddingVertical="4dp"
-                            android:text="48.2K watching"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
-                    </RelativeLayout>
-
-                    <!-- Bottom Overlay Controls -->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
                         android:background="#80000000"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="8dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:id="@+id/btn_live_play_pause"
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:contentDescription="Play or Pause"
-                                android:src="@android:drawable/ic_media_pause"
-                                app:tint="@color/white" />
-
-                            <ImageButton
-                                android:id="@+id/btn_live_mute"
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
-                                android:layout_marginStart="8dp"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:contentDescription="Mute"
-                                android:src="@android:drawable/ic_lock_idle_alarm"
-                                app:tint="@color/white" />
-                        </LinearLayout>
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="6dp">
 
                         <ImageButton
+                            android:id="@+id/btn_live_play_pause"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Play or Pause"
+                            android:src="@android:drawable/ic_media_pause"
+                            app:tint="@color/white" />
+
+                        <ImageButton
+                            android:id="@+id/btn_live_mute"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="4dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Mute"
+                            android:src="@android:drawable/ic_lock_idle_alarm"
+                            app:tint="@color/white" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <!-- Open on YouTube icon button -->
+                        <ImageButton
                             android:id="@+id/btn_live_open_youtube"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:contentDescription="Open in YouTube"
                             android:src="@android:drawable/ic_menu_share"
                             app:tint="@color/white" />
-                    </RelativeLayout>
-                </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Stream Information Card -->
+            <!-- ═══════════════════════════════════════════
+                 STREAM INFO CARD
+                 ═══════════════════════════════════════════ -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,51 +244,104 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
+                    <!-- Location -->
                     <TextView
                         android:id="@+id/tv_live_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_family"
-                        android:text="Masjid al-Haram, Makkah"
+                        android:text="@string/masjid_al_haram"
                         android:textColor="@color/text_primary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
+                    <!-- Channel name -->
                     <TextView
                         android:id="@+id/tv_live_channel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/montserrat_family"
-                        android:text="Saudi Quran TV (القرآن الكريم)"
+                        android:text="@string/saudi_quran_tv"
                         android:textColor="@color/emerald_primary"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
+                    <!-- Description -->
                     <TextView
                         android:id="@+id/tv_live_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/montserrat_family"
-                        android:text="Continuous 24/7 live transmission of prayers, circumambulation (Tawaf), and recitations from the Holy Kaaba."
+                        android:text="@string/makkah_stream_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/outline_border" />
+
+                    <!-- Open on YouTube row (replaces the old MaterialButton) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:id="@+id/btn_live_open_youtube_row">
+
+                        <!-- YouTube red icon placeholder -->
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_hero_live_badge"
+                            android:gravity="center"
+                            android:text="▶"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="Watch on YouTube"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="Full HD • Official Channel"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/arrow_forward"
+                            android:contentDescription="Open"
+                            app:tint="@color/text_secondary" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
-            <!-- External Watch Full HD Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_watch_external"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/emerald_primary"
-                android:fontFamily="@font/montserrat_family"
-                android:text="Watch Full HD Stream on YouTube ↗"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                app:cornerRadius="14dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

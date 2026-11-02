@@ -14,8 +14,8 @@ class LiveMakkahFragment : BaseLiveStreamFragment() {
   override val streamTitle = "Live Makkah"
   override val streamArabicTitle = "بث مباشر من المسجد الحرام بمكة المكرمة"
   override val locationName = "Masjid al-Haram, Makkah"
-  override val channelName = "Saudi Quran TV (القرآن الكريم)"
-  override val youtubeUrl = "https://www.youtube.com/watch?v=live_makkah"
+  override val channelName = "Saudi Quran TV (قناة القرآن الكريم)"
+  override val youtubeUrl = "https://www.youtube.com/@SaudiQuranTv/live"
   override val streamDesc = "Continuous 24/7 live transmission of prayers, circumambulation (Tawaf), and recitations from the Holy Kaaba."
   override val isMakkah = true
 }

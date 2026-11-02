@@ -11,8 +11,10 @@ object TasbeehSoundPlayer {
   private const val TAG = "TasbeehSoundPlayer"
   private var soundPool: SoundPool? = null
   private var tap1SoundId: Int = 0
+  private var tapSoundId: Int = 0
   private var tap2SoundId: Int = 0
   private var isTap1Ready = false
+  private var isTapReady = false
   private var isTap2Ready = false
   private var toggleTap = false
 
@@ -33,13 +35,15 @@ object TasbeehSoundPlayer {
 
       pool.setOnLoadCompleteListener { _, sampleId, status ->
         if (status == 0) {
-          if (sampleId == tap1SoundId) isTap1Ready = true
-          if (sampleId == tap2SoundId) isTap2Ready = true
+          if (sampleId == tapSoundId) isTapReady = true
+//          if (sampleId == tapSoundId) isTap1Ready = true
+//          if (sampleId == tap2SoundId) isTap2Ready = true
         }
       }
 
+      tapSoundId = pool.load(context.applicationContext, R.raw.tap1, 1)
       tap1SoundId = pool.load(context.applicationContext, R.raw.tap1, 1)
-      tap2SoundId = pool.load(context.applicationContext, R.raw.tap2, 1)
+      tap2SoundId = pool.load(context.applicationContext, R.raw.tap1, 1)
       soundPool = pool
     } catch (e: Exception) {
       Log.e(TAG, "Failed to initialize SoundPool", e)
@@ -54,16 +58,16 @@ object TasbeehSoundPlayer {
 
     val pool = soundPool ?: return
     toggleTap = !toggleTap
-    val soundId = if (toggleTap) tap2SoundId else tap1SoundId
-    val isReady = if (toggleTap) isTap2Ready else isTap1Ready
+//    val soundId = if (toggleTap) tap2SoundId else tap1SoundId
+//    val isReady = if (toggleTap) isTap2Ready else isTap1Ready
 
     try {
-      if (isReady && soundId != 0) {
-        pool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f)
-      } else if (tap1SoundId != 0) {
-        // Fallback to tap1
-        pool.play(tap1SoundId, 1.0f, 1.0f, 1, 0, 1.0f)
-      }
+      pool.play(tapSoundId, 1.0f, 1.0f, 1, 0, 1.0f)
+//      if (isReady && soundId != 0) {
+//        pool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f)
+//      } else if (tap1SoundId != 0) {
+//        // Fallback to tap1
+//        pool.play(tap1SoundId, 1.0f, 1.0f, 1, 0, 1.0f)
     } catch (e: Exception) {
       Log.e(TAG, "Error playing tap sound", e)
     }

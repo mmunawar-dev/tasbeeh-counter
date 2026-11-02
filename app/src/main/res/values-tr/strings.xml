@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">Ayarlar</string>
+    <string name="languages">Diller</string>
+    <string name="language">Dil</string>
+    <string name="apply">Uygula</string>
+    <string name="cancel">İptal</string>
+    <string name="next">İleri</string>
+    <string name="get_started">Başla</string>
+    <string name="change">Değiştir</string>
+    <string name="today">Bugün</string>
+    <string name="back">Geri</string>
+    <string name="close">Kapat</string>
+    <string name="see_schedule">Vakitleri Gör</string>
+    <string name="remaining">Kalan</string>
+    <string name="started">Başladı</string>
+    <string name="ends">Bitiş</string>
+    <string name="starts">Başlangıç</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">ŞİMDİKİ VAKİT</string>
+    <string name="upcoming_prayer">SONRAKİ VAKİT</string>
+    <string name="prayer_fajr">İmsak</string>
+    <string name="prayer_sunrise">Güneş</string>
+    <string name="prayer_dhuhr">Öğle</string>
+    <string name="prayer_asr">İkindi</string>
+    <string name="prayer_maghrib">Akşam</string>
+    <string name="prayer_isha">Yatsı</string>
+    <string name="daily_prayer_schedule">Günlük Namaz Vakitleri</string>
+    <string name="prayer_times">Namaz Vakitleri</string>
+    <string name="prayer_notifications">Ezan Bildirimleri</string>
+    <string name="prayer_calendar">Namaz Takvimi</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">GÜNLÜK İBADET ARAÇLARI</string>
+    <string name="allahs_names">Allah\'ın 99 İsmi</string>
+    <string name="asma_ul_husna">Esmaü\'l-Hüsna</string>
+    <string name="tasbeeh">Dijital Tesbih</string>
+    <string name="tasbeeh_subtitle">Zikir &amp; Sayaç</string>
+    <string name="qibla_direction">Kıble Yönü</string>
+    <string name="qibla_subtitle">Kâbe Pusulası</string>
+    <string name="daily_duas">Günlük Dualar</string>
+    <string name="daily_duas_subtitle">Sahih Dualar &amp; Zikirler</string>
+    <string name="live_makkah">Canlı Mekke</string>
+    <string name="live_madinah">Canlı Medine</string>
+    <string name="live_makkah_subtitle">Mescid-i Haram 24/7</string>
+    <string name="live_madinah_subtitle">Mescid-i Nebevi</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">Tema Modu</string>
+    <string name="system_default">Sistem Varsayılanı</string>
+    <string name="light_mode">Açık</string>
+    <string name="dark_mode">Koyu</string>
+    <string name="fiqh_calc_method">Fıkıh &amp; Hesaplama Yöntemi</string>
+    <string name="location">Konum</string>
+    <string name="share_with_friends">Arkadaşlarla Paylaş</string>
+    <string name="rate_sakinah">Sakinah\'ı Değerlendir</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="terms_and_conditions">Şartlar &amp; Koşullar</string>
+    <string name="support_and_about">DESTEK &amp; HAKKINDA</string>
+    <string name="personalization_display">KİŞİSELLEŞTİRME &amp; GÖRÜNÜM</string>
+    <string name="prayer_and_location">NAMAZ &amp; KONUM</string>
+    <string name="exit_app_title">Uygulamadan Çıkılsın mı?</string>
+    <string name="exit_app_message">Sakinah\'ı kapatmak istediğinize emin misiniz? Namaz hatırlatıcılarınız arka planda çalışmaya devam edecektir.</string>
+    <string name="exit_now">Şimdi Çık</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">PREMİUM PLANINIZI SEÇİN</string>
+    <string name="premium_subtitle">Tüm premium özelliklerin kilidini açarak ibadet deneyiminizi geliştirin ve uygulamayı destekleyin.</string>
+    <string name="btn_continue">Devam Et</string>
+    <string name="badge_best_choice">EN İYİ SEÇİM</string>
+    <string name="plan_yearly">YILLIK PLAN</string>
+    <string name="plan_lifetime">ÖMÜR BOYU PLAN</string>
+    <string name="plan_yearly_price">₺249,99</string>
+    <string name="plan_lifetime_price">₺699,99</string>
+    <string name="plan_yearly_desc">Süre bitiminden 24 saat önce iptal edilmediği sürece otomatik yenilenir.</string>
+    <string name="plan_lifetime_desc">Bir kez ödeyin, sonsuza dek kullanın. Tüm gelecek güncellemeler dahildir.</string>
+    <string name="feature_no_ads">Sonsuza kadar reklamsız</string>
+    <string name="feature_lifetime_support">Ömür boyu destek</string>
+    <string name="feature_all_azans">Tüm Kâri Ezan Kayıtları</string>
+    <string name="feature_offline_qibla">Çevrimdışı Kıble &amp; Vakitler</string>
+    <string name="feature_unlimited_dhikr">Sınırsız Zikir &amp; Tesbih</string>
+    <string name="feature_live_streams">Canlı Mekke &amp; Medine HD</string>
+    <string name="feature_support_dev">İslami Geliştirmeyi Destekleyin</string>
+    <string name="go_premium">Premium\'a Geç</string>
+    <string name="unlock_premium">Sakinah Plus\'ı Aç</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">Kalibrasyon: Telefonu mıknatıslardan uzakta 8 şeklinde hareket ettirin</string>
+    <string name="qibla_aligned">KUTLU KÂBE İLE HİZALANDI</string>
+    <string name="tasbeeh_mode">TESBİH MODU</string>
+    <string name="tap_to_increment">Zikri artırmak için taneye, düğmeye veya ekrana dokunun</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip_subtitle">Reklamsız, ezan sesi &amp; widgetlar</string>
+    <string name="go_premium_arrow">Premium\'a Geç →</string>
+    <string name="fiqh_val_default">Hanefi • Karaçi</string>
+    <string name="prayer_notif_subtitle">Ezan sesleri, titreşimler ve vakit ayarları</string>
+    <string name="share_subtitle">Huzuru aileniz ve dostlarınızla paylaşın</string>
+    <string name="rate_subtitle">5 yıldızlı değerlendirme ile yolculuğumuzu destekleyin</string>
+    <string name="privacy_subtitle">Tüm hesaplamalar %100 cihazınızda çalışır</string>
+    <string name="about_sakinah">Sakinah Hakkında</string>
+    <string name="about_sakinah_subtitle">Sürüm 1.0 • Modern ve Huzurlu İslami Rehberiniz</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">GÜNLÜK İBADET ARAÇLARI</string>
+    <string name="holy_sites_live">KUTSAL MEKÂNLAR CANLI YAYIN</string>
+    <string name="live_badge">CANLI</string>
+    <string name="makkah_24_7">24/7 Harem</string>
+    <string name="allahs_names_short">Allah\'ın İsimleri</string>
+    <string name="names_asma">99 İsim • Esma</string>
+    <string name="tasbeeh_label">Tesbih</string>
+    <string name="duas_label">Dualar</string>
+    <string name="daily_supplications">Günlük Dualar &amp; Niyazlar</string>
+    <string name="makkah_label">Mekke</string>
+    <string name="madinah_label">Medine</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">PUSULA VE OK TEMALARI</string>
+    <string name="qibla_subtitle_full">🕌 Kâbe-i Muazzama Yönü</string>
+    <string name="change_location">Konumu Değiştir &gt;</string>
+    <string name="qibla_aligned_full">KUTLU KÂBE İLE HİZALANDI (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">Dijital Tesbih</string>
+    <string name="tasbeeh_mode_caps">TESBİH MODU</string>
+    <string name="tap_to_increment_balloon">Zikri artırmak için taneye veya ekrana dokunun</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">Dijital Zikirmatik</string>
+    <string name="splash_subtitle">🕌 • Namaz ve İbadet Yoldaşınız</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">SEÇİLEN TARİH</string>
+    <string name="notifications_per_prayer">HER VAKİT İÇİN BİLDİRİMLER</string>
+    <string name="edit_arrow">Düzenle →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">Fıkıh</string>
+    <string name="choose_prayer_method">Namaz vakti hesaplama yöntemi seçin</string>
+    <string name="fiqh_description">Farklı fıkıh mezhepleri ikindi namazı için farklı başlangıç vakitleri belirler. Tercihinizi aşağıdan yapın.</string>
+    <string name="asr_calculation_header">İKİNDİ VAKTİ HESAPLAMASI</string>
+    <string name="calculation_authority_header">HESAPLAMA KURUMU</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">Konum seçin</string>
+    <string name="search_city_hint">Şehir veya ülke arayın...</string>
+    <string name="use_current_location">Mevcut Konumu Kullan</string>
+    <string name="auto_detect_location">Cihaz sensörleriyle otomatik algıla</string>
+    <string name="popular_cities">POPÜLER ŞEHİRLER</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">Dualar &amp; Zikirler • Sahih Dualar</string>
+    <string name="supplication">Dua</string>
+    <string name="transliteration">OKUNUŞ</string>
+    <string name="translation">ANLAMI</string>
+    <string name="benefit_and_merit">Fazileti &amp; Önemi</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">Esmaü\'l-Hüsna • Allah\'ın 99 İsmi</string>
+    <string name="play_names_recitation">99 İsmi Sesli Dinle</string>
+    <string name="play_names_desc">Arka planda Esmaü\'l-Hüsna ses kaydını (.mp3) dinleyin</string>
+    <string name="pause">Duraklat</string>
+    <string name="stop">Durdur</string>
+    <string name="play_audio_btn">Esmaü\'l-Hüsna Dinle (Sesli MP3)</string>
+    <string name="search_names_hint">İsim veya anlama göre arayın...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">SEÇİLEN GÜN İÇİN NAMAZ VAKİTLERİ</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">Mescid-i Haram\'dan Canlı Yayın</string>
+    <string name="official_broadcast">Resmi 24/7 HD Yayın</string>
+    <string name="live_badge_24_7">CANLI 24/7</string>
+    <string name="watching_count">48.2K kişi izliyor</string>
+    <string name="masjid_al_haram">Mescid-i Haram, Mekke</string>
+    <string name="saudi_quran_tv">Suudi Kur\'an TV (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">Kâbe-i Muazzama\'dan 24 saat kesintisiz namazlar, tavaf ve Kur\'an tilavetleri.</string>
+    <string name="watch_stream_youtube">YouTube\'da Full HD İzle ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">İbadetlerinize huzur katın</string>
+    <string name="support_pure_islamic_software">Reklamsız, takipsiz ve dikkat dağıtıcısız geliştirilen İslami uygulamayı destekleyin.</string>
+    <string name="monthly_plan">Aylık Plan</string>
+    <string name="flexible">Esnek</string>
+    <string name="per_month">/ ay</string>
+    <string name="billed_monthly_desc">Aylık faturalandırılır. İstediğiniz zaman taahhütsüz iptal edin.</string>
+    <string name="annual_plan">Yıllık Plan</string>
+    <string name="most_popular_save">En Popüler • %58 Tasarruf</string>
+    <string name="per_year_desc">/ yıl ($0.83/ay)</string>
+    <string name="annual_trial_desc">7 günlük ücretsiz deneme içerir. Yılda bir kez faturalandırılır.</string>
+    <string name="lifetime_access">Ömür Boyu Erişim</string>
+    <string name="best_value_pay_once">En İyi Değer • Tek Seferlik Ödeme</string>
+    <string name="one_time_payment">tek seferlik ödeme</string>
+    <string name="lifetime_desc">Bir kez ödeyin, sonsuza dek sahip olun. Tüm mevcut ve gelecek güncellemeler dahildir.</string>
+    <string name="whats_included_sakinah_plus">SAKINAH PLUS NELER İÇERİR</string>
+    <string name="feat_ad_free">%100 Reklamsız, Huzurlu İbadet Ortamı</string>
+    <string name="feat_api">Gerçek Zamanlı Aladhan Platform API Entegrasyonu</string>
+    <string name="feat_widgets">Kilit Ekranı ve Ana Ekran Namaz Widgetları</string>
+    <string name="feat_adhan">Özgün Ezan Sesleri (Mekke, Medine, Mescid-i Aksa)</string>
+    <string name="feat_tasbeeh">Günlük Geçmişli Sınırsız Tesbih Sayaçları</string>
+    <string name="subscribe_annual_btn">Yıllık Plana Abone Ol • $9.99/yıl</string>
+    <string name="restore_privacy_terms">Satın Alımları Geri Yükle • Gizlilik Politikası • Şartlar</string>
+    <string name="monthly">Aylık</string>
+    <string name="flexible_month_access">Esnek aylık erişim</string>
+    <string name="best_value_save_45">EN İYİ SEÇİM • %45 TASARRUF</string>
+    <string name="yearly_access">Yıllık Erişim</string>
+    <string name="yearly_billed_desc">Yıllık $1.66 / ay olarak faturalandırılır</string>
+    <string name="lifetime_sadaqah">Ömür Boyu Sadaka-i Cariye</string>
+    <string name="lifetime_perpetual_desc">Tek seferlik kalıcı üyelik</string>
+
+</resources>

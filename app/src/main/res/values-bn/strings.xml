@@ -1,0 +1,220 @@
+<resources>
+    <string name="app_name">Sakinah</string>
+    <string name="sakinah_plus">Sakinah Plus</string>
+
+    <!-- General / Navigation -->
+    <string name="settings">সেটিংস</string>
+    <string name="languages">ভাষাসমূহ</string>
+    <string name="language">ভাষা</string>
+    <string name="apply">প্রয়োগ করুন</string>
+    <string name="cancel">বাতিল</string>
+    <string name="next">পরবর্তী</string>
+    <string name="get_started">শুরু করুন</string>
+    <string name="change">পরিবর্তন</string>
+    <string name="today">আজ</string>
+    <string name="back">ফিরে যান</string>
+    <string name="close">বন্ধ করুন</string>
+    <string name="see_schedule">সময়সূচি দেখুন</string>
+    <string name="remaining">বাকি</string>
+    <string name="started">শুরু হয়েছে</string>
+    <string name="ends">শেষ হবে</string>
+    <string name="starts">শুরু হবে</string>
+
+    <!-- Prayers -->
+    <string name="current_prayer">বর্তমান ওয়াক্ত</string>
+    <string name="upcoming_prayer">পরবর্তী ওয়াক্ত</string>
+    <string name="prayer_fajr">ফজর</string>
+    <string name="prayer_sunrise">সূর্যোদয়</string>
+    <string name="prayer_dhuhr">যোহর</string>
+    <string name="prayer_asr">আসর</string>
+    <string name="prayer_maghrib">মাগরিব</string>
+    <string name="prayer_isha">ইশা</string>
+    <string name="daily_prayer_schedule">দৈনিক নামাজের সময়সূচি</string>
+    <string name="prayer_times">নামাজের সময়</string>
+    <string name="prayer_notifications">আজানের বিজ্ঞপ্তি</string>
+    <string name="prayer_calendar">নামাজের ক্যালেন্ডার</string>
+
+    <!-- Utilities / Dashboard -->
+    <string name="daily_worship_utilities">দৈনিক ইবাদত সহায়ক</string>
+    <string name="allahs_names">আল্লাহর ৯৯টি নাম</string>
+    <string name="asma_ul_husna">আসমাউল হুসনা</string>
+    <string name="tasbeeh">ডিজিটাল তাসবীহ</string>
+    <string name="tasbeeh_subtitle">যিকির ও গণক</string>
+    <string name="qibla_direction">কিবলার দিক</string>
+    <string name="qibla_subtitle">কাবার দিকে কম্পাস</string>
+    <string name="daily_duas">দৈনিক দোয়া</string>
+    <string name="daily_duas_subtitle">সহিহ দোয়াসমূহ</string>
+    <string name="live_makkah">লাইভ মক্কা</string>
+    <string name="live_madinah">লাইভ মদীনা</string>
+    <string name="live_makkah_subtitle">মসজিদুল হারাম ২৪/৭</string>
+    <string name="live_madinah_subtitle">মসজিদুন নববী</string>
+
+    <!-- Settings -->
+    <string name="theme_mode">থিম মোড</string>
+    <string name="system_default">সিস্টেম ডিফল্ট</string>
+    <string name="light_mode">হালকা</string>
+    <string name="dark_mode">গাঢ়</string>
+    <string name="fiqh_calc_method">ফিকহ ও হিসাবের পদ্ধতি</string>
+    <string name="location">অবস্থান</string>
+    <string name="share_with_friends">বন্ধুদের সাথে শেয়ার করুন</string>
+    <string name="rate_sakinah">রেটিং দিন</string>
+    <string name="privacy_policy">গোপনীয়তা নীতি</string>
+    <string name="terms_and_conditions">শর্তাবলী</string>
+    <string name="support_and_about">সহায়তা ও তথ্য</string>
+    <string name="personalization_display">ডিসপ্লে সেটিংস</string>
+    <string name="prayer_and_location">নামাজ ও অবস্থান</string>
+    <string name="exit_app_title">অ্যাপ থেকে বের হবেন?</string>
+    <string name="exit_app_message">আপনি কি নিশ্চিতভাবে বন্ধ করতে চান? নামাজের রিমাইন্ডার ব্যাকগ্রাউন্ডে চলতে থাকবে।</string>
+    <string name="exit_now">এখনই বের হন</string>
+
+    <!-- Premium Screen -->
+    <string name="premium_title">প্রিমিয়াম প্ল্যান নির্বাচন করুন</string>
+    <string name="premium_subtitle">বিজ্ঞাপনমুক্ত পরিচ্ছন্ন অভিজ্ঞতার জন্য প্রিমিয়াম ফিচার আনলক করুন।</string>
+    <string name="btn_continue">চালিয়ে যান</string>
+    <string name="badge_best_choice">সেরা পছন্দ</string>
+    <string name="plan_yearly">বার্ষিক প্ল্যান</string>
+    <string name="plan_lifetime">আজীবন প্ল্যান</string>
+    <string name="plan_yearly_price">৳৯৫০.০০</string>
+    <string name="plan_lifetime_price">৳২,৪৫০.০০</string>
+    <string name="plan_yearly_desc">মেয়াদ শেষ হওয়ার ২৪ ঘণ্টা আগে বাতিল না করা পর্যন্ত স্বয়ংক্রিয়ভাবে নবায়ন হবে।</string>
+    <string name="plan_lifetime_desc">একবার পেমেন্ট করুন, আজীবন উপভোগ করুন।</string>
+    <string name="feature_no_ads">আজীবন সম্পূর্ণ বিজ্ঞাপনহীন</string>
+    <string name="feature_lifetime_support">আজীবন সহায়তা</string>
+    <string name="feature_all_azans">সকল ক্বারীর সুমধুর আজান</string>
+    <string name="feature_offline_qibla">অফলাইন কিবলা ও সময়সূচি</string>
+    <string name="feature_unlimited_dhikr">আনলিমিটেড তাসবীহ ও হিস্ট্রি</string>
+    <string name="feature_live_streams">মক্কা ও মদীনার লাইভ এইচডি সম্প্রচার</string>
+    <string name="feature_support_dev">ইসলামিক অ্যাপ উন্নয়নে সহায়তা</string>
+    <string name="go_premium">প্রিমিয়াম নিন</string>
+    <string name="unlock_premium">সাকিনাহ প্লাস আনলক করুন</string>
+
+    <!-- Qibla & Tasbeeh -->
+    <string name="qibla_calibrating">ক্যালিব্রেট: ফোনটিকে ৮ আকারে ঘোরান</string>
+    <string name="qibla_aligned">পবিত্র কাবার দিকে সঠিকভাবে নির্দেশিত</string>
+    <string name="tasbeeh_mode">তাসবীহ মোড</string>
+    <string name="tap_to_increment">যিকির বৃদ্ধি করতে স্ক্রিন বা বোতাম স্পর্শ করুন</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Settings Screen Additional -->
+    <string name="sakinah_plus_vip">সাকিনাহ প্লাস ভিআইপি</string>
+    <string name="sakinah_plus_vip_subtitle">বিজ্ঞাপনহীন, আজান অডিও ও উইজেট</string>
+    <string name="go_premium_arrow">প্রিমিয়াম নিন →</string>
+    <string name="fiqh_val_default">হানাফী • করাচি</string>
+    <string name="prayer_notif_subtitle">আজানের সুর, কম্পন ও সময়ের সামঞ্জস্য</string>
+    <string name="share_subtitle">প্রিয়জনদের সাথে শান্তির বার্তা ছড়িয়ে দিন</string>
+    <string name="rate_subtitle">৫ স্টার রিভিউ দিয়ে আমাদের উৎসাহিত করুন</string>
+    <string name="privacy_subtitle">সমস্ত হিসাব সম্পূর্ণভাবে আপনার ফোনে সম্পন্ন হয়</string>
+    <string name="about_sakinah">সাকিনাহ সম্পর্কে</string>
+    <string name="about_sakinah_subtitle">সংস্করণ ১.০ • আধুনিক ও শান্ত ইসলামিক সঙ্গী</string>
+
+    <!-- Home Screen Additional -->
+    <string name="daily_worship_utilities_caps">দৈনিক ইবাদত সহায়ক</string>
+    <string name="holy_sites_live">পবিত্র স্থানসমূহের সরাসরি সম্প্রচার</string>
+    <string name="live_badge">লাইভ</string>
+    <string name="makkah_24_7">২৪/৭ হারামাইন</string>
+    <string name="allahs_names_short">আল্লাহর নাম</string>
+    <string name="names_asma">৯৯টি গুণবাচক নাম</string>
+    <string name="tasbeeh_label">তাসবীহ</string>
+    <string name="duas_label">দোয়া</string>
+    <string name="daily_supplications">নিত্যদিনের দোয়া</string>
+    <string name="makkah_label">মক্কা</string>
+    <string name="madinah_label">মদীনা</string>
+
+    <!-- Qibla Screen -->
+    <string name="qibla_compass_themes">কম্পাস ও নির্দেশক থিম</string>
+    <string name="qibla_subtitle_full">🕌 পবিত্র কাবার দিকনির্দেশনা</string>
+    <string name="change_location">অবস্থান পরিবর্তন &gt;</string>
+    <string name="qibla_aligned_full">পবিত্র কাবার দিকে নির্দেশিত (🕋 الكعبة)</string>
+
+    <!-- Tasbeeh Screen -->
+    <string name="digital_tasbeeh">ডিজিটাল তাসবীহ</string>
+    <string name="tasbeeh_mode_caps">তাসবীহ মোড</string>
+    <string name="tap_to_increment_balloon">গণনা করতে ট্যাপ করুন</string>
+
+    <!-- Splash Screen -->
+    <string name="digital_tasbeeh_counter">ডিজিটাল তাসবীহ কাউন্টার</string>
+    <string name="splash_subtitle">🕌 • নামাজ ও ইবাদতের সঙ্গী</string>
+
+    <!-- Prayer Settings Screen -->
+    <string name="selected_date">নির্বাচিত তারিখ</string>
+    <string name="notifications_per_prayer">ওয়াক্তভিত্তিক নোটিফিকেশন</string>
+    <string name="edit_arrow">সম্পাদনা →</string>
+
+    <!-- Fiqh Screen -->
+    <string name="fiqh_title">ফিকহ</string>
+    <string name="choose_prayer_method">নামাজের সময় নির্ণয় পদ্ধতি নির্বাচন করুন</string>
+    <string name="fiqh_description">আসর নামাজের শুরুর সময় বিভিন্ন মাজহাবে সামান্য পরিবর্তিত হয়। নিচে আপনার পছন্দ নির্বাচন করুন।</string>
+    <string name="asr_calculation_header">আসর নামাজের সময় নির্ধারণ</string>
+    <string name="calculation_authority_header">হিসাবকারী প্রতিষ্ঠান</string>
+
+    <!-- City Select Screen -->
+    <string name="choose_location">স্থান নির্বাচন করুন</string>
+    <string name="search_city_hint">শহর বা দেশ অনুসন্ধান করুন...</string>
+    <string name="use_current_location">বর্তমান অবস্থান ব্যবহার করুন</string>
+    <string name="auto_detect_location">জিপিএস সেন্সরের মাধ্যমে স্বয়ংক্রিয় সন্ধান</string>
+    <string name="popular_cities">জনপ্রিয় শহরসমূহ</string>
+
+    <!-- Dua Screen -->
+    <string name="authentic_supplications">দোয়া ও যিকির • সহিহ দোয়াসমূহ</string>
+    <string name="supplication">দোয়া</string>
+    <string name="transliteration">উচ্চারণ</string>
+    <string name="translation">অনুবাদ</string>
+    <string name="benefit_and_merit">ফজিলত ও গুরুত্ব</string>
+
+    <!-- Allah Names Screen -->
+    <string name="allah_names_subtitle">আসমাউল হুসনা • আল্লাহর ৯৯টি নাম</string>
+    <string name="play_names_recitation">আসমাউল হুসনার অডিও শুনুন</string>
+    <string name="play_names_desc">ব্যাকগ্রাউন্ডে শুদ্ধ কণ্ঠে আসমাউল হুসনা অডিও (.mp3) শুনুন</string>
+    <string name="pause">বিরতি</string>
+    <string name="stop">থামুন</string>
+    <string name="play_audio_btn">আসমাউল হুসনা শুনুন (অডিও MP3)</string>
+    <string name="search_names_hint">নাম বা অর্থ দিয়ে খুঁজুন...</string>
+    <string name="asma_ul_husna_ar">أسماء الله الحسنى</string>
+
+    <!-- Calendar Screen -->
+    <string name="prayer_times_for_selected_date">নির্বাচিত দিনের নামাজের সময়সূচি</string>
+
+    <!-- Live Stream Screen -->
+    <string name="live_makkah_arabic">بث مباشر من المسجد الحرام</string>
+    <string name="streaming_live_sub">মসজিদুল হারাম থেকে সরাসরি সম্প্রচার</string>
+    <string name="official_broadcast">অফিসিয়াল ২৪/৭ এইচডি সম্প্রচার</string>
+    <string name="live_badge_24_7">লাইভ ২৪/৭</string>
+    <string name="watching_count">৪৮.২ হাজার দেখছেন</string>
+    <string name="masjid_al_haram">মসজিদুল হারাম, মক্কা</string>
+    <string name="saudi_quran_tv">সৌদি কুরআন টিভি (قناة القرآن الكريم)</string>
+    <string name="makkah_stream_desc">কাবা শরীফ থেকে ২৪ ঘণ্টা বিরতিহীন নামাজ, তাওয়াফ ও কুরআন তিলাওয়াত।</string>
+    <string name="watch_stream_youtube">ইউটিউবে সরাসরি ফুল এইচডি দেখুন ↗</string>
+
+    <!-- Premium Screen Extra -->
+    <string name="make_prayer_serene">আপনার ইবাদতের অভিজ্ঞতাকে শান্ত ও সুন্দর করুন</string>
+    <string name="support_pure_islamic_software">বিজ্ঞাপন ও ট্র্যাকিংবিহীন খাঁটি ইসলামিক অ্যাপ তৈরিতে পাশে থাকুন।</string>
+    <string name="monthly_plan">মাসিক প্ল্যান</string>
+    <string name="flexible">সহজ কিস্তি</string>
+    <string name="per_month">/ প্রতি মাস</string>
+    <string name="billed_monthly_desc">মাসিক বিলিং। যেকোনো সময় বাতিল করতে পারবেন।</string>
+    <string name="annual_plan">বার্ষিক প্ল্যান</string>
+    <string name="most_popular_save">সর্বাধিক জনপ্রিয় • ৫৮% সাশ্রয়ী</string>
+    <string name="per_year_desc">/ প্রতি বছর</string>
+    <string name="annual_trial_desc">৭ দিনের ফ্রি ট্রায়াল সহ। বছরে একবার বিলিং।</string>
+    <string name="lifetime_access">আজীবন অ্যাক্সেস</string>
+    <string name="best_value_pay_once">সেরা মূল্য • একবার পেমেন্ট</string>
+    <string name="one_time_payment">এককালীন পেমেন্ট</string>
+    <string name="lifetime_desc">একবার কিনুন, চিরকাল ব্যবহার করুন। সকল ভবিষ্যৎ আপডেট অন্তর্ভুক্ত।</string>
+    <string name="whats_included_sakinah_plus">সাকিনাহ প্লাসে যা যা পাচ্ছেন</string>
+    <string name="feat_ad_free">১০০% সম্পূর্ণ বিজ্ঞাপনমুক্ত শান্ত পরিবেশ</string>
+    <string name="feat_api">রিয়েল-টাইম নিখুঁত নামাজের ওয়াক্ত হিসাব</string>
+    <string name="feat_widgets">হোম ও লক স্ক্রিনের জন্য নামাজের উইজেট</string>
+    <string name="feat_adhan">বিখ্যাত ক্বারীদের সুললিত আজান</string>
+    <string name="feat_tasbeeh">আনলিমিটেড তাসবীহ কাউন্টার ও হিসাব</string>
+    <string name="subscribe_annual_btn">বার্ষিক প্ল্যান সাবস্ক্রাইব করুন • $9.99/বছর</string>
+    <string name="restore_privacy_terms">ক্রয় পুনরুদ্ধার • গোপনীয়তা নীতি • শর্তাবলী</string>
+    <string name="monthly">মাসিক</string>
+    <string name="flexible_month_access">মাসিক অ্যাক্সেস</string>
+    <string name="best_value_save_45">সেরা মূল্য • ৪৫% সাশ্রয়</string>
+    <string name="yearly_access">বার্ষিক অ্যাক্সেস</string>
+    <string name="yearly_billed_desc">বার্ষিক হিসাব অনুযায়ী প্রতি মাসে $1.66</string>
+    <string name="lifetime_sadaqah">আজীবন সদকায়ে জারিয়া</string>
+    <string name="lifetime_perpetual_desc">একবার পেমেন্টে স্থায়ী মেম্বারশিপ</string>
+
+</resources>

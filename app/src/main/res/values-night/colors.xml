@@ -74,6 +74,12 @@
     <color name="hero_pill_text">#34D399</color>
     <color name="hero_alert_segment_bg">#0A1C15</color>
     <color name="hero_divider">#1A4132</color>
+    <color name="hero_interval_icon">#38BDF8</color>
+    <color name="hero_countdown_bg">#2A2111</color>
+    <color name="hero_countdown_border">#99F59E0B</color>
+    <color name="hero_countdown_icon">#FCD34D</color>
+    <color name="hero_countdown_time">#FEF3C7</color>
+    <color name="hero_countdown_label">#FCD34D</color>
 
     <!-- Compose theme tokens (dark) for Qibla / Tasbeeh XML screens -->
     <color name="sk_primary">#63DBA5</color>
