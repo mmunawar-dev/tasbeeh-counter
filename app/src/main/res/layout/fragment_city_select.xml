@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.CitySelectFragment"
     android:background="@color/background_light"
     android:orientation="vertical">
 
@@ -53,7 +55,7 @@
             app:boxCornerRadiusBottomStart="14dp"
             app:boxCornerRadiusTopEnd="14dp"
             app:boxCornerRadiusTopStart="14dp"
-            app:boxStrokeColor="@color/emerald_primary"
+            app:boxStrokeColor="@color/transparent"
             app:endIconMode="clear_text"
             app:startIconDrawable="@android:drawable/ic_menu_search">
 
@@ -76,6 +78,7 @@
             android:layout_marginTop="14dp"
             android:clickable="true"
             android:focusable="true"
+            app:strokeColor="@android:color/transparent"
             app:cardBackgroundColor="@color/emerald_light_container"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp">

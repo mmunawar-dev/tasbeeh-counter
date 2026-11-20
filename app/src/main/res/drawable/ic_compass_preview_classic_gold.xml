@@ -1,0 +1,53 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="44dp"
+    android:viewportWidth="44"
+    android:viewportHeight="44">
+  <!-- Dial face background -->
+  <path
+      android:pathData="M22,22m-19,0a19,19 0,1 1,38 0a19,19 0,1 1,-38 0"
+      android:fillColor="#FBF8F0"/>
+  <!-- Outer Gold ring -->
+  <path
+      android:pathData="M22,22m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0"
+      android:strokeWidth="2.2"
+      android:fillColor="#00000000"
+      android:strokeColor="#C59E30"/>
+  <!-- Inner delicate ring -->
+  <path
+      android:pathData="M22,22m-14.5,0a14.5,14.5 0,1 1,29 0a14.5,14.5 0,1 1,-29 0"
+      android:strokeWidth="0.8"
+      android:fillColor="#00000000"
+      android:strokeColor="#E8D49B"/>
+  <!-- Red North tick -->
+  <path
+      android:pathData="M22,4 L22,8.5"
+      android:strokeWidth="1.8"
+      android:strokeColor="#DC2626"/>
+  <!-- East / South / West subtle ticks -->
+  <path
+      android:pathData="M40,22 L37,22"
+      android:strokeWidth="1"
+      android:strokeColor="#D4AF37"/>
+  <path
+      android:pathData="M22,40 L22,37"
+      android:strokeWidth="1"
+      android:strokeColor="#D4AF37"/>
+  <path
+      android:pathData="M4,22 L7,22"
+      android:strokeWidth="1"
+      android:strokeColor="#D4AF37"/>
+  <!-- Golden Qibla Arrow pointing west-southwest (towards Kaaba) -->
+  <path
+      android:pathData="M11,24.5 L19.5,20 L18,24 L19.5,28 Z"
+      android:fillColor="#C59E30"/>
+  <!-- Kaaba box symbol at needle tip -->
+  <path
+      android:pathData="M19,21.5 L24,20 L25,25 L20,26.5 Z"
+      android:fillColor="#1F2320"/>
+  <!-- Center circle -->
+  <path
+      android:pathData="M22,22m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0"
+      android:fillColor="#C59E30"/>
+</vector>
+

@@ -53,7 +53,7 @@ class AudioPlayerService : Service() {
     private val _playbackState = MutableStateFlow(PlaybackState())
     val playbackState: StateFlow<PlaybackState> = _playbackState.asStateFlow()
 
-    fun startPlaying(context: Context, title: String = "Asma-ul-Husna (99 Names of Allah)", subtitle: String = "Complete Melodious Recitation") {
+    fun startPlaying(context: Context, title: String = "Asma-ul-Husna (99 Names of Allah)", subtitle: String = "") {
       val intent = Intent(context, AudioPlayerService::class.java).apply {
         action = ACTION_PLAY
         putExtra(EXTRA_TITLE, title)

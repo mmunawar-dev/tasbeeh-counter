@@ -76,7 +76,6 @@ class PrayerSettingsFragment : BaseFragment<FragmentPrayerSettingsBinding>(Fragm
 
     val items = listOf(
       schedule.fajr,
-      schedule.sunrise,
       schedule.dhuhr,
       schedule.asr,
       schedule.maghrib,

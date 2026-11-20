@@ -10,15 +10,6 @@ data class DuaCategory(
   val count: Int
     get() = DuaItem.DUA_ITEMS.count { it.categoryId == id }
 
-  constructor(
-    id: String,
-    title: String,
-    arabicTitle: String,
-    iconName: String,
-    @Suppress("UNUSED_PARAMETER") count: Int,
-    description: String
-  ) : this(id, title, arabicTitle, iconName, description)
-
   companion object {
     val CATEGORIES = listOf(
       DuaCategory(
@@ -410,7 +401,7 @@ data class DuaItem(
         id = "forgiveness_general_cleansing",
         categoryId = "forgiveness",
         title = "Istighfar for Complete Erasure of Past Sins",
-        arabic = "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ",
+        arabic = "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
         transliteration = "Astaghfirullahal-'Azeemal-ladhi la ilaha illa Huwal-Hayyul-Qayyumu wa atoobu ilayh.",
         translation = "I seek forgiveness from Allah the Almighty, besides Whom there is no deity, the Ever-Living, the Sustainer, and I repent unto Him.",
         reference = "Sunan Abi Dawood 1517, Jami` at-Tirmidhi 3577",
@@ -484,7 +475,7 @@ data class DuaItem(
         id = "anxiety_in_affliction",
         categoryId = "anxiety",
         title = "Supplication Upon Hearing Troubling News or Loss",
-        arabic = "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا",
+        arabic = "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجِرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا",
         transliteration = "Inna lillahi wa inna ilayhi raji'oon, Allahumma'-jurni fi museebati wa akhlif li khayran minha.",
         translation = "Truly to Allah we belong and truly to Him we shall return. O Allah, reward me in my affliction and grant me in return something better than it.",
         reference = "Sahih Muslim 918",
@@ -592,9 +583,9 @@ data class DuaItem(
         id = "travel_entering_town",
         categoryId = "travel",
         title = "Dua When Entering a New Town or Destination",
-        arabic = "اللَّهُمَّ رَبَّ السَّمَاوَاتِ السَّبْعِ وَمَا أَظْلَلْنَ، وَرَبَّ الْأَرَضِينَ السَّبْعِ وَمَا أَقْلَلْنَ، أَسْأَلُكَ خَيْرَ هَذِهِ الْقَرْيَةِ وَخَيْرَ أَهْلِهَا وَخَيْرَ مَا فِيهَا، وَأَعُوذُ بِكَ مِنْ شَرِّهَا وَشَرِّ أَهْلِهَا وَشَرِّ مَا فِيهَا",
-        transliteration = "Allahumma Rabbas-samawatis-sab'i wa ma azlalna, wa Rabbal-aradeenas-sab'i wa ma aqlalna, as'aluka khayra hadhihil-qaryati wa khayra ahliha wa khayra ma feeha, wa a'udhu bika min sharriha wa sharri ahliha wa sharri ma feeha.",
-        translation = "O Allah, Lord of the seven heavens and what they overshadow, Lord of the seven earths and what they carry, I ask You for the good of this town, the good of its people, and the good of what is in it; and I seek refuge in You from its evil, the evil of its people, and the evil of what is in it.",
+        arabic = "اللَّهُمَّ رَبَّ السَّمَاوَاتِ السَّبْعِ وَمَا أَظْلَلْنَ، وَرَبَّ الْأَرَضِينَ السَّبْعِ وَمَا أَقْلَلْنَ، وَرَبَّ الشَّيَاطِينِ وَمَا أَضْلَلْنَ، وَرَبَّ الرِّيَاحِ وَمَا ذَرَيْنَ، أَسْأَلُكَ خَيْرَ هَذِهِ الْقَرْيَةِ وَخَيْرَ أَهْلِهَا وَخَيْرَ مَا فِيهَا، وَأَعُوذُ بِكَ مِنْ شَرِّهَا وَشَرِّ أَهْلِهَا وَشَرِّ مَا فِيهَا",
+        transliteration = "Allahumma Rabbas-samawatis-sab'i wa ma azlalna, wa Rabbal-aradeenas-sab'i wa ma aqlalna, wa Rabbash-shayateeni wa ma adlalna, wa Rabbar-riyahi wa ma dharayna, as'aluka khayra hadhihil-qaryati wa khayra ahliha wa khayra ma feeha, wa a'udhu bika min sharriha wa sharri ahliha wa sharri ma feeha.",
+        translation = "O Allah, Lord of the seven heavens and what they overshadow, Lord of the seven earths and what they carry, Lord of the devils and what they lead astray, and Lord of the winds and what they scatter: I ask You for the good of this town, the good of its people, and the good of what is in it; and I seek refuge in You from its evil, the evil of its people, and the evil of what is in it.",
         reference = "Sunan an-Nasa'i (Al-Kubra 8770), Al-Hakim 2/100",
         benefit = "Safeguards the traveler from foreign illnesses, dishonest inhabitants, and misfortunes in the new destination."
       ),
@@ -892,11 +883,11 @@ data class DuaItem(
         id = "guidance_straight_path",
         categoryId = "guidance_istikhara",
         title = "Supplication for Straightness and Rectitude",
-        arabic = "اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي، وَاذْكُرْ بِالْهُدَى هِدَايَتَكَ الطَّرِيقَ، وَبِالسَّدَادِ سَدَادَ السَّهْمِ",
-        transliteration = "Allahummah-dini wa saddidni, wadhkur bil-huda hidayatakat-tareeq, wa bis-sadadi sadadas-sahm.",
-        translation = "O Allah, guide me and keep me straight; and let Your guidance remind you of the straight path, and keeping straight like the straightness of an arrow.",
+        arabic = "اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي",
+        transliteration = "Allahummah-dini wa saddidni.",
+        translation = "O Allah, guide me and keep me upright.",
         reference = "Sahih Muslim 2725",
-        benefit = "Taught by the Prophet (pbuh) to Ali ibn Abi Talib for unwavering clarity in thought and action."
+        benefit = "Taught by the Prophet (pbuh) to Ali ibn Abi Talib, who said: 'Say: O Allah, guide me and keep me upright; and through guidance keep in mind your following the right path, and through uprightness the straightness of an arrow.'"
       )
     )
   }

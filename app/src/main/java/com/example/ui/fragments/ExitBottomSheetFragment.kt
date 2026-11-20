@@ -36,6 +36,16 @@ class ExitBottomSheetFragment(
     }
   }
 
+  override fun onStart() {
+    super.onStart()
+    val bottomSheetDialog = dialog as? com.google.android.material.bottomsheet.BottomSheetDialog
+    bottomSheetDialog?.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let { bottomSheet ->
+      val behavior = com.google.android.material.bottomsheet.BottomSheetBehavior.from(bottomSheet)
+      behavior.state = com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+      behavior.skipCollapsed = true
+    }
+  }
+
   override fun onDestroyView() {
     super.onDestroyView()
     _binding = null

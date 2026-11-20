@@ -62,7 +62,7 @@ class FiqhSelectFragment : BaseFragment<FragmentFiqhSelectBinding>(FragmentFiqhS
       val context = requireContext()
       if (isSelected) {
         itemBinding.cardMadhab.setCardBackgroundColor(ContextCompat.getColor(context, R.color.active_prayer_bg))
-        itemBinding.cardMadhab.strokeColor = ContextCompat.getColor(context, R.color.active_prayer_border)
+        itemBinding.cardMadhab.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
         itemBinding.cardMadhab.strokeWidth = (1.5f * resources.displayMetrics.density).toInt()
         itemBinding.layoutMadhabCheckCircle.backgroundTintList = ColorStateList.valueOf(
           ContextCompat.getColor(context, R.color.emerald_primary)
@@ -70,8 +70,7 @@ class FiqhSelectFragment : BaseFragment<FragmentFiqhSelectBinding>(FragmentFiqhS
         itemBinding.ivMadhabCheckIcon.visibility = View.VISIBLE
       } else {
         itemBinding.cardMadhab.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_light))
-        itemBinding.cardMadhab.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
-        itemBinding.cardMadhab.strokeWidth = (1f * resources.displayMetrics.density).toInt()
+        itemBinding.cardMadhab.strokeColor = ContextCompat.getColor(context, android.R.color.transparent)
         itemBinding.layoutMadhabCheckCircle.backgroundTintList = ColorStateList.valueOf(
           ContextCompat.getColor(context, R.color.surface_variant_light)
         )
@@ -100,13 +99,12 @@ class FiqhSelectFragment : BaseFragment<FragmentFiqhSelectBinding>(FragmentFiqhS
       val context = requireContext()
       if (isSelected) {
         itemBinding.cardMethod.setCardBackgroundColor(ContextCompat.getColor(context, R.color.active_prayer_bg))
-        itemBinding.cardMethod.strokeColor = ContextCompat.getColor(context, R.color.active_prayer_border)
+        itemBinding.cardMethod.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
         itemBinding.cardMethod.strokeWidth = (1.5f * resources.displayMetrics.density).toInt()
         itemBinding.ivMethodCheck.visibility = View.VISIBLE
       } else {
         itemBinding.cardMethod.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_light))
-        itemBinding.cardMethod.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
-        itemBinding.cardMethod.strokeWidth = (1f * resources.displayMetrics.density).toInt()
+        itemBinding.cardMethod.strokeColor = ContextCompat.getColor(context, R.color.transparent)
         itemBinding.ivMethodCheck.visibility = View.GONE
       }
 

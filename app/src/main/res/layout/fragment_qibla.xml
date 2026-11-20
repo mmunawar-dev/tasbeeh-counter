@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/qibla_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/sk_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.fragments.QiblaFragment">
 
     <!-- TOP BAR -->
     <LinearLayout
@@ -14,23 +16,25 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp">
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp">
 
-        <TextView
-            android:id="@+id/btn_qibla_back"
-            style="@style/Sk.Text"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center"
+            android:padding="@dimen/_5sdp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Back"
-            android:gravity="center"
-            android:text="←"
-            android:textSize="28sp" />
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_arrow_back_24"
+            app:tint="@color/sk_on_surface" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="12dp"
             android:orientation="vertical">
 
             <TextView
@@ -38,36 +42,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/qibla_direction"
+                android:textColor="@color/sk_on_surface"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 style="@style/Sk.Text.BodySmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:text="@string/qibla_subtitle_full"
-                android:textSize="11sp" />
+                android:textColor="@color/sk_on_surface_variant_70"
+                android:textSize="11.5sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp">
+        android:paddingHorizontal="16dp">
 
         <!-- 1. City & distance pill -->
         <LinearLayout
             android:id="@+id/layoutLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/bg_sk_pill_card"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="10dp">
+            android:paddingVertical="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/compose_qibla_dial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside">
 
             <ImageView
                 android:layout_width="18dp"
@@ -88,14 +99,18 @@
                     style="@style/Sk.Text.TitleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold" />
+                    android:textColor="@color/sk_on_surface"
+                    android:textStyle="bold"
+                    tools:text="Islamabad, Pakistan" />
 
                 <TextView
                     android:id="@+id/tv_qibla_bearing"
                     style="@style/Sk.Text.BodySmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11sp" />
+                    android:textColor="@color/sk_on_surface_variant_70"
+                    android:textSize="11sp"
+                    tools:text="Bearing: 256° from North" />
             </LinearLayout>
 
             <LinearLayout
@@ -113,7 +128,8 @@
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="3dp"
                     android:textColor="@color/sk_on_secondary_container"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="3628 km" />
 
                 <LinearLayout
                     android:id="@+id/btn_qibla_change_location"
@@ -139,59 +155,98 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 2. Compass style selector -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- 2. Compass Dial (Compose Canvas) -->
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/compose_qibla_dial"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_220sdp"
+
+            android:layout_marginTop="@dimen/_10sdp"
+            android:contentDescription="qibla_compass_dial"
+            app:layout_constraintEnd_toEndOf="@+id/layoutLocation"
+            app:layout_constraintStart_toStartOf="@+id/layoutLocation"
+            app:layout_constraintTop_toBottomOf="@id/layoutLocation" />
+
+        <!-- 3. Active Style Header (Title + ✓ Active pill badge) -->
+      <!--  <LinearLayout
+            android:id="@+id/ll_selected_style_header"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/_10sdp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/compose_qibla_dial">
 
             <TextView
-                style="@style/Sk.Text.LabelSmall"
+                android:id="@+id/tv_selected_style_name"
+                style="@style/Sk.Text.TitleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:letterSpacing="0.076"
-                android:text="@string/qibla_compass_themes"
-                android:textColor="@color/sk_primary"
-                android:textSize="10.5sp"
+                android:textColor="@color/sk_on_surface"
+                android:textSize="15.5sp"
+                android:textStyle="bold"
+                tools:text="Classic Gold" />
+
+            <TextView
+                android:id="@+id/tv_style_active_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_active_badge"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:text="@string/style_active"
+                android:textColor="#167B51"
+                android:textSize="11sp"
                 android:textStyle="bold" />
+        </LinearLayout>-->
+
+        <!-- 4. Compass Theme Preview Selector Card -->
+        <FrameLayout
+            android:id="@+id/card_compass_styles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@drawable/bg_compass_carousel_card"
+            android:paddingHorizontal="6dp"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_4sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/compose_qibla_dial">
 
             <HorizontalScrollView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"
+
+                android:overScrollMode="never"
                 android:scrollbars="none">
 
                 <LinearLayout
                     android:id="@+id/ll_compass_styles"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_38sdp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal" />
             </HorizontalScrollView>
-        </LinearLayout>
+        </FrameLayout>
 
+        <!-- 5. Tap to preview helper text -->
 
-        <!-- 3. Compass dial (Compose canvas hosted inside the XML screen) -->
-        <androidx.compose.ui.platform.ComposeView
-            android:id="@+id/compose_qibla_dial"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_200sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:contentDescription="qibla_compass_dial" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <!-- 4. Status & calibration -->
+        <!-- 6. Status & calibration -->
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:id="@+id/ll_qibla_aligned"
@@ -247,6 +302,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:textColor="@color/sk_on_surface"
+                    android:textSize="12.5sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -254,11 +310,11 @@
                 style="@style/Sk.Text.BodySmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="@string/qibla_calibrating"
                 android:textColor="@color/sk_on_surface_variant_70"
-                android:textSize="11sp" />
+                android:textSize="10.5sp" />
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

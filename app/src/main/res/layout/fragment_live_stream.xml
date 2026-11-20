@@ -141,6 +141,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:orientation="vertical">
 
                         <FrameLayout
@@ -178,50 +179,7 @@
                             android:textSize="11sp" />
                     </LinearLayout>
 
-                    <!-- Bottom bar: play/pause + mute + open in YouTube -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#80000000"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="6dp"
-                        android:paddingVertical="6dp">
 
-                        <ImageButton
-                            android:id="@+id/btn_live_play_pause"
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="Play or Pause"
-                            android:src="@android:drawable/ic_media_pause"
-                            app:tint="@color/white" />
-
-                        <ImageButton
-                            android:id="@+id/btn_live_mute"
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:layout_marginStart="4dp"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="Mute"
-                            android:src="@android:drawable/ic_lock_idle_alarm"
-                            app:tint="@color/white" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_weight="1" />
-
-                        <!-- Open on YouTube icon button -->
-                        <ImageButton
-                            android:id="@+id/btn_live_open_youtube"
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="Open in YouTube"
-                            android:src="@android:drawable/ic_menu_share"
-                            app:tint="@color/white" />
-                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -327,6 +285,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_family"
+                                android:visibility="gone"
                                 android:text="Full HD • Official Channel"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="11sp" />

@@ -1,17 +1,16 @@
 package com.example.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.R
 import com.example.databinding.FragmentDuaListBinding
 import com.example.model.DuaItem
+import com.example.ui.activities.PremiumActivity
 import com.example.ui.adapters.DuaListAdapter
-import com.example.ui.navigation.navigateWithSlide
 import com.example.viewmodel.SakinahViewModel
-
 
 class DuaListFragment : BaseFragment<FragmentDuaListBinding>(FragmentDuaListBinding::inflate) {
 
@@ -24,16 +23,19 @@ class DuaListFragment : BaseFragment<FragmentDuaListBinding>(FragmentDuaListBind
       findNavController().navigateUp()
     }
 
+    // Connect PRO button in toolbar to PremiumActivity as shown in reference design
+    binding.btnDuaListPro.setOnClickListener {
+      startActivity(Intent(requireContext(), PremiumActivity::class.java))
+    }
+
     val category = viewModel.uiState.value.selectedDuaCategory
     if (category != null) {
       binding.tvDuaListCategoryTitle.text = category.title
       binding.tvDuaListCategoryArabic.text = category.arabicTitle
 
       val items = DuaItem.DUA_ITEMS.filter { it.categoryId == category.id }
-      val adapter = DuaListAdapter(items) { selectedDua ->
-        viewModel.selectDuaItem(selectedDua)
-        findNavController().navigateWithSlide(R.id.duaDetailFragment)
-      }
+      // All duas are rendered in full descriptive detail directly on the cards, no navigation to separate detail screen
+      val adapter = DuaListAdapter(items)
       binding.rvDuasList.layoutManager = LinearLayoutManager(requireContext())
       binding.rvDuasList.adapter = adapter
     } else {
@@ -41,4 +43,3 @@ class DuaListFragment : BaseFragment<FragmentDuaListBinding>(FragmentDuaListBind
     }
   }
 }
-

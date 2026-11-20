@@ -46,7 +46,7 @@ class QiblaFragment : BaseFragment<FragmentQiblaBinding>(FragmentQiblaBinding::i
     }
     ViewCompat.requestApplyInsets(binding.qiblaRoot)
 
-    binding.btnQiblaBack.setOnClickListener { findNavController().navigateUp() }
+    binding.backBtn.setOnClickListener { findNavController().navigateUp() }
 
     val openCitySelect = View.OnClickListener {
       findNavController().navigateWithSlide(R.id.citySelectFragment)
@@ -76,19 +76,21 @@ class QiblaFragment : BaseFragment<FragmentQiblaBinding>(FragmentQiblaBinding::i
     }
   }
 
-  private fun emojiFor(style: CompassStyle): String = when (style) {
-    CompassStyle.CLASSIC_GOLD -> "\u2728"
-    CompassStyle.EMERALD_MINIMAL -> "\uD83E\uDDED"
-    CompassStyle.ASTROLABE -> "\uD83D\uDCDC"
-    CompassStyle.KAABA_ARROW -> "\uD83C\uDFAF"
-    CompassStyle.NIGHT_CELESTIAL -> "\uD83C\uDF19"
+  private fun previewDrawableFor(style: CompassStyle): Int = when (style) {
+    CompassStyle.CLASSIC_GOLD -> R.drawable.ic_compass_preview_classic_gold
+    CompassStyle.EMERALD_MINIMAL -> R.drawable.ic_compass_preview_emerald_minimal
+    CompassStyle.ASTROLABE -> R.drawable.ic_compass_preview_astrolabe
+    CompassStyle.NIGHT_CELESTIAL -> R.drawable.ic_compass_preview_night_celestial
+    CompassStyle.KAABA_ARROW -> R.drawable.ic_compass_preview_kaaba_arrow
   }
 
   private fun buildStyleChips() {
     val inflater = LayoutInflater.from(requireContext())
+    binding.llCompassStyles.removeAllViews()
+    styleBindings.clear()
     CompassStyle.values().forEach { style ->
       val item = ItemCompassStyleBinding.inflate(inflater, binding.llCompassStyles, false)
-      item.tvStyleEmoji.text = emojiFor(style)
+      item.ivCompassPreview.setImageResource(previewDrawableFor(style))
       item.tvStyleTitle.text = style.title
       item.root.setOnClickListener { viewModel.setCompassStyle(style) }
       styleBindings[style] = item
@@ -99,17 +101,12 @@ class QiblaFragment : BaseFragment<FragmentQiblaBinding>(FragmentQiblaBinding::i
   private fun renderStyleSelection(selected: CompassStyle) {
     if (renderedStyle == selected) return
     renderedStyle = selected
-    val ctx = requireContext()
+//    binding.tvSelectedStyleName.text = selected.title
+//    binding.tvStyleActiveBadge.visibility = View.VISIBLE
     styleBindings.forEach { (style, item) ->
       val isSelected = style == selected
-      item.root.setBackgroundResource(
-        if (isSelected) R.drawable.bg_sk_chip_qibla_selected else R.drawable.bg_sk_chip_qibla_unselected
-      )
-      item.tvStyleTitle.setTextColor(
-        ContextCompat.getColor(ctx, if (isSelected) R.color.sk_on_primary_container else R.color.sk_on_surface)
-      )
-      item.tvStyleTitle.typeface = android.graphics.Typeface.create(
-        "sans-serif-medium", if (isSelected) android.graphics.Typeface.BOLD else android.graphics.Typeface.NORMAL
+      item.viewSelectionRing.setBackgroundResource(
+        if (isSelected) R.drawable.bg_compass_preview_selected else R.drawable.bg_compass_preview_unselected
       )
     }
   }

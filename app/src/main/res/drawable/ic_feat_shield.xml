@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shield check icon for Ad-Free feature -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#D4AF37"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M12,2 L4,5 L4,11 C4,15.5 7.5,19.7 12,21 C16.5,19.7 20,15.5 20,11 L20,5 Z" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#D4AF37"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M9,12 L11,14 L15,10" />
+</vector>

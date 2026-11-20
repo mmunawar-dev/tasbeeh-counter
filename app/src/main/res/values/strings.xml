@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ruhani: Prayer Times &amp; Tasbeeh</string>
+    <string name="app_name">Deen: Prayer Times &amp; Tasbeeh</string>
     <string name="sakinah_plus">Sakinah Plus</string>
 
     <!-- General / Navigation -->
@@ -57,14 +57,17 @@
     <string name="fiqh_calc_method">Fiqh / Calculation Method</string>
     <string name="location">Location</string>
     <string name="share_with_friends">Share with Friends</string>
-    <string name="rate_sakinah">Rate Sakinah</string>
+    <string name="rate_sakinah">Rate Us</string>
+    <string name="rate_dialog_title">Rate Our App</string>
+    <string name="rate_dialog_subtitle">Please tap the stars to rate us on Google Play. Your feedback helps us improve!</string>
+    <string name="rate_dialog_btn_rate">Rate</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="terms_and_conditions">Terms &amp; Conditions</string>
     <string name="support_and_about">SUPPORT &amp; ABOUT</string>
     <string name="personalization_display">PERSONALIZATION &amp; DISPLAY</string>
     <string name="prayer_and_location">PRAYER &amp; LOCATION</string>
     <string name="exit_app_title">Exit Application?</string>
-    <string name="exit_app_message">Are you sure you want to close Sakinah? Your prayer reminders will continue in the background.</string>
+    <string name="exit_app_message">Are you sure you want to close the app? Your prayer reminders will continue in the background.</string>
     <string name="exit_now">Exit Now</string>
 
     <!-- Premium Screen -->
@@ -93,7 +96,7 @@
     <string name="feature_live_streams">Live Makkah &amp; Madinah HD</string>
     <string name="feature_support_dev">Support Islamic Development</string>
     <string name="go_premium">Go Premium</string>
-    <string name="unlock_premium">Unlock Sakinah Plus</string>
+    <string name="unlock_premium">Unlock Premium Plus</string>
 
     <!-- Qibla & Tasbeeh -->
     <string name="qibla_calibrating">Calibrate: Wave phone in a figure-8 motion away from magnets</string>
@@ -104,7 +107,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Settings Screen Additional -->
-    <string name="sakinah_plus_vip">Sakinah Plus VIP</string>
+    <string name="sakinah_plus_vip">Tssbeeh Plus VIP</string>
     <string name="sakinah_plus_vip_subtitle">Ad-free, Azan audio &amp; widgets</string>
     <string name="go_premium_arrow">Go Premium →</string>
     <string name="fiqh_val_default">Hanafi • Karachi</string>
@@ -112,7 +115,7 @@
     <string name="share_subtitle">Spread peace &amp; serenity with family &amp; friends</string>
     <string name="rate_subtitle">Support our journey with a 5-star review</string>
     <string name="privacy_subtitle">All calculations run 100% on device</string>
-    <string name="about_sakinah">About Sakinah</string>
+    <string name="about_sakinah">About App</string>
     <string name="about_sakinah_subtitle">Version 1.0 • Modern Calm Islamic Companion</string>
 
     <!-- Home Screen Additional -->
@@ -133,6 +136,8 @@
     <string name="qibla_subtitle_full">🕌 Direction to Holy Kaaba</string>
     <string name="change_location">Change Location &gt;</string>
     <string name="qibla_aligned_full">ALIGNED WITH HOLY KAABA (🕋 الكعبة)</string>
+    <string name="style_active">✓ Active</string>
+    <string name="tap_style_to_preview">Tap any style above to preview, then tap Apply</string>
 
     <!-- Tasbeeh Screen -->
     <string name="digital_tasbeeh">Digital Tasbeeh</string>
@@ -141,7 +146,7 @@
 
     <!-- Splash Screen -->
     <string name="digital_tasbeeh_counter">Digital Tasbeeh Counter</string>
-    <string name="splash_subtitle">🕌 • Prayer &amp; Worship Companion</string>
+    <string name="splash_subtitle">🕌 • Prayer &amp; Qibla Direction</string>
 
     <!-- Prayer Settings Screen -->
     <string name="selected_date">SELECTED DATE</string>
@@ -208,7 +213,7 @@
     <string name="best_value_pay_once">Best Value • Pay Once</string>
     <string name="one_time_payment">one-time payment</string>
     <string name="lifetime_desc">Pay once, own forever. All present and future updates included.</string>
-    <string name="whats_included_sakinah_plus">WHAT\'S INCLUDED IN SAKINAH PLUS</string>
+    <string name="whats_included_sakinah_plus">WHAT\'S INCLUDED IN TASBEEH  PLUS</string>
     <string name="feat_ad_free">100% Ad-Free, Peaceful Worship Environment</string>
     <string name="feat_api">Real-time Aladhan Platform API Integration</string>
     <string name="feat_widgets">Lock Screen and Home Screen Prayer Widgets</string>

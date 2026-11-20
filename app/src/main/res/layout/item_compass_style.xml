@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="8dp"
-    android:background="@drawable/bg_sk_chip_qibla_unselected"
+    android:layout_marginHorizontal="4dp"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingHorizontal="10dp"
-    android:paddingVertical="6dp">
+    android:foreground="?attr/selectableItemBackgroundBorderless">
 
+    <!-- Outer selection highlight ring -->
+    <View
+        android:id="@+id/view_selection_ring"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_compass_preview_selected" />
+
+    <!-- Circular compass style preview icon -->
+    <ImageView
+        android:id="@+id/iv_compass_preview"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_compass_preview_classic_gold" />
+
+    <!-- Retained for ViewBinding backwards compatibility -->
     <TextView
         android:id="@+id/tv_style_emoji"
-        style="@style/Sk.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="13sp" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_style_title"
-        style="@style/Sk.Text.LabelSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp" />
-</LinearLayout>
+        android:visibility="gone" />
+
+</FrameLayout>

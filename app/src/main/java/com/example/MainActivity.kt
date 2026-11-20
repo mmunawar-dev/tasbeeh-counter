@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
     setContentView(binding.root)
 
     setupBackPressHandling()
-    setupMiniPlayerListeners()
     observeViewModel()
     checkLocationPermission()
     checkNotificationPermission()
@@ -116,15 +115,6 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
-  private fun setupMiniPlayerListeners() {
-    binding.includeAudioMiniPlayer.btnAudioMiniPlayPause.setOnClickListener {
-      viewModel.toggleAudioPlayback(this)
-    }
-
-    binding.includeAudioMiniPlayer.btnAudioMiniClose.setOnClickListener {
-      viewModel.stopAudioPlayback(this)
-    }
-  }
 
   private fun observeViewModel() {
     lifecycleScope.launch {
@@ -153,17 +143,6 @@ class MainActivity : AppCompatActivity() {
   private fun updateMiniPlayer(track: com.example.model.AudioTrack?) {
     if (track != null) {
       binding.flMiniPlayerHost.visibility = View.VISIBLE
-      binding.includeAudioMiniPlayer.tvAudioMiniTitle.text = track.title
-      binding.includeAudioMiniPlayer.tvAudioMiniSubtitle.text = track.arabicTitle
-
-      val progress = (track.progressFraction * 100).toInt()
-      binding.includeAudioMiniPlayer.pbAudioMiniProgress.progress = progress
-
-      if (track.isPlaying) {
-        binding.includeAudioMiniPlayer.btnAudioMiniPlayPause.setImageResource(android.R.drawable.ic_media_pause)
-      } else {
-        binding.includeAudioMiniPlayer.btnAudioMiniPlayPause.setImageResource(android.R.drawable.ic_media_play)
-      }
     } else {
       binding.flMiniPlayerHost.visibility = View.GONE
     }

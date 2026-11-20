@@ -112,7 +112,7 @@
     <string name="live_badge">مباشر</string>
     <string name="makkah_24_7">المسجد الحرام ٢٤/٧</string>
     <string name="allahs_names_short">أسماء الله</string>
-    <string name="names_asma">٩٩ اسماً • أسماء الحسنى</string>
+    <string name="names_asma">٩٩ اسماً • الأسماء الحسنى</string>
     <string name="tasbeeh_label">التسبيح</string>
     <string name="duas_label">الأدعية</string>
     <string name="daily_supplications">الأدعية المأثورة</string>
@@ -124,6 +124,8 @@
     <string name="qibla_subtitle_full">🕌 اتجاه الكعبة المشرفة</string>
     <string name="change_location">تغيير الموقع ‹</string>
     <string name="qibla_aligned_full">في اتجاه الكعبة المشرفة (🕋 الكعبة)</string>
+    <string name="style_active">✓ مفعّل</string>
+    <string name="tap_style_to_preview">المس أي نمط أعلاه للمعاينة والتطبيق</string>
 
     <!-- Tasbeeh Screen -->
     <string name="digital_tasbeeh">المسبحة الإلكترونية</string>
@@ -199,7 +201,7 @@
     <string name="one_time_payment">دفع لمرة واحدة</string>
     <string name="lifetime_desc">ادفع مرة واحدة وامتلكه للأبد. يشمل جميع التحديثات الحالية والمستقبلية.</string>
     <string name="whats_included_sakinah_plus">ما تتضمنه باقة سكينة بلس</string>
-    <string name="feat_ad_free">100% خالي من الإعلانات، بيئة عبادة هادئة</string>
+    <string name="feat_ad_free">خالٍ من الإعلانات بنسبة 100%، بيئة عبادة هادئة</string>
     <string name="feat_api">تكامل مباشر ولحظي مع منصة الأذان</string>
     <string name="feat_widgets">ودجات الصلاة لشاشة القفل والشاشة الرئيسية</string>
     <string name="feat_adhan">أصوات مؤذنين أصيلة (مكة، المدينة، الأقصى)</string>

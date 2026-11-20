@@ -47,17 +47,17 @@ abstract class BaseLiveStreamFragment : BaseFragment<FragmentLiveStreamBinding>(
         binding.tvLiveDesc.text = streamDesc
 
         // Play / Pause toggle (UI only — no actual player)
-        binding.btnLivePlayPause.setOnClickListener {
-            isPlaying = !isPlaying
-            binding.tvLiveStreamStatus.text =
-                if (isPlaying) "Streaming Live from $locationName" else "Stream Paused"
-            binding.btnLivePlayPause.setImageResource(
-                if (isPlaying) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play
-            )
-        }
+//        binding.btnLivePlayPause.setOnClickListener {
+//            isPlaying = !isPlaying
+//            binding.tvLiveStreamStatus.text =
+//                if (isPlaying) "Streaming Live from $locationName" else "Stream Paused"
+//            binding.btnLivePlayPause.setImageResource(
+//                if (isPlaying) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play
+//            )
+//        }
 
         // Open on YouTube — icon button in player bar
-        binding.btnLiveOpenYoutube.setOnClickListener { openYoutube() }
+//        binding.btnLiveOpenYoutube.setOnClickListener { openYoutube() }
 
         // Open on YouTube — row in info card
         binding.btnLiveOpenYoutubeRow.setOnClickListener { openYoutube() }

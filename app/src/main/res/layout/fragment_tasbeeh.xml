@@ -293,15 +293,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                style="@style/Sk.Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/tap_to_increment_balloon"
-                android:textColor="@color/sk_on_surface_variant_80"
-                android:textSize="12sp" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

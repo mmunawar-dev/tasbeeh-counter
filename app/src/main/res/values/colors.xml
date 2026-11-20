@@ -114,4 +114,23 @@
     <color name="pro_badge_gold">#FFB703</color>
     <color name="pro_badge_orange">#FB8500</color>
     <color name="transparent">#99000000</color>
+
+    <!-- Premium Screen Tokens (Light Theme) -->
+    <color name="premium_screen_bg">#F7FBF7</color>
+    <color name="premium_shade_start">#F7FBF7</color>
+    <color name="premium_shade_mid">#14E2E9E2</color>
+    <color name="premium_shade_end">#F3FFFDFD</color>
+    <color name="premium_text_hero">#FFFFFF</color>
+    <color name="premium_text_subtitle">#FFFFFF</color>
+    <color name="premium_feat_icon_bg">#E2ECE7</color>
+    <color name="premium_text_feature">#18211D</color>
+    <color name="premium_divider">#D3DCD4</color>
+    <color name="premium_card_selected_bg">#FFFFFF</color>
+    <color name="premium_card_unselected_bg">#FFFFFF</color>
+    <color name="premium_card_unselected_border">#D3DCD4</color>
+    <color name="premium_text_card_title">#18211D</color>
+    <color name="premium_text_card_subtitle">#5A6B62</color>
+    <color name="premium_radio_unselected">#94A39B</color>
+    <color name="premium_recommended_badge_text">#1A2E22</color>
+    <color name="premium_footer_link">#4E6D5E</color>
 </resources>

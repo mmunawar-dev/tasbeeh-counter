@@ -4,14 +4,14 @@
     android:id="@+id/card_prayer_row"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="4dp"
     android:clickable="true"
     android:focusable="true"
     app:cardBackgroundColor="@color/surface_light"
     app:cardCornerRadius="14dp"
     app:cardElevation="0dp"
     app:strokeColor="@color/outline_border"
-    app:strokeWidth="1dp">
+    app:strokeWidth="0.3dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             <ImageView
                 android:id="@+id/iv_prayer_row_icon"
                 android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_height="26dp"
                 android:layout_gravity="center"
                 android:contentDescription="Prayer Icon"
                 android:src="@drawable/ic_prayer_fajr" />

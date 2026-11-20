@@ -209,7 +209,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -298,7 +298,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:fontFamily="@font/montserrat_family"
                     android:text="Dhuhr"
@@ -317,7 +317,7 @@
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toTopOf="@id/layoutPrayers"
                     app:layout_constraintEnd_toStartOf="@id/pill_hero_countdown"
@@ -456,9 +456,11 @@
 
                         <ImageView
                             android:id="@+id/img1"
-                            android:layout_width="@dimen/_6sdp"
-                            android:layout_height="@dimen/_6sdp"
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:contentDescription="Fajr Active Indicator"
+                            android:rotation="45"
                             android:src="@drawable/bg_prayer_line_inactive" />
 
                         <TextView
@@ -506,9 +508,12 @@
 
                         <ImageView
                             android:id="@+id/img2"
-                            android:layout_width="@dimen/_6sdp"
-                            android:layout_height="@dimen/_6sdp"
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:contentDescription="Dhuhr Active Indicator"
+
+                            android:rotation="45"
                             android:src="@drawable/bg_prayer_line_inactive" />
 
                         <TextView
@@ -555,9 +560,12 @@
 
                         <ImageView
                             android:id="@+id/img3"
-                            android:layout_width="@dimen/_6sdp"
-                            android:layout_height="@dimen/_6sdp"
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:contentDescription="Asr Active Indicator"
+
+                            android:rotation="45"
                             android:src="@drawable/bg_prayer_line_inactive" />
 
                         <TextView
@@ -604,9 +612,12 @@
 
                         <ImageView
                             android:id="@+id/img4"
-                            android:layout_width="@dimen/_6sdp"
-                            android:layout_height="@dimen/_6sdp"
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:contentDescription="Maghrib Active Indicator"
+
+                            android:rotation="45"
                             android:src="@drawable/bg_prayer_line_inactive" />
 
                         <TextView
@@ -655,9 +666,12 @@
 
                         <ImageView
                             android:id="@+id/img5"
-                            android:layout_width="@dimen/_6sdp"
-                            android:layout_height="@dimen/_6sdp"
+                            android:layout_width="@dimen/_8sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:contentDescription="Isha Active Indicator"
+
+                            android:rotation="45"
                             android:src="@drawable/bg_prayer_line_inactive" />
 
                         <TextView
@@ -1141,7 +1155,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/transparent" />
+                        android:background="#51654c33" />
 
                     <!-- Content overlay -->
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -1223,7 +1237,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#99000000" />
+                        android:background="#51654c33" />
 
                     <!-- Content overlay -->
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -1321,37 +1335,6 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- 5 DAILY PRAYER ROWS -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <!-- FAJR -->
-                <include
-                    android:id="@+id/row_fajr"
-                    layout="@layout/item_prayer_row" />
-
-                <!-- DHUHR -->
-                <include
-                    android:id="@+id/row_dhuhr"
-                    layout="@layout/item_prayer_row" />
-
-                <!-- ASR -->
-                <include
-                    android:id="@+id/row_asr"
-                    layout="@layout/item_prayer_row" />
-
-                <!-- MAGHRIB -->
-                <include
-                    android:id="@+id/row_maghrib"
-                    layout="@layout/item_prayer_row" />
-
-                <!-- ISHA -->
-                <include
-                    android:id="@+id/row_isha"
-                    layout="@layout/item_prayer_row" />
-            </LinearLayout>
 
 
         </LinearLayout>

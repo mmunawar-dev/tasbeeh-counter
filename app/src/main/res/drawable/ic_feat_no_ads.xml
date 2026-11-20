@@ -1,0 +1,23 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <!-- Red circle -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M20,20m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0" />
+    <!-- White inner circle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M20,20m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0" />
+    <!-- Red slash -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M10,12l18,16l2.5,-2.5l-18,-16z" />
+    <!-- "ADS" Text shape representation -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M14,16h2v8h-2z M18,16h4v8h-4z M24,16h2v8h-2z" />
+</vector>
+

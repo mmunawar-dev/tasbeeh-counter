@@ -15,6 +15,7 @@ import com.example.ui.adapters.AllahNamesAdapter
 import com.example.viewmodel.SakinahViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import androidx.core.view.isVisible
 
 class AllahNamesFragment : BaseFragment<FragmentAllahNamesBinding>(FragmentAllahNamesBinding::inflate) {
 
@@ -38,12 +39,20 @@ class AllahNamesFragment : BaseFragment<FragmentAllahNamesBinding>(FragmentAllah
       viewModel.playAllahNamesFullRecitation(requireContext())
     }
 
+    binding.cardHeroRecitation.setOnClickListener {
+      if (binding.btnHeroStart.isVisible) {
+        binding.btnHeroStart.performClick()
+      }
+    }
+
     binding.btnHeroToggle.setOnClickListener {
       viewModel.toggleAudioPlayback(requireContext())
     }
 
     binding.btnHeroStop.setOnClickListener {
       viewModel.stopAudioPlayback(requireContext())
+      binding.llAudioPlayerControls.visibility = View.GONE
+      binding.btnHeroStart.visibility = View.VISIBLE
     }
 
     binding.etNamesSearch.addTextChangedListener(object : TextWatcher {
@@ -61,13 +70,13 @@ class AllahNamesFragment : BaseFragment<FragmentAllahNamesBinding>(FragmentAllah
           binding.btnHeroStart.visibility = View.GONE
           binding.llAudioPlayerControls.visibility = View.VISIBLE
 
-          val progress = if (state.durationMs > 0) {
-            ((state.currentPositionMs.toFloat() / state.durationMs.toFloat()) * 100).toInt()
-          } else 0
-          binding.pbHeroAudioProgress.progress = progress
+//          val progress = if (state.durationMs > 0) {
+//            ((state.currentPositionMs.toFloat() / state.durationMs.toFloat()) * 100).toInt()
+//          } else 0
+//          binding.pbHeroAudioProgress.progress = progress
 
-          binding.tvHeroCurrentTime.text = formatTime(state.currentPositionMs)
-          binding.tvHeroTotalTime.text = if (state.durationMs > 0) formatTime(state.durationMs) else "--:--"
+//          binding.tvHeroCurrentTime.text = formatTime(state.currentPositionMs)
+//          binding.tvHeroTotalTime.text = if (state.durationMs > 0) formatTime(state.durationMs) else "--:--"
 
           binding.btnHeroToggle.text = if (state.isPlaying) "Pause" else "Resume"
         } else {

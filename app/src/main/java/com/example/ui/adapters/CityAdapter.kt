@@ -44,13 +44,12 @@ class CityAdapter(
 
       if (isSelected) {
         binding.cardCity.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_variant_light))
-        binding.cardCity.strokeColor = ContextCompat.getColor(context, R.color.emerald_primary)
+        binding.cardCity.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
         binding.cardCity.strokeWidth = (1.5f * itemView.resources.displayMetrics.density).toInt()
         binding.cardCitySelectedBadge.visibility = View.VISIBLE
       } else {
         binding.cardCity.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_light))
-        binding.cardCity.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
-        binding.cardCity.strokeWidth = (1f * itemView.resources.displayMetrics.density).toInt()
+        binding.cardCity.strokeColor = ContextCompat.getColor(context, android.R.color.transparent)
         binding.cardCitySelectedBadge.visibility = View.GONE
       }
 

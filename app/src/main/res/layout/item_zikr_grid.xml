@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/zikr_card_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:background="@drawable/bg_zikr_grid_unselected"
+    android:minHeight="72dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <!-- Arabic text -->
+        <TextView
+            android:id="@+id/tv_zikr_arabic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="سُبْحَانَ اللَّهِ" />
+
+        <!-- English transliteration -->
+        <TextView
+            android:id="@+id/tv_zikr_translit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="SubhanAllah" />
+
+    </LinearLayout>
+
+    <!-- Selected checkmark indicator -->
+    <ImageView
+        android:id="@+id/iv_zikr_check"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:visibility="gone"
+        android:contentDescription="Selected"
+        app:srcCompat="@drawable/ic_zikr_check"
+        tools:visibility="visible" />
+
+</FrameLayout>
+

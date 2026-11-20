@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.AppSettingsFragment"
     android:background="@color/background_light"
     android:orientation="vertical">
 
@@ -659,8 +661,8 @@
                         android:layout_marginStart="66dp"
                         android:background="@color/outline_border" />
 
-                    <!-- Rate App Row with 3D realistic icon -->
-                    <RelativeLayout
+                    <!-- Rate App Row with 3D realistic icon (ConstraintLayout) -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/row_settings_rate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -669,66 +671,69 @@
                         android:paddingHorizontal="14dp"
                         android:paddingVertical="12dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"
-                            android:layout_toStartOf="@id/iv_chevron_rate"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-                            <FrameLayout
-                                android:layout_width="38dp"
-                                android:layout_height="38dp"
-                                android:background="@drawable/bg_card_icon_container"
-                                android:backgroundTint="@color/card_blue_light">
+                        <FrameLayout
+                            android:id="@+id/fl_rate_icon"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_card_icon_container"
+                            android:backgroundTint="@color/card_blue_light"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <com.google.android.material.imageview.ShapeableImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:layout_gravity="center"
                                 android:contentDescription="Rate Icon"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/rate"
-                                android:layout_gravity="center"
                                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Rounded10" />
-                            </FrameLayout>
-                            <LinearLayout
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_rate_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginEnd="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/iv_chevron_rate"
+                            app:layout_constraintStart_toEndOf="@id/fl_rate_icon"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="14dp"
-                                android:orientation="vertical">
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/rate_sakinah"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_family"
-                                    android:text="@string/rate_sakinah"
-                                    android:textColor="@color/text_primary"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:fontFamily="@font/montserrat_family"
-                                    android:text="@string/rate_subtitle"
-                                    android:textColor="@color/text_secondary"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/rate_subtitle"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <ImageView
                             android:id="@+id/iv_chevron_rate"
                             android:layout_width="18dp"
                             android:layout_height="18dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
                             android:contentDescription="Go"
                             android:rotation="180"
                             android:src="@drawable/ic_arrow_back_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
                             app:tint="@color/text_secondary" />
-                    </RelativeLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <View
                         android:layout_width="match_parent"

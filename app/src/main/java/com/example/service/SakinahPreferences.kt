@@ -203,4 +203,26 @@ object SakinahPreferences {
   fun saveLanguage(context: Context, language: com.example.model.AppLanguage) {
     getPrefs(context).edit().putString(KEY_LANGUAGE_CODE, language.code).apply()
   }
+
+  // --- Favorite Duas ---
+  private const val KEY_FAVORITE_DUAS = "pref_favorite_duas"
+
+  fun isDuaFavorite(context: Context, duaId: String): Boolean {
+    val favorites = getPrefs(context).getStringSet(KEY_FAVORITE_DUAS, emptySet()) ?: emptySet()
+    return favorites.contains(duaId)
+  }
+
+  fun toggleDuaFavorite(context: Context, duaId: String): Boolean {
+    val prefs = getPrefs(context)
+    val favorites = prefs.getStringSet(KEY_FAVORITE_DUAS, emptySet())?.toMutableSet() ?: mutableSetOf()
+    val isNowFav = if (favorites.contains(duaId)) {
+      favorites.remove(duaId)
+      false
+    } else {
+      favorites.add(duaId)
+      true
+    }
+    prefs.edit().putStringSet(KEY_FAVORITE_DUAS, favorites).apply()
+    return isNowFav
+  }
 }

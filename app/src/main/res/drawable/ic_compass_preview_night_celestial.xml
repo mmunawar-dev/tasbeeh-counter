@@ -1,0 +1,46 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="44dp"
+    android:viewportWidth="44"
+    android:viewportHeight="44">
+  <!-- Dial face background (Midnight obsidian) -->
+  <path
+      android:pathData="M22,22m-19,0a19,19 0,1 1,38 0a19,19 0,1 1,-38 0"
+      android:fillColor="#15242D"/>
+  <!-- Outer Night ring -->
+  <path
+      android:pathData="M22,22m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0"
+      android:strokeWidth="2.2"
+      android:fillColor="#00000000"
+      android:strokeColor="#244B5C"/>
+  <!-- Inner ring -->
+  <path
+      android:pathData="M22,22m-14.5,0a14.5,14.5 0,1 1,29 0a14.5,14.5 0,1 1,-29 0"
+      android:strokeWidth="0.8"
+      android:fillColor="#00000000"
+      android:strokeColor="#326379"/>
+  <!-- Red North tick -->
+  <path
+      android:pathData="M22,4 L22,8.5"
+      android:strokeWidth="1.8"
+      android:strokeColor="#FF5252"/>
+  <!-- Celestial stars/dots -->
+  <path
+      android:pathData="M34,13m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"
+      android:fillColor="#55E6B7"/>
+  <path
+      android:pathData="M10,13m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"
+      android:fillColor="#55E6B7"/>
+  <path
+      android:pathData="M34,31m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"
+      android:fillColor="#55E6B7"/>
+  <!-- Luminous arrow pointer -->
+  <path
+      android:pathData="M11,24.5 L20,20.5 L18.5,24 L20,27.5 Z"
+      android:fillColor="#55E6B7"/>
+  <!-- Center circle -->
+  <path
+      android:pathData="M22,22m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0"
+      android:fillColor="#55E6B7"/>
+</vector>
+

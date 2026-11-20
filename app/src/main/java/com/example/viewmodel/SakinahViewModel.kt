@@ -281,17 +281,7 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
     }
   }
 
-  fun adjustPrayerMinutes(prayerType: PrayerType, delta: Int) {
-    _uiState.update { state ->
-      val current = state.manualAdjustments[prayerType] ?: 0
-      val updated = state.manualAdjustments.toMutableMap()
-      updated[prayerType] = (current + delta).coerceIn(-60, 60)
-      SakinahPreferences.saveManualAdjustments(getApplication(), updated)
-      PrayerNotificationScheduler.scheduleAll(getApplication())
-      state.copy(manualAdjustments = updated)
-    }
-    fetchAladhanPrayerTimes()
-  }
+
 
   fun setThemeMode(mode: ThemeMode) {
     val isDark = mode == ThemeMode.DARK
@@ -443,7 +433,7 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
     AudioPlayerService.startPlaying(
       context = context,
       title = "Asma-ul-Husna (99 Names of Allah)",
-      subtitle = "Complete Melodious Recitation"
+      subtitle = ""
     )
   }
 
@@ -478,7 +468,7 @@ class SakinahViewModel(application: Application) : AndroidViewModel(application)
 
   fun stopAudioPlayback(context: Context) {
     AudioPlayerService.stopPlayback(context)
-    _uiState.update { it.copy(activeAudioTrack = null) }
+//    _uiState.update { it.copy(activeAudioTrack = null) }
   }
 
   // Duas functions

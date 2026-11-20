@@ -8,28 +8,28 @@ enum class PremiumPlan(
   val description: String,
   val isPopular: Boolean
 ) {
-  MONTHLY(
-    title = "Monthly",
-    priceFormatted = "$1.99",
-    billingPeriod = "/ month",
-    badge = "Flexible",
-    description = "Billed monthly. Cancel anytime without commitment.",
+  WEEKLY(
+    title = "Weekly Premium",
+    priceFormatted = "Rs 820.00",
+    billingPeriod = "/Week",
+    badge = "3 Day Free Trial",
+    description = "Billed weekly. Cancel anytime.",
     isPopular = false
   ),
   YEARLY(
-    title = "Yearly",
-    priceFormatted = "$9.99",
-    billingPeriod = "/ year",
-    badge = "Save 58%",
-    description = "Billed annually ($0.83/mo). 7-day free trial included.",
+    title = "Yearly Premium",
+    priceFormatted = "Rs 5,600.00",
+    billingPeriod = "/Year",
+    badge = "Best Value",
+    description = "(~Rs467 per month). 3 Day Free Trial included.",
     isPopular = true
   ),
   LIFETIME(
     title = "Lifetime",
-    priceFormatted = "$24.99",
+    priceFormatted = "Rs 12,000.00",
     billingPeriod = "one-time",
-    badge = "Best Value",
-    description = "Pay once, cherish forever. All current and future features.",
+    badge = "Lifetime Access",
+    description = "Pay once, cherish forever.",
     isPopular = false
   )
 }

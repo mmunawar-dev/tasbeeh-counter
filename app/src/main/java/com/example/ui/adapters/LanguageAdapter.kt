@@ -48,13 +48,12 @@ class LanguageAdapter(
 
       if (isSelected) {
         binding.cardLanguage.setCardBackgroundColor(ContextCompat.getColor(context, R.color.active_prayer_bg))
-        binding.cardLanguage.strokeColor = ContextCompat.getColor(context, R.color.active_prayer_border)
+        binding.cardLanguage.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
         binding.cardLanguage.strokeWidth = (1.5f * context.resources.displayMetrics.density).toInt()
         binding.tvLanguageDisplayName.setTextColor(ContextCompat.getColor(context, R.color.text_primary))
       } else {
         binding.cardLanguage.setCardBackgroundColor(ContextCompat.getColor(context, R.color.surface_light))
-        binding.cardLanguage.strokeColor = ContextCompat.getColor(context, R.color.outline_border)
-        binding.cardLanguage.strokeWidth = (1f * context.resources.displayMetrics.density).toInt()
+        binding.cardLanguage.strokeColor = ContextCompat.getColor(context, android.R.color.transparent)
         binding.tvLanguageDisplayName.setTextColor(ContextCompat.getColor(context, R.color.text_primary))
       }
 

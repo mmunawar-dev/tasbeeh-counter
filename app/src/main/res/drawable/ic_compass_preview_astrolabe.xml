@@ -1,0 +1,49 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="44dp"
+    android:viewportWidth="44"
+    android:viewportHeight="44">
+  <!-- Dial face background -->
+  <path
+      android:pathData="M22,22m-19,0a19,19 0,1 1,38 0a19,19 0,1 1,-38 0"
+      android:fillColor="#F5EFE1"/>
+  <!-- Outer Bronze ring -->
+  <path
+      android:pathData="M22,22m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0"
+      android:strokeWidth="2.2"
+      android:fillColor="#00000000"
+      android:strokeColor="#8B6B38"/>
+  <!-- Inner Astrolabe ring -->
+  <path
+      android:pathData="M22,22m-14.5,0a14.5,14.5 0,1 1,29 0a14.5,14.5 0,1 1,-29 0"
+      android:strokeWidth="0.8"
+      android:fillColor="#00000000"
+      android:strokeColor="#C5AE7E"/>
+  <!-- Red North tick -->
+  <path
+      android:pathData="M22,4 L22,8.5"
+      android:strokeWidth="1.8"
+      android:strokeColor="#DC2626"/>
+  <!-- Astrolabe quadrant ticks -->
+  <path
+      android:pathData="M40,22 L37,22"
+      android:strokeWidth="1"
+      android:strokeColor="#8B6B38"/>
+  <path
+      android:pathData="M22,40 L22,37"
+      android:strokeWidth="1"
+      android:strokeColor="#8B6B38"/>
+  <path
+      android:pathData="M4,22 L7,22"
+      android:strokeWidth="1"
+      android:strokeColor="#8B6B38"/>
+  <!-- Bronze Filigree Needle -->
+  <path
+      android:pathData="M11,24.5 L20,20.5 L18.5,24 L20,27.5 Z"
+      android:fillColor="#8B6B38"/>
+  <!-- Center circle -->
+  <path
+      android:pathData="M22,22m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0"
+      android:fillColor="#8B6B38"/>
+</vector>
+

@@ -8,4 +8,12 @@
         <item name="android:fontFamily">@font/montserrat_family</item>
         <item name="fontFamily">@font/montserrat_family</item>
     </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSizeTop" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">15dp</item>
+        <item name="cornerSizeBottomRight">15dp</item>
+    </style>
 </resources>

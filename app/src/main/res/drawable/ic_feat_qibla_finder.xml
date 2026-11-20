@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <!-- Blue circular badge -->
+    <path
+        android:fillColor="#0288D1"
+        android:pathData="M20,20m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0" />
+    <!-- White inner dial ring -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M20,20m-13,0a13,13 0,1 1,26 0a13,13 0,1 1,-26 0" />
+    <!-- Red needle top -->
+    <path
+        android:fillColor="#EF5350"
+        android:pathData="M20,11l3,9h-6z" />
+    <!-- White needle bottom -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M20,29l-3,-9h6z" />
+    <!-- Center pivot -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M20,20m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+</vector>
+

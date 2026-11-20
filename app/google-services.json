@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "765166338072",
+    "project_id": "deen-prayer-times-tasbeeh",
+    "storage_bucket": "deen-prayer-times-tasbeeh.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765166338072:android:4f7e601295d70af634436d",
+        "android_client_info": {
+          "package_name": "com.deen.qibladirection.prayertimes.calendar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt0I6o_-onNgP8zDQZcYOA6SHDR2A7LzM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background_light"
     android:orientation="vertical">
 
@@ -53,131 +54,210 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingHorizontal="20dp">
+        >
 
-        <!-- Top Hero Audio Card -->
+        <!-- Top Hero Audio Card (Redesigned matching reference UI) -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_hero_recitation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/card_green_light"
+            android:layout_height="@dimen/_170sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            app:cardBackgroundColor="@android:color/transparent"
             app:cardCornerRadius="20dp"
             app:cardElevation="0dp"
-            app:strokeColor="#AFE1C9"
-            app:strokeWidth="1.5dp">
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="0dp">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_height="match_parent"
+                android:background="@drawable/new_card"
+               >
 
+                <!-- Mosque, archway, lanterns, foliage & calligraphy background artwork -->
+<!--                <ImageView-->
+<!--                    android:id="@+id/iv_hero_card_bg"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_200sdp"-->
+<!--                    android:contentDescription="Allah's 99 Names - Asma-ul-Husna"-->
+<!--                    android:src="@drawable/new_card"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintDimensionRatio="460:272"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/btnLearn"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
                     android:fontFamily="@font/montserrat_family"
-                    android:text="@string/play_names_recitation"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="@string/play_names_desc"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp" />
-
-                <!-- Player Controls (visible when running) -->
-                <LinearLayout
-                    android:id="@+id/ll_audio_player_controls"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <com.google.android.material.progressindicator.LinearProgressIndicator
-                        android:id="@+id/pb_hero_audio_progress"
-                        android:layout_width="match_parent"
-                        android:layout_height="6dp"
-                        app:indicatorColor="@color/emerald_primary"
-                        app:trackColor="@color/surface_variant_light" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:id="@+id/tv_hero_current_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="00:00"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp" />
-
-                        <TextView
-                            android:id="@+id/tv_hero_total_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="03:45"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp" />
-                    </RelativeLayout>
+                    android:text="Listen - Learn - Reflict"
+                    android:textColor="#FFEFA8"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+                    app:layout_constraintStart_toStartOf="@+id/frameLayout" />
+                <!-- Native Play Pill Button matching reference app screenshot -->
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_50sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
                     <LinearLayout
+                        android:id="@+id/btn_hero_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@drawable/bg_btn_play_allah_names"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="6dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:background="@drawable/bg_btn_play_allah_names"
+                            android:importantForAccessibility="no"
+                            android:padding="@dimen/_2sdp"
+                            android:src="@drawable/ic_play_arrow_white_24" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="Play &amp; Start Listening"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Player Controls (shown over card when audio is playing) -->
+                    <LinearLayout
+                        android:id="@+id/ll_audio_player_controls"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_btn_play_allah_names"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btn_hero_toggle"
-                            android:layout_width="0dp"
-                            android:layout_height="46dp"
-                            android:layout_weight="1"
-                            android:backgroundTint="@color/emerald_primary"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/pause"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            app:cornerRadius="12dp" />
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/pb_hero_audio_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:visibility="gone"
+                            app:indicatorColor="#E2C47E"
+                            app:indicatorDirectionLinear="leftToRight"
+                            app:trackColor="#40FFFFFF"
+                            app:trackCornerRadius="@dimen/_6sdp"
+                            app:trackThickness="@dimen/_8sdp" />
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btn_hero_stop"
-                            style="@style/Widget.Material3.Button.OutlinedButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="46dp"
-                            android:layout_marginStart="8dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/stop"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            app:cornerRadius="12dp" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/tv_hero_current_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="00:00"
+                                android:textColor="#E0F2E9"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_hero_total_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="03:45"
+                                android:textColor="#E0F2E9"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_hero_toggle"
+                                android:layout_width="0dp"
+                                android:layout_height="38dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="#0A5C38"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/pause"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:cornerRadius="19dp"
+                                app:strokeColor="#E2C47E"
+                                app:strokeWidth="0.5dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_hero_stop"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="38dp"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="@font/montserrat_family"
+                                android:text="@string/stop"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:cornerRadius="19dp"
+                                app:strokeColor="#80FFFFFF"
+                                app:strokeWidth="0.5dp" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                </FrameLayout>
 
-                <!-- Initial Start Button (visible when not running) -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_hero_start"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="12dp"
-                    android:backgroundTint="@color/emerald_primary"
-                    android:fontFamily="@font/montserrat_family"
-                    android:text="@string/play_audio_btn"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    app:cornerRadius="12dp" />
-            </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Search Bar -->
@@ -187,13 +267,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:hint="@string/search_names_hint"
             app:boxBackgroundColor="@color/surface_light"
             app:boxCornerRadiusBottomEnd="14dp"
             app:boxCornerRadiusBottomStart="14dp"
             app:boxCornerRadiusTopEnd="14dp"
             app:boxCornerRadiusTopStart="14dp"
-            app:boxStrokeColor="@color/emerald_primary"
+            app:boxStrokeColor="@color/card_allah_names_start"
+            app:boxStrokeWidth="0dp"
+            android:outlineProvider="none"
             app:endIconMode="clear_text"
             app:startIconDrawable="@android:drawable/ic_menu_search">
 
@@ -204,6 +287,7 @@
                 android:fontFamily="@font/montserrat_family"
                 android:inputType="text"
                 android:maxLines="1"
+
                 android:textColor="@color/text_primary"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -214,6 +298,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_weight="1"
             android:clipToPadding="false"
             android:paddingBottom="40dp" />

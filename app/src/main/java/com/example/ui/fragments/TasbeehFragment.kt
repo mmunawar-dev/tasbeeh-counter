@@ -22,7 +22,9 @@ import com.example.databinding.FragmentTasbeehBinding
 import com.example.databinding.ItemDhikrPresetBinding
 import com.example.databinding.ItemTasbeehStyleBinding
 import com.example.databinding.ItemTasbeehTargetBinding
+import com.example.databinding.ItemZikrGridBinding
 import com.example.databinding.SheetTasbeehPickerBinding
+import com.example.databinding.SheetZikrPickerBinding
 import com.example.model.DhikrPreset
 import com.example.model.SakinahUiState
 import com.example.model.TasbeehStyle
@@ -241,22 +243,105 @@ class TasbeehFragment : BaseFragment<FragmentTasbeehBinding>(FragmentTasbeehBind
   }
 
   private fun showDhikrPicker() {
+    activeSheet?.dismiss()
     val selected = viewModel.uiState.value.currentDhikr
-    showSheet("Select Dhikr Preset") { sheet ->
-      DhikrPreset.PRESETS.forEach { preset: DhikrPreset ->
-        val item = ItemDhikrPresetBinding.inflate(layoutInflater, sheet.llSheetItems, false)
-        item.tvPresetTranslit.text = preset.transliteration
-        item.tvPresetTranslation.text = preset.translation
-        item.tvPresetArabic.text = preset.arabicText
-        if (preset.id == selected.id) item.root.setBackgroundResource(R.drawable.bg_sk_sheet_item_selected)
-        item.root.setOnClickListener {
-          viewModel.selectDhikr(preset)
+    val sheetBinding = SheetZikrPickerBinding.inflate(layoutInflater)
+    sheetBinding.tvZikrCountBadge.text = "${DhikrPreset.PRESETS.size} Presets"
+
+    // Build 2-column grid rows
+    val presets = DhikrPreset.PRESETS
+    val gridContainer = sheetBinding.llZikrGrid
+    var i = 0
+    while (i < presets.size) {
+      val row = android.widget.LinearLayout(requireContext()).apply {
+        orientation = android.widget.LinearLayout.HORIZONTAL
+        layoutParams = ViewGroup.LayoutParams(
+          ViewGroup.LayoutParams.MATCH_PARENT,
+          ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+      }
+
+      // Left column
+      val leftPreset = presets[i]
+      val leftCard = ItemZikrGridBinding.inflate(layoutInflater, row, false)
+      bindZikrCard(leftCard, leftPreset, leftPreset.id == selected.id)
+      leftCard.root.layoutParams = android.widget.LinearLayout.LayoutParams(
+        0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f
+      ).apply { marginEnd = dpToPx(4) }
+      leftCard.root.setOnClickListener {
+        viewModel.selectDhikr(leftPreset)
+        activeSheet?.dismiss()
+      }
+      row.addView(leftCard.root)
+
+      // Right column (if available)
+      if (i + 1 < presets.size) {
+        val rightPreset = presets[i + 1]
+        val rightCard = ItemZikrGridBinding.inflate(layoutInflater, row, false)
+        bindZikrCard(rightCard, rightPreset, rightPreset.id == selected.id)
+        rightCard.root.layoutParams = android.widget.LinearLayout.LayoutParams(
+          0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f
+        ).apply { marginStart = dpToPx(4) }
+        rightCard.root.setOnClickListener {
+          viewModel.selectDhikr(rightPreset)
           activeSheet?.dismiss()
         }
-        sheet.llSheetItems.addView(item.root)
+        row.addView(rightCard.root)
+      } else {
+        // Add invisible spacer for odd-count last row
+        val spacer = View(requireContext())
+        spacer.layoutParams = android.widget.LinearLayout.LayoutParams(
+          0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f
+        ).apply { marginStart = dpToPx(4) }
+        row.addView(spacer)
+      }
+
+      val rowParams = android.widget.LinearLayout.LayoutParams(
+        ViewGroup.LayoutParams.MATCH_PARENT,
+        ViewGroup.LayoutParams.WRAP_CONTENT
+      )
+      if (i > 0) rowParams.topMargin = dpToPx(8)
+      gridContainer.addView(row, rowParams)
+
+      i += 2
+    }
+
+    val dialog = BottomSheetDialog(requireContext())
+    dialog.setContentView(sheetBinding.root)
+    dialog.setOnShowListener {
+      dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let { sheet ->
+        sheet.setBackgroundColor(Color.TRANSPARENT)
+        BottomSheetBehavior.from(sheet).apply {
+          skipCollapsed = true
+          state = BottomSheetBehavior.STATE_EXPANDED
+        }
       }
     }
+    dialog.setOnDismissListener { if (activeSheet === dialog) activeSheet = null }
+    activeSheet = dialog
+    dialog.show()
   }
+
+  private fun bindZikrCard(card: ItemZikrGridBinding, preset: DhikrPreset, isSelected: Boolean) {
+    card.tvZikrArabic.text = preset.arabicText
+    card.tvZikrTranslit.text = preset.transliteration
+    if (isSelected) {
+      card.zikrCardRoot.setBackgroundResource(R.drawable.bg_zikr_grid_selected)
+      card.ivZikrCheck.visibility = View.VISIBLE
+      card.tvZikrArabic.setTextColor(android.graphics.Color.parseColor("#113C26"))
+      card.tvZikrTranslit.setTextColor(android.graphics.Color.parseColor("#295F43"))
+      card.tvZikrTranslit.typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
+    } else {
+      card.zikrCardRoot.setBackgroundResource(R.drawable.bg_zikr_grid_unselected)
+      card.ivZikrCheck.visibility = View.GONE
+      card.tvZikrArabic.setTextColor(android.graphics.Color.parseColor("#143D28"))
+      card.tvZikrTranslit.setTextColor(android.graphics.Color.parseColor("#557563"))
+      card.tvZikrTranslit.typeface = Typeface.create("sans-serif", Typeface.NORMAL)
+    }
+  }
+
+  private fun dpToPx(dp: Int): Int =
+    (dp * resources.displayMetrics.density + 0.5f).toInt()
 
   private fun showTargetPicker() {
     val current = viewModel.uiState.value.tasbeehTotalTarget

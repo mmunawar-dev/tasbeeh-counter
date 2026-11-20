@@ -107,7 +107,8 @@ fun QiblaDial(
       // 3. Compass Visual Dial Area
       Box(
         modifier = Modifier
-          .size(290.dp)
+          .fillMaxSize()
+          .aspectRatio(1f)
           .testTag("qibla_compass_dial"),
         contentAlignment = Alignment.Center
       ) {

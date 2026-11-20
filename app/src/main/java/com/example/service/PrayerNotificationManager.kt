@@ -7,17 +7,21 @@ import android.app.PendingIntent
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
 import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import com.example.MainActivity
 import com.example.R
 import com.example.model.PrayerNotificationMode
 import com.example.model.PrayerType
 import java.util.Calendar
-import androidx.core.net.toUri
 
 /**
  * Manages native Android prayer-time notifications with custom Azan sound.
@@ -186,12 +190,19 @@ object PrayerNotificationManager {
 
     // Build normal dismissible Android notification
     val builder = NotificationCompat.Builder(context, channelId)
-      .setSmallIcon(R.mipmap.ic_launcher)
+      .setSmallIcon(R.drawable.ic_feat_adhan_bell)
       .setContentTitle(title)
       .setContentText(message)
       .setAutoCancel(true)
       .setOngoing(false) // Fully dismissible
       .setContentIntent(contentPendingIntent)
+//      .setColor(ContextCompat.getColor(context, R.color.emerald_primary))
+
+    // Set real app launcher icon as large icon so it renders in full color
+    val launcherBitmap = getAppIconBitmap(context)
+    if (launcherBitmap != null) {
+      builder.setLargeIcon(launcherBitmap)
+    }
 
     // Pre-Android O legacy sound and vibration fallback
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
@@ -223,5 +234,29 @@ object PrayerNotificationManager {
 
     // Schedule next upcoming prayers
     PrayerNotificationScheduler.scheduleAll(context)
+  }
+
+  /**
+   * Safely renders the app's real launcher icon (AdaptiveIcon or Bitmap) into a Bitmap
+   * for display as the notification's large icon.
+   */
+  private fun getAppIconBitmap(context: Context): Bitmap? {
+    return try {
+      val drawable = ContextCompat.getDrawable(context, R.mipmap.ic_launcher) ?: return null
+      if (drawable is BitmapDrawable && drawable.bitmap != null) {
+        drawable.bitmap
+      } else {
+        val width = if (drawable.intrinsicWidth > 0) drawable.intrinsicWidth else 128
+        val height = if (drawable.intrinsicHeight > 0) drawable.intrinsicHeight else 128
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        bitmap
+      }
+    } catch (e: Exception) {
+      Log.w(TAG, "Failed to decode app launcher icon for notification", e)
+      null
+    }
   }
 }

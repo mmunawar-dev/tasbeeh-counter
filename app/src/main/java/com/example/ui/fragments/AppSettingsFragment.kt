@@ -1,13 +1,16 @@
 package com.example.ui.fragments
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.R
+import com.example.databinding.DialogRateUsBinding
 import com.example.databinding.FragmentAppSettingsBinding
 import com.example.model.ThemeMode
 import com.example.ui.activities.PremiumActivity
@@ -79,21 +82,18 @@ class AppSettingsFragment :
 
         // Rate App
         binding.rowSettingsRate.setOnClickListener {
-            val appPackage = requireContext().packageName
-            try {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackage")))
-            } catch (_: Exception) {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$appPackage")))
-            }
+            showRateUsDialog()
         }
 
         // Privacy Policy
         binding.rowSettingsPrivacy.setOnClickListener {
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Privacy & Data Protection")
-                .setMessage("Sakinah is built with complete privacy in mind.\n\n• 100% On-Device Calculations: All prayer times and Qibla calculations occur directly on your device.\n• No Location Tracking: Your location coordinates are never stored on external servers or sold to third parties.\n• No Data Harvesting: Your personal dhikr counters, notes, and preferences remain local to your phone.\n\nPeace of mind for your worship.")
-                .setPositiveButton("Understood", null)
-                .show()
+            val url = "https://mmunawar-dev.github.io/deen_privacy_policy/"
+            try {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                Toast.makeText(requireActivity(), "Device does not have a browser", Toast.LENGTH_SHORT).show()
+            }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -110,5 +110,58 @@ class AppSettingsFragment :
                 }
             }
         }
+    }
+
+    private fun showRateUsDialog() {
+        val dialogBinding = DialogRateUsBinding.inflate(layoutInflater)
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+            .setView(dialogBinding.root)
+            .setCancelable(true)
+            .create()
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val stars = listOf(
+            dialogBinding.ivStar1,
+            dialogBinding.ivStar2,
+            dialogBinding.ivStar3,
+            dialogBinding.ivStar4,
+            dialogBinding.ivStar5
+        )
+
+        fun updateStars(rating: Int) {
+            stars.forEachIndexed { index, starView ->
+                if (index < rating) {
+                    starView.setImageResource(R.drawable.ic_star_filled)
+                } else {
+                    starView.setImageResource(R.drawable.ic_star_unfilled)
+                }
+            }
+        }
+
+        // Default: 2 stars filled, 3 stars unfilled
+        updateStars(2)
+
+        stars.forEachIndexed { index, starView ->
+            starView.setOnClickListener {
+                updateStars(index + 1)
+            }
+        }
+
+        dialogBinding.btnRateCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogBinding.btnRateSubmit.setOnClickListener {
+            val appPackage = requireContext().packageName
+            try {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackage")))
+            } catch (_: Exception) {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$appPackage")))
+            }
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }

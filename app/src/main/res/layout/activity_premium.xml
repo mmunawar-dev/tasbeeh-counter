@@ -1,571 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.PremiumActivity"
-    android:background="@drawable/bg_premium_screen">
+    android:background="@drawable/bg_premium_screen_dark"
+    tools:context=".ui.fragments.PremiumFragment">
 
+    <!-- Scrollable Content -->
+
+    <!-- ═══════════════════════════════════════════
+         SCROLLABLE CONTENT
+    ═══════════════════════════════════════════ -->
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/scroll_premium"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fillViewport="true"
         android:overScrollMode="never"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/ll_bottom_cta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="24dp">
+            android:background="@color/premium_screen_bg"
+            >
 
-            <!-- Hero Art Image -->
-            <ImageView
-                android:id="@+id/iv_premium_hero"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-
+            <!-- 1. Hero Image Header (premium_top.png) -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_215sdp"
                 android:adjustViewBounds="true"
-                android:contentDescription="@null"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_premium_art" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/premium_media"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSizeTop" />
 
-            <!-- Title -->
+            <!-- 2. Smooth Bottom Gradient Shade (Seamlessly blends image into screen background) -->
+
+
+            <!-- 3. Close Circular Button (Top Right) -->
+            <ImageView
+                android:id="@+id/btn_premium_close"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_margin="@dimen/_18sdp"
+                android:background="@drawable/bg_premium_close_circle"
+                android:clickable="true"
+                android:contentDescription="Close"
+                android:focusable="true"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_premium_close"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 4. "DEEN PREMIUM" Pill Badge -->
             <TextView
-                android:id="@+id/tv_premium_title"
-                android:layout_width="match_parent"
+                android:id="@+id/tvDeenBadge"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:background="@drawable/bg_premium_deen_badge"
                 android:fontFamily="@font/montserrat_family"
-                android:gravity="center"
-                android:letterSpacing="0.03"
-                android:text="@string/premium_title"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:letterSpacing="0.12"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_6sdp"
+                android:text="DEEN PREMIUM"
+                android:textColor="@color/gold_accent"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Subtitle -->
-            <TextView
-                android:id="@+id/tv_premium_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="6dp"
-                android:fontFamily="@font/montserrat_family"
-                android:gravity="center"
-                android:lineSpacingExtra="2dp"
-                android:text="@string/premium_subtitle"
-                android:textColor="#A2C3B1"
-                android:textSize="12.5sp" />
-
-            <!-- Features Grid Card -->
+            <!-- 5. Headline ("Elevate Your Daily Worship") -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/linearLayout4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_premium_feature_card"
-                android:baselineAligned="false"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:gravity="center"
                 android:orientation="horizontal"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="12dp">
-
-                <!-- Left Column Features -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <!-- Feature 1: No ads forever -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_check_circle_gold" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/feature_no_ads_forever"
-                            android:textColor="#E1EDE6"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Feature 2: Instant load times (always) -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_check_circle_gold" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/feature_instant_load_times"
-                            android:textColor="#E1EDE6"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Feature 3: Faster load times -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_check_circle_gold" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/feature_faster_load_times"
-                            android:textColor="#E1EDE6"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!-- Right Column Features -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <!-- Feature 4: Lifetime support -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_check_circle_gold" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/feature_lifetime_support"
-                            android:textColor="#E1EDE6"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Feature 5: Early access features -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_check_circle_gold" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/feature_early_access"
-                            android:textColor="#E1EDE6"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Feature 6: Multi-device sync -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_check_circle_gold" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/feature_multi_device_sync"
-                            android:textColor="#E1EDE6"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- YEARLY PLAN CARD -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_plan_yearly"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="14dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="#800E2F20"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="#386A50"
-                app:strokeWidth="1.2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <!-- Top Row: Icon + Title on left, Price on right -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_sk_calendar_clock" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/plan_yearly"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_yearly_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/plan_yearly_price"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- Bottom Row: Desc on left, Select Button on right -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="10dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_family"
-                            android:lineSpacingExtra="1dp"
-                            android:text="@string/plan_yearly_desc"
-                            android:textColor="#8CAE9C"
-                            android:textSize="11sp" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btn_select_yearly"
-                            android:layout_width="wrap_content"
-                            android:layout_height="38dp"
-                            android:background="@drawable/bg_btn_gold_pill"
-                            android:fontFamily="@font/montserrat_family"
-                            android:minHeight="0dp"
-                            android:paddingHorizontal="16dp"
-                            android:text="@string/btn_select_yearly"
-                            android:textColor="#FFFFFF"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- LIFETIME PLAN CARD (BEST CHOICE) -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_plan_lifetime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="14dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="#800E2F20"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="#E5A93C"
-                app:strokeWidth="1.5dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <!-- Best Choice Ribbon Badge (top-left) -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|top"
-                        android:background="@drawable/bg_badge_best_choice"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="10dp"
-                        android:paddingTop="4dp"
-                        android:paddingEnd="12dp"
-                        android:paddingBottom="4dp">
-
-                        <ImageView
-                            android:layout_width="14dp"
-                            android:layout_height="14dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_sk_award"
-                            app:tint="#382000" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:fontFamily="@font/montserrat_family"
-                            android:text="@string/badge_best_choice"
-                            android:textColor="#382000"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="14dp"
-                        android:paddingTop="32dp"
-                        android:paddingBottom="14dp">
-
-                        <!-- Top Row: Diamonds + Lifetime Title on left, Price on right -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:contentDescription="@null"
-                                android:src="@drawable/ic_sk_diamond"
-                                app:tint="#E5A93C" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="6dp"
-                                android:fontFamily="@font/montserrat_family"
-                                android:text="@string/plan_lifetime"
-                                android:textColor="#FFFFFF"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginStart="6dp"
-                                android:contentDescription="@null"
-                                android:src="@drawable/ic_sk_diamond"
-                                app:tint="#E5A93C" />
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:layout_weight="1" />
-
-                            <TextView
-                                android:id="@+id/tv_lifetime_price"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_family"
-                                android:text="@string/plan_lifetime_price"
-                                android:textColor="#FFFFFF"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <!-- Bottom Row: Desc on left, Select Button on right -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat_family"
-                                android:lineSpacingExtra="1dp"
-                                android:text="@string/plan_lifetime_desc"
-                                android:textColor="#8CAE9C"
-                                android:textSize="10.5sp" />
-
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/btn_go_lifetime"
-                                android:layout_width="wrap_content"
-                                android:layout_height="38dp"
-                                android:background="@drawable/bg_btn_gold_pill"
-                                android:fontFamily="@font/montserrat_family"
-                                android:minHeight="0dp"
-                                android:paddingHorizontal="16dp"
-                                android:text="@string/btn_go_lifetime"
-                                android:textColor="#FFFFFF"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </FrameLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Footer: Privacy Policy • Terms & Conditions -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="12dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/btn_privacy_policy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="4dp">
-
-                    <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:contentDescription="@null"
-                        android:src="@drawable/ic_sk_lock" />
-
-                    <TextView
-                        android:id="@+id/tv_privacy_policy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="@font/montserrat_family"
-                        android:text="@string/privacy_policy"
-                        android:textColor="#DEC177"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="•"
-                    android:textColor="#4B705D"
-                    android:textSize="12sp" />
+                    android:fontFamily="@font/montserrat_family"
+                    android:text="Elevate Your "
+                    android:textColor="@color/premium_text_hero"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/btn_terms_conditions"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_family"
+                    android:text="Daily Worship"
+                    android:textColor="@color/gold_accent"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 6. Hero Subtitle -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_family"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:text="Uninterrupted prayer times and accurate qibla"
+                android:textColor="@color/premium_text_subtitle"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- 7. Features Row (Ad-Free & Lightning-Fast Access) -->
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp"
+                app:layout_constraintBottom_toTopOf="@id/cardMonthly"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                <!-- Feature 1: Ad-Free Experience -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_premium_feat_icon_circle">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Ad free"
+                            android:src="@drawable/ic_feat_shield"
+                            app:tint="@color/gold_accent" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:gravity="center"
+                        android:text="Ad-Free Experience"
+                        android:textColor="@color/premium_text_feature"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="0.8dp"
+                    android:layout_height="46dp"
+                    android:background="@color/premium_divider" />
+
+                <!-- Feature 2: Lightning-Fast Access -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_premium_feat_icon_circle">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Fast access"
+                            android:src="@drawable/ic_feat_lightning"
+                            app:tint="@color/gold_accent" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:gravity="center"
+                        android:text="Lightning-Fast Access"
+                        android:textColor="@color/premium_text_feature"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 8. Monthly Plan Card -->
+            <LinearLayout
+                android:id="@+id/cardMonthly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_premium_card_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                app:layout_constraintBottom_toTopOf="@id/frameLayoutLifeTime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <!-- Radio Indicator -->
+                <ImageView
+                    android:id="@+id/iv_radio_weekly"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Select monthly plan"
+                    android:src="@drawable/ic_radio_circle_empty" />
+
+                <!-- Title & Subtitle -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_family"
+                        android:text="Monthly Plan"
+                        android:textColor="@color/premium_text_card_title"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:text="One month payment"
+                        android:textColor="@color/premium_text_card_subtitle"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Price -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end|center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_family"
+                        android:text="1,550.00 PKR"
+                        android:textColor="@color/premium_text_card_title"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/montserrat_family"
+                        android:text="/ month"
+                        android:textColor="@color/premium_text_card_subtitle"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 9. Lifetime Plan Card Container (with RECOMMENDED Badge) -->
+            <FrameLayout
+                android:id="@+id/frameLayoutLifeTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="@dimen/_6sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardMonthly">
+
+                <!-- Card Body -->
+                <LinearLayout
+                    android:id="@+id/card_plan_yearly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_premium_card_selected"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="4dp">
+                    android:paddingHorizontal="16dp"
+                    android:paddingTop="18dp"
+                    android:paddingBottom="16dp">
 
                     <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:contentDescription="@null"
-                        android:src="@drawable/ic_sk_document" />
+                        android:id="@+id/iv_radio_yearly"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Select lifetime plan"
+                        android:src="@drawable/ic_radio_selected_gold" />
 
-                    <TextView
-                        android:id="@+id/tv_terms_conditions"
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="Lifetime Plan"
+                            android:textColor="@color/premium_text_card_title"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="One time payment"
+                            android:textColor="@color/premium_text_card_subtitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="@font/montserrat_family"
-                        android:text="@string/terms_and_conditions"
-                        android:textColor="#DEC177"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </LinearLayout>
+                        android:gravity="end|center_vertical"
+                        android:orientation="vertical">
 
-        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="5,555 PKR"
+                            android:textColor="@color/gold_accent"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/montserrat_family"
+                            android:text="/ once"
+                            android:textColor="@color/gold_accent"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- RECOMMENDED Badge -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:background="@drawable/bg_recommended_badge"
+                    android:fontFamily="@font/montserrat_family"
+                    android:letterSpacing="0.1"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="3.5dp"
+                    android:text="RECOMMENDED"
+                    android:textColor="@color/premium_recommended_badge_text"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txt_plan_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="you will be charged once per month. subscription will be auto renue from the date of purchas. you can cancel at any time."
+                android:textAlignment="textStart"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:textColor="@color/premium_text_feature"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayoutLifeTime"
+                app:layout_constraintStart_toStartOf="@+id/frameLayoutLifeTime" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Circular Close Button in Top-Right Corner -->
-    <ImageButton
-        android:id="@+id/btn_premium_back"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_premium_close_btn"
-        android:contentDescription="Close"
-        android:padding="7dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_sk_close_24"
-        app:tint="#80C4A4" />
+    <!-- ═══════════════════════════════════════════
+         BOTTOM CTA PINNED CONTAINER
+    ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/ll_bottom_cta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/premium_screen_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_7sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Continue CTA Button -->
+        <LinearLayout
+            android:id="@+id/btn_premium_continue"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_premium_cta_gold"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:background="@drawable/bg_circle_gold"
+                android:contentDescription="Crown"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/premium"
+                app:tint="@color/gold_accent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_family"
+                android:gravity="center"
+                android:text="Continue"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Go"
+                android:src="@drawable/ic_arrow_right_white" />
+
+        </LinearLayout>
+
+        <!-- Terms & Privacy Links -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtTermCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/montserrat_family"
+                android:padding="4dp"
+                android:text="Terms &amp; Conditions"
+                android:textColor="@color/premium_footer_link"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:text="•"
+                android:textColor="@color/premium_divider"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/btn_terms_conditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/montserrat_family"
+                android:padding="4dp"
+                android:text="Privacy Policy"
+                android:textColor="@color/premium_footer_link"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

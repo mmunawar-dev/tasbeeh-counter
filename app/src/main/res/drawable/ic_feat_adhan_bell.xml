@@ -1,0 +1,23 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <!-- Golden bell body -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M19,10c-4.42,0 -8,3.58 -8,8v7l-2,2v1h20v-1l-2,-2v-7c0,-4.42 -3.58,-8 -8,-8z" />
+    <!-- Bell clapper bottom -->
+    <path
+        android:fillColor="#D97706"
+        android:pathData="M17,29c0,1.1 0.9,2 2,2s2,-0.9 2,-2h-4z" />
+    <!-- Red notification badge top-right -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M27,11m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+    <!-- White '1' on badge -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M26,8.5h2v5h-2z" />
+</vector>
+

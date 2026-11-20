@@ -4,56 +4,127 @@
     android:id="@+id/card_dua_entry"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="5dp"
-    android:clickable="true"
-    android:focusable="true"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
     app:cardBackgroundColor="@color/surface_light"
     app:cardCornerRadius="16dp"
-    app:cardElevation="0dp"
+    app:cardElevation="2dp"
     app:strokeColor="@color/outline_border"
     app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_dua_entry_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_family"
-            android:text="Morning Remembrance"
-            android:textColor="@color/text_primary"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+        <!-- Top Emerald Header Strip with Numbering & Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_dua_card_header"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp">
 
-        <TextView
-            android:id="@+id/tv_dua_entry_arabic"
+            <!-- Number (e.g. "1.") -->
+            <TextView
+                android:id="@+id/tv_dua_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_family"
+                android:text="1."
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- Favorite / Bookmark Button -->
+            <ImageView
+                android:id="@+id/btn_dua_favorite"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="Favorite"
+                android:focusable="true"
+                android:padding="4dp"
+                android:src="@drawable/ic_heart_outline"
+                app:tint="@color/white" />
+
+            <!-- Share Button -->
+            <ImageView
+                android:id="@+id/btn_dua_share"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="Share"
+                android:focusable="true"
+                android:padding="4dp"
+                android:src="@drawable/ic_share"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <!-- Descriptive Body of the Dua -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/montserrat_family"
-            android:gravity="end"
-            android:maxLines="2"
-            android:text="أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ"
-            android:textColor="@color/emerald_primary"
-            android:textSize="16sp" />
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
-        <TextView
-            android:id="@+id/tv_dua_entry_translation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/montserrat_family"
-            android:maxLines="2"
-            android:text="We have reached the morning and the kingdom belongs to Allah"
-            android:textColor="@color/text_secondary"
-            android:textSize="12sp" />
+            <!-- Full Arabic Text with Diacritics -->
+            <TextView
+                android:id="@+id/tv_dua_entry_arabic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_family"
+                android:gravity="end"
+                android:lineSpacingExtra="8dp"
+                android:text="الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَ إِلَيْهِ النُّشُورُ"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
+            <!-- Translation (Signature Emerald Green) -->
+            <TextView
+                android:id="@+id/tv_dua_entry_translation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/montserrat_family"
+                android:lineSpacingExtra="3dp"
+                android:text="Praise is to Allah Who gives us life after He has caused us to die and to Him is the return."
+                android:textColor="#1B8158"
+                android:textSize="14sp" />
+
+            <!-- Reference / Source (Signature Golden Amber) -->
+            <TextView
+                android:id="@+id/tv_dua_entry_reference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_family"
+                android:lineSpacingExtra="2dp"
+                android:text="Al-Bukhârî [6312], see Fath al-Bârî (11/113) and Muslim [2711](4/2083)."
+                android:textColor="#D9822B"
+                android:textSize="12sp" />
+
+            <!-- Benefit / Context Note -->
+            <TextView
+                android:id="@+id/tv_dua_entry_benefit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/montserrat_family"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="11.5sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

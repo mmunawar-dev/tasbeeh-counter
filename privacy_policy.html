@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Deen: Prayer Times &amp; Qibla</title>
+    <meta name="description"
+        content="Official Privacy Policy for Deen: Prayer Times &amp; Qibla Android Application by MH Studio.">
+    <style>
+        :root {
+            --primary: #167B51;
+            --primary-dark: #0F5A3A;
+            --primary-light: #EBF7F0;
+            --secondary: #D4AF37;
+            --text-main: #1F2937;
+            --text-muted: #4B5563;
+            --text-light: #6B7280;
+            --bg-page: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --border: #E5E7EB;
+            --border-highlight: #A7F3D0;
+            --tag-bg: #ECFDF5;
+            --tag-text: #065F46;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 12px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-item strong {
+            color: var(--text-muted);
+        }
+
+        .intro-banner {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 32px;
+            font-size: 15px;
+            color: var(--primary-dark);
+        }
+
+        .toc {
+            background: #F3F4F6;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 36px;
+        }
+
+        .toc-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 8px 16px;
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 22px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h3 {
+            color: var(--text-main);
+            font-size: 17px;
+            font-weight: 600;
+            margin: 20px 0 8px 0;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        ul,
+        ol {
+            margin: 12px 0 16px 24px;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        thead {
+            background: #F9FAFB;
+        }
+
+        th {
+            padding: 12px 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 12px 16px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #F9FAFB;
+        }
+
+        .badge-perm {
+            display: inline-block;
+            font-family: monospace;
+            font-size: 12px;
+            font-weight: 600;
+            background: #EEF2F6;
+            color: #1E3A8A;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .badge-purpose {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 2px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .info-card {
+            background: #F9FAFB;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin: 16px 0;
+        }
+
+        .info-card strong {
+            color: var(--text-main);
+        }
+
+        .highlight-box {
+            background: #FEF3C7;
+            border-left: 4px solid #D97706;
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #92400E;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            margin-top: 40px;
+            font-size: 13px;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px 16px;
+                border-radius: 0;
+                border: none;
+            }
+
+            body {
+                padding: 0;
+                background: #FFFFFF;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <span class="brand-badge">Official Privacy Policy</span>
+            <h1>Deen: Prayer Times &amp; Qibla</h1>
+            <div class="meta-info">
+                <div class="meta-item"><strong>Developer:</strong> MH Studio</div>
+                <div class="meta-item"><strong>Package ID:</strong> com.aistudio.sakinah.prtimes</div>
+                <div class="meta-item"><strong>Effective Date:</strong> November 14, 2026</div>
+            </div>
+        </header>
+
+        <div class="intro-banner">
+            <strong>Our Privacy Commitment:</strong> MH Studio ("we", "our", or "us") is dedicated to protecting your
+            privacy and providing a serene, spiritually enriching worship experience. <strong>Deen: Prayer Times &amp;
+                Qibla</strong> (the "App") operates on a privacy-first principle: we do not sell your personal data, we
+            do not require account registration, and your sensitive location information is processed on-device for
+            prayer calculations.
+        </div>
+
+        <nav class="toc">
+            <div class="toc-title">Table of Contents</div>
+            <ul>
+                <li><a href="#section-1">1. Permissions &amp; Hardware Usage</a></li>
+                <li><a href="#section-2">2. How Data is Handled</a></li>
+                <li><a href="#section-3">3. Third-Party Services &amp; APIs</a></li>
+                <li><a href="#section-4">4. In-App Purchases &amp; Subscriptions</a></li>
+                <li><a href="#section-5">5. YouTube Live Streams</a></li>
+                <li><a href="#section-6">6. Data Retention &amp; Deletion</a></li>
+                <li><a href="#section-7">7. Security of Your Information</a></li>
+                <li><a href="#section-8">8. Children's Privacy (COPPA)</a></li>
+                <li><a href="#section-9">9. International Privacy Rights</a></li>
+                <li><a href="#section-10">10. Policy Updates &amp; Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- SECTION 1 -->
+        <section id="section-1">
+            <h2>1. Android Permissions &amp; Hardware Usage</h2>
+            <p>To provide accurate astronomical prayer schedules, Qibla compass alignment, and reliable Athan audio
+                alerts, the App requests specific device permissions. We adhere strictly to the principle of data
+                minimization—only requesting permissions strictly necessary for user-requested religious utilities.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Classification</th>
+                            <th>Exact Purpose in the App</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">ACCESS_FINE_LOCATION</span><br>
+                                <span class="badge-perm">ACCESS_COARSE_LOCATION</span>
+                            </td>
+                            <td><span class="badge-purpose">Location</span></td>
+                            <td>
+                                Used in the foreground to calculate the accurate geographical bearing to the Kaaba in
+                                Makkah (Qibla Direction), compute precise local prayer times based on solar coordinates,
+                                and automatically detect your city/timezone. <strong>Location coordinates are processed
+                                    on your device and are never stored or tracked on MH Studio servers.</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">POST_NOTIFICATIONS</span>
+                            </td>
+                            <td><span class="badge-purpose">Notifications</span></td>
+                            <td>
+                                Enables the App to deliver timely daily prayer alerts, Athan reminders, and worship
+                                notifications according to the preferences you configure (Sound, Vibration, Silent, or
+                                Off).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">SCHEDULE_EXACT_ALARM</span><br>
+                                <span class="badge-perm">USE_EXACT_ALARM</span>
+                            </td>
+                            <td><span class="badge-purpose">Exact Alarms</span></td>
+                            <td>
+                                Required under Google Play's Exact Alarm Policy to trigger Athan calls precisely at the
+                                calculated astronomical prayer minute, ensuring prayer times are strictly punctual.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">RECEIVE_BOOT_COMPLETED</span>
+                            </td>
+                            <td><span class="badge-purpose">System Event</span></td>
+                            <td>
+                                Reschedules your upcoming daily prayer alarms automatically after your device restarts
+                                or when system time/timezone changes occur.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">WAKE_LOCK</span>
+                            </td>
+                            <td><span class="badge-purpose">System Utility</span></td>
+                            <td>
+                                Briefly wakes the device processor for a few milliseconds at the exact prayer time to
+                                display the prayer notification banner and play the selected reminder tone.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">FOREGROUND_SERVICE</span><br>
+                                <span class="badge-perm">FOREGROUND_SERVICE_MEDIA_PLAYBACK</span>
+                            </td>
+                            <td><span class="badge-purpose">Media Playback</span></td>
+                            <td>
+                                Powers continuous audio recitation of the 99 Names of Allah (Asma-ul-Husna). Displays a
+                                system media notification with Play, Pause, and Stop controls so you can listen while
+                                your screen is locked or while using other apps.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">VIBRATE</span>
+                            </td>
+                            <td><span class="badge-purpose">Haptic Feedback</span></td>
+                            <td>
+                                Provides tactile haptic vibrations when tapping the digital Tasbeeh counter bead and for
+                                silent/vibration prayer alerts.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="badge-perm">INTERNET</span>
+                            </td>
+                            <td><span class="badge-purpose">Network Access</span></td>
+                            <td>
+                                Connects to verified prayer calculation services (Aladhan API) via encrypted HTTPS,
+                                verifies in-app subscription licenses, and checks crash telemetry.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Manual Location Alternative:</strong> If you prefer not to grant GPS location access, you can
+                choose any city worldwide from our offline database of popular cities. The App will accurately compute
+                prayer times and Qibla bearing without accessing your device's GPS hardware.
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <section id="section-2">
+            <h2>2. How Data is Handled &amp; Local Storage</h2>
+
+            <h3>No Account Required</h3>
+            <p>The App does not require user registration, email sign-up, passwords, or personal profiles. You can
+                access all worship features immediately and anonymously upon installation.</p>
+
+            <h3>Device Sensors (Compass &amp; Magnetometer)</h3>
+            <p>The Qibla Direction feature accesses your phone's built-in magnetic field sensor (magnetometer) and
+                accelerometer to calculate phone heading in real time. Sensor data is processed dynamically in your
+                device's memory and is discarded immediately after display. It is never logged, stored, or transmitted
+                over the internet.</p>
+
+            <h3>Locally Stored Preferences (SharedPreferences)</h3>
+            <p>The App stores your personal configuration exclusively on your device's private sandbox storage:</p>
+            <ul>
+                <li>Selected Madhab (Hanafi, Shafi'i / Standard) &amp; Fiqh Calculation Method (MWL, ISNA, Karachi,
+                    Makkah, Egypt, Tehran, etc.)</li>
+                <li>Selected City / Location coordinates and manual prayer time minute adjustments (+/- minutes)</li>
+                <li>Notification delivery modes per prayer (Sound, Vibration, Silent, Off)</li>
+                <li>Digital Tasbeeh presets, custom targets, and counter click modes</li>
+                <li>Bookmarked favorite supplications (Duas)</li>
+                <li>Interface preferences (Theme mode: Light/Dark/System and App Language)</li>
+            </ul>
+            <p>This data remains on your physical device and is never uploaded to MH Studio servers.</p>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section id="section-3">
+            <h2>3. Third-Party Services &amp; APIs</h2>
+            <p>To provide accurate Islamic timings, application stability, and optional advertising support, the App
+                utilizes trusted third-party service providers. These services operate under strict confidentiality and
+                industry-standard security practices.</p>
+
+            <div class="info-card">
+                <h3>Aladhan Prayer Times API</h3>
+                <p>The App connects to the Aladhan API (<code>api.aladhan.com</code>) via encrypted HTTPS to synchronize
+                    real-time astronomical prayer schedules. The request transmits your selected city name or
+                    approximate coordinates solely to compute prayer schedules. No personal identifiers, advertising
+                    IDs, or user credentials are sent to Aladhan.</p>
+                <p><a href="https://aladhan.com/terms-and-conditions" target="_blank" rel="noopener">Learn more about
+                        Aladhan API &rarr;</a></p>
+            </div>
+
+            <div class="info-card">
+                <h3>Firebase Analytics &amp; Crashlytics (Google LLC)</h3>
+                <p>To ensure high performance, monitor bugs, and maintain app stability across thousands of Android
+                    device models, the App may use Firebase Analytics and Crashlytics. These tools collect
+                    non-identifiable technical diagnostic data, including:</p>
+                <ul>
+                    <li>Device model, operating system version, and system language</li>
+                    <li>Stack traces and memory dumps during application crashes</li>
+                    <li>Anonymous feature interaction metrics</li>
+                </ul>
+                <p><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Review Google
+                        Firebase Privacy Policy &rarr;</a></p>
+            </div>
+
+            <div class="info-card">
+                <h3>Google AdMob (Google LLC)</h3>
+                <p>The free version of the App may display advertisements served by Google AdMob. AdMob may
+                    automatically collect non-sensitive device identifiers (such as the Google Advertising ID), coarse
+                    IP address, and advertising interaction metrics to display relevant ads, enforce frequency capping,
+                    and prevent ad fraud. Users can reset or opt out of personalized ads at any time through their
+                    device settings (<strong>Settings &rarr; Google &rarr; Ads</strong>).</p>
+                <p><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Learn how
+                        Google uses ad data &rarr;</a></p>
+            </div>
+        </section>
+
+        <!-- SECTION 4 -->
+        <section id="section-4">
+            <h2>4. In-App Purchases &amp; Subscriptions</h2>
+            <p>The App offers optional premium access (Sakinah Plus / Deen VIP) to provide an entirely ad-free
+                experience, premium reciters, and additional personalization features.</p>
+            <ul>
+                <li>All financial transactions, subscriptions, and one-time payments are processed securely by
+                    <strong>Google Play In-App Billing</strong>.
+                </li>
+                <li>MH Studio does <strong>not</strong> collect, process, or have access to your credit card numbers,
+                    banking details, billing address, or payment credentials.</li>
+                <li>Subscription management, renewals, and cancellations are handled directly through your Google Play
+                    Account settings.</li>
+            </ul>
+            <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Review Google Payments
+                    Privacy Policy &rarr;</a></p>
+        </section>
+
+        <!-- SECTION 5 -->
+        <section id="section-5">
+            <h2>5. YouTube Live Streams</h2>
+            <p>The App features informational cards displaying live preview thumbnails for official broadcasts from
+                <strong>Masjid al-Haram in Makkah</strong> (Saudi Quran TV) and <strong>Al-Masjid an-Nabawi in
+                    Madinah</strong> (Saudi Sunnah TV).
+            </p>
+            <ul>
+                <li>The App does not stream, embed, modify, or download YouTube videos directly.</li>
+                <li>Tapping a broadcast card opens the official broadcast link externally in the official YouTube
+                    application or your device's web browser.</li>
+                <li>When you open YouTube, your interaction is governed directly by YouTube's Terms of Service and
+                    Google's Privacy Policy.</li>
+            </ul>
+            <p><a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service
+                    &rarr;</a> | <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google
+                    Privacy Policy &rarr;</a></p>
+        </section>
+
+        <!-- SECTION 6 -->
+        <section id="section-6">
+            <h2>6. Data Retention &amp; User Deletion Rights</h2>
+            <p>Because MH Studio does not maintain backend user accounts or central databases containing your
+                information:</p>
+            <ul>
+                <li><strong>Local Preference Deletion:</strong> You can completely erase all saved locations, custom
+                    prayer time offsets, favorite Duas, and Tasbeeh counters at any time by going to your phone's
+                    <strong>Settings &rarr; Apps &rarr; Deen &rarr; Storage &rarr; Clear Data / Clear Storage</strong>.
+                </li>
+                <li><strong>Uninstalling the App:</strong> Uninstalling the application automatically deletes all
+                    locally stored sandboxed preferences from your device.</li>
+                <li><strong>Revoking Permissions:</strong> You can revoke Location, Notification, or Exact Alarm
+                    permissions at any time via your device's system settings without breaking the core offline Islamic
+                    content of the App.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 7 -->
+        <section id="section-7">
+            <h2>7. Data Security &amp; Transmission</h2>
+            <p>We are committed to maintaining the security of your interactions with the App:</p>
+            <ul>
+                <li>All outbound network communications (such as prayer time synchronization with Aladhan and crash
+                    reporting) use industry-standard Transport Layer Security (TLS 1.2 / TLS 1.3 / HTTPS encryption).
+                </li>
+                <li>Local application storage is protected by Android's internal application sandboxing, preventing
+                    other unauthorized apps on your device from accessing your prayer settings.</li>
+                <li>While we employ robust security practices, no method of electronic storage or network transmission
+                    is guaranteed to be 100% impenetrable.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 8 -->
+        <section id="section-8">
+            <h2>8. Children's Privacy (COPPA &amp; GDPR-K)</h2>
+            <p>The App provides general religious utilities (prayer timings, Islamic calendar, supplications, and Qibla
+                compass) intended for Muslims of all ages. The App does not specifically target children under 13 (or
+                under 16 in the EEA) and does not knowingly solicit or collect personal identifiable information from
+                children.</p>
+            <p>If you believe a child has provided personal information to third-party services through the App without
+                parental consent, please contact us at <a
+                    href="mailto:appsby.munawwar@gmail.com">appsby.munawwar@gmail.com</a>, and we will take immediate
+                steps to address the matter.</p>
+        </section>
+
+        <!-- SECTION 9 -->
+        <section id="section-9">
+            <h2>9. International Privacy Rights (GDPR &amp; CCPA/CPRA)</h2>
+            <p>Regardless of your geographic location, we respect your fundamental privacy rights:</p>
+            <ul>
+                <li><strong>European Economic Area (GDPR):</strong> Under the General Data Protection Regulation, you
+                    have the right to access, rectify, or request erasure of your data, and to object to or restrict
+                    processing. Since our app does not retain personal records on servers, you can exercise these rights
+                    directly on your device by clearing storage or adjusting permissions.</li>
+                <li><strong>California Residents (CCPA / CPRA):</strong> We do not sell, rent, or share personal
+                    information with third parties for their direct marketing purposes. We do not sell personal data for
+                    monetary or other valuable consideration.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 10 -->
+        <section id="section-10">
+            <h2>10. Policy Updates &amp; Contact Information</h2>
+
+            <h3>Changes to This Policy</h3>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our technical features, Google
+                Play Developer Policies, or applicable legal standards. Any revisions will be published on this page
+                with an updated "Effective Date". We encourage you to review this Privacy Policy periodically.</p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions, feedback, or concerns regarding this Privacy Policy, your privacy rights, or
+                the App's practices, please contact us directly:</p>
+
+            <div class="info-card">
+                <p><strong>Developer:</strong> MH Studio</p>
+                <p><strong>Application:</strong> Deen: Prayer Times &amp; Qibla (Sakinah)</p>
+                <p><strong>Package ID:</strong> <code>com.aistudio.sakinah.prtimes</code></p>
+                <p><strong>Contact Email:</strong> <a
+                        href="mailto:appsby.munawwar@gmail.com">appsby.munawwar@gmail.com</a></p>
+                <p><strong>Response Time:</strong> We aim to reply to all privacy inquiries within 48 business hours.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 MH Studio. All rights reserved.</p>
+            <p style="margin-top: 6px;">Crafted with devotion for the global Muslim community.</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

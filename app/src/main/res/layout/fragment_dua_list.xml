@@ -6,7 +6,7 @@
     android:background="@color/background_light"
     android:orientation="vertical">
 
-    <!-- Top Toolbar -->
+    <!-- Top Toolbar with Back Button, Category Title, and PRO Badge -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,9 +25,10 @@
             app:tint="@color/text_primary" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
@@ -35,9 +36,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="Morning &amp; Evening"
+                android:text="Upon waking up"
                 android:textColor="@color/text_primary"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -45,20 +46,51 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_family"
-                android:text="أذكار الصباح والمساء"
+                android:text="أَذْكَارُ الِاسْتِيقَاظِ"
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp" />
         </LinearLayout>
+
+        <!-- PRO Badge Button (Opens PremiumActivity) -->
+        <LinearLayout
+            android:id="@+id/btn_dua_list_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pro_pill"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:contentDescription="PRO"
+                android:src="@drawable/ic_sk_diamond"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/montserrat_family"
+                android:text="PRO"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Duas List -->
+    <!-- Descriptive Duas List (No navigation needed, full details on cards) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_duas_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="8dp"
+        android:paddingTop="6dp"
         android:paddingBottom="40dp" />
 
 </LinearLayout>

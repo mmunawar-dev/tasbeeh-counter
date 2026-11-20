@@ -6,6 +6,7 @@ plugins {
   alias(libs.plugins.google.devtools.ksp)
   alias(libs.plugins.secrets)
   alias(libs.plugins.google.services)
+  alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
@@ -13,7 +14,7 @@ android {
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    applicationId = "com.aistudio.sakinah.prtimes"
+    applicationId = "com.deen.qibladirection.prayertimes.calendar"
     minSdk = 24
     targetSdk = 36
     versionCode = 1
@@ -148,4 +149,7 @@ dependencies {
   debugImplementation(libs.androidx.compose.ui.tooling)
   "ksp"(libs.moshi.kotlin.codegen)
   implementation("com.intuit.sdp:sdp-android:1.1.1")
+  implementation(platform("com.google.firebase:firebase-bom:35.2.0"))
+  implementation("com.google.firebase:firebase-analytics")
+  implementation("com.google.firebase:firebase-crashlytics")
 }

@@ -1,12 +1,11 @@
 package com.example.ui.fragments
 
-import android.graphics.Color
-import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.R
 import com.example.databinding.FragmentPremiumBinding
 import com.example.model.PremiumPlan
 import com.example.viewmodel.SakinahViewModel
@@ -14,74 +13,78 @@ import com.example.viewmodel.SakinahViewModel
 class PremiumFragment : BaseFragment<FragmentPremiumBinding>(FragmentPremiumBinding::inflate) {
 
   private val viewModel: SakinahViewModel by activityViewModels()
-  private var selectedPlan = PremiumPlan.LIFETIME
+  private var selectedPlan = PremiumPlan.WEEKLY
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    binding.btnPremiumBack.setOnClickListener {
+    // Close button (top right)
+    binding.btnPremiumClose.setOnClickListener {
       findNavController().navigateUp()
     }
 
-    // Underline footer links
-    binding.tvPrivacyPolicy.paintFlags = binding.tvPrivacyPolicy.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-    binding.tvTermsConditions.paintFlags = binding.tvTermsConditions.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+    // Default selection is Weekly Premium as shown in reference design
+    updatePlanSelection(PremiumPlan.WEEKLY)
 
-    binding.btnPrivacyPolicy.setOnClickListener {
-      Toast.makeText(requireContext(), "Privacy Policy: All calculations run 100% on device.", Toast.LENGTH_SHORT).show()
+    // Option cards selection
+    binding.cardMonthly.setOnClickListener {
+      updatePlanSelection(PremiumPlan.WEEKLY)
     }
-
-    binding.btnTermsConditions.setOnClickListener {
-      Toast.makeText(requireContext(), "Terms & Conditions: Pure Islamic companion, no data shared.", Toast.LENGTH_SHORT).show()
-    }
-
-    // Default selection is Lifetime Plan as highlighted in screenshot
-    updatePlanSelection(PremiumPlan.LIFETIME)
 
     binding.cardPlanYearly.setOnClickListener {
       updatePlanSelection(PremiumPlan.YEARLY)
     }
 
-    binding.cardPlanLifetime.setOnClickListener {
-      updatePlanSelection(PremiumPlan.LIFETIME)
+    // Continue CTA Button
+    binding.btnPremiumContinue.setOnClickListener {
+      Toast.makeText(
+        requireContext(),
+        "Starting 3-Day Free Trial for ${selectedPlan.title}...",
+        Toast.LENGTH_SHORT
+      ).show()
+      findNavController().navigateUp()
     }
 
-    binding.btnSelectYearly.setOnClickListener {
-      selectedPlan = PremiumPlan.YEARLY
-      unlockPlan(PremiumPlan.YEARLY)
+    // Footer Links
+    binding.btnTermsConditions.setOnClickListener {
+      Toast.makeText(
+        requireContext(),
+        "Terms & Conditions: Ad-free pure Islamic companion, cancel anytime.",
+        Toast.LENGTH_SHORT
+      ).show()
     }
 
-    binding.btnGoLifetime.setOnClickListener {
-      selectedPlan = PremiumPlan.LIFETIME
-      unlockPlan(PremiumPlan.LIFETIME)
+    binding.txtTermCondition.setOnClickListener {
+      Toast.makeText(
+        requireContext(),
+        "Checking Google Play Store... No active purchases found.",
+        Toast.LENGTH_SHORT
+      ).show()
     }
-  }
 
-  private fun unlockPlan(plan: PremiumPlan) {
-    viewModel.unlockPremium()
-    val planName = if (plan == PremiumPlan.LIFETIME) "Lifetime Access" else "Yearly Plan"
-    Toast.makeText(requireContext(), "Alhamdulillah! Sakinah Plus ($planName) unlocked.", Toast.LENGTH_SHORT).show()
-    findNavController().navigateUp()
+    binding.btnPremiumContinue.setOnClickListener {
+      Toast.makeText(
+        requireContext(),
+        "Subscription auto-renews after 3-day trial. Manage or cancel anytime in Play Store.",
+        Toast.LENGTH_LONG
+      ).show()
+    }
   }
 
   private fun updatePlanSelection(plan: PremiumPlan) {
     selectedPlan = plan
-    val density = resources.displayMetrics.density
-    val goldColor = Color.parseColor("#E5A93C")
-    val defaultBorderColor = Color.parseColor("#386A50")
+    if (plan == PremiumPlan.WEEKLY) {
+      binding.cardMonthly.setBackgroundResource(R.drawable.bg_premium_card_selected)
+      binding.ivRadioWeekly.setImageResource(R.drawable.ic_check_circle_teal)
 
-    if (plan == PremiumPlan.YEARLY) {
-      binding.cardPlanYearly.strokeColor = goldColor
-      binding.cardPlanYearly.strokeWidth = (2f * density).toInt()
-
-      binding.cardPlanLifetime.strokeColor = defaultBorderColor
-      binding.cardPlanLifetime.strokeWidth = (1.2f * density).toInt()
+      binding.cardPlanYearly.setBackgroundResource(R.drawable.bg_premium_card_unselected)
+      binding.ivRadioYearly.setImageResource(R.drawable.ic_radio_circle_empty)
     } else {
-      binding.cardPlanLifetime.strokeColor = goldColor
-      binding.cardPlanLifetime.strokeWidth = (2f * density).toInt()
+      binding.cardMonthly.setBackgroundResource(R.drawable.bg_premium_card_unselected)
+      binding.ivRadioWeekly.setImageResource(R.drawable.ic_radio_circle_empty)
 
-      binding.cardPlanYearly.strokeColor = defaultBorderColor
-      binding.cardPlanYearly.strokeWidth = (1.2f * density).toInt()
+      binding.cardPlanYearly.setBackgroundResource(R.drawable.bg_premium_card_selected)
+      binding.ivRadioYearly.setImageResource(R.drawable.ic_check_circle_teal)
     }
   }
 }

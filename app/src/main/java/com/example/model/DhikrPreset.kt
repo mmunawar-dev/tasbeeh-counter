@@ -31,6 +31,13 @@ data class DhikrPreset(
         targetCount = 34
       ),
       DhikrPreset(
+        id = "lailahaillallah",
+        arabicText = "لَا إِلٰهَ إِلَّا اللَّهُ",
+        transliteration = "La ilaha illallah",
+        translation = "There is no deity worthy of worship except Allah",
+        targetCount = 100
+      ),
+      DhikrPreset(
         id = "astaghfirullah",
         arabicText = "أَسْتَغْفِرُ اللَّهَ",
         transliteration = "Astaghfirullah",
@@ -38,11 +45,18 @@ data class DhikrPreset(
         targetCount = 100
       ),
       DhikrPreset(
-        id = "lailahaillallah",
-        arabicText = "لَا إِلٰهَ إِلَّا اللَّهُ",
-        transliteration = "La ilaha illallah",
-        translation = "There is no deity worthy of worship except Allah",
+        id = "subhanallahiwabihamdihi",
+        arabicText = "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+        transliteration = "SubhanAllahi wa bihamdihi",
+        translation = "Glory be to Allah and all praise is due to Him",
         targetCount = 100
+      ),
+      DhikrPreset(
+        id = "hawqala",
+        arabicText = "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+        transliteration = "La hawla wa la quwwata illa billah",
+        translation = "There is no power nor strength except by Allah",
+        targetCount = 33
       ),
       DhikrPreset(
         id = "salawat",
@@ -52,10 +66,17 @@ data class DhikrPreset(
         targetCount = 100
       ),
       DhikrPreset(
-        id = "hawqala",
-        arabicText = "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
-        transliteration = "La hawla wa la quwwata illa billah",
-        translation = "There is no power nor strength except by Allah",
+        id = "subhanallahiladheem",
+        arabicText = "سُبْحَانَ اللَّهِ الْعَظِيمِ",
+        transliteration = "SubhanAllahil-'Azeem",
+        translation = "Glory be to Allah, the Most Great",
+        targetCount = 33
+      ),
+      DhikrPreset(
+        id = "hasbunallah",
+        arabicText = "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+        transliteration = "HasbunAllahu wa Ni'mal Wakeel",
+        translation = "Sufficient for us is Allah, and He is the best Disposer of affairs",
         targetCount = 33
       )
     )
